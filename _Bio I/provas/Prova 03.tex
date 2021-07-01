@@ -1,0 +1,726 @@
+
+\chapter*{PROVA 03: MS680 - MT624 -  II Sem 2020}
+\addcontentsline{toc}{chapter}{\textcolor{blue}{PROVA 03: MS680 - MT624 -  II Sem 2020}}
+
+\begin{quote}
+\textbf{POSTADA}: 14 de Janeiro de 2021 (Quinta - feira)
+
+\textbf{RECEBIMENTO}: 18 de Janeiro de 2021 (Segunda - feira  -  08:00 horas da manhã)
+
+\textbf{ATENÇÃO}:
+
+\begin{description}
+\item 1  -  As Questões devem ser encaradas como \textbf{oportunidades} para demonstrar conhecimento e não como perguntas.
+
+\textbf{Precisão} e \textbf{Concisão} serão qualidades avaliadas. Portanto, atente para o enunciado das questões para evitar uma exposição de fatos e desenvolvimentos não relacionados ou não solicitados.
+
+\item 2  -  A \textbf{Redação} de cada Prova deve apresentar a forma de um depoimento \textbf{pessoal} distinto. Caso ocorram, todas as cópias envolvidas serão invalidadas.
+
+\item 3  -  Cada Questão resolvida deve ser precedida de seu respectivo Enunciado Original completo.
+
+\item 4  -  A Resolução deve ser \textbf{digitalizada} em um \textbf{único documento pdf} (\textit{Manuscritos} \textbf{NÃO} serão aceitos!)
+
+\item 5  -  O documento pdf da Resolução deve ser enviado no \textbf{Anexo} de uma mensagem com título ``\textbf{PROVA 03}'' para o endereço eletrônico: wilson@unicamp.br, até, no máximo, às 08:00 da manhã do dia 18 de Janeiro de 2021  -  Segunda - Feira.
+
+\item 6  -  Não deixe para resolver, redigir e/ou enviar a sua Prova na última hora e evitando assim ser responsabilizado por acidentes imprevisíveis, mas possíveis. (Lei de Murphy)
+\end{description}
+\end{quote}
+
+
+
+\clearpage
+\chapter*{Questão 01: Método de Fourier e Linearização Logarítmica Assintótica}
+\addcontentsline{toc}{section}{\textcolor{blue}{Questão 01}}
+
+
+Considere um Modelo Matemático descrito por funções
+\[\begin{array}{rcl}
+x: \mathbb{R} &\to& \mathbb{C}^n \\
+t &\mapsto& x(t) = (x_1(t), \ldots, x_n(t))^t,
+\end{array}\]
+definidas Newtoniamente como soluções de uma equação diferencial vetorial ``Malthusiana'' da forma abaixo, em que \(S \in M_n(\mathbb{R})\) é uma matriz \(n \times n\) simétrica:
+\begin{eqnarray}\label{eq:edoprova03q01}
+\dfrac{dx}{dt} =
+\left(\begin{array}{c}
+\dfrac{dx_1}{dt} \\
+\vdots \\
+\dfrac{dx_n}{dt} \\
+\end{array}\right) = Sx.
+\end{eqnarray}
+
+\begin{description}
+\item a - Mostre que se $v$ for um autovetor de $S$ referente ao autovalor $\lambda$, $Sv = \lambda v$, então a função $h: \mathbb{R} \to \mathbb{C}^n$, da forma $h(t) = e^{\lambda t} v$ é solução da equação. (Chamada Solução básica de Fourier).
+\item b - Verifique a veracidade do Princípio de Superposição: ``Se $h_k(t) = e^{\lambda_k t} v^k$ são soluções básicas de Fourier, então, qualquer combinação linear $h = \displaystyle\sum_k c_k e^{\lambda_k t} v^k$ (para conjuntos de coeficientes $\{c_k\} \in \mathbb{C}$) é solução do mesmo sistema com condição inicial \(h(0) = \displaystyle\sum_k c_k v^k\).
+\item c - Citando o enunciado completo do Teorema Espectral para matrizes simétricas, verifique que o Problema de valor inicial \(\dfrac{dX}{dt} = SX,\ X(0) = \alpha \in \mathbb{C}^n\) sempre tem solução obtida pelo Principio de Superposição, e determine os valores dos respectivos coeficientes $c_k$ como projeções.
+
+{\tiny (Observação: É relativamente fácil demonstrar que, existindo, a solução do Problema de Valor Inicial é único. (V. Bassanezi - Ferreira). Portanto, a solução espectral de Fourier é ``A solução''.)}
+
+\item d - Se a matriz $S$ tem seus autovalores (reais) ordenados segundo $\lambda_{k+1} < \lambda_k < \ldots < \lambda_1$, mostre que, em geral, uma solução $x(t)$ da Equação $\dfrac{dx}{dt} = Sx$, admite a seguinte linearização assintótica: $\dfrac{\log|x(t)|}{\lambda_1 t} \to 1$. {\tiny (Obs: O Teorema espectral garante a ortogonalidade dos autovalores \(\{v_k\}\))}
+
+\item e - Portanto, se $x(t_n)$ são dados de um fenômeno dinâmico com $t_n$ muito grandes, qual o teste gráfico natural (e porque) deve ser seguido para determinar se é razoável descrever $x(t)$ por um Modelo $\dfrac{dx}{dt} = Sx$ e qual o maior valor de seu autovalor.
+
+\textbf{EXTRA}:
+
+Considere a Equação Diferencial Matricial (Operacional) $\dfrac{dX}{dt} = AX$, onde $A \in M_n(\mathbb{C})$ e $X: \mathbb{R} \to M_n(\mathbb{C}) =$ ``Matrizes quadradas complexas de ordem $n$''.
+
+\item f - Mostre que cada coluna da matriz X é solução da Equação Vetorial $\dfrac{dx}{dt} = Ax$ e vice-versa, se cada coluna for solução da Equação Diferencial Vetorial então a respectiva matriz será solução da Equação Operacional (Matricial).
+
+\textbf{Definição}: A solução $U(t)$ da Equação Diferencial Matricial $\dfrac{dX}{dt} = AX$, com condição inicial $U(0) = I =$ ``Matriz Identidade de ordem $n$'', é denotada pela notação exponencial: $U(t) = e^{A t}$.
+
+\item g  -  Utilizando os argumentos do Método Operacional mostre que a solução de uma equação com influência externa $f(t) (f: \mathbb{C} \to \mathbb{C}^n) \dfrac{dx}{dt} = Sx + f(t)$ é da forma $x(t) = e^{A t} x(0) + \displaystyle\int_{0}^{t} e^{A(t-\tau)} f(\tau)\ d\tau$.
+\end{description}
+
+
+
+
+%\solucao{
+
+
+\subsection*{1(a)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{1(a)}}
+
+Seja \(v\) um autovetor de \(S\) referente ao autovalor \(\lambda\) e
+\[\begin{array}{rcl}
+h: \mathbb{R} &\to& \mathbb{C}^n \\
+t &\mapsto& (h_1(t), \ldots, h_n(t))^t,
+\end{array}\]
+uma função tal que \(h_k(t) = e^{\lambda_k t} v_k\).
+
+Temos, portanto, que \(\dfrac{dh_k}{dt} = \lambda_k e^{\lambda_k t} v_k\).
+
+Logo,
+\[
+\dfrac{dh_k}{dt}
+= 
+\left[\begin{array}{c}
+\lambda_1 e^{\lambda_1 t} v_1  \\
+\lambda_2 e^{\lambda_1 t} v_2  \\
+\vdots \\
+\lambda_n e^{\lambda_n t} v_n
+\end{array}\right]
+=
+\underbrace{\left[\begin{array}{ccccc}
+\lambda_1 & 0 & 0 & \cdots & 0 \\
+0 & \lambda_2 & 0 & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & \lambda_n 
+\end{array}\right]}_{S}
+\cdot
+\underbrace{\left[\begin{array}{c}
+e^{\lambda_1 t} v_1  \\
+e^{\lambda_1 t} v_2  \\
+\vdots \\
+e^{\lambda_n t} v_n
+\end{array}\right]}_{h}
+= S h(t)
+\]
+
+Como queríamos mostrar.
+
+\subsection*{1(b)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{1(b)}}
+
+Considere \(h_i(t)\), com \(1\le i\le N\) e \(i \in \mathbb{N}\), soluções para a equação \eqref{eq:edoprova03q01}, ou seja, \(\dfrac{dh_i}{dt} = S h_i\), com \(1\le i\le N\) e \(i \in \mathbb{N}\),
+
+O que queremos mostrar é que
+\[h(t) = \displaystyle\sum_{i=1}^{N} c_i h_i(t),\]
+\(c_i \in \mathbb{C}\) é, também, solução de \eqref{eq:edoprova03q01}.
+
+De fato, temos que
+\[
+\dfrac{dh}{dt}
+=
+\dfrac{d}{dt}\left(\displaystyle\sum_{i=1}^{N} c_i h_i(t)\right)
+=
+\displaystyle\sum_{i=1}^{N} c_i \dfrac{d}{dt} \left(h_i(t)\right)
+=
+\displaystyle\sum_{i=1}^{N} c_i \left(S\ h_i(t)\right)
+=
+S \displaystyle\sum_{i=1}^{N} c_i \ h_i(t)
+=
+S h_i(t).
+\]
+
+Como queríamos mostrar.
+
+
+\subsection*{1(c)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{1(c)}}
+
+\textbf{Teorema Espectral para matrizes simétricas}
+
+Seja \(M_n(\mathbb{R})\) o espaço vetorial de matrizes quadradas de ordem \(n\) e \(S \in M_n(\mathbb{R})\) uma matriz simétrica. Então \(S\) é diagonalizável. Além disso, existe uma matriz ortogonal \(P\) tal que:
+\begin{equation}\label{eq:matrizdiagonal}
+S = P\ D\ P^{-1},
+\end{equation}
+mais ainda, existe uma base ortonormal \(\mathcal{B} = \{v_1, \ldots, v_n\}\) de autovetores de \(S\).
+
+Considere o PVI
+\begin{eqnarray}
+\left\{\begin{array}{rcl}
+\label{eq:pvip03q01a}
+\dfrac{d}{dt}X(t) = SX \\
+\label{eq:pvip03q01a}
+X(0) = X_0.
+\end{array}\right.
+\end{eqnarray}
+
+Mostramos, no item anterior, que \(X(t) = \displaystyle\sum_{i=1}^{N} c_i X_i(t)\), em que \(\dfrac{d}{dt} X_i(t) = S\ X_i(t)\), é uma solução de \eqref{eq:pvip03q01a}.
+
+
+
+\subsection*{1(d)}
+\addcontentsline{toc}{subsection}{\textcolor{orange}{1(d)}}
+
+De acordo com o que foi visto nos itens anteriores, temos que:
+\[
+|x(t)| = |e^{S t} v| \le |e^{S t}||v|
+\]
+%$ \vert A \vert = \sup\limits_{v\neq 0} \frac{\vert Av \vert }{\vert v \vert }$
+
+
+
+Como \(v\) é uma combinação linear de autovetores de \(S\), ou seja, ortogonais, \(|v| = 1\). Então
+\[
+|x(t)| \le |e^{S t}| \le |e^{\lambda_1 t}|
+\Rightarrow
+\log|x(t)| \le \log|e^{\lambda_1 t}| \le |\log e^{\lambda_1 t}| = |\lambda_1 t|
+\]
+
+Segue que
+\[
+\lim \dfrac{\log|x(t)|}{\lambda_1 t}
+\le
+\lim \dfrac{|\lambda_1 t|}{\lambda_1 t} \to 1
+\]
+
+%% FORÇADO o NEGÓCIO AQUI KKKKKKKKKKK
+
+
+
+
+
+\subsection*{1(e)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{1(e)}}
+
+\subsection*{1(f)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{1(f)}}
+
+\subsection*{1(g)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{1(g)}}
+
+
+Considere o PVI
+\[\left\{\begin{array}{rcl}
+\dfrac{d}{dt}U(t) &=& A U(t) + f(t) \\[0.5cm]
+U(0) &=& U_0
+\end{array}\right.\]
+em que $f: \mathbb{C} \to \mathbb{C}^n$ é uma função.
+
+Vamos obter a sua solução, utilizando argumentos do Método Operacional:
+\[\begin{array}{rcl}
+\dfrac{d}{dt}U(t) = AU(t) + f(t)
+&\Rightarrow&
+DU(t) = AU(t) + f(t) \\[0.5cm]
+&\Rightarrow&
+\left(D - A\right) U(t) = f(t) \\[0.5cm]
+&\Rightarrow&
+\left(D - A\right) e^{At} e^{-At} U(t) = f(t)  \\[0.5cm]
+&\Rightarrow&
+e^{At} D\left(e^{-At} U(t)\right) = f(t)  \\[0.5cm]
+&\Rightarrow&
+D\left(e^{-At} U(t)\right) = e^{-At} f(t) \\[0.5cm]
+&\Rightarrow&
+e^{-At} U(t) = U(0) + \displaystyle\int_{0}^{t} e^{-A \tau} f(\tau)\ d\tau \\[0.5cm]
+&\Rightarrow&
+U(t) = e^{St} U(0) + \displaystyle\int_{0}^{t} e^{A (t-\tau)} f(\tau)\ d\tau.
+\end{array}\]
+Como queríamos mostrar.
+
+Além disso, observamos que a operação efetuada sobre a função \(f\) para o cálculo de \(U(t)\) depende da constante \(U(0)\) e, portanto, isso nos dá uma família de inversas de \(D-A\). Ademais, \(U(0)\) é a solução da equação homogênea e, portanto, o termo integral representa uma solução particular.
+
+%}
+
+
+
+\clearpage
+\chapter*{Questão 02: Médias e Homogeneidade}
+\addcontentsline{toc}{section}{\textcolor{blue}{Questão 02}}
+
+Uma Média $M_\varphi$ para uma sequência de dados numéricos $a_k > 0$, $M_\varphi(a_1, \ldots, a_n)$ segundo Kolmogorov-Nagumo (KN) é definida da forma
+\[M_\varphi(a_1, \ldots, a_N) = \varphi^{-1}\left(\dfrac{1}{N} \left\{\varphi(a_1), \ldots, \varphi(a_N)\right\}\right),\]
+onde $\varphi$ é uma função real contínua estritamente monotônica e convexa/côncava.
+
+\begin{description}
+\item a - Obtenha as respectivas funções $\varphi$ para que as Médias usuais, Aritmética, Harmônica, Geométrica e Quadrática sejam da forma prevista
+acima.
+
+\item b - Analisando o gráfico de suas respectivas funções $\varphi$ representativas, dados dois números positivos, $0 < a < b$, discuta a ordem para os valores obtidos de suas Médias $M_\varphi(a, b)$, com funções $\varphi(x) = x^{2n}$ e $\varphi(x) = x^{\frac{1}{2n}}$.
+
+\item c - Argumente, com base na questão anterior, que escolhendo capciosamente a função $\varphi(x) = x^{\lambda},\ \lambda > 0$, a respectiva média KN $M_\varphi$ de filhos de um casal brasileiro pode ser qualquer número real entre $m = \min\{a_k\}$ e $M = \max\{a_k\}$, onde $a_k = $ ``Número de casais com $k$ filhos''.
+
+\item d - Considere uma população de $N$ indivíduos submetidos à medida de um aspecto biológico (digamos, a idade) cujos valores são representados (no respectivo espaço de aspecto etário) pelos seguintes números positivos $\{a_k\}_{1 \le k \le N}$. Discuta, com argumentos, a definição de uma medida de Heterogeneidade desta população quanto a este aspecto em termos de Médias gerais de KN.
+
+\item e - Considere a dinâmica de uma população descrita pelo Modelo Malthusiano de mortalidade $\dfrac{dN}{dt} =-\mu N$, $N(0) = N_0$. Defina, com justificativa, a expressão para a Média de Sobrevivência KN M, com $\varphi(x) = x^\lambda,\ \lambda > -1$, e calcule-a em termos elementares para \(\lambda = n \in \mathbb{N}\). {\tiny (Sugestão de Cálculo Elementar: Derivada paramétrica \(\frac{d}{d\mu}\) de integral conhecida. \textbf{Observação}: As Médias Harmônica e Geométrica para a sobrevivência são infinitas e, portanto, não trazem informação útil sobre a distribuição de sobrevivência da população, o mesmo acontecendo para \(\lambda \le -1\).)}
+\end{description}
+
+%\solucao{
+
+\subsection*{2(a)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{2(a)}}
+
+Seja \(\mathcal{A} = \{a_1, a_2, \ldots, a_N\}\), com \(a_k>0, \forall\ k = 1, \ldots, N\). O que devemos mostrar é que existe uma função inversível \(\varphi\), monótona e apenas convexa ou apenas côncava, tal que
+\[M_\varphi(\mathcal{A}) = \varphi^{-1}\left[M_A(\varphi(a_1), \ldots, \varphi(a_N))\right]\]
+é válida para as médias aritmética \(M_A\), harmônica \(M_H\), Geométrica \(M_G\) e quadrática \(M_2\).
+
+Para a média aritmética \(M_A\) de \(\mathcal{A}\), temos:
+\[
+M_A(\mathcal{A})
+=  \dfrac{1}{N} \displaystyle\sum_{k=1}^{N} a_{k}
+=  \displaystyle\sum_{k=1}^{N} \dfrac{a_{k}}{N}
+\]
+
+Se fizermos \(\varphi(a_k) = a_k\), temos \(\varphi^{-1}(a_k) = a_k\). O que nos leva a:
+\[\begin{array}{rcl}
+M_A(\mathcal{A})
+&=& \displaystyle\sum_{k=1}^{N} \dfrac{a_{k}}{N} \\
+&=& \displaystyle\sum_{k=1}^{N} \dfrac{\varphi(a_{k})}{N} \\
+&=& M_A(\varphi(a_1), \ldots, \varphi(a_N)) \\
+&=& \varphi^{-1}(M_A(\varphi(a_1), \ldots, \varphi(a_N)) \\
+%&=& M_\phi(\mathcal{A})
+\end{array}\]
+
+\textbf{Observação}: A função identidade é inversível, estritamente monótona e convexa.
+
+No caso da média harmônica \(M_H\) de \(\mathcal{A}\), temos:
+\[
+M_H(\mathcal{A})
+=  \left(\dfrac{1}{N} \displaystyle\sum_{k=1}^{N} \dfrac{1}{a_{k}}\right)^{-1}.
+\]
+
+Se fizermos \(\varphi(a_k) = \dfrac{1}{a_k}\), temos \(\varphi^{-1}(a_k) = \dfrac{1}{a_k}\). O que nos leva a:
+\[\begin{array}{rcl}
+M_H(\mathcal{A})
+&=& \left(\dfrac{1}{N} \displaystyle\sum_{k=1}^{N} \varphi(a_{k})\right)^{-1} \\
+&=& M_A\left(\varphi(a_1), \ldots, \varphi(a_k)\right)^{-1} \\
+&=& \varphi^{-1}\left(M_A(\varphi(a_1), \ldots, \varphi(a_k))\right)
+\end{array}\]
+
+\textbf{Observação}: A função \(\varphi\) é inversível, estritamente monótona e estritamente convexa.
+
+
+
+
+No caso da média geométrica \(M_G\) de \(\mathcal{A}\), temos:
+\[
+M_G(\mathcal{A})
+= \displaystyle\sqrt[N]{\prod_{k=1}^{N} a_{k}}.
+\]
+
+Se fizermos \(\varphi(a_k) = \ln(a_k)\), temos \(\varphi^{-1}(a_k) = \exp(a_k)\). O que nos leva a:
+\[\begin{array}{rcl}
+M_G(\mathcal{A})
+&=& \displaystyle \sqrt[N]{\prod_{k=1}^{N} \exp(\varphi(a_{k}))} \\
+&=& \displaystyle \exp\left(\dfrac{1}{N} \sum_{k=1}^{N} \varphi(a_k)\right) \\
+&=& \phi^{-1}(M_A(\varphi(a_1), \ldots, \varphi(a_N)))
+\end{array}\]
+
+\textbf{Observação}: A função \(\varphi\) é inversível, estritamente monótona, mas não é convexa.
+
+
+No caso da média quadrática \(M_2\) de \(\mathcal{A}\), temos:
+\[
+M_2(\mathcal{A})
+= \displaystyle \sqrt{\dfrac{1}{N}\sum_{k=1}^{N} a_{k}^2}.
+\]
+
+Se fizermos \(\varphi(a_k) = a_k^2\), temos \(\varphi^{-1}(a_k) = \sqrt{a_k}\). O que nos leva a:
+\[\begin{array}{rcl}
+M_2(\mathcal{A})
+&=& \displaystyle \sqrt{\dfrac{1}{N}\sum_{k=1}^{N} \varphi(a_{k})} \\
+&=& \displaystyle \sqrt{M_A(\varphi(a_1), \ldots, \varphi(a_N))} \\
+&=& \varphi^{-1}(M_A(\varphi(a_1), \ldots, \varphi(a_N)))
+\end{array}\]
+
+\textbf{Observação}: A função \(\varphi\) é inversível, estritamente monótona e estritamente convexa.
+
+
+
+
+
+\subsection*{2(b)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{2(b)}}
+
+
+Considere as funções \(\varphi_n(x) = x^{2n}\) e \(\psi_n(x) = x^{\frac{1}{2n}}\), para \(n = \{1, 2, \ldots\}\). Claramente, para valores de \(x > 0\), \(\varphi\) é: crescente; convexa e admite inversa, a saber, \(\varphi^{-1}(x) = x^{\frac{1}{2n}}\). Já \(\psi\) é: crescente; côncava e admite inversa, a saber, \(\psi^{-1}(x) = x^{2n}\).
+
+Para dois valores reais distintos, positivos e não-nulos, \(a < b\), temos que:
+\[
+M_\varphi(\{a,b\})
+= \varphi^{-1}\left(\dfrac{1}{2}\left[\varphi(a)+\varphi(b)\right]\right)
+= \varphi^{-1}\left(\dfrac{1}{2}\left[a^{2n}+b^{2n}\right]\right)
+= \left[\dfrac{1}{2}\left(a^{2n}+b^{2n}\right)\right]^{\frac{1}{2n}}
+\]
+e
+\[
+M_\psi(\{a,b\})
+= \psi^{-1}\left(\dfrac{1}{2}\left[\psi(a)+\psi(b)\right]\right)
+= \psi^{-1}\left(\dfrac{1}{2}\left[a^{\frac{1}{2n}}+b^{\frac{1}{2n}}\right]\right)
+= \left[\dfrac{1}{2}\left(a^{\frac{1}{2n}}+b^{\frac{1}{2n}}\right)\right]^{2n}
+\]
+
+
+%\[a^{2n} < b^{2n}\]
+
+\begin{center}
+\SpecialCoor
+\captionof{figure}{Gráfico das funções \(\varphi_n(x) = x^{2n}\)}
+\psset{unit=3cm,algebraic=true}
+\begin{pspicture*}(-0.1,-0.1)(2.2,2.2)
+\psaxes[Dx=10,Dy=10,linecolor=red]{->}(0,0)(-0.1,-0.1)(2.1,2.1)
+\uput[d](2,0){\(x\)}
+\uput[l](0,2){\(y\)}
+\psline[linecolor=red!50,linestyle=dashed](1,0)(1,1)(0,1)
+\psplot{0}{2}{x^2}
+\psplot{0}{2}{x^4}
+\psplot{0}{2}{x^8}
+\psplot{0}{2}{x^(16)}
+\end{pspicture*}
+\label{fig:prova03_01}
+\fonte{Elaborada pelo autor}
+\end{center}
+
+
+Observa-se, através dos gráficos das funções \(\varphi_n\), na Figura \ref{fig:prova03_01}, que quanto maiores são os valores de \(n\), mais a sequência de gráficos das funções \(\varphi_n\) se aproximam da reta (\(x=1\)), ou ainda, se afastam da primeira bissetriz, na qual a média de KN é relativa a função \(\varphi(x) = x\). Aqui, acredito, que quanto mais uma função se afasta da primeira bissetriz, temos que as médias de KN, \(M_{\varphi_n}\), relativas aos mesmos dois números \(a < b\) e as respectivas \(\varphi\) aumentam, ou seja,
+\[M_{\varphi_1} \le M_{\varphi_2} \le \ldots\]
+
+O mesmo se observa nos gráficos das funções \(\psi_n\) (ver Figura \ref{fig:prova03_02}), onde os gráficos das funções \(\psi_n(x)\) se afastam de \(\psi(x) = x\), à medida que os valores de \(n\) crescem. Assim,
+\[M_{\psi_1} \le M_{\psi_2} \le \ldots\]
+
+\begin{center}
+\SpecialCoor
+\captionof{figure}{Gráficos das funções \(\psi_n(x) = x^{\frac{1}{2n}}\)}
+\psset{unit=3cm,algebraic=true}
+\begin{pspicture*}(-0.1,-0.1)(2.2,2.2)
+\psaxes[Dx=10,Dy=10,linecolor=red]{->}(0,0)(-0.1,-0.1)(2.1,2.1)
+\uput[d](2,0){\(x\)}
+\uput[l](0,2){\(y\)}
+\psline[linecolor=red!50,linestyle=dashed](1,0)(1,1)(0,1)
+\psplot{0}{2}{x^(0.5)}
+\psplot{0}{2}{x^(0.25)}
+\psplot{0}{2}{x^(0.125)}
+\psplot{0}{2}{x^(0.0625)}
+\end{pspicture*}
+\label{fig:prova03_02}
+\fonte{Elaborada pelo autor}
+\end{center}
+
+
+
+
+\subsection*{2(c)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{2(c)}}
+
+
+Considere o conjunto \(A = \{a_k,\ 1 \le k \le N, k \in \mathbb(N)\}\), em que \(a_k\) representa o número de casais com \(k\) filhos.
+
+
+Considere, agora, a função
+\(\varphi(a_k) = a_k^\lambda\), crescente, visto que \(a_k > 0,\ \forall k\) e \(\lambda > 0\). Claramente, sua inversa é \(\varphi^{-1}(a_k) = a_n^{\frac{1}{\lambda}}\), crescente e, para \(\lambda > 1\), \(\varphi\) é convexa; para \(0 < \lambda < 1\), côncava. Para \(\lambda = 1\), temos a função identidade. 
+
+Portanto, a média de Kolmogorov-Nagumo relativa a função \(\varphi\) é dada por:
+\[
+M_\varphi(A)
+= \varphi^{-1}\left[\dfrac{1}{N}\displaystyle\sum_{k=1}^{N} \varphi(a_k)\right].
+\]
+
+Sendo \(m = \min\{a_k\}\) e \(M = \max\{a_k\}\), temos que:
+\[\begin{array}{rcl}
+m \le a_k \le M
+&\Rightarrow&
+m^\lambda \le a_k^\lambda \le M^\lambda \\[0.5cm]
+&\Rightarrow&
+N\ m^\lambda \le \displaystyle\sum_{k=1}^{N} a_k^\lambda \le N\ M^\lambda \\[0.5cm]
+&\Rightarrow&
+m^\lambda \le \dfrac{1}{N} \displaystyle\sum_{k=1}^{N} a_k^\lambda \le M^\lambda \\[0.5cm]
+&\Rightarrow&
+m \le \varphi^{-1}\left[\dfrac{1}{N} \displaystyle\sum_{k=1}^{N} a_k^\lambda\right] \le M.
+\end{array}\]
+
+Como queríamos demonstrar.
+
+\subsection*{2(d)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{2(d)}}
+
+Considere uma população com \(N\) indivíduos a qual queremos estabelecer uma determinada medida de heterogeneidade de um aspecto biológico cujo valores pertencem ao conjunto \(A = \{a_k,\ 1 \le k \le N, k \in \mathbb{N}\}\).
+
+Construiremos uma medida de dispersão, as quais os valores de \(A\) desviam da média de KN relativa à função \(\varphi\), \(M_\varphi\), inversível, monótona e estritamente convexa (côncava).
+
+Seja \(d_k = a_k - M_\varphi(A)\), o desvio que cada valor \(a_k \in A\) toma da média \(M_\varphi(A) = \varphi^{-1}\left(\dfrac{1}{N}\displaystyle\sum_{k=1}^{N} a_k\right)\).
+
+A raiz quadrada da média aritmética dos quadrados dos desvios
+\[\sigma = \sqrt{\dfrac{1}{N}\left(\displaystyle\sum_{k=1}^{N} d_k^2\right)}\] mede o quão heterogêneo é essa população. Observa-se que, quanto maior o valor de \(\sigma\), mais díspares estão os termos \(a_k \in A\).
+
+
+
+\subsection*{2(e)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{2(e)}}
+
+
+
+%}
+
+\clearpage
+\chapter*{Questão 03: Predação e Sobrevivência}
+\addcontentsline{toc}{section}{\textcolor{blue}{Questão 03}}
+
+Considere uma grande população distribuída \textit{uniformemente} no espaço em regiões esféricas cujo tamanho é descrito por $N(t)$ e cuja mortalidade é causada unicamente por uma predação ``\textit{periférica}'' com taxa proporcional (e coeficiente \(\lambda\)) ao número de indivíduos localizados na superfície exterior da esfera.
+
+\begin{description}
+\item a - Descreva, com argumentos, um Modelo Diferencial para a dinâmica de mortalidade desta população,
+\item b - Mostre que o tempo médio aritmético de sobrevivência dos indivíduos $T_\ast(N_0, \lambda)$, aumenta com o tamanho inicial do grupo, o que caracteriza um Efeito de Rebanho Egoísta, e determine este valor.
+
+\item c - Determine também o tempo médio quadrático de sobrevivência desta população.
+
+\item d - Segundo o Principio de Weber-Fechner, quão bem recebido é um novo membro de um grupo? Ou seja, como interpretar neste contexto, a antológica frase de Woody Allen: ``{\em Eu não gostaria de fazer parte de um clube que me recebesse (bem) como um de seus membros}''.
+\end{description}
+
+
+%\solucao{
+
+\subsection*{3(a)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{3(a)}}
+
+Considere uma grande população \(N(t)\) distribuída \textit{uniformemente} em uma superfície esférica de raio \(r\). Como estamos trabalhando em um agrupamento esférico de raio \(r\) (espaço físico tridimensional), onde a população (presas) \(N\) é proporcional ao seu volume (\(N \propto V\)) que, por sua vez, é proporcional ao cubo do seu raio (\(V \propto r^3\)), temos, por transitividade, que \(N \propto r^3\) ou, equivalentemente, \(r \propto N^{\frac{1}{3}}\). Além disso, como a população é distribuída uniformemente na superfície da esfera de área \(A\) e esta é proporcional ao quadrado do raio da esfera, ou seja, \(A \propto r^2\), implicando em \(A \propto N^{\frac{2}{3}}\). Assim, concluímos que as presas são em número proporcional a \(N^{\frac{2}{3}}\). Dessa forma, é razoável considerar que a taxa de predação é proporcional a \(N^{\frac{2}{3}}\), ou seja,
+\begin{equation}\label{eq:edoquestao03a}
+\dfrac{dN}{dt} = -\lambda N^{\frac{2}{3}},\ \lambda > 0.
+\end{equation}
+
+
+
+\subsection*{3(b)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{3(b)}}
+
+%Para determinar o tempo médio aritmético de sobrevivência dos indivíduos \(T_\ast(N_0, \lambda)\), 
+%encontraremos, primeiramente, 
+
+Analisemos, dimensionalmente, a equação
+\eqref{eq:edoquestao03a}. Assim, temos: 
+\[
+\begin{array}{rcl}
+& &\left[\dfrac{dN}{dt}\right] = \left[-\lambda N^{\frac{2}{3}}\right] \\
+&\Rightarrow& T^{-1} P = [\lambda] P^{\frac{2}{3}} \\
+&\Rightarrow& [\lambda] = T^{-1} P^{\frac{1}{3}}
+\end{array}\]
+e, portanto, podemos concluir que
+\begin{equation}\label{eq:tempomedioprova03q03}
+T_\ast(N_0,\lambda) = \alpha \lambda^{-1} N_0^{\frac{1}{3}},    
+\end{equation}
+em que \(\alpha \in \mathbb{R}\).
+
+A solução da equação \eqref{eq:edoquestao03a} é obtida da seguinte maneira:
+\begin{eqnarray}
+N^{-\frac{2}{3}} \ dN = -\lambda\ dt
+\Rightarrow\
+\int N^{-\frac{2}{3}} \ dN = -\lambda\ \int dt
+\Rightarrow\
+3 N^{\frac{1}{3}} = -\lambda t + K
+\Rightarrow \nonumber \\
+\label{eq:popquestao03a}
+N(t) = \left(-\dfrac{\lambda}{3} t + C\right)^3.
+\end{eqnarray}
+Ao aplicarmos a condição \(N(0) = N_0\) em \eqref{eq:popquestao03a}, obtemos: \(C = N_0^{\frac{1}{3}}\).
+Portanto, temos que
+\begin{eqnarray}\label{eq:edoquestao03b}
+N(t) = \left(-\dfrac{\lambda}{3} t + N_0^{\frac{1}{3}}\right)^3.
+\end{eqnarray}
+
+Comparando-se as equações \eqref{eq:tempomedioprova03q03} e \eqref{eq:edoquestao03b}, constatamos que \(\alpha = 1\) e, consequentemente, temos:
+\begin{equation}\label{eq:tempomedioprova03q03completa}
+T_\ast(N_0,\lambda) = \lambda^{-1} N_0^{\frac{1}{3}},    
+\end{equation}
+
+
+
+
+
+
+\subsection*{3(c)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{3(c)}}
+
+\subsection*{3(d)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{3(d)}}
+
+Claramente, o comportamento de busca da proteção por um grupo presas é intensificado pelo indivíduo, se este percebe que sua inclusão pouco modifica a percepção da quantidade de elementos do referido grupo, pelo predador. Por isso, temos o princípio de Weber-Fechner na sua versão de percepção de cardinalidade.
+
+Portanto, considerando o princípio de Weber-Fechner, um indivíduo é bem recebido pelo grupo se este possui uma quantidade elevada de membros.
+
+
+%}
+
+
+
+\clearpage
+\chapter*{Questão 04}
+\addcontentsline{toc}{section}{\textcolor{blue}{Questão 04}}
+
+
+Considere um líquido em repouso (por exemplo, um lago) onde está suspensa uma ``população'' de partículas esféricas de variados raios $r$ que se dissolvem (ou se evaporam) a uma taxa proporcional à área de sua superfície exterior.
+
+\begin{description}
+\item a - Descreva, justificando, a população destas partículas em um dado instante segundo o conceito de densidade de Euler.
+
+\item b - Obtenha o tempo de ``existência'' de uma partícula de raio $R$.
+
+\item c - Descreva um Modelo Conservativo de Euler, Integral e Diferencial, para a distribuição destas partículas ao longo do tempo.
+
+\item d - Faça uma analogia deste modelo com o modelo demográfico contínuo de Euler.
+\end{description}
+
+%\solucao{
+
+\subsection*{4(a)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{4(a)}}
+
+\subsection*{4(b)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{4(b)}}
+
+\subsection*{4(c)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{4(c)}}
+
+\subsection*{4(d)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{4(d)}}
+
+
+
+
+%}
+
+
+
+
+
+\clearpage
+\chapter*{Questão 05: Principio de Conservação}
+\addcontentsline{toc}{section}{\textcolor{blue}{Questão 05}}
+
+
+Considere uma população distribuída continuamente segundo Euler em um espaço de aspecto unidimensional representado por \(\mathbb{R}^+\), onde é definido um ``Campo de velocidades'' $v(x)$ que determina a taxa de modificação do aspecto $x$ em termos dele mesmo.
+
+\begin{description}
+\item a - Se $x_1(t)$ e $x_2(t)$ são dois pontos móveis no espaço de aspecto que ``seguem'' o movimento determinado por $v(x)$, isto é, $\dfrac{dx_k}{dt} = v(x_k)$, com $x_1(0) < x_2(0)$, analise o sentido (no modelo) para a expressão
+\[\dfrac{d}{dt}\left(\displaystyle\int_{x_1(t)}^{x_2(t)} \rho(x,t)\ dx \right).\]
+
+\item b - Desenvolva a expressão acima e utilize seu resultado para definir \textbf{justificadamente} o conceito de Fluxo de Transporte $J(x,t)$.
+\end{description}
+
+%\solucao{
+
+\subsection*{5(a)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{5(a)}}
+
+Considere o campo \(v(x)\) e dois pontos \(x_1(t) < x_2(t),\ \forall\ t\).
+
+Como as trajetórias dos pontos \(x_1(t)\) e \(x_2(t)\), respectivamente, dos pontos \(x_1\) e \(x_2\) se movimentam com o campo, nenhum outro ponto cruza com eles (Unicidade local de solução do Problema de Cauchy).
+
+Portanto, o tamanho da população \(N(t)\) no intervalo móvel \([x_1(t), x_2(t)]\) se mantém constante e é igual a
+\[N(t) = \displaystyle\int_{x_1(t)}^{x_2(t)} \rho(x, t)\ dx\]
+e, a sua derivada
+\[\dfrac{d}{dt} N(t) = \dfrac{d}{dt} \left(\displaystyle\int_{x_1(t)}^{x_2(t)} \rho(x, t)\ dx\right)\]
+é nula.
+
+
+
+\subsection*{5(b)}
+\addcontentsline{toc}{subsection}{\textcolor{blue}{5(b)}}
+
+Para calcular a derivada \(\dfrac{d}{dt} N(t)\), vamos efetuar uma mudança de variáveis de tal forma que a região de integração seja fixada e se deixe o integrando apenas como uma função de \(t\). Considere, então, a variável \(\xi\) e \(x(\xi, t) = x\). Portanto,
+\[N(t) = \displaystyle\int_{\xi_1}^{\xi_2} \rho(x(\xi,t), t)\ \dfrac{\partial x(\xi, t)}{d\xi} \ d\xi\]
+Implicando em
+\[\dfrac{d}{dt}N(t)
+=
+\displaystyle\int_{\xi_1}^{\xi_2} \dfrac{\partial}{\partial t}
+\left[\rho(x(\xi,t), t)\ \dfrac{\partial x(\xi, t)}{d\xi}\right]\ d\xi
+=
+\displaystyle\int_{\xi_1}^{\xi_2} \left[\left(\dfrac{\partial \rho}{\partial x} \dfrac{\partial x}{\partial t} + \dfrac{\partial \rho}{\partial t}\right) \dfrac{\partial x}{\partial \xi} + \rho \dfrac{\partial^2 x}{\partial t \partial \xi}\right]\ d\xi.
+\]
+
+Como \(\dfrac{\partial x}{\partial t} = v(\xi, t)\) e \(\dfrac{\partial^2 x}{\partial t \partial \xi} = \dfrac{\partial}{\partial \xi}\left(\dfrac{\partial x}{\partial t}\right) = \dfrac{\partial}{\partial \xi} v(\xi,t) = \dfrac{\partial v}{\partial x} \dfrac{\partial x}{\partial \xi}\), segue que
+\[\begin{array}{rcl}
+\dfrac{d}{dt}N(t)
+&=& 
+\displaystyle\int_{\xi_1}^{\xi_2} \left(\dfrac{\partial \rho}{\partial x} v(\xi,t) + \dfrac{\partial \rho}{\partial t} + \rho \dfrac{\partial v}{\partial x} \right) \dfrac{\partial x}{\partial \xi}\ d\xi \\[0.5cm]
+&=&
+\displaystyle\int_{\xi_1}^{\xi_2} \left(\dfrac{\partial \rho}{\partial t} + \dfrac{\partial \rho}{\partial x} v(\xi,t) + \rho \dfrac{\partial v}{\partial x} \right)\ dx \\[0.5cm]
+&=&
+\displaystyle\int_{\xi_1}^{\xi_2} \left[\dfrac{\partial \rho}{\partial t} + \dfrac{\partial }{\partial x} (\rho\ v) \right]\ dx,
+\end{array}\]
+a equação integral do princípio de conservação.
+
+Como não há variação na população e, admitindo-se que, as funções \(\rho\) e \(v\) são continuamente deriváveis, temos a ED parcial para a conservação da população ou quantidade de indivíduos é dada por:
+\[\dfrac{\partial \rho}{\partial t} + \dfrac{\partial }{\partial x} (\rho\ v) = 0.\]
+
+
+Assim, não há ganho e nem há perda de indivíduos na população entre \([\xi_1, \xi_2]\) mas, apenas, um transporte, e, então,
+\[
+\displaystyle\int_{x_1}^{x_2} \dfrac{\partial \rho}{\partial t} = 
+\displaystyle\int_{x_1}^{x_2} - \dfrac{\partial }{\partial x} (\rho\ v) =
+\rho(x_1,t) v(x_1,t) - \rho(x_2,t) v(x_2,t)
+.\]
+
+O termo \(\rho(x,t) v(x,t) = \rho v\) expressa a quantidade de indivíduos que passa por \(x\), na direção positiva, por unidade de tempo, e é chamado de \textbf{fluxo} \(J(x,t)\).
+
+%Considere, agora, o caso em que existe uma modificação na quantidade de indivíduos da população \(N(t)\) no intervalo \(x_1(t), x_2(t)\) e seja \(\phi(x,t)\) a função de produção (perda) de indivíduos, por unidade de comprimento e tempo. A equação do princípio de conservação deverá ser substituída por:
+%\[\displaystyle\int_{\xi_1}^{\xi_2} \phi(x,t)\ dx, \forall\ t \mbox{ e } \xi_1 < \xi_2,\]
+%a taxa de produção (perda) de indivíduos por unidade de tempo, no intervalo \(\xi_1, \xi_2\).
+
+%Considerando que as funções \(\rho\) e \(v\) são continuamente deriváveis e \(\phi\) é continua, da igualdade
+%\[
+%\displaystyle\int_{\xi_1}^{\xi_2} \left[\dfrac{\partial \rho}{\partial t} + %%\dfrac{\partial }{\partial x} (\rho\ v) \right]\ dx
+%=
+%%\displaystyle\int_{x_1(t)}^{x_2(t)} \phi(x,t)\ dx
+%\]
+%temos
+%\[
+%\dfrac{\partial \rho}{\partial t} + \dfrac{\partial }{\partial x} (\rho\ v)
+%=
+%\phi(x,t).
+%\]
+
+
+
+%}
+
+\clearpage
+\chapter*{Questão 06: Sedimentação}
+\addcontentsline{toc}{section}{\textcolor{blue}{Questão 06}}
+
+Seja $0 \le x$ a coordenada da posição longitudinal em um rio ``infinito'' com escoamento unidimensional a uma velocidade de arrasto $v > 0$ constante. Suponha que neste rio exista uma população de partículas suspensas descrita pela densidade $\rho(x,t)$ que se depositam no seu leito (deixando, assim, de serem suspensas) a uma taxa proporcional à densidade delas. Suponha ainda que exista uma injeção de partículas em $x = 0$ descrita por um fluxo de entrada $J(0,t) = a > 0$ constante e que a densidade seja nula a longas distâncias, isto é, $\rho(\infty, t) = 0$,
+a qual fornece a taxa de produção
+
+\begin{description}
+\item a - Interprete e determine a expressão $N(t) = \displaystyle\int_{0}^{\infty} \rho(x, t)\ dx$ mostrando que ela se aproxima de um valor constante. {\tiny (Sugestão: Obtenha uma equação para $\frac{dN}{dt}$)}
+
+\item b - Argumente que a distribuição espacial de partículas suspensas se aproxima de uma densidade constante com o tempo $\rho_\infty(x) = \displaystyle\lim_{t \to \infty} \rho(x, t)$ e calcule esta distribuição. {\tiny (\textbf{Sugestão}: Considere a equação estacionária, sem variação no tempo).}
+
+\item c - Determine a quantidade total de material depositado no leito do rio durante um intervalo de tempo $[t_1,t_2]$.
+\end{description}
+
+
+%\solucao{
+
+\subsection*{6(a)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{6(a)}}
+
+
+\subsection*{6(b)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{6(b)}}
+
+
+\subsection*{6(c)}
+\addcontentsline{toc}{subsection}{\textcolor{red}{6(c)}}
+
+%}
+
+
+\clearpage

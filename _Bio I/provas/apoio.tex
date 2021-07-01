@@ -1,0 +1,229 @@
+\begin{comment}
+
+
+\begin{definition}
+Uma função \(\phi: [a,b] \to \mathbb{R}\) é dita \textbf{convexa} se 
+\[R = \displaystyle \{(x,y) \in \mathbb{R}^{2}; y \geq \phi(x)\} \mbox{ (região sobre o seu gráfico)}\]
+é um conjunto convexo, ou seja, para quaisquer \((x, y) \in [a,b]^2\) e para todo \(t \in [0,1]\), tem-se:
+\[\displaystyle \phi(tx+(1-t)y) \leq t \phi(x)+(1-t) \phi(y).\]
+
+A função \(f\) é \textbf{estritamente convexa} se, para quaisquer \((x, y) \in [a,b]^2\) e para todo \(t \in [0,1]\), tem-se:
+\[\displaystyle \phi(tx+(1-t)y) < t \phi(x)+(1-t) \phi(y).\]
+\end{definition}
+
+
+%Ou seja, uma função é convexa se a imagem pela função de qualquer combinação convexa entre dois pontos do domínio resulte em um valor que é no máximo igual à combinação convexa das imagens desses pontos.
+
+
+O resultado a seguir é importante para mostrar o que o item 4b pede.
+
+\begin{proposition}
+Uma função \(\phi: [a,b] \to \mathbb{R}\) é convexa se, e somente se, \(\forall\ n \geq 2\), \(\forall\ a_1, a_2, \ldots, a_n \in [a,b]\), com \(a_n \geq 0\), \(\forall\ \lambda_1, \lambda_2, \ldots, \lambda_n\), tais que \(\lambda_1+\lambda_2+\ldots+\lambda_n = 1\), tem-se
+\begin{equation}\label{eq:prop01}
+\phi\left(\displaystyle \sum_{k=1}^n \lambda_{k}  a_{k}\right) \leq \displaystyle \sum_{k=1}^n \lambda_{k}\ \phi(a_{k}).
+\end{equation}
+\end{proposition}
+
+\textbf{Observação}: Vale para funções estritamente convexas.
+
+\textbf{Demonstração}:
+
+\(\Leftarrow\) Supondo válida a condição \eqref{eq:prop01} e tomando, em particular, \(n=2\), conclui-se que \(\phi\) é convexa.
+
+\(\Rightarrow\) Suponhamos que \(\phi\) é convexa. Vamos provar, por indução em \(n\), que vale a condição \eqref{eq:prop01}, \(\forall\ n \geq 2\).
+
+Claro que vale para \(n=2\) (definição de função convexa).
+
+Suponhamos que \eqref{eq:prop01} vale para um certo \(n \geq 2\). %Vamos mostrar que vale também para \(n+1\).
+
+Sejam \(a_1, a_2, \ldots, a_{n+1} \in [a,b]\) e \(\lambda_1, \lambda_2, \ldots, \lambda_{n+1} \geq 0\), com \(\lambda_1+\lambda_2+\ldots+\lambda_{n+1}=1\).
+
+Vamos supor que \(\lambda_{n+1} \neq 1\), pois se \(\lambda_{n+1} = 1\), então \(\lambda_1 = \lambda_2 = \ldots = \lambda_n = 0\) e, neste caso, a condição \eqref{eq:prop01} vale trivialmente, pois se reduz a \(\phi(1 \cdot a_{n+1}) \leq 1 \cdot \phi(a_{n+1})\).
+
+Chamando
+\(y = \dfrac{\lambda_1 a_1 + \ldots + \lambda_n a_n}{1-\lambda_{n+1}}\) e observando que \(\lambda_1 + \ldots + \lambda_n = 1-\lambda_{n+1}\) implica
+\[\dfrac{\lambda_1}{1-\lambda_{n+1}}+\ldots+\dfrac{\lambda_n}{1-\lambda_{n+1}}=1.\]
+
+
+Pela convexidade de \(\phi\) e pela hipótese de indução,
+\[\begin{array}{rcl}
+& & \phi(\lambda_1 a_1+\ldots+\lambda_{n+1} a_{n+1}) \\
+&=& \phi\left((1-\lambda_{n+1}) y + \lambda_{n+1} a_{n+1}\right) \\
+&\leq& (1-\lambda_{n+1}) \phi(y)+\lambda_{n+1} \phi(a_{n+1}) \\
+&=&
+(1-\lambda_{n+1}) \phi\left(\dfrac{\lambda_1}{1-\lambda_{n+1}} a_1 + \ldots +
+\dfrac{\lambda_n}{1-\lambda_{n+1}}\,a_n\right) + \lambda_{n+1} \phi(a_{n+1}) \\
+&\leq&
+(1-\lambda_{n+1})\left[
+\dfrac{\lambda_1}{1-\lambda_{n+1}} \phi(a_1) + \ldots + \dfrac{\lambda_n}{1-\lambda_{n+1}} \phi(a_n)\right] + \lambda_{n+1} \phi(a_{n+1}) \\
+&=& \lambda_1 \phi(a_1)+\ldots+\lambda_{n+1}\phi(a_{n+1}) 
+\end{array}\]
+provando que vale também para \(n+1\), como queríamos demonstrar.
+
+Considerando a aplicação \(\phi\) como a da Proposição e os subconjuntos
+\(A_1 = \{a_{1i}\}\), com \(\{i = 1,2 , \ldots, N_1\}\), e \(A_2 = \{a_{2j}\}\), com \(j = \{1,2,\ldots, N_2\}\), de \(A\) com elementos reais positivos, tais que \(
+M_A(\phi(A_1)) = M_A(\phi(a_{11}), \phi(a_{12}), \ldots, \phi(a_{1N_1})) \leq
+M_A(\phi(a_{21}), \phi(a_{22}), \ldots, \phi(a_{2N_2}))
+= M_A(\phi(A_2))\).
+
+Segue que:
+\[\phi(M_A(A_1)) = \phi\left(\sum_{k=1}^{N_1} \lambda_{1i} a_{1i}\right),\]
+em que \(\lambda_{1i} = \dfrac{f_{1i}}{\displaystyle \sum_{k=1}^{N_1} f_{1i}}\).
+
+Como \(\phi\) é convexa,
+\[\begin{array}{rcl}
+\phi\left(\displaystyle \sum_{k=1}^{N_1} \lambda_{1i} a_{1i}\right)
+&\leq&
+\displaystyle \sum_{k=1}^{N_1} \lambda_{1i} \phi\left(a_{1i}\right) \\
+&=& M_A(\phi(A_1)) \\
+&\leq& M_A(\phi(A_2)) \\
+&=&\displaystyle \sum_{j=1}^{N_2} \lambda_{2j} \phi\left(a_{2j}\right) \\
+&=&
+\phi(M_A(A_2))
+\end{array}\]
+
+Portanto, \(\phi(M_A(A_1)) \leq \phi(M_A(A_2))\) e \(\phi\) é monótona crescente em \(A\).
+
+Por definição,
+\[\phi(M_A(A))
+= \phi\left(\dfrac{\displaystyle \sum_{k=1}^{N} a_{k} f_{k}}{\displaystyle \sum_{k=1}^{N} f_{k} }\right)
+= \phi\left(\displaystyle \sum_{k=1}^{N} \dfrac{f_{k}}{\displaystyle \sum_{k=1}^{N} f_{k}} a_{k}\right)
+= \phi\left(\displaystyle \sum_{k=1}^{N} \lambda_{k} a_{k}\right),
+\]
+em que \(\lambda_{k} = \dfrac{f_{k}}{\displaystyle \sum_{k=1}^{N} f_{k}}\).
+
+Como \(\phi\) é convexa, temos:
+\[
+\phi\left(\displaystyle \sum_{k=1}^{N} \lambda_{k} a_{k}\right)
+=
+\displaystyle \sum_{k=1}^{N} \lambda_{k} \phi(a_{k})
+=
+M_A(\phi(a_{k}))
+\]
+
+
+\end{comment}
+
+
+
+\solucao{
+
+\subsection*{1a -}
+
+O Efeito Kanizsa é descrito pela sensação ou percepção da existência de algo inexistente. Pode acontecer, por exemplo, quando ao se olhar para determinado objeto/figura, o cérebro humano capta uma informação que, na realidade, não exite (ilusões de ópticas) e tenta completá-los. Por exemplo, o triângulo que conseguimos visualizar na figura a seguir, na realidade não existe (Ver figura )!
+
+\begin{figure}[!ht]\centering
+\caption{Triângulo de Kanizsa: ao olhar a imagem, seu cérebro cria contornos de um triângulo, embora ela não exista.}
+\includegraphics[scale=0.2]{images/triangulo_de_kanizsa.jpg}
+\fonte{https://www.pngwing.com/pt/search?q=tri\%C3\%A2ngulo+kanizsa}
+\label{fig:triangulokanizsa}
+\end{figure}
+
+\subsection*{1b -}
+
+}
+
+
+
+
+
+
+
+\pagebreak
+
+
+
+SOLUÇÃO de ERIKSON
+
+%\item
+8a Consideremos um sistema de \(N\) compartimentos, \(1 \le k \le N\), com \(\mu_N = 0\), sequencialmente acoplados com dinâmicas Malthusianas representado esquematicamente na forma
+		\[(
+		A_1 \ \substack{\mu_1 \\ \longrightarrow} \
+		A_2 \ \substack{\mu_2 \\ \longrightarrow} \
+		A_3 \ \substack{\mu_3 \\ \longrightarrow} \
+		\ldots
+		A_N \ \substack{\mu_N \\ \longrightarrow} \
+		A_{N+1}),\]
+		
+		o qual é descrito pelo seguinte sistema de equações diferencias (Malthusianas) acopladas:
+		
+		\[ 
+		\left\{ \begin{array}{rcl}
+			
+			\dfrac{dA_{1}}{dt} &=& -\mu_{1} A_{1} \\[0.3cm]
+			\dfrac{dA_{k}}{dt} &=& \mu_{k-1} A_{k-1} - \mu_{k} A_{k},\quad k = 2, \ldots, N \\[0.3cm]
+			\dfrac{dA_{N+1}}{dt} &=& \mu_{N} A_{N}.
+		\end{array}\right.
+		\]
+		Como estamos com $N$ compartimentos, vamos escrever o vetor dimensão finita $A$ da seguinte forma $A = (A_1, A_2, \ldots, A_N, A_{N+1})^{t}$. Dessa forma, o sistema de equações diferencias descrito anteriormente pode ser reescrito da seguinte forma:
+		\[\dfrac{dA}{dt}
+		=\left[
+		\begin{array}{ccccccc}
+			-\mu_{1} & 0 & 0 & \cdots & 0 & 0 & 0 \\
+			\mu_{1} & -\mu_{2} & 0 & \cdots & 0 & 0 & 0 \\
+			0 & \mu_{2} & -\mu_{3} & \cdots & 0 & 0 & 0 \\
+			\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+			0 & 0 & 0 & \cdots & -\mu_{N-1} & 0 & 0 \\
+			0 & 0 & 0 & \cdots & \mu_{N-1} & -\mu_N  & 0 \\
+			0 & 0 & 0 & \cdots & 0 & \mu_N  & 0
+		\end{array}\right]
+		\cdot
+		\left[
+		\begin{array}{c}
+		A_1 \\
+		A_2 \\
+		A_3 \\
+		\vdots \\
+		A_{N-1} \\
+		A_{N} \\
+		A_{N+1} \\	
+		\end{array}\right]
+		:= M\cdot A
+		\]
+				
+		%\item[
+		8b - Consideremos um sistema de \(N = 3\) compartimentos, \(1 \le k \le 3\), com \(\mu_k = \mu > 0\), sequencialmente acoplados com dinâmicas Malthusianas representado esquematicamente na forma
+		\[
+		A_1 \ \substack{\mu_1 \\ \longrightarrow} \
+		A_2 \ \substack{\mu_2 \\ \longrightarrow} \
+		A_3,
+		\]
+		o qual é descrito pelo seguinte sistema de equações diferencias (Malthusianas) acopladas:
+
+		\[S: 
+		\left\{ \begin{array}{rcl}
+	
+		(1)\ \dfrac{dA_{1}}{dt} &=& -\mu A_{1} \\[0.3cm]
+		(2)\ \dfrac{dA_{2}}{dt} &=& \mu(A_1 - A_{2}) \\[0.3cm]
+		(3)\ \dfrac{dA_{3}}{dt} &=& \mu(A_2 - A_{3}).
+		\end{array}\right.
+		\]		
+		Resolvendo a edo (1) de $S$, por separação de variáveis, obtemos que $$A_1(t) = c_1 \cdot e^{-\mu t},$$
+		$c_1$ uma constante.
+		
+		Agora, usando $A_1$ obtido acima, reescrevemos a equação (2) de $S$ assim:
+		\[
+		\dfrac{dA_{2}}{dt} = \mu(A_1 - A_{2}) \Leftrightarrow \dfrac{dA_{2}}{dt} + \mu A_2 = \mu c_1 e^{-\mu t}.
+		\]
+		Resolvendo esta edo linear de primeira ordem, usando fator integrante $(e^{\mu t})$, obtemos como solução: 
+		$$
+		A_2(t) = (\mu c_1 t + c_2)e^{-\mu t},
+		$$
+		$c_1$ e $c_2$ constantes.
+		
+		De maneira análoga com a edo (3) de $S$, temos:
+		\[
+		\dfrac{dA_{3}}{dt} = \mu(A_2 - A_{3}) \Leftrightarrow \dfrac{dA_{3}}{dt} + \mu A_3 = (\mu^2 c_1 t + \mu c_2)e^{-\mu t},
+		\]
+		que também é uma edo linear de primeira ordem e, usando fator integrante $(e^{\mu t})$, encontramos como solução:
+		\[
+		A_3(t) = \dfrac{(\mu c_2 + \mu^2 c_1 t)^2}{2\mu^2 c_1 \cdot e^{\mu t}} + c_3 \cdot e^{-\mu t},
+		\] 
+		$c_1$, $c_2$ e $c_3$ constantes.
+		
+		%\item[8c] Observemos as expressões de $A_1$, $A_2$ e $A_3$, obtidas anteriormente, vemos que, \(\displaystyle \lim_{t \to \infty} A_k(t) = 0\), para $k = 1,2$ e $3$.
+		
+%}
+
+
+

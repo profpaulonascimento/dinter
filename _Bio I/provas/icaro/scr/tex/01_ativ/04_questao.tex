@@ -1,0 +1,211 @@
+% Questão 04 ------------------------------------------------------------------
+\question
+Supondo que a função matemática $\varphi$ é continuamente diferenciável, obtenha
+uma segunda aproximação para o período 
+\[
+  T_0 \approx
+		\left(\,
+		 \varphi(0)\ + \varphi^{\prime}(0)\,\frac{A}{l}
+		\right)
+		\sqrt{\frac{l}{g}},
+\]
+calculando $ \varphi^{\prime}(0) $ usando uma expansão no parâmetro 
+$ \frac{A}{l} = \varepsilon_1 $ após adimensionar adequadamente o modelo 
+diferencial da dinâmica do pêndulo (com suas condições inicais):
+\[
+  \begin{cases}
+		 m\dfrac{\dd^{2}(l\theta)}{\dd t^2} = -mg\sen{\theta}\qquad \text{(segunda lei de Newton tangencial)}\\
+			\dfrac{\dd \theta (0)}{\dd t} = 0\\
+			l\theta(0) = A.
+  \end{cases}
+\]
+
+%------------------------------------------------------------------------------
+
+\begin{solution}
+\paragraph{\small Adimensionalização.}
+
+Para adimensionalizar corretamente a EDO em questão, vamos escolher as unidades
+intrínsecas de massa $m = M$, de comprimento $\ell = L$ e de tempo 
+$\sqrt{\frac{\ell}{g}} = T$.
+Daí, fazendo $ \tau = \frac{t}{T} $, temos:
+\begin{align*}
+ m\dfrac{\dd^{2}(l\theta)}{\dd t^2} = -mg\sen{\theta} 
+	&\Longrightarrow
+	\frac{\ell}{T^2}\cdot \frac{\dd^2{\theta}}{\dd{\left(\frac{t}{T}\right)^2}} = -g\sen{\theta}\\
+	&\Longrightarrow
+	\frac{\dd^2{\theta}}{\dd{\tau^2}} = \frac{-g}{\ell}\cdot T^2\sen{\theta}\\
+	&\Longrightarrow
+	\frac{\dd^2{\theta}}{\dd{\tau^2}} = \frac{-g}{\ell}\cdot \left(\sqrt{\frac{\ell}{g}}\right)^2\sen{\theta}\\
+	&\Longrightarrow
+	\frac{\dd^2{\theta}}{\dd{\tau^2}} = -\sen{\theta}
+\end{align*}
+
+Além disso, 
+\[
+ \frac{\dd\theta(0)}{\dd{t}} = 0 
+	\Longrightarrow \frac{1}{T}\frac{\dd\theta(0)}{\dd{\left(\frac{t}{T}\right)}} = 0
+	\Longrightarrow \frac{\dd\theta(0)}{\dd{\tau}} = 0,
+\]
+bem como $\theta (0) =\frac{A}{\ell} = \varepsilon_1$.
+Portanto, temos o seguinte sistema adimensionalizado:
+\begin{equation}
+ \begin{cases}
+	 \dfrac{\dd^2{\theta}}{\dd{\tau^2}} = -\sen{\theta}\\
+		\theta (0) = \varepsilon_1\\
+		\dfrac{\dd\theta(0)}{\dd{\tau}} = 0.
+	\end{cases}
+\label{eq:edo-adim}
+\end{equation}
+%
+\paragraph{\small Resolvendo a EDO.} %-----------------------------------------
+%
+Para resolvermos a EDO em questão, consideremos uma função 
+$\sigma = \sigma(\theta)$, tal que 
+\[
+ \sigma = \frac{\dd\theta}{\dd\tau}.
+\]
+Assim,
+\begin{enumerate}[(i)]
+	\item $\sigma (0) = \dfrac{\dd\theta(0)}{\dd\tau}$ e, como 
+	 $\frac{\dd\theta(0)}{\dd{\tau}} = 0$, temos $\sigma(0) =0$.
+	\item Derivando $\sigma$ em relação a $\tau$, temos:
+	 \begin{align*}
+		 \frac{\dd\sigma}{\dd\tau} = \frac{\dd}{\dd\tau} \left(\frac{\dd{\theta}}{\dd\tau}\right) 
+			&\Longrightarrow \frac{\dd\sigma}{\dd\theta}\cdot \textcolor{blue}{\frac{\dd\theta}{\dd\tau}} = \frac{\dd^2\theta}{\dd\tau^2}\\
+			&\Longrightarrow \frac{\dd\sigma}{\dd\tau}\cdot \textcolor{blue}{\sigma} =  \frac{\dd^2\theta}{\dd\tau^2}.
+		\end{align*}
+\end{enumerate}
+Substituindo (ii) em \eqref{eq:edo-adim}, temos:
+\begin{align*}
+ \sigma \cdot \frac{\dd\sigma}{\dd\theta} = - \sen\theta 
+ &\Longrightarrow \sigma \dd{\sigma} = -\sen\theta\dd{\theta}\\
+	&\Longrightarrow \int\sigma \dd{\sigma} = \int (-\sen\theta)\dd{\theta}\\
+	&\Longrightarrow \frac{\sigma^2}{2} = \cos\theta + C_1\\
+	&\Longrightarrow \sigma^2 = 2\cos\theta + C \tag{com $C=2C_1$}
+\end{align*}
+Agora, quando $\theta (0) = \varepsilon_1$, a velocidade é zero, ou seja, 
+$\frac{\dd\theta(0)}{\dd{\tau}} = \sigma(0) =0$.
+Logo,
+\begin{align*}
+ \left[\sigma(0)\right]^2 &= 2\cos(\varepsilon_1) + C\\
+	0 &= 2\cos\varepsilon_1 + C\\
+	C &= -2\cos\varepsilon_1
+\end{align*}
+Dessa forma,
+\begin{align*}
+ \sigma^2 &= 2\cos\theta - 2\cos\varepsilon_1\\
+	\sigma   &= \sqrt{2\cos\theta - 2\cos\varepsilon_1}\\
+	\frac{\dd\theta}{\dd\tau} &= \sqrt{2\cos\theta - 2\cos\varepsilon_1}\\
+	\frac{1}{\sqrt{2\cos\theta - 2\cos\varepsilon_1}}\dd{\theta} &= \dd\tau\\
+	\int_{0}^{\theta}\frac{1}{\sqrt{2\cos\theta - 2\cos\varepsilon_1}}\dd{\theta} &= \int_{0}^{\tau}\dd\tau\\
+\end{align*}
+Portanto, fazendo $ k = 2\cos{\varepsilon_1} $, temos:
+\begin{equation}
+ \tau = \int_{0}^{\theta}\frac{1}{\sqrt{2\cos\theta - k}}\dd{\theta}
+\label{eq:eliptica-dim}
+\end{equation}
+
+\paragraph{Calculando o Período Adimensional.}
+Se $\tau_0$ é o período no sistema adimensional, pela simetria do fenômeno,
+quando $\theta = \frac{\pi}{2}$, temos $\tau = \frac{\tau_0}{4}$ (de fato, como
+o período é o tempo necessário para que o sistema volte à posição inicial, ao
+abandonar a massa de uma posição $\theta_\ast$, ela volta depois de percorrer
+$\theta_\ast$ por quatro vezes: duas até a posição simétrica em relação à 
+vertical e as outras duas voltando).
+Assim:
+\begin{align}
+ \frac{\tau_0}{4} &= \int_{0}^{\pi/2}\frac{1}{\sqrt{2\cos\theta - k}}\dd{\theta}\notag\\
+	\tau_0 &= 4 \int_{0}^{\pi/2}\frac{1}{\sqrt{2\cos\theta - k}}\dd{\theta}
+\end{align}
+
+\paragraph{Aproximando o Período Adimensional.}
+Considere $\phi(\theta) = \dfrac{1}{\sqrt{2\cos\theta - k}} = \left(2\cos\theta - k\right)^{-1/2} $.
+Então,
+\begin{enumerate}
+ \item[(iii)] $\displaystyle \phi (0) = (2\cos 0 - k)^{-1/2} = (2 - k)^{-1/2} = \frac{1}{\sqrt{2 - k}}$.
+	\item[(iv)] $\displaystyle \phi^{\prime} (\theta) = -\dfrac{1}{2}\cdot \left(2\cos\theta - k\right)^{-3/2}\cdot \left(-2\sen{\theta}\right) = \dfrac{\sen\theta}{\sqrt{(2\cos\theta - k)^{3}}}$, o que 
+	 resulta $\phi^{\prime}(0) = 0$.
+\end{enumerate}
+Assim, aproximando $\phi$ por Taylor, temos:
+\begin{align*}
+ \phi (\theta) &\approx \phi{(0)} + \phi^{\prime}(0)\theta\\
+	&= \frac{1}{\sqrt{2 - k}} 
+\end{align*}
+Integrando em relação a $\theta$:
+\begin{align*}
+ \tau_0 &= 4 \int_{0}^{\pi/2}\frac{1}{\sqrt{2\cos\theta - k}}\dd{\theta}\\
+	&\approx 4 \int_{0}^{\pi/2} \frac{1}{\sqrt{2 - k}}  \dd{\theta}\\
+	&= 4\cdot \frac{1}{\sqrt{2 - k}} \cdot \frac{\pi}{2}\\
+	&= \frac{2\pi}{\sqrt{2 - k}}
+\end{align*}
+
+\paragraph{Voltando à Dimensão Original.}
+Como $\tau_0 = \frac{T_0}{T}$, podemos fazer:
+\begin{align*}
+ \frac{T_0}{T} &\approx \frac{2\pi}{\sqrt{2 - k}}\\
+	T_0 & = T \cdot \frac{2\pi}{\sqrt{2 - k}}\\
+	&= \sqrt{\frac{\ell}{g}}\frac{2\pi}{\sqrt{2 - k}}
+\end{align*}
+
+Assim,
+\begin{equation}
+ T_0 \approx \frac{2\pi}{\sqrt{2 - \cos\varepsilon_1}} \sqrt{\frac{\ell}{g}}
+\label{eq:original}
+\end{equation}
+
+\paragraph{Observações.}
+Obviamente, se considerássemos 
+\[
+ \phi(\theta) \approx \phi(0) + \phi^{\prime}(0) \theta + \frac{\phi^{\prime\prime}(0)}{2}\theta ^2,
+\]
+teríamos uma melhor aproximação para $T_0$, visto que
+\begin{itemize}
+	\item[(v)] $ \displaystyle \phi^{\prime\prime}(\theta) = \frac{\cos\theta}{\sqrt{(2-k)^3}} + \frac{3\sen^2\theta}{\sqrt{(2\cos\theta - k)^5}}$
+	\item[(vi)] O que implica : $ \displaystyle \phi^{\prime\prime}(0) = \frac{1}{\sqrt{(2-k)^3}} $
+	\item[(vii)] Daí, 
+	 \begin{align*}
+	  \phi(\theta) 
+			&\approx \frac{1}{\sqrt{2-k}} + 0\cdot \theta + \frac{1}{\sqrt{(2-k)^3}} \theta^2\\
+			&= \frac{1}{\sqrt{2-k}} + \frac{1}{\sqrt{(2-k)^3}} \theta^2
+		\end{align*}
+	\item[(viii)] Integrando, temos:
+	 \begin{align*}
+		 \tau_0 &\approx 4 \int_{0}^{\pi/2} \left(\frac{1}{\sqrt{2-k}} + \frac{1}{\sqrt{(2-k)^3}} \theta^2\right)\dd{\theta}\\
+			&= 4 \cdot \left.\left(\frac{1}{\sqrt{2-k}} \theta + \frac{1}{\sqrt{(2-k)^3}} \frac{\theta^3}{3}\right)\right|_{0}^{\pi/2}\\
+			&= 4 \cdot \left[\frac{\pi}{2\sqrt{2-k}} + \frac{\pi^3}{24\sqrt{(2-k)^3}}\right]\\
+			&= \frac{2\pi}{\sqrt{2-k}} + \frac{\pi^3}{6\sqrt{(2-k)^3}}
+		\end{align*}
+\end{itemize}
+
+E, portanto (lembrando que $ k = 2\cos\varepsilon_1 $ e $\tau_0 = \frac{T_0}{T}$):
+	 \begin{equation}
+		 T_0 \approx \left[\frac{2\pi}{\sqrt{2-2\cos\varepsilon_1}} + \frac{\pi^3}{6\sqrt{(2-2\cos\varepsilon_1)^3}}\right]\cdot \sqrt{\frac{\ell}{g}}
+		\label{eq:periodo-2}
+	 \end{equation}
+		
+ É interessante notarmos que, as aproximações tanto \eqref{eq:original}, quando
+	em \eqref{eq:periodo-2} indicam que o período	depende, também, da	posição 
+	$\varepsilon_1$, para uma melhor precisão.
+	Além disso, estamos considerando $\vert\theta\vert < \pi$, visto que a série
+	pode não convergir para as potências de $\theta$ fora desse intervalo.
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

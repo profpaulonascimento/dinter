@@ -1,0 +1,734 @@
+
+\chapter{Funções Especiais}
+
+Exatamente igual ao estudo das variáveis complexas e as equações diferenciais, as funções especiais também se constituem num extenso ramo da matemática. Nesta disciplina, vamos discutir algumas delas, divididas em duas etapas, a saber: as funções hipergeométricas e seus casos particulares e as funções de Fox que admitem, como caso particular, as chamadas funções de Mittag-Leffler que se constituem nas funções que abordaremos especificamente no cálculo fracionário, especialmente, no estudo das equações diferenciais fracionárias.
+
+\section{A função gama e o símbolo de Pochhammer}
+
+Devido a importância e o natural aparecimento dos conceitos de função gama e o símbolo de Pochhammer, iniciamos com a definição e a discussão de algumas propriedades, através de exemplos resolvidos e/ou exercícios deixados a cargo do estudante.
+
+\subsection{Função gama}
+
+A função gama se constitui numa natural extensão do conceito de fatorial onde, no lugar de um inteiro, temos, em princípio um complexo. Ainda que existam outras maneiras de apresentar a definição da função gama, optamos por aquela que é devida a Euler, em termos de uma integral imprópria.
+
+\definicao{}{}{%Definição 1.
+Seja $z \in \mathbb{C}^\ast$. Definimos a função gama por
+$$\Gamma(z) = \displaystyle\int_0^\infty t^{z-1} e^{-t} dt,$$
+com $Re(z) > 0$. Para $Re(z) < 0$, usamos a relação
+$$\Gamma(z) = \dfrac{\Gamma(z+1)}{z},$$
+com $z \neq -1, -2, -3, \ldots$.
+}
+
+
+É importante notar dessa relação que estende a definição para os inteiros negativos, pois exatamente nesses pontos se encontram os polos da função gama. Aqui,
+vamos apenas considerar os reais, isto é, $x = Re(z)$.
+
+
+\exemplo{exem:aula03.01}{
+Utilize a definição da função gama, para calcular $\Gamma(1)$, $\Gamma(2)$, $\Gamma(3)$ e $\Gamma(4)$ a fim de inferir que $\Gamma(n + 1) = n!$, para $n \in \mathbb{N}$.
+}
+
+\solexemplo{
+Seja $z = 1$ na definição da função gama, temos:
+$$\Gamma(1) = \displaystyle\int_{0}^{\infty} t^{1-1} e^{-t} \ dt$$,
+cuja integração é imediata. Logo,
+$$\Gamma(1) = 1 = 1!.$$
+
+Considerando $z = 2$, podemos escrever:
+$$\Gamma(2) = \displaystyle\int_{0}^{\infty} t^{2-1} e^{-t} dt,$$
+que, integrando por partes, fornece
+$$\Gamma(2) = 1 = 1!.$$
+
+Analogamente, substituindo $z = 3$, obtemos:
+$$\Gamma(3) = \displaystyle\int_{0}^{\infty} t^{3-1} e^{-t} dt,$$
+que, novamente, integrando por partes duas vezes, fornece
+$$\Gamma(3) = 2 = 2!.$$
+
+Por fim, para $z = 4$, temos a seguinte integral
+$$\Gamma(4) = \displaystyle\int_{0}^{\infty} t^{4-1} e^{-t} dt,$$
+cuja integração por partes resulta
+$$\Gamma(4) = 6 = 3!.$$
+
+Coletando os resultados podemos inferir que
+$$\Gamma(n + 1) = n!$$
+que é o resultado desejado.
+}
+
+\exemplo{exem:aula03.02}{
+Mostre que $$\Gamma\left(\dfrac{1}{2}\right) = \sqrt{\pi}.$$
+}
+
+\solexemplo{
+Como é de se esperar, esses cálculos não são tão imediatos como no caso dos inteiros. Aqui, vamos considerar o produto de duas funções gama de tal modo que devemos
+calcular as integrais
+$$\Gamma\left(\dfrac{1}{2}\right) \cdot \Gamma\left(\dfrac{1}{2}\right)
+= \displaystyle\int_{0}^{\infty} x^{\frac{1}{2}-1} e^{-x} dx \cdot \displaystyle\int_{0}^{\infty} y^{\frac{1}{2}-1} e^{-y} dy
+%
+$$
+
+Começamos por introduzir a mudança de variável $x \rightarrow x^2$ e $y \rightarrow y^2$, %onde mantivemos a mesma letra, pois são variáveis mudas, logo, já simplificando,
+$$\Gamma\left(\dfrac{1}{2}\right) \cdot \Gamma\left(\dfrac{1}{2}\right)
+= \displaystyle\int_{0}^{\infty}\int_{0}^{\infty} x^{-1}y^{-1} e^{-(x^2+y^2)} dx dy
+= 4 \displaystyle\int_{0}^{\infty}\int_{0}^{\infty} e^{-(x^2+y^2)} dx dy
+$$
+
+Para calcular essa integral, vamos utilizar coordenadas polares no plano:
+$$x = r \cos(\theta) \mbox{ e } y = r \sin(\theta),$$
+de onde segue, $x^2 + y^2 = r^2$ e $dx dy = r dr d\theta$.
+
+Assim, substituindo na expressão para o produto das duas funções gama, podemos escrever, já simplificando,
+$$\Gamma\left(\dfrac{1}{2}\right) \cdot \Gamma\left(\dfrac{1}{2}\right) = 4 \displaystyle\int_{0}^{\infty} e^{-r^2} r dr \cdot \int_{0}^{\frac{\pi}{2}} d\theta$$
+cujas integrações fornecem
+$$\Gamma\left(\dfrac{1}{2}\right) \cdot \Gamma\left(\dfrac{1}{2}\right) = 4 \cdot \dfrac{1}{2} \cdot \dfrac{\pi}{2}$$
+de onde segue
+$$
+\Gamma\left(\dfrac{1}{2}\right) = 4 \cdot \dfrac{1}{2} \cdot \pi = \pi.$$
+que é o resultado desejado.
+}
+
+
+\exercicio{}{%Do lar 1.
+Calcule $\Gamma\left(-\dfrac{1}{2}\right)$ e $\Gamma\left(-\dfrac{3}{2}\right)$
+.
+}
+
+
+
+\exemplo{exem:aula03.0}{%3.
+Seja $z \in \mathbb{C}$. Mostre a relação $z\Gamma(z) = \Gamma(z + 1)$, com $z \neq 0, -1, -2, \ldots$
+}
+
+\solexemplo{
+A função gama para o argumento z + 1 é
+$$\Gamma(z + 1) = \displaystyle\int_{0}^{\infty} t^z e^{-t} dt.$$
+
+Vamos utilizar integração por partes. Consideramos
+$$t^z = u \rightarrow zt^{z-1} dt = du$$
+bem como
+$$e^{-t}dt = dv \rightarrow v = -e^{-t},$$
+de onde podemos escrever, através da expressão para integração por partes
+$$\Gamma(z + 1) = -t^ze^{-t}\Bigg|^{t=\infty}_{t=0} - \int^\infty_0 (-e^{-t}) z t^{z-1} dt$$
+ou ainda, na seguinte forma, já simplificando
+$$\Gamma(z + 1) = z \int^\infty^0 t^{z-1} e^{-t} dt$$
+que, a partir da definição da função gama, fornece
+$$\Gamma(z + 1) = z \Gamma(z)$$
+que é o resultado desejado.
+}
+
+\exemplo{exem:aula03.0}{%4.
+Seja $\alpha > 0$. Calcule a seguinte integral
+$$\Omega = \int^\infty_0 \dfrac{\alpha^x}{x^\alpha} dx.$$
+}
+
+\solexemplo{
+Começamos escrevendo a integral na forma
+$$\Omega = \int^\infty_0 \alpha^x x^{-\alpha} dx = \int^\infty_0 e^{x \ln(\alpha)} x^{-\alpha} dx.$$
+
+Introduzindo a mudança de variável $x \ln(\alpha) = -t$, temos, para $x = 0$ implica $t = \infty$, bem como $\alpha < 1$, de onde segue, já simplificando
+$$\Omega =
+\left[\dfrac{-1}{\ln(\alpha)}\right]^{-\alpha+1} \int^\infty_0 e^{-t} t^{-\alpha} dt$$
+ou ainda, utilizando a definição de função gama, na forma
+$$\Omega = [-\ln(\alpha)]^{1-\alpha} \Gamma(1-\alpha).$$
+
+Logo, a integral de partida é tal que
+$$\int^\infty_0 \dfrac{\alpha^x}{x^\alpha} dx = \dfrac{\Gamma(1-\alpha)}{[-\ln(\alpha)]^{\alpha-1}},$$
+com a condição $0 < \alpha < 1$.
+}
+
+É importante notar que a condição $0 < \alpha < 1$ emerge naturalmente na resolução do exemplo, uma vez que foi dado no enunciado $\alpha > 0$.
+
+\exercicio{}{%Do lar 2.
+Seja $\alpha > 0$. Mostre que
+$$\Lambda = \int^\infty_0 \dfrac{t^\alpha}{\alpha^t} dt = \dfrac{\Gamma(\alpha + 1)}{[\ln(\alpha)]^{\alpha+1}}\cdot $$
+Discuta o caso em que $\alpha = 1$.
+}
+
+\exercicio{}{%Do lar 3.
+Seja $t > 0$. Mostre o seguinte resultado
+$$\int^\infty_0 e^{-x^t} dx = \Gamma\left(\dfrac{t + 1}{t}\right)\cdot $$
+}
+
+\subsection{Símbolo de Pochhammer}
+
+Assim como a função gama, o símbolo de Pochhammer é bastante útil na simplificação de expressões que envolvem as funções gama e o fatorial.
+
+\definicao{}{}{%Definição 2.
+Seja $a \in \mathbb{C}$. Definimos o símbolo de Pochhammer, denotado por $(a)_n$, através da expressão
+$$(a)_n =
+\left\{\begin{array}{rcl}
+1&,& \mbox{ se } n = 0 \\
+a(a + 1)(a + 2) \ldots (a + n - 1) &,& \mbox{ se } n = 1, 2, 3, \ldots
+\end{array}\right.$$
+}
+
+\exercicio{}{%Do lar 4.
+Seja $n \in \mathbb{N}$. Mostre que $(1)_n = n!$ e, portanto, o símbolo de Pochhammer, pode ser visto como uma generalização do conceito de fatorial.
+}
+
+\exercicio{}{%Do lar 5.
+Sejam $n \in \mathbb{N}$ e $a \neq 0, -1, -2, \ldots$. Mostre que vale a relação envolvendo o quociente de duas funções gama, com as devidas condições de existência,
+$$(a)_n = \dfrac{\Gamma(a + n)}{\Gamma(a)}.$$
+}
+
+\exemplo{exem:aula03.05}{%5.
+Vamos mostrar a relação entre o símbolo de Pochhammer e o coeficiente binomial.
+}
+
+
+\solexemplo{Como é sabido, o coeficiente binomial emerge naturalmente na expansão numa série de Taylor ou Maclaurin.
+
+Sejam $n, m \in \mathbb{N}$, com $m \ge n$. Temos,
+$$\binom{m}{n} = \dfrac{m!}{n!(m - n)!}$$
+que, em termos da função gama, pode ser escrito como
+$$\binom{m}{n} = \dfrac{\Gamma(m + 1)}{n!\Gamma(m - n + 1)}$$
+ou ainda, para $a \neq 0, -1, -2, \ldots$, na seguinte forma
+$$\binom{a}{n} = \dfrac{\Gamma(a + 1)}{n!\Gamma(a - n + 1)} = \dfrac{a \Gamma(a)}{n!(a - n)\Gamma(a - n)}.$$
+
+Enfim, podemos escrever
+$$\begin{array}{rcl}
+\binom{a}{n}
+&=& \dfrac{a(a - 1) \ldots (a - n + 1)}{n!(a - n)(a - n - 1) \Gamma(a - n - 1)} \\
+&=& \dfrac{1}{n!a(a - 1) \ldots (a - n + 1)}.
+\end{array}$$
+
+A expressão anterior pode ser escrita na forma, fatorando
+$(-1)$ em todos os fatores
+$$\binom{a}{n}
+= \dfrac{1}{n!(-1)^n(-a)(-a + 1) \ldots (-a + n - 1)}$$
+e, utilizando a definição do símbolo de Pochhammer, obtemos a relação com o coeficiente binomial, dado por
+$$\binom{a}{n}
+= \dfrac{1}{n!(-1)^n(-a)_{n}}$$
+que é o resultado desejado.
+}
+
+\exercicio{}{%Do lar 6.
+Utilize o resultado do Exemplo 5 para mostrar que vale a igualdade
+$$\dfrac{\Gamma(a + 1)}{\Gamma(a - n + 1)}
+= (-1)^n (-a)_n.$$
+}
+
+\exercicio{}{%Do lar 7.
+Considere o parâmetro $a = \alpha - 1$ com
+$\alpha \neq 0, \pm 1, \pm 2, \ldots$ no resultado do Do Lar 6 a fim de mostrar a igualdade
+$$\dfrac{\Gamma(\alpha - n)}{\Gamma(\alpha)}
+=
+\dfrac{(-1)^n}{(1 - \alpha)_n}.$$
+}
+
+\exercicio{}{%Do lar 8.
+Utilize a definição do símbolo de Pochhammer e o resultado do Do Lar 7 a fim de mostrar o seguinte resultado
+\begin{equation}\label{eq:aula03.dolar08}
+(a)_{-n} = (-1)^n (1 - a)_n,
+\end{equation}
+para $n = 1, 2, 3, \ldots$ e $a \neq 0, \pm 1, \pm 2, \ldots$.
+}
+
+
+\exercicio{}{%Do lar 9.
+Sejam $a \neq 0, \pm 1, \pm 2, \ldots$ e $m, n \in \mathbb{N}$. Mostre que vale o seguinte resultado
+\begin{equation}\label{eq:aula03.dolar09}
+(a)_{m+n} = (a)_m (a + m)_n.
+\end{equation}
+}
+
+\exemplo{exem:aula03.06}{%6.
+Sejam $k, n \in \mathbb{N}$ tal que $0 \leq k \leq m$ e $a \neq 0, \pm 1, \pm 2, \ldots$. Mostre a seguinte relação
+\begin{equation}
+(a)_{m-k} = (-1)^k \dfrac{(a)_m}{(1 - a - m)_k}.
+\end{equation}
+}
+
+\solexemplo{Tomando $n \rightarrow -k$ na \auteref{eq:aula03.dolar09}, obtemos
+$$(a)_{m-k} = (a)_m(a + m)_{-k}.$$
+
+Utilizando a \autoref{eq:aula03.dolar09}, podemos escrever
+$$(a)_{m-k} = (-1)^k \dfrac{(a)_m}{(1 - a - m)_k}.$$
+que é o resultado desejado.
+}
+
+\exemplo{exem:aula03.07}{%7.
+Sejam n, k \in \mathbb{N}. Mostre que
+$$(-n)_k =
+\left\{\begin{array}{rcl}
+\dfrac{(-1)^k n!}{(n - k)!} &,& \mbox{ se } 0 \leq k \leq n \\
+0 &,& \mbox{ se } k > n
+\end{array}\right.$$
+}
+
+\solexemplo{Considerando $a = 1$ na \autoref{eq:aula03.dolar09}, podemos escrever
+$$(-n)_k = (-1)^k \dfrac{(1)_n}{(1)_{n-k}}.$$
+
+Utilizando a definição do símbolo de Pochhammer, obtemos a dupla igualdade
+$$(-n)_k
+= (-1)^k \dfrac{\Gamma(1 + n)}{\Gamma(1 + n - k)}
+= (-1)^k \dfrac{n!}{(n - k)!}$$
+válida para $0 \leq k \leq n$ e, para $k > n$ é igual a zero, que
+é o resultado desejado.
+}
+
+
+\exercicio{}{%Do lar 10.
+Seja $z \neq 0,-\dfrac{1}{2},-1,-\dfrac{3}{2},-2, \ldots$. Mostre a fórmula de duplicação de Legendre
+$$\sqrt{\pi}\Gamma(2z) = 2^{2z-1}\Gamma(z)\Gamma\left(z + \dfrac{1}{2}\right).$$
+}
+
+
+\exercicio{}{%Do lar 11.
+Sejam $x \in \mathbb{R}$, com $0 < x < 1$. Mostre que
+$$\Gamma(x)\Gamma(1 - x) = \dfrac{\pi}{\sin(\pi x)}$$.
+}
+
+
+\section{Função beta}
+
+Uma outra função, agora com dois parâmetros, que contribui para, dentre outras, na simplificação de expressões é a função beta, também conhecida como função de Euler de primeira espécie, denotada por $\mathcal{B}(p, q)$.
+
+
+\definicao{}{}{%Definição 3.
+Sejam $p > 0$ e $q > 0$. Definimos a função beta através da integral $\mathcal{B}(p, q) = \int_0^1 x^{p-1} (1-x)^{q-1} dx$.
+}
+
+Ainda que a definição valha para $p \in \mathbb{C}$ e $q \in \mathbb{C}$, com $\operatorname{Re}(p) > 1$ e $\operatorname{Re}(q) > 1$, aqui, vamos nos ocupar
+apenas com os reais.
+
+Visto que os extremos da integral são zero e um, uma outra representação integral para a função beta é dada em termos das funções trigonométricas.
+
+Introduzimos a mudança de variável $x = \sin^2(t)$ na expressão que define a função beta, podemos escrever
+$$\mathcal{B}(p, q) = \int_{0}^{\frac{\pi}{2}} [\sin^2(t)^{p-1}[1 - \sin^2(t)]^{q-1} 2 \sin(t) \cos(t) dt$$
+que, utilizando a relação fundamental da trigonometria e
+rearranjando, permite escrever
+$$\mathcal{B}(p, q) = 2 \int_{0}^{\frac{\pi}{2}} \sin^{2p-1}(t) \cos^{2q-1}(t) dt$$
+que é uma outra representação para a função beta.
+
+\exercicio{}{%Do lar 12.
+Sejam p > 0 e q > 0. Mostre que vale a relação de simetria, B(p, q) = B(q, p).
+}
+
+\exercicio{}{%Do lar 13.
+Sejam p > 0 e q > 0. Mostre que vale a relação entre a função beta e a função gama
+B(p, q) =
+\Gamma(p)\Gamma(q)
+\Gamma(p + q)
+.
+}
+
+
+\exemplo{exem:aula03.08}{%8.
+Mostre que $\int_0^{\frac{\pi}{2}} \sqrt{\tan(x)} dx = \dfrac{\sqrt{2}}{2} \pi.$
+}
+
+\solexemplo{Começamos escrevendo a tangente em termos de senos e cossenos e rearranjando, obtemos:
+$$\int_0^{\frac{\pi}{2}} \sqrt{\tan(x)} dx =
+\int_0^{\frac{\pi}{2}} \sin^{\frac{1}{2}}(x) \cos^{\frac{1}{2}}(x) dx$$
+com a representação da função beta em termos das funções trigonométricas, podemos escrever para os parâmetros
+$$2p - 1 = \dfrac{1}{2}, p = \dfrac{3}{4}
+\mbox{ e }
+2q - 1 = - \dfrac{1}{2}, q = \dfrac{1}{4}$$
+de onde segue para a integral
+$$\int_0^{\frac{\pi}{2}} \sqrt{\tan(x)} dx = \dfrac{1}{2} \mathcal{B} \left(\dfrac{3}{4}, \dfrac{1}{4}\right).$$
+
+Utilizando a relação entre as funções gama e beta, temos
+$$\int_0^{\frac{\pi}{2}} \sqrt{\tan(x)} dx
+=
+\dfrac{1}{2}
+\Gamma\left(\dfrac{3}{4}\right)
+\Gamma\left(\dfrac{1}{4}\right)
+$$
+uma vez que $\Gamma(1) = 1$. Utilizando o resultado do exercício Do Lar 11, já simplificando, obtemos
+$$\int_0^{\frac{\pi}{2}} \sqrt{\tan(x)} dx
+= \dfrac{1}{2} \dfrac{\pi}{\sin(\pi/4)}
+= \dfrac{\sqrt{2}}{2} \pi
+$$
+que é o resultado desejado.
+}
+
+
+\exemplo{exem:aula03.09}{%9.
+Expansão de Mittag-Leffler. Seja $z \in \mathbb{C}$, com $\operatorname{Re}(z) > 0$. Mostre que
+$$\Gamma(z) = \sum_{k=0}^\infty \dfrac{(-1)^k}{k!(z + k)}
++ \int_1^\infty e^{-t}t^{z-1} dt.$$
+}
+
+\solexemplo{A partir da definição da função gama, podemos separar em duas parcelas, intervalos distintos,
+$$\Gamma(z) = \int_0^1 e^{-t} t^{z-1} dt +
+\int_1^\infty e^{-t} t^{z-1} dt$$
+onde, a segunda parcela é uma \textbf{função inteira}, analítica em todo o plano complexo.
+
+Vamos considerar apenas a integral no intervalo finito, primeira parcela. Assim, a partir do desenvolvimento em série de Maclaurin para a exponencial, obtemos
+$$\Omega(z) = \int_0^1 e^{-t} t^{z-1} dt
+= \int_0^1 \sum_{k=0}^\infty \dfrac{(-t)^k}{k!} t^{z-1} dt.
+$$
+Permutando os sinais de integral e soma (série é uniformemente
+convergente) e rearranjando, temos
+$$\Omega(z) = \sum_{k=0}^\infty \dfrac{(-1)^k}{k!} t^{k+z-1} dt,$$
+cuja integração na variável $t$ é imediata, logo
+$$\Omega(z) = \sum_{k=0}^{\infty} \dfrac{(-1)^k}{k!(z + k)}.$$
+Voltando com essa expressão na soma com as duas parcelas, podemos escrever
+$$\Gamma(z) = \sum_{k=0}^{\infty}
+\dfrac{(-1)^k}{k!(z + k)} +
+\int_1^\infty e^{-t} t^{z-1} dt,$$
+que é o resultado desejado, a chamada expansão de Mittag-Leffler para a função $\Gamma(z)$.
+}
+
+
+\exemplo{exem:aula03.10}{%10.
+Mostre que o resíduo da função gama nos polos $z = -n$, com $n = 0, 1, 2, \ldots$, é igual a $(-1)^n/n!$.
+}
+
+\solexemplo{Lembremos que para obter o resíduo, relativo a um polo, devemos calcular o seguinte limite
+$$\operatorname{Res}_{z=-k}\Gamma(z) = \lim_{z\to -k} (z + k)\Gamma(z).$$
+
+Assim, introduzindo a expansão da função gama, conforme a expansão de Mittag-Leffler, podemos escrever
+$$\operatorname{Res}_{z=-k} \Gamma(z) = \lim_{z\to -k}
+\left[(z + k) \sum_{k=0}^\infty \dfrac{(-1)^k}{k!(z + k)} +
+(z + k)
+\int_1^\infty e^{-t} t^{z-1} dt\right].$$
+
+Visto que o limite da soma é a soma dos limites, que a segunda parcela é uma função inteira e usando a regra de l'Hôpital para calcular o limite na primeira parcela, já simplificando, obtemos
+$$\operatorname{Res}\limits_{z=-k} \Gamma(z)
+= \sum_{k=0}^\infty \dfrac{(-1)^k}{k!}$$
+de onde, para um $k = -n$ fixo, o resíduo é dado por
+$$\operatorname{Res}\limits_{z=-n} \Gamma(z)
+= \dfrac{(-1)^n}{n!}$$
+que é o resultado desejado.
+}
+
+
+\exercicio{}{%Do lar 14.
+Seja $0 \leq x \leq 1$. Mostre que
+$$\Gamma\left(x + \dfrac{1}{2}\right)
+\Gamma\left(x - \dfrac{1}{2}\right)
+= \dfrac{\pi}{\cos(\pi x)}.$$
+}
+
+
+
+\section{Função hipergeométrica}
+
+A importância da função hipergeométrica ou função hipergeométrica de Gauss, introduzida por Gauss em 1812, contém várias funções especiais como caso particular. é importante destacar que a função hipergeométrica é a função mais geral, contendo três parâmetros, que é solução de uma equação diferencial ordinária com três pontos singulares regulares, incluindo um no infinito.
+
+\definicao{}{def:aula03.04}{Sejam $a, b, c \in \mathbb{C}$, com $c \neq 0, -1, -2, \ldots$. A função hipergeométrica, denotada por ${}_2F_1(a, b; c; z)$, é dada pela série de potências
+$${}_2F_1(a, b; c; z) =
+\sum_{k=0}^{\infty} \dfrac{(a)_k (b)_k z^k}{(c)_k k!},$$
+onde $(\cdot)_k$ é o símbolo de Pochhammer.
+}
+
+
+Note que estamos considerando a expansão em torno de $z_0 = 0$, caso contrário, no caso de $z_0 \neq 0$, uma translação deve ser considerada, bem como no infinito uma inversão deve ser considerada. O nome série hipergeométrica está diretamente relacionado com o caso particular em que $a = c$ e $b = 1$ ou $b = c$ e $a = 1$, pois a série hipergeométrica, para $|z| < 1$, se reduz à clássica série geométrica. Pelo teste da razão a série hipergeométrica, para $|z| < 1$, converge no círculo de raio unitário.
+
+
+\exercicio{}{%Do lar 15.
+Utilize o resultado do Exemplo 7 a fim de mostrar que se o parâmetro $a$ ou $b$ (ou ambos) é nulo ou inteiro negativo, a série termina, isto é, temos um polinômio.
+}
+
+\exercicio{}{%Do lar 16.
+Seja $|z| = 1$, circunferência de raio unitário, a série hipergeométrica é: (i.) absolutamente convergente, se $\operatorname{Re}(c - a - b) > 0$; (ii.) condicionalmente
+convergente, se $-1 < \operatorname{Re}(c - a - b) \leq 0$ e (iii) divergente, se $\operatorname{Re}(c - a - b) \leq -1$.
+}
+
+\exercicio{}{%Do lar 17.
+Se $\operatorname{Re}(c - a - b) > 0$ e $c \neq 0,-1,-2, \ldots$, então vale a relação
+$${}_2F_1(a, b; c; 1) = \dfrac{\Gamma(c) \Gamma(c-a-b)}{\Gamma(c-a)\Gamma(c-b)}.$$
+}
+
+\exercicio{}{%Do lar 18.
+Se $a = -n$, com $n \in \mathbb{N}$, mostre que
+$${}_2F_1(-n, b; c; 1) = \dfrac{(c-b)_n}{(c)_n}.$$
+}
+
+
+\exercicio{}{%Do lar 19.
+Sejam $a, b \in \mathbb{C}$ e $n \ge 0$. Mostre que
+$$\sum_{k=0}^n \binom{a}{k} \binom{b}{n - k}
+= \binom{a + b}{n}$$
+conhecida como relação de Vandermonde.
+}
+
+
+
+\subsection{Representação integral}
+
+Nesta seção, vamos introduzir uma representação integral para a função hipergeométrica através de uma integral e da definição da função beta.
+
+Sejam $a, b, c \in \mathbb{R}$, com $\operatorname{Re}(c) > \operatorname{Re}(b) > 0$. Admitindo $|z| < 1$, considere a integral
+$$J = \int_0^1 t^{b-1} (1 - t)^{c-b-1} (1 - zt)^{-a} dt.$$
+Com tais restrições, no intervalo $0 \leq |z| \leq 1$, podemos expandir $(1-zt)^{-a}$ em uma série uniformemente convergente que substituída na expressão para $J$, fornece
+$$J = \int_0^1 t^{b-1} (1 - t)^{c-b-1}
+\sum_{n=0}^{\infty} \dfrac{\Gamma(a + n)(zt)^n}{\Gamma(a) n!} dt,$$
+ou ainda, permutando os símbolos de integral e série e rearranjando, na seguinte forma
+$$J = \dfrac{1}{\Gamma(a)} \sum_{n=0}^{\infty} \dfrac{\Gamma(a + n)}{n!} z^n
+\int_0^1 t^{b+n-1} (1 - t)^{c-b-1} dt.$$
+
+A integral remanescente pode ser expressa como uma função beta, logo
+$$J =
+\dfrac{1}{\Gamma(a)} \sum_{n=0}^{\infty} \dfrac{\Gamma(a + n)}{n!} z^n \mathcal{B}(b + n, c - b),$$
+ou ainda, utilizando a relação entre a função beta e a função gama, na seguinte forma, já rearranjando,
+$$J =
+\dfrac{1}{\Gamma(a)}
+\sum_{n=0}^{\infty}
+\dfrac{\Gamma(a + n)\Gamma(b + n)\Gamma(c - b)}{n! \Gamma(c + n)} z^n.$$
+Utilizando a definição do símbolo de Pochhammer, temos
+$$J = \dfrac{\Gamma(c - b)\Gamma(b)}{\Gamma(c)} \sum_{n=0}^{\infty} \dfrac{(a)_n(b)_n}{(c)_n} \dfrac{z^n}{n!}.
+$$
+
+
+O somatório remanescente nada mais é que a definição da função hipergeométrica, logo
+$$J = \dfrac{\Gamma(c - b)\Gamma(b)}{\Gamma(c)} {}_2F_1(a, b; c; z).$$
+
+Assim, de posse desta expressão podemos escrever, isolando a função hipergeométrica
+$${}_2F_1(a, b; c; z) = \dfrac{\Gamma(c)}{\Gamma(c - b) \Gamma(b)} \int_0^1 t^{b-1} (1 - t)^{c-b-1} (1 - zt)^{-a} dt$$
+com $\operatorname{Re}(c) > \operatorname{Re}(b) > 0$, que é uma representação integral para a função hipergeométrica.
+
+Concluímos esta seção apenas mencionando o que atende pelo nome de relação contígua que, em muitos cálculos permite simplificar as expressões. Tais relações estão associadas aos parâmetros, a, b e c, adicionado ou subtraído da unidade, isto é,
+$${}_2F_1(a \pm 1, b; c; x), {}_2F_1(a, b \pm 1; c; x), {}_2F_1(a, b; c \pm 1; x)$$
+ou uma combinação deles.
+
+\exercicio{}{%Do lar 20.
+Admita que os parâmetros estejam bem definidos para verificar a relação contígua
+$$\dfrac{(a - c)}{c} z {}_2F_1(a, b; c + 1; z) =
+(1-z) {}_2F_1(a, b; c; z) - {}_2F_1(a, b - 1; c; z).$$
+}
+
+É bastante natural querer \textbf{generalizar} todo resultado, com as funções especiais não é diferente. Existem várias maneiras de apresentar uma generalização, por exemplo, aumentando o número de \textbf{variáveis independentes}; aumentando o número de \textbf{parâmetros} e, também, aumentando ambos, o número de \textbf{variáveis independentes e o número de parâmetros}. Aqui, vamos apenas generalizar aumentando o \textbf{número de parâmetros}, mantendo apenas \textbf{uma} variável independente. Justifica-se esta generalização, pois um pouco mais para a frente, vamos estudar as chamadas funções de Meijer, ou função $\mathbf{G}$ de Meijer e a função de Fox, ou função $\mathbf{H}$ de Fox.
+
+
+
+\definicao{}{}{Sejam $p, q \in \mathbb{N}$, $\alpha_i$, com $i = 1, \ldots, p$ e $\beta_j \neq 0, -1, -2, \ldots$, com $j = 1, \ldots, q$. Definimos a série hipergeométrica generalizada através da série
+$${}_pF_q
+\left[\begin{array}{rl}
+\alpha_1, \ldots, \alpha_p & \\
+ & z \\
+\beta_1, \ldots, \beta_q &
+\end{array}\right]
+= \sum_{k=0}^\infty \dfrac{(\alpha_1)_k \ldots (\alpha_p)_k z^k}{(\beta_1)_k \ldots (\beta_q)_k} \dfrac{z^k}{k!}
+= {}_pF_q(\alpha_1, \ldots, \alpha_p; \beta_1, \ldots, \beta_q; z)$$
+}
+
+Admita que nenhum dos parâmetros do numerador é zero ou um inteiro negativo, caso contrário o problema da convergência deveria excluir os termos que tornassem zero o numerador, a série hipergeométrica generalizada é:
+
+\begin{description}
+\item (i) convergente para $|z| < \infty$, se $p \leq q$
+\item (ii) convergente para $|z| < 1$, se $p = q + 1$
+\item (iii) divergente para todo $z$, $z \neq 0$, se $p > q + 1$.
+\end{description}
+
+Um caso especial é a chamada série hipergeométrica de Kummer, ou série hipergeométrica confluente, denotada por ${}_1F_1(a; c; z)$, obtida no caso em que $p = q = 1$.
+
+\definicao{}{}{Sejam $|z| < \infty$ e $p = q = 1$. Chama-se série hipergeométrica de Kummer a expressão
+$${}_1F_1(a; c; z) = \sum_{k=0}^{\infty}
+\dfrac{(a)_k z^k}{(c)_k k!}.$$
+}
+
+\exemplo{exem:aula03.11}{%11.
+Introduza $z \rightarrow \dfrac{z}{b}$, com $b \neq 0$ na série hipergeométrica e tome o limite $b \rightarrow \infty$, a fim de obter
+$$\lim_{b\to \infty} {}_2F_1 \left(a, b; c;\dfrac{z}{b}\right)
+= \lim_{b\to\infty} \sum_{k=0}^{\infty} \dfrac{(a)_k(b)_k}{(c)_k k!}
+\binom{z}{b}^k.$$
+}
+
+\solexemplo{Da Definição 2, podemos mostrar que
+$$\lim_{b\to\infty} \left[(b)_k \left(\dfrac{z}{b}\right)^k\right]
+= z^k$$
+
+Logo, para $z$ limitado, obtemos:
+$$\lim_{b\to\infty} {}_2F_1 \left(a, b; c;\dfrac{z}{b}\right)
+= \sum_{k=0}^{\infty} \dfrac{(a)_k z^k}{(c)_k k!}
+= {}_1F_1(a; c; z)$$
+a chamada série hipergeométrica confluente.
+}
+
+
+\exercicio{}{%Do lar 21.
+Seja $z \in \mathbb{C}$. Mostre que:
+
+(a) $\dfrac{\ln(1 + z)}{z} = {}_2F_1(1, 1; 2;-z)$;
+
+(b) $\cos(z) = {}_0F_1\left(-; \dfrac{1}{2};- \dfrac{z^{2}}{4}\right)$
+
+(c) $e^z = {}_1F_1(a; a; z).$
+}
+
+\exercicio{}{%Do lar 22.
+Utilize a representação integral para a função hipergeométrica para obter uma representação integral para a função hipergeométrica confluente, respeitadas
+as condições de existência.
+}
+
+\section{Função hipergeométrica e casos particulares}
+
+Como vamos ver adiante, a função hipergeométrica confluente, uma função envolvendo dois parâmetros, está relacionada com uma particular função de Mittag-Leffler. Visto que a função hipergeométrica confluente é obtida, com um conveniente processo de limite, a partir da função hipergeométrica, uma função envolvendo três parâmetros, vamos destacar alguns casos particulares, talvez os mais relevantes devido, por exemplo, à \textbf{geometria de um particular problema físico}. Ainda mais, uma vez que a função hipergeométrica é solução de uma equação diferencial ordinária, contendo três pontos singulares, incluindo o infinito, como já mencionamos, vamos considerar apenas a \textbf{expansão em termos de um só ponto}, como introduzimos a função hipergeométrica através de uma expansão em série na vizinhança do ponto $z_0 = 0$. Por fim, o destaque fica para as soluções polinomiais.
+
+A partir da \ref{def:aula03.04}, vamos considerar casos particulares dos parâmetros $a$, $b$ e $c$, elencando, como já mencionado, aqueles mais relevantes. Sejam os parâmetros tais que $a = -n$, com $n = 0, 1, 2, \ldots, b = \alpha +\beta+n+1$ e $c = \alpha +1$, tais que $\alpha > -1$ e $\beta > -1$. Assim, temos os chamados \textbf{polinômios de Jacobi}, denotados por $P_{n}^{(\alpha ,\beta)}(x)$ e dados pela relação
+$$P_{n}^{(\alpha ,\beta)}(x) = \dfrac{\Gamma(\alpha + n + 1)}{\Gamma(\alpha + 1) n!}{}_2F_1\left(-n, \alpha + \beta + n + 1; \alpha + 1;\dfrac{1 - x}{2}\right).$$
+
+A partir desse resultado, consideremos, agora, os parâmetros $\alpha = \beta = \lambda -1/2$, com $\lambda > -1/2$. Com isso, obtemos os \textbf{polinômios de Gegenbauer}, denotados por $C^\lambda_n(x)$ e dados, para $\lambda \neq 0$, pela expressão
+$$C^\lambda_n(x) = \dfrac{\Gamma(2\lambda + n)}{\Gamma(2\lambda ) n!} {}_2F_1\left(-n, n + 2\lambda ; \lambda + 1/2;\dfrac{1 - x}{2}\right).$$
+
+No caso particular $\lambda = 0$, devemos usar o limite
+\begin{equation}\label{eq:aula03.04}
+C^0_n(x) = \lim_{\lambda \rightarrow 0} \dfrac{1}{\lambda} C^\lambda_n(x).
+\end{equation}
+
+Para concluir, a partir dos polinômios de Gegenbauer, tomemos $\lambda = 1$, a fim de obter os \textbf{polinômios de Chebyshev de segunda espécie}, denotados por $U_n(x)$ e dados, em termos da função hipergeométrica, pela seguinte expressão
+$$U_n(x) = (n + 1) {}_2F_1\left(-n, n + 2; 3/2;\dfrac{1 - x}{2}\right).$$
+
+Ainda mais, no caso em que $\lambda = 0$, obtemos os \textbf{polinômios de Chebyshev de primeira espécie}, denotados por $T_n(x)$ e dados, em termos da função hipergeométrica, por:
+$$Tn(x) = {}_2F_1\left(-n, n + 1; 1;1 - x2\right).$$
+
+
+Aqui, neste caso, levamos em conta o limite \autoref{eq:aula03.04}.
+
+Por fim, para $\lambda = 1/2$, obtemos os clássicos polinômios de Legendre, denotados por $P_n(x)$ e dados, em termos da função hipergeométrica, por
+$$P_n(x) = {}_2F_1\left(-n, n; 1/2;\dfrac{1 - x}{2}\right).$$
+
+É importante notar que todos esses polinômios são soluções de uma equação diferencial ordinária de segunda ordem e, portanto, admitem uma outra solução linearmente independente, porém essa solução \textbf{não será um polinômio} e, sim, uma respectiva função.
+
+\exemplo{exem:aula03.12}{%12.
+Seja $z \in \mathbb{C}$. A forma mais geral de uma equação diferencial ordinária linear homogênea e de segunda ordem pode ser escrita na forma
+$$\dfrac{d^2}{dz^2} w(z) + P(z) \dfrac{d}{dz} w(z) + Q(z) w(z) = 0,$$
+onde $P(z)$ e $Q(z)$ são funções analíticas.
+
+Note que poderíamos ter começado com uma equação diferencial contendo um coeficiente no termo de derivada segunda. Bastando, então, dividir por esse coeficiente, desde que diferente de zero, e obtemos a equação diferencial conforme mencionada. Ainda mais, nos pontos em que o coeficiente da derivada segunda é nulo, tais pontos devem ser tratados como singulares. Diante disso, vamos obter a equação hipergeométrica.
+}
+
+\solexemplo{
+Com a imposição de termos três pontos singulares regulares, incluindo um ponto no infinito, somos levados ao que é conhecido como equação diferencial de Riemann-Papperitz, dada por
+{\small
+$$\begin{array}{rcl}
+& w'' \\
++
+\left[
+\dfrac{1 - \alpha - \alpha'}{z - z_{1}}
++
+\dfrac{1 - \beta - \beta'}{z - z_{2}}
++
+\dfrac{1 - \gamma - \gamma'}{z - z_{3}}
+\right]
+& w' \\
++
+\left[
+\dfrac{\alpha \alpha'(z_{1} - z_{2})(z_{1} - z_{3})}{z - z_{1}}
++
+\dfrac{\beta\beta'(z_{2} - z_{3})(z_{2} - z_{1})}{z - z_{2}}
++
+\dfrac{\gamma\gamma'(z_{3} - z_{1})(z_{3} - z_{2})}{z - z_{3}}
+\right]
+\dfrac{1}{(z - z_{1})(z - z_{2})(z - z_{3})} & w(z)
+= 0,
+\end{array}$$}
+onde $z_{1}$, $z_{2}$ e $z_{3}$ são os três pontos singulares regulares e $\alpha$, $\alpha'$, $\beta$, $\beta'$, $\gamma$ e $\gamma'$ são os expoentes, raízes das correspondentes equações indiciais, associados a estes três pontos, respectivamente e usamos a notação
+$$\dfrac{d^2}{dz^{2}} w(z) = w'' \mbox{ e }\dfrac{d}{dz} w(z) = w'.$$
+
+Visto que admitimos o infinito como ponto singular, emerge a condição envolvendo os expoentes
+$$\alpha + \alpha' + \beta + \beta' + \gamma + \gamma' = 1$$
+a chamada \textbf{condição de Riemann}. É costume indicar uma solução da equação através do símbolo de Papperitz, que deixa clara a notação envolvendo os expoentes e os pontos ingulares,
+$$w(z) = \mathbf{P}
+\left\{
+\begin{array}{cccc}
+z_{1} & z_{2} & z_{3} & \\
+\alpha & \beta & \gamma & z \\
+\alpha' & \beta' & \gamma' & 
+\end{array}\right\}.$$
+
+Essa notação equivale a dizer que $w(z)$ é uma solução da equação de Riemann-Papperitz, também conhecida como equação de Riemann, sendo $\alpha$ e $\alpha'$ os expoentes associados a $z_{1}$; $\beta$ e $\beta'$ os expoentes associados a $z_{2}$ e $\gamma$ e $\gamma'$ os expoentes associados a $z_{3}$. Essa equação goza de duas importantes propriedades envolvendo os
+expoentes e os pontos singulares, a saber:
+
+\textbf{P1}. A transformação bilinear 
+$$y = \dfrac{ax+b}{cx+d},$$
+com $x \neq -d/c$ preserva a forma da equação e altera a posição dos pontos singulares preservando os expoentes.
+
+\textbf{P2}. A transformação da forma
+$$w(z) = (z - z_{1})^{-\lambda} (z - z_{2})^{-\mu} (z - z_{3})^{-\nu} u(z),$$
+com a condição $\lambda +\mu+\nu = 0$ também preserva a forma da equação, mantém os pontos singulares inalterados, mas aumenta os expoentes das quantidades $\lambda$, $\mu$ e $\nu$, respectivamente.
+
+A partir de uma conveniente combinação destas duas transformações, podemos conduzir os três pontos singulares regulares $z_{1}$, $z_{2}$ e $z_{3}$ nos pontos $0$, $1$ e
+$\infty$. Por fim, introduzindo a notação
+$$\begin{array}{rcl}
+\alpha + \beta + \gamma &=& a \\
+\alpha + \beta' + \gamma &=& b \\
+1 + \alpha - \alpha' &=& c,
+\end{array}$$
+obtemos a seguinte equação diferencial
+$$z(1-z)\dfrac{d^2}{dz^{2}} w(z) + [c-(a+b+1)z] \dfrac{d}{dz} w(z) - ab w(z) = 0$$
+que é a clássica equação hipergeométrica, sendo uma sua solução dada pela função conforme Definição 4. Ressaltamos que, nesta disciplina, vamos trabalhar apenas com $x \in \mathbb{R}$.
+}
+
+
+Como uma importante consequência, podemos afirmar que a solução de qualquer equação diferencial ordinária, linear, homogênea e de segunda ordem, com três pontos singulares regulares, \textbf{pode ser escrita em termos de uma solução da equação hipergeométrica}.
+
+Note que a equação diferencial de Riemann-Papperitz permanece inalterada se trocarmos de lugar $z_{1}$, $z_{2}$ e $z_{3}$ na equação diferencial, ou se permutarmos entre si $\alpha$ com
+$\alpha'$, ou $\beta$ com $\beta'$, a equação de Riemann permanece a mesma levando, porém, a uma equação hipergeométrica diferente. A primeira permutação pode ocorrer de $3! = 6$
+maneiras diferentes, e a segunda possibilita $2 \times 2 = 4$ combinações de $\alpha's$ e $\beta's$, o que nos fornece um total de $24$ soluções diferentes, conhecidas como soluções de
+Kummer. Como uma equação diferencial ordinária de segunda ordem só admite duas soluções linearmente independentes, existe entre essas $24$ soluções uma série de relações, conhecidas com o nome de relações de Kummer, que permitem obter outras soluções a partir de uma solução conhecida.
+
+\exercicio{}{%Do lar 23.
+Mostre que a função hipergeométrica, conforme apresentada na Definição 4, é uma solução da equação hipergeométrica.
+}
+
+\exercicio{}{%Do lar 24.
+Obtenha uma segunda solução linearmente independente da equação hipergeométrica, em torno de $z_{1} = 0$.
+}
+
+\exercicio{}{%Do lar 25.
+Determine a equação diferencial ordinária sendo uma solução dada por ${}_2F_1(1, b; b; x)$. Obtenha uma segunda solução linearmente independente da equação hipergeométrica.
+}
+
+\section{Função confluente e casos particulares}
+
+Vamos agora partir da Definição 6. Note que essa função, dependente de dois parâmetros, também é solução de uma equação diferencial ordinária de segunda ordem com dois pontos singulares. Em analogia, às funções hipergeométricas, vamos considerar dois casos particulares dos parâmetros, mencionando apenas a relação com a função hipergeométrica confluente, a saber: as \textbf{funções de Whittaker}, denotadas por $M_{\nu ,\mu}(x)$ e os \textbf{polinômios de Laguerre}, denotados por $L^{(\alpha)}_{n}(x)$.
+
+Sejam os parâmetros $a = \mu-\nu +1/2$ e $c = 1+2\mu$ na função hipergeométrica confluente, logo, temos:
+$$M\nu ,\mu(x) = e^{\frac{-x}{2}} x^{\mu+\frac{1}{2}} {}_1F_1 (\mu - \nu + 1/2; 1 + 2\mu; x),$$
+com a restrição $\mu \neq -1/2,-3/2, \ldots$.
+
+Note que esta função, também com dois parâmetros, é apenas uma forma distinta de apresentar uma das soluções da respectiva equação diferencial ordinária, obtida a partir de uma conveniente mudança de variável dependente e os parâmetros como acima definidos.
+
+Por outro lado, a fim de mencionarmos um caso particular envolvendo um parâmetro, os clássicos polinômios de Laguerre, utilizamos o seguinte limite
+$$\lim_{\beta \to \infty} P^{(0, \beta)}_n \left(1-\dfrac{2}{\beta} x\right) \simeq L_n(x),$$
+onde $$P^{(0,\beta)}_n\left(1 - \dfrac{2}{\beta} x\right)$$
+são particulares polinômios de Jacobi.
+
+Ainda mais, podemos escrever os polinômios de Laguerre em termos de uma função hipergeométrica confluente,
+$$L_n(x) = \dfrac{1}{n!}{}_1F_1(-n; 1; x),$$
+com $n = 0, 1, 2, \ldots$.
+
+Por fim, a partir das funções hipergeométricas confluentes podemos ainda, como casos particulares dos parâmetros, obter outras funções e polinômios, dentre os quais mencionamos: os \textbf{polinômios de Hermite}, as \textbf{funções de Weber} e as \textbf{funções de Bessel}.
+
+Antes de apresentarmos um exemplo específico, ressaltamos que essas funções especiais têm, além de um estudo puramente matemático, em particular estudando \textbf{ortogonalidade e funções geratrizes}, uma vasta classe de aplicações em problemas advindos da física matemática, dentre os quais mencionamos, apenas: o pêndulo simples, oscilador harmônico e o átomo de hidrogênio. Ainda mais, essas funções podem ser generalizadas, de uma maneira natural, admitindo $p$ termos no numerador e $q$ termos no denominador, conforme Definição 5, com notação dada pela expressão
+$${}_pF_{q} (a_1, \ldots , a_p; b_1, \ldots, b_q; x) = {}_pF_{q}((a_p); (b_q); x) = \sum_{k=0}^{\infty} \dfrac{(a_1)_k \cdots (a_p)_k}{(b_1)_k \cdots (b_q)_k} \dfrac{x^k}{k!},$$
+onde $(a_j)_k$ e $(b_j)_k$ são símbolos de Pochhammer.
+
+\exemplo{exem:aula03.0}{%13.
+Obter a forma explícita da equação hipergeométrica confluente. Em analogia ao processo de limite (confluência de duas singularidades) utilizado para introduzirmos a função hipergeométrica confluente, a partir da função hipergeométrica, vamos obter a equação hipergeométrica confluente, também conhecida como equação de Kummer ou mesmo equação de Tricomi, a partir da equação hipergeométrica.
+}
+
+\solexemplo{
+Sejam $a, b, c \in \mathbb{R}$ satisfazendo as condições conforme Definição 4. Consideremos a equação diferencial hipergeométrica
+$$x(1-x) \dfrac{d^2}{dx^2} w(x) + [c-(a+b+1)x]
+\dfrac{d}{dx} w(x) - ab w(x) = 0,$$
+na qual introduzimos a mudança de variável independente
+$x \rightarrow x/b$, logo, já simplificando e rearranjando, obtemos a equação diferencial
+$$x\left(1 -\dfrac{x}{b}\right) \dfrac{d^2}{dx^2} w(x) + \left[c -\left(\dfrac{a - 1}{b} + 1\right) x\right] \dfrac{d}{dx} w(x) - a w(x) = 0.$$
+Tomando o limite $b \rightarrow \infty$, obtemos:
+$$x \dfrac{d^2}{dx^2} w(x) + (c - x) \dfrac{d}{dx} w(x) - aw(x) = 0,$$
+chamada \textbf{equação hipergeométrica confluente}.
+}
+
+\exercicio{}{%Do lar 26.(Função gama incompleta)
+Expresse a \textbf{função gama incompleta}, definida por
+$$\Gamma(\mu,z) = \int_{0}^{z} e^{-t} t^{\mu-1} dt,$$
+em termos de uma função hipergeométrica confluente.
+}
+
+
+\exercicio{}{%Do lar 27.
+Mostre que, satisfeitas as condições de existência, vale a relação
+{}_1F_1(a; c; x) = e^x{}_1F_1(c - a; c; x).
+}
+
+
+Ver \cite{capelas2012funcoesespeciais} e \cite{capelas2014introducao}.
+
+Antes de apresentar as funções hipergeométricas generalizadas e seus casos particulares, funções de Wright generalizadas, a clássica função de Wrigth, função de Meijer e função de Fox, é conveniente introduzir o conceito de integral de Mellin-Barnes.
+
+
+%%%% 07 maio 21

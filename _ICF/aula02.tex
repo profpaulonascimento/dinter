@@ -1,0 +1,365 @@
+
+\chapter{Equações diferenciais ordinárias}
+
+  Em analogia à seção anterior, onde revisamos as variáveis complexas através de exemplos, aqui vamos proceder de maneira análoga. Um pouco das equações diferenciais ordinárias com o intuito de, após o método de Frobenius, apresentar as funções especiais, em especial a classe das funções hipergeométricas e seus casos particulares.
+
+\exemplo{}{
+Seja $x \in \mathbb{R}_{+}\ast$. Considere a equação diferencial ordinária não homogênea do tipo Euler
+\begin{equation}
+\label{eq:EDOH_euler}
+x^{2} \dfrac{d^{2}}{dx^{2}} y(x) - x\dfrac{d}{dx} y(x) + y(x) = x \ln(x).
+\end{equation}
+
+Obtenha a solução dessa equação diferencial ordinária satisfazendo as condições $y(1) = 1$ e $y(e) = e$.
+}
+
+
+\solexemplo{
+Começamos com a respectiva equação diferencial homogênea. Vamos propor uma solução na forma
+\begin{equation}
+\label{eq:EDOH_eulerpropostasolucao}
+y_{H} (x) = x^r,
+\end{equation}
+em que $r$ é uma constante.
+
+Calculando as derivadas, substituindo na equação diferencial homogênea e simplificando, temos:
+$$r(r - 1) - r + 1 = 0,$$
+a chamada equação auxiliar, uma equação algébrica com soluções dadas por $r_1 = 1 = r_2$, isto é, raiz dupla, de onde segue que temos apenas uma solução da equação diferencial homogênea, a saber
+$$y_1(x) = x.$$
+
+Para obter uma outra solução linearmente independente, procuramos por uma função $u(x)$ impondo que a solução $y_2(x) = x u(x)$ satisfaça a equação diferencial homogênea.
+
+Calculando as derivadas, substituindo na equação diferencial homogênea e simplificando, podemos escrever:
+$$x\dfrac{d^{2}}{dx^{2}}u(x) + \dfrac{d}{dx}u(x) = 0.$$
+
+Para resolver esta equação diferencial (redutível), efetuamos a mudança de variável dependente $u'(x) = v(x)$.
+
+Logo, obtemos uma equação diferencial ordinária homogênea de primeira ordem
+$$x\dfrac{d}{dx}v(x) + v(x) = 0$$
+cuja solução é dada por $v(x) = C/x$, em que $C$ é uma constante arbitrária. 
+
+Voltando na variável dependente $u(x)$, obtemos uma outra equação diferencial ordinária de primeira ordem
+$$\dfrac{d}{dx}u(x) = \dfrac{C}{x},$$
+com solução dada por $u(x) = C \ln(x)+D$, em que $C$ e $D$ são constantes arbitrárias.
+
+Logo, uma solução linearmente independente da equação diferencial ordinária, homogênea e de segunda ordem, é dada por
+$$y_2(x) = x \ln(x).$$
+
+Segue, então, que a solução geral da respectiva equação diferencial homogênea é dada por:
+$$y_H(x) = A y_{1}(x) + B y_{2}(x) = Ax + Bx \ln(x),$$
+com $A$ e $B$ constantes arbitrárias.
+
+Enfim, devemos agora, obter uma solução particular da equação diferencial não homogênea o que será feito através do método de variação das constantes (variação dos parâmetros).
+
+Consideremos a solução dada na forma
+$$y_P (x) = A(x)x + B(x)x \ln(x)$$
+
+Calculando as derivadas primeira e segunda, e impondo a condição (arbitrária, conveniente)
+$$A'(x) + B'(x) \ln(x) = 0$$
+e substituindo na equação diferencial não homogênea, podemos escrever
+$$A'(x) + (1 + \ln(x))B'(x) = \dfrac{\ln(x)}{x}.$$
+
+Resolvendo o sistema nas variáveis $A'(x)$ e $B'(x)$, temos:
+$$A'(x) = -\dfrac{[\ln(x)]^2}{x} \mbox{ e } B'(x) = \dfrac{\ln(x)}{x}.$$
+
+Integrando (não levando em consideração a constante de integração, pois queremos uma solução), obtemos:
+$$A(x) = -\dfrac{1}{3}[\ln(x)]^3 \mbox{ e } B(x) = \dfrac{1}{2}[\ln(x)]^2.$$
+
+Voltando com tais valores na expressão que fornece uma solução particular e rearranjando, podemos escrever:
+$$y_P (x) = \dfrac{x}{6}[\ln(x)]^3.$$
+
+A fim de obter a solução geral da equação diferencial ordinária não homogênea, basta adicionar a solução geral da respectiva equação homogênea com a solução particular da equação não homogênea. Logo,
+$$y(x) = Ax + B \ln(x) + \dfrac{x}{6} [\ln(x)]^3,$$
+sendo $A$ e $B$ constantes arbitrárias.
+
+Devemos, agora, impor as condições a fim de determinar as constantes.
+
+Impondo a condição $y(1) = 1$, determinamos $A = 1$, enquanto a condição $y(e) = e$, fornece $B = -e/6$. Então, a solução da equação diferencial ordinária não homogênea, satisfazendo as condições de contorno (fronteira) é dada por:
+$$y(x) = \dfrac{1}{6} [6x - e \ln(x) + x [\ln(x)]^3],$$
+que é o resultado desejado.
+}
+
+\indent
+
+\indent
+
+Como pode ser notado, os coeficientes no exemplo anterior não são constantes. Por exemplo, o que acontece em $x = 0$ que é um ponto singular, pois está multiplicando a derivada segunda? Em princípio deve ser excluído do domínio.
+
+Para responder a essa pergunta, vamos introduzir o método de Frobenius que nos conduz a uma análise relativa às raízes da chamada equação indicial/auxiliar.
+
+\exemplo{}{%Exemplo 2.
+Seja $x \in \mathbb{R}$. Utilize o método de Frobenius para discutir a equação hipergeométrica confluente, também conhecida como equação de Kummer,
+\begin{equation}
+\label{eq:kummer}
+x\dfrac{d^{2}}{dx^{2}}y(x) + (c-x)\dfrac{d}{dx}y(x) - ay(x) = 0,
+\end{equation}
+com $a, c \in \mathbb{R}$ e $c \ne -n$, sendo $n = 0, 1, 2, \ldots.$
+}
+
+\solexemplo{O método de Frobenius faz uso da metodologia das séries de potências. Vamos procurar soluções na forma
+$$y(x) = \displaystyle\sum_{k=0}^{\infty} a_{k} x^{k+s},$$
+com $a_{0} \ne 0$ e $s$ um parâmetro a ser determinado.
+
+Calculando as derivadas primeira e segunda, substituindo-as na equação diferencial e rearranjando, podemos escrever:
+$$\displaystyle\sum_{k=0}^{\infty} (k+s)(k+s-1+c) a_{k} x^{k+s-1} - \displaystyle\sum_{k=0}^{\infty} (k+s+a) a_{k} x^{k+s} = 0$$
+que, a partir da mudança de índice, $k \to k - 1$, no segundo somatório, nos conduz a
+$$\displaystyle\sum_{k=0}^{\infty} (k+s)(k+s-1+c) a_{k} x^{k+s-1} - \displaystyle\sum_{k=1}^{\infty} (k+s-1+a) a_{k-1}x^{k+s-1} = 0.$$
+
+Separando o termo $k = 0$ no primeiro somatório e rearranjando, temos:
+$$s(s-1+c) a_{0} x^{s-1} + \displaystyle\sum_{k=1}^{\infty} [(k+s)(k+s-1+c)a_{k}-(k+s-1+a) a_{k-1}] x^{k+s-1} = 0.$$
+
+Dessa expressão e sabendo que $a_{0} \ne 0$, obtemos:
+$$s(s - 1 + c) = 0$$
+a chamada \textbf{equação indicial (auxiliar)}. Esta é uma equação algébrica de segundo grau, admite duas raízes que, eventualmente, podem ser complexas. 
+
+Aqui, as soluções são dadas por $s_1 = 0$ e $s_{2} = 1 - c$.
+
+Por outro lado, temos a chamada \textbf{fórmula (relação) de recorrência}, obtida levando em conta que a única maneira de termos um zero no primeiro membro é considerando os coeficientes nulos. Então, neste caso, temos:
+$$(k+s)(k+s-1+c) a_{k} - (k+s-1+a) a_{k-1} = 0.$$
+
+Antes de continuarmos, façamos uma observação. Aqui temos duas raízes reais da equação auxiliar, distintas ou iguais, dependendo dos valores do parâmetro $c$ e a fórmula de recorrência envolvendo dois termos, $a_{k}$ e $a_{k-1}$.
+
+A partir de agora, devemos considerar, \textbf{separadamente}, as raízes da equação indicial. Começamos com a raiz $s_1 = 0$, que nos leva à fórmula de recorrência
+$$a_{k} = \dfrac{k-1+a}{k(k-1+c)} a_{k-1},$$
+com $k = 1, 2, \ldots$ e $c \ne -n$, sendo $n = 0, 1, 2, \ldots$.
+
+Da relação anterior, devemos explicitar o coeficiente que depende de $k$ em termos de uma constante, pois a única certeza é que $a_{0} \ne 0$. Para tal, vamos explicitar alguns poucos coeficientes:
+$$\begin{array}{rclclcl}
+k &=& 1 \Rightarrow a_{1} &=& \dfrac{a}{c} a_{0} & & \\
+k &=& 2 \Rightarrow a_{2} &=& \dfrac{1+a}{2(1+c)} \dfrac{a}{c} a_{0} &=& \dfrac{a(a+1)}{2c(c+1)} a_{0} \\
+k &=& 3 \Rightarrow a_{3} &=& \dfrac{2+a}{3(2+c)} a_{2} &=& \dfrac{a(a+1)(a+2)}{3!c(c+1)(c+2)} a_{0} \\
+&\vdots& && &&
+\end{array}$$
+de onde escrevemos, para o termo $a_{k}$ em função de $a_{0}$
+$$a_{k} =
+\dfrac{\Gamma(a+k)}{\Gamma(a)} \dfrac{1}{\dfrac{\Gamma(k+k)}{\Gamma(c)}} \dfrac{a_{0}}{k!}
+=
+\dfrac{\Gamma(c)}{\Gamma(a)} \dfrac{\Gamma(a+k)}{\Gamma(c+k)} \dfrac{a_{0}}{k!}.
+$$
+
+Note que introduzimos o conceito de \textbf{função gama} que generaliza o fatorial, definido para inteiros positivos. Por enquanto, imagine que estamos trabalhando com inteiros positivos, pois a única diferença é a defasagem de uma unidade. Essa afirmação se deve à relação $\Gamma(n + 1) = n!$.
+
+Voltando com esses coeficientes na expressão para a solução e rearranjando, temos uma solução para a equação hipergeométrica confluente, relativa ao índice $s = 0$ da equação indicial, dada por:
+$$\begin{array}{rcl}
+y_1(x)
+&=& a_{0} \dfrac{\Gamma(c)}{\Gamma(a)} \displaystyle\sum_{k=0}^{\infty} \dfrac{\Gamma(a+k)}{\Gamma(c+k)} \dfrac{x^{k}}{k!} \\
+&=& a_{0}\ {}_1F_{1}(a; c; x)
+\end{array}$$
+a chamada \textbf{função hipergeométrica confluente}.
+
+Dessa expressão, fica claro que a constante $a_{0}$ deve ser diferente de zero, pois se $a_{0} = 0$, temos apenas a \textbf{solução trivial}.
+
+Devemos, agora, considerar a outra raiz da equação indicial, $s_{2} = 1 - c$. 
+Procedendo exatamente como na primeira raiz, obtemos a segunda solução
+$$\begin{array}{rcl}
+y_2(x)
+&=& a_{0} \dfrac{\Gamma(2-c)}{\Gamma(a-c+1)} \displaystyle\sum_{k=0}^{\infty} \dfrac{\Gamma(a-c+1+k)}{\Gamma(2-c+k)} \dfrac{x^{k+1-c}}{k!} \\
+&=& a_{0}\ x^{1-c}\ {}_1F_{1}(a+1-c; 2-c; x).
+\end{array}$$
+
+
+A pergunta natural agora é: são estas duas soluções linearmente independentes, a fim de que tenhamos uma solução geral? Para responder a esta pergunta, devemos calcular o determinante Wronskiano
+$$
+W[y_1(x), y_2(x)] =
+\begin{array}{|cc|}
+y_1 & y_{2} \\ y'_{1} & y'_{2}
+\end{array}$$
+
+Basta que consideremos apenas o primeiro termo (o chamado \textbf{termo líder}, relativo a $k = 0$) das séries, a saber:
+$$
+y_{1} =
+\dfrac{\Gamma(c)}{\Gamma(a)} \dfrac{\Gamma(a)}{\Gamma(c)} = 1
+$$
+e
+$$
+y_{2}
+=
+\dfrac{\Gamma(2-c)}{\Gamma(a-c+1)}
+\dfrac{\Gamma(a-c+1)}{\Gamma(2-c)}
+x^{1-c}
+=
+x^{1-c}
+$$
+que, substituídos na expressão para o Wronskiano e já calculando o determinante, fornece
+$$
+W[y_1(x), y_2(x)] =
+\begin{array}{|cc|}
+1 & x^{1-c} \\
+0 & (1-c) x^{-c}
+\end{array}
+= (1-c) x^{-c}.
+$$
+
+Desta expressão, aparece naturalmente uma imposição a ser feita, pois somente para $c \ne 1$, temos duas soluções linearmente independentes e a solução geral da equação hipergeométrica confluente é dada por:
+$$y(x) = C_1\ {}_1F_1(a; c; x) + C_2 x^{1-c}\ {}_1F_1(a+1-c; 2-c; x),$$
+em que $C_1$ e $C_2$ são constantes arbitrárias.
+
+Podemos concluir que o método de Frobenius forneceu duas soluções linearmente independentes impondo $c \ne 1$.
+
+No caso em que $c = 1$, devemos procurar uma segunda solução linearmente independente utilizando diretamente a expressão de Frobenius generalizada ou o método de redução de ordem. Este é o caso sempre que as raízes da equação indicial são iguais.
+}
+
+\exercicio{}{%Do lar 1.
+Explicite os cálculo a fim de obter a segunda solução da equação hipergeométrica confluente.
+}
+
+\exercicio{}{%Do lar 2.
+Utilize o método de Frobenius para discutir e obter uma solução da equação
+$$x\dfrac{d^{2}}{dx^{2}}y(x) + \dfrac{d}{dx}y(x) + xy(x) = 0,$$
+a \textbf{chamada equação de Bessel de ordem zero}.
+}
+
+\exercicio{}{%Do lar 3.
+\cite{makarenko1979problemas} Mostre que a solução da equação diferencial ordinária com coeficientes não constantes
+$$2x^2 \dfrac{d^{2}}{dx^{2}} y(x) + (3x-2x^2) \dfrac{d}{dx} y(x) - (x+1) y(x) = 0$$
+é dada por
+$$y(x) = A y_1(x) + B y_2(x)$$
+com $A$ e $B$ constantes reais e as duas soluções $y_1(x)$ e $y_2(x)$ dadas, respectivamente, por:
+$$y_1(x) = \sqrt{x} \left[1 + \displaystyle\sum_{k=0}^{\infty} \dfrac{(2x)^{k}}{5 \cdot 7 \cdot 9 \cdots (2k+3)}\right]$$
+e
+$$y_2(x) = \dfrac{e^x}{x}.$$
+}
+
+
+
+Após a introdução do método de Frobenius através de uma particular equação de Bessel, vamos considerar o caso geral, pois ela apresenta as possibilidades que o método de Frobenius proporciona para obter uma ou ambas as raízes de uma equação diferencial ordinária de segunda ordem com coeficientes não constantes.
+
+\exemplo{}{%Exemplo 3.
+Equação de Bessel de ordem $\mu$.
+
+Seja $\mu \in \mathbb{R}$ um parâmetro. Utilize o método de Frobenius para discutir a equação de Bessel de ordem $\mu$,
+\begin{equation}
+x^2\dfrac{d^{2}}{dx^{2}} y(x) + x \dfrac{d}{dx} y(x) + (x^2 - \mu^2) y(x) = 0,
+\end{equation}
+em que o parâmetro é, em princípio, arbitrário.
+}
+
+\solexemplo{Uma vez que a equação de Bessel contém um parâmetro arbitrário, justificamos a conveniência desta escolha por, a partir deste parâmetro, termos a possibilidade de englobar, numa só equação diferencial, as possibilidades, advindas do método de Frobenius, de encontrar uma ou duas soluções linearmente independentes.
+
+Ainda que seja um caso específico, considerar uma vizinhança da origem, não perdemos generalidade, pois com uma simples mudança de variável sempre podemos conduzir a análise à origem.
+
+Assim, consideramos uma série de potências da seguinte forma,
+$$y(x) = \displaystyle\sum_{n=0}^{\infty} a_{n} x^{n+s},$$
+com $a_{0} \ne 0$ e $s \in \mathbb{C}$ um parâmetro.
+
+Calculando a primeira derivada (admitindo que a derivação sob o somatório seja possível), temos:
+$$
+\dfrac{d}{dx}y(x) = \displaystyle\sum_{n=0}^{\infty}(n+s) a_n x^{n+s-1}
+$$
+enquanto, a derivada segunda é dada por
+$$\dfrac{d^{2}}{dx^{2}} y(x) = \displaystyle\sum_{n=0}^{\infty} (n+s)(n+s-1) a_{n} x^{n+s-2}.$$
+
+Introduzindo essas duas últimas expressões na equação diferencial, obtemos, já simplificando, a igualdade:
+$$
+\displaystyle\sum_{n=0}^{\infty} [(n+s)^2 - \mu^2] a_n x^{n+s} + \displaystyle\sum_{n=0}^{\infty} a_n x^{n+s-2} = 0.
+$$
+
+É imediato notar que existem duas diferenças básicas relativo ao desenvolvimento em série de Taylor, a saber: (a) os índices no somatório da primeira e da segunda derivadas não são alterados e (b) somente se $s = 0$, obtemos exatamente a série de Maclaurin.
+
+Comecemos a análise a partir dos índices. Com uma mudança de índice no segundo somatório, considerando $n \to n - 2$ (note que estamos mantendo a mesma letra para o índice, pois é um índice de soma, também chamado índice mudo), podemos escrever:
+$$\displaystyle\sum_{n=0}^{\infty}[(n+s)^2 - \mu^2] a_n x^{n+s} + \displaystyle\sum_{n=2}^{\infty} a_{n-2} x^{n+s} = 0.$$
+
+A fim de que tenhamos os índices inferiores iguais devemos separar os dois primeiros termos no primeiro somatório de modo que possamos rearranjar os demais num único somatório,
+$$(s^2 - \mu^2) a_{0} x^s + [(s+1)^2 - \mu^2] a_{1} x^{s+1} + \displaystyle\sum_{n=2}^{\infty} \{[(n+s)^2-\mu^2] a_n + a_{n-2}\} x^{n+s} = 0.$$
+
+Visto que $a_{0} \ne 0$, podemos escrever, utilizando identidade de polinômios, as seguintes igualdades:
+\begin{description}
+\item (a) $s^2 - \mu^2 = 0$;
+\item (b) $[(s+1)^2 - \mu^2] a_{1} = 0$;
+\item (c) $[(n + s)^2 - \mu^2] a_n + a_{n-2} = 0, n \ge 2$.
+\end{description}
+
+Uma breve análise dessas três igualdades. A equação em (a) é a equação indicial/auxiliar, pois só envolve o parâmetro e não envolve os coeficientes, enquanto a terceira (c), para um particular valor de $s$, é a chamada fórmula/relação de recorrência que, neste caso, relaciona o termo de ordem $n$ com o termo de ordem $n - 2$. A segunda equação, (b), aquela envolvendo o coeficiente $a_{1}$ não é conhecida com nome específico.
+
+Parece natural começar com a análise a partir da primeira das três equações, pois não envolve os coeficientes e nos fornece as raízes diretamente, ou ainda os possíveis valores do parâmetro $s$, até então arbitrário.
+
+Começamos por estudar os possíveis casos, ou seja, a partir da equação indicial, obtemos:
+$$s = \pm\mu,$$
+suas raízes, também chamados expoentes.
+
+Substituindo $s$, já determinado, na segunda equação, (b), temos $$[(\pm\mu + 1)^2 - \mu^2] a_{1} = 0,$$
+ou ainda, resolvendo a equação algébrica resultante, uma equação envolvendo um produto, temos:
+$$(1 \pm 2\mu) a_{1} = 0.$$
+
+Desta igualdade, temos duas possibilidades. A saber:
+\begin{description}
+\item (i) $\mu = \mp \dfrac{1}{2}, \forall\ a_1$
+\item (ii) $\mu \ne \pm \dfrac{1}{2}, a_{1} = 0$.
+\end{description}
+
+Por fim, substituindo estes resultados na terceira equação (c), fórmula de recorrência, obtemos:
+$$[(n \pm \mu)^2 - \mu^2] a_n + a_{n-2} = 0,$$
+ou ainda, expressando $a_n$ em função de $a_{n-2}$, na forma
+$$a_n = -\dfrac{a_{n-2}}{n(n \pm 2\mu)},$$
+com $n \ge 2$.
+
+Da fórmula de recorrência, é evidente que, se o parâmetro $\mu$ é um número inteiro ou semi-inteiro, vamos ter problemas, pois o denominador pode se anular.
+
+Daqui para a frente se faz necessário uma escolha relativa ao parâmetro $\mu$, até então arbitrário. Vamos escolhê-lo, além de uma maneira conveniente, de forma didática, no sentido de considerar as possibilidades, advindas do método de Frobenius. Aqui, vamos estudar, em separado, quatro casos distintos envolvendo o parâmetro $\mu$.
+
+
+I - Seja $\mu = \dfrac{1}{4}$.
+
+As raízes da equação auxiliar são distintas,
+$$s_1 = \dfrac{1}{4} \mbox{ e } s_{2} = -\dfrac{1}{4}.$$
+
+E, visto que $\mu \ne \pm\dfrac{1}{2}$, temos, da segunda equação, que $a_{1} = 0$, e da relação de recorrência, obtemos $a_n = 0$, para todo $n$ ímpar. Diante disso, podemos escrever, a partir da relação de recorrência,
+$$a_n = -\dfrac{a_{n-2}}{n \left(n\pm \dfrac{1}{2}\right)}, n = 2, 4, 6, \ldots$$
+e, ainda mais, como $n$ é par, na seguinte forma:
+$$a_{2n} = -\dfrac{a_{2n-2}}{n(4n \pm 1)},$$
+com $n = 1, 2, \ldots$.
+
+Então, como temos duas possibilidades (dois sinais distintos), obtemos duas soluções linearmente independentes da equação diferencial. Uma, associada à raiz $s_1 = 1/4$ e a outra, associada à raiz $s_{2} = -1/4$. Não vamos nos preocupar em expressar o coeficiente $a_{2n}$ em função de $a_{0} \ne 0$, o que será feito mais adiante.
+
+II - Consideramos $\mu = 0$.
+
+A equação indicial admite somente uma raiz (dupla), $s = 0$.
+
+Da segunda equação, temos:
+$$\mu \ne \pm\dfrac{1}{2}$$
+e, então, $a_{1} = 0$ bem como os demais ímpares.
+
+A relação de recorrência nos fornece
+$$a_{2n} = - \dfrac{a_{2n-2}}{4n^2},$$
+com $n = 1, 2, \ldots$, de onde obtemos uma só solução da equação diferencial ordinária.
+
+Uma outra solução linearmente independente pode ser procurada através do \textbf{método de redução de ordem}.
+
+III - Seja $\mu = \dfrac{1}{2}$.
+
+As raízes da equação indicial são $s_1 = \dfrac{1}{2}$
+e $s_{2} = -\dfrac{1}{2}$.
+
+No particular caso em que $s = \dfrac{1}{2}$, temos que $a_{1} = 0$ , de onde todos os termos de índices ímpares serem nulos e, da relação de recorrência, podemos escrever:
+$$a_n = -\dfrac{a_{n-2}}{n(n+1)},$$
+com $n = 2, 3, \ldots$ e obtemos uma solução da equação diferencial. 
+Por outro lado, no caso em que $s = -\dfrac{1}{2}$, temos $a_{1}$ arbitrário e a fórmula de recorrência é dada por
+$$a_n = -\dfrac{a_{n-2}}{n(n - 1)},$$
+com $n = 2, 3, \ldots$.
+
+Visto que temos duas constantes arbitrárias $a_{0}$ e $a_{1}$, diferentes de zero, esta raiz (a menor), fornece uma solução geral da equação diferencial ordinária, ou ainda, duas soluções linearmente independentes (Wronskiano diferente de zero) obtidas com o desenvolvimento em série de potências.
+
+\exercicio{}{%Do lar 4.
+Mostrar que a solução obtida com a outra raiz, a maior raiz, é um caso particular daquela obtida com a outra raiz, a menor.
+}
+
+IV - Consideramos $\mu = 1$.
+
+As raízes da equação indicial são $s_1 = 1$ e $s_{2} = -1$.
+
+No caso em que $s = 1$, concluímos que $a_{1} = a_3 = \cdots = 0$. Logo, da relação de recorrência, obtemos:
+$$a_n = - \dfrac{a_{n-2}}{n(n+2)},$$
+com $n = 2, 3, \ldots$. Então, temos somente uma solução.
+
+
+Por outro lado, relativamente ao caso em que $s = -1$, temos, ainda, $a_{1} = a_3 = \cdots = 0$ e, da relação de recorrência, a seguinte expressão:
+$$n(n - 2)a_n = -a_{n-2}$$
+que, para $n = 2$ implica $a_{0} = 0$, contrariando a hipótese $a_{0} \ne 0$. Tal expoente não fornece uma solução.
+
+
+Diante dessas possibilidades, façamos um breve resumo do método de Frobenius.
+
+O método fornece \textbf{pelo menos uma} solução da equação diferencial ordinária, escrita por meio de uma série de potências. A outra solução, em princípio, pode ser obtida através do \textbf{método de redução de ordem}. Existem casos em que o método fornece duas soluções linearmente independentes e em outros casos a relação de recorrência nem mesmo é válida! Nos casos em que o método de Frobenius não fornece duas soluções linearmente independentes emerge naturalmente um termo logarítmico, uma vez que a função $\ln(x)$ não pode ser expressa em termos de uma série de Frobenius. Como já mencionamos, para a análise em torno de um ponto singular regular no infinito, basta introduzir, no procedimento descrito, uma mudança de variável independente do tipo $z = 1/\xi$ e estudar a equação diferencial resultante em torno do ponto $\xi = 0$, a origem.
+}
+
+%23 abril 21

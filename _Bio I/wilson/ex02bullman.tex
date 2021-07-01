@@ -1,0 +1,93 @@
+
+\section*{Rumo à causalidade e melhoria da validade externa}
+
+
+    ``\textit{Felix, qui potuit rerum cognoscere causas}'', do poeta latino Virgílio (1), traduzido literalmente como ``Afortunado, que era capaz de conhecer as causas das coisas'', sugere a importância da causalidade desde muito tempo atrás. Em PNAS, Bates et al. (2) começa sua contribuição com a frase ``O objetivo final dos estudos de associação do genoma (GWAS) é identificar regiões do genoma contendo variantes que afetam causalmente um fenótipo de interesse'' e fornecem uma metodologia estatística original e altamente inovadora para fornecer respostas sólidas a este objetivo. Como argumentaremos, o problema de inferência causal é ambicioso e deve-se confiar em suposições. Os pressupostos na ref. 2 são fáceis de comunicar; a capacidade de comunicar suposições subjacentes torna sua abordagem transparente e, em nossa própria avaliação, suas suposições são muito plausíveis.
+
+    Quando observamos correlação ou dependência entre algumas variáveis de interesse, uma questão central é sobre a direcionalidade: se uma variável é a causa ou o efeito de outra. Claro, pode acontecer que nenhum dos dois seja verdade, por causa de confusão oculta. Veja a Fig. 1 para uma visão esquemática onde todas as variáveis observadas estão exibindo dependência de associação entre si, mas estas são, em parte, decorrentes de fatores ocultos invisíveis. Se pudéssemos obter conhecimento da direcionalidade causal, obviamente, isso levaria a muitas melhorias na compreensão e interpretabilidade de um sistema subjacente. Na Fig. 1, isso significa inferir as relações causais direcionadas entre as variáveis observadas.
+
+
+    Medidas de associação sozinhas, como correlação ou regressão (multivariada potencialmente não linear), com base nos chamados dados observacionais (dados do ``estado estacionário''), não podem fornecer respostas para a direcionalidade e, portanto, para a causalidade em geral; são necessárias suposições ou dados adicionais de outras configurações de projeto experimental. Um ensaio de controle randomizado (RCT) é um poderoso padrão ouro para inferir causalidade, graças ao seu desenho experimental muito especial (cf. ref. 3 e também Dados de perturbação como entrada). No entanto, infelizmente, esse método padrão-ouro costuma ser inviável ou antiético. Na ausência de RCTs, outra metodologia deve ser usada, sempre dependendo crucialmente de algumas suposições. Bates et al. (2) fornece uma abordagem altamente interessante com suposições plausíveis para inferência causal no campo particular de GWAS; ver abaixo. Antes de discutir isso, elaboramos brevemente de forma mais geral o propósito da causalidade.
+
+\noindent
+\begin{minipage}[!ht]{\columnwidth}
+\epsfig{figure=figs/fig01bullman.png,width=\columnwidth}
+\captionof{figure}{\scriptsize Sistema observado e verdadeiro em duas configurações diferentes (configuração A e B e configuração C e D). Variável de resposta Y (fenótipo) e covariáveis \(X_j (j = 1,2)\) (por exemplo, SNPs). (A e C) Variáveis observadas \(X_1, X_2, Y\) em azul. Uma borda não direcionada representa a associação entre as variáveis correspondentes, por exemplo, em termos de correlação ou de dependência de regressão (não linear) (correlação parcial) dadas todas as outras variáveis observadas. (B e D) Sistemas subjacentes verdadeiros, com variáveis observadas em azul e variável latente H oculta em vermelho. Uma aresta direcionada representa uma relação causal direta entre as variáveis correspondentes, com a cauda sendo a causa e a cabeça sendo o efeito (ou seja, a variável que é diretamente influenciada pela variável causadora). (A e B) Configuração onde todas as setas entre Xj a Y em B devem apontar para Y, como em (a maioria) GWAS. (C e D) A direção da seta em D entre \(X_j\) e Y pode ir para qualquer lado, como em situações gerais. Os verdadeiros sistemas subjacentes em B e D geram a dependência de associação em A e C, em termos de correlação ou dependência de regressão (não linear). A observação de tais associações leva a descobertas espúrias, ou seja, falsos positivos com relação à causalidade.}
+\label{fig:01}
+\end{minipage}
+
+\section*{Escopo Principal de Causalidade}
+
+     Além de ter melhorado a compreensão de um mecanismo, graças ao conhecimento causal, destacamos dois objetivos principais (adicionais) da inferência causal. Eles são frequentemente menos ambiciosos e mais realistas do que inferir toda a rede ou gráfico com pesos de aresta funcionais correspondentes, como na Fig. 1.
+
+\section*{Prevendo intervenções específicas: efeito do tratamento}
+
+     Um objetivo clássico de causalidade é a previsão de uma intervenção ou manipulação que não foi observada antes. A causalidade dá respostas quantitativas a perguntas como: O que aconteceria se tratássemos um paciente com um determinado medicamento (e a intervenção do tratamento ainda não tivesse sido feita)? O que aconteceria se eliminássemos um determinado gene (e a intervenção genética ainda não tenha sido realizada)? Assim, a causalidade dá uma resposta a uma pergunta do tipo ``e se eu fizer'' (4, 5). Em muitas aplicações, é altamente desejável ter previsões precisas para essas questões.
+
+\section*{Robustez contra Perturbações Inespecíficas: Validade Externa}
+
+    O problema abordado na ref. 2 talvez não esteja tão diretamente relacionado a intervenções específicas, uma vez que lida com polimorfismos de nucleotídeo único (SNPs) em GWAS, onde intervenções em SNPs não podem ser feitas. Como um experimento de pensamento, entretanto, ainda se pode pensar sobre o que aconteceria com o estado de uma doença se um certo SNP interviesse. Nossa mensagem é que, mesmo na ausência da possibilidade de fazer intervenções diretas, a inferência causal é altamente interessante (além da questão da interpretação mencionada acima). A principal razão é que a estrutura causal leva a certas invariâncias e robustez, como explicamos brevemente a seguir.
+
+    A maioria dos estudos científicos afirmam que as descobertas e resultados se generalizam para outros indivíduos ou populações e objetivam a validade externa. Em outras palavras, o objetivo é a replicabilidade das descobertas: queremos inferir resultados estáveis em diferentes subpopulações, em que cada uma delas pode ser uma versão perturbada de uma referência. Curiosamente, essa estabilidade em diferentes subpopulações ou diferentes perturbações tem uma relação muito intrínseca com a causalidade: a regressão nas variáveis causais, a solução causal, exibe (alguma) robustez ou estabilidade contra perturbações decorrentes de diferentes subpopulações (6-8) e, portanto, uma solução causal com sua robustez leva a uma melhor replicabilidade e melhor validade externa (em novos estudos, para novos pacientes, etc.). Em nossa opinião, esta é uma grande vantagem da abordagem e das conclusões da ref. 2: A metodologia deles, por visar relações causais, melhora a validade externa!
+
+\section*{Métodos de inferência causal}
+
+    Inferir causalidade a partir dos dados é uma tarefa ambiciosa e depende crucialmente do planejamento de experimentos ou de suposições adicionais, muitas vezes não testáveis.
+
+\section*{Dados de perturbação como entrada}
+
+    Aprender a estrutura causal e os efeitos é mais fácil com o acesso a dados de diferentes perturbações do sistema de interesse. Como já mencionado, o padrão ouro é uma perturbação na forma de um RCT. Lá, o experimentador tem a capacidade de fazer uma intervenção em uma variável (sendo um candidato a ser causal) ou de atribuir um tratamento: A randomização quebra todas as dependências entre a variável interveniente e qualquer possível confusão oculta. A conclusão poderosa é que, após a randomização, se sobrar um efeito entre a variável intervencionada ou de tratamento e uma resposta de interesse, deve ser um efeito causal (total). Um RCT leva à estabilidade e validade externa dos efeitos (regressão ou comparação de grupo) para uma grande classe de perturbações. Este é exatamente o objetivo, digamos, do desenvolvimento de uma farmacoterapia robusta: o medicamento ou os efeitos do tratamento ativo devem ser ``sempre'' externamente válidos. Se um RCT for inviável, os dados de perturbação de intervenções específicas (não randomizadas) ou de mudanças inespecíficas de ambiente ainda são muito mais informativos do que ter apenas acesso a dados observacionais. A informação dos dados de perturbação leva a invariâncias e estabilidade de efeitos (regressão) que são induzidos pelos diferentes ambientes, mas onde não se tem realmente controle sobre a ``natureza'' das perturbações que são inofensivas ou prejudiciais para inferir efeitos (regressão). Porém, grosso modo, ao observar mais perturbações, pode-se identificar mais invariância, estabilidade e robustez e, eventualmente, a estrutura causal e os efeitos (8). Assim, o cenário mais desafiador para inferir efeitos causais acontece quando apenas dados observacionais do ``estado estacionário'' estão disponíveis.
+
+
+\section*{A Abordagem de Bates et al. (2) usando apenas dados observacionais}
+
+    O método na ref. (2) usa apenas dados observacionais como entrada. No entanto, duas premissas principais são exploradas. Primeiro, a direcionalidade é postulada naturalmente apontando de SNPs genéticos para o fenótipo; ou seja, se houver associação de regressão infundada entre um fenótipo \(Y\) e uma variável SNP \(X_j\), ela deve ser direcionada \(X_j \to Y\). Esta é a situação na Fig. 1 A e B. A mesma direcionalidade é assumida de haplótipos parentais para SNPs descendentes . Em segundo lugar, para inferir a associação de regressão não-fundada, isto é, a força da regressão que resta após o ajuste para confusão oculta em potencial, um assim chamado estudo de design de trio especial leva, de maneira elegante, a tais efeitos de regressão não-fundados. A suposição é que o mecanismo estocástico de SNPs condicional aos haplótipos parentais, ou seja, a distribuição condicional correspondente, é independente de outros potenciais confundidores ocultos, e isso, por sua vez, permite a conclusão de que uma associação de regressão (potencialmente não linear) entre um SNP e um fenótipo, dados todos os outros SNPs e os haplótipos parentais, devem implicar uma dependência causal. Isso é uma analogia exata com um RCT: o condicionamento dos haplótipos serve como um substituto para a randomização! Bates et al. (2) referem-se a isso como ``variação na herança como um experimento aleatório''. Ambas as suposições podem ser comunicadas com clareza e são muito plausíveis, o que torna as alegadas descobertas causais muito convincentes. Claro, ainda pode haver violações de suposições, e os autores mencionam SNPs não medidos ou viés de seleção, para citar dois exemplos proeminentes. No entanto, em geral, a metodologia na ref. (2) é um grande passo em frente para chegar mais perto da ``verdadeira causalidade subjacente''.
+
+    Além da maneira como a metodologia lida com suposições fundamentais para causalidade, ela fornece garantias estatísticas de amostra finita sobre a descoberta falsa ou a taxa de erro familiar. A principal suposição aqui é que o modelo de Haldane (9) é considerado ``verdadeiro'' (ou seja, uma aproximação muito boa), e as técnicas de inferência construídas em belos trabalhos anteriores de simulação de falsos recursos sintéticos que servem para contar falsos positivos (10, 11).
+
+    Particularmente fascinante é a possibilidade de incluir dados GWAS externos (projeto não tri) para melhorar a energia; estudos de desenho de trio são raros e de tamanho de amostra muito menor do que estudos GWAS padrão, que podem vir em grande escala. Conforme ilustrado na ref. (2), pode-se usar qualquer algoritmo de aprendizado de máquina em dados GWAS externos para melhorar potencialmente a potência, enquanto a garantia de amostra finita na detecção de falso positivo ainda é válida.
+
+
+\section*{Pensamentos Adicionais}
+
+    Bates et al. (2) demonstra bem o uso de dados externos para aumentar potencialmente o poder de detecção de SNPs causais em estudos de projeto de trio. Invertendo o papel de usar dados externos, pode-se, e talvez deva, também usar parte deles para validar os resultados (e não usá-los na fase de descoberta); veja também ref. (12). Conforme mencionado em Robustness against Inspecific Perturbations: External Validity, se a estrutura inferida for causal, ela deve exibir alguma validade externa em novos dados, idealmente, em alguns conjuntos de dados de diferentes ambientes ou subpopulações. Como proposta, pode-se inspecionar a estabilidade da distribuição condicional do fenótipo, dados os SNPs causais encontrados, por exemplo, testando a independência condicional do fenótipo e dos ambientes dados os fenótipos causais (13, 14). Em particular, isso poderia ser feito com conjuntos de dados externos GWAS de design não triplo padrão que estão disponíveis em várias plataformas.
+
+    Na ausência de estudos de design de trio e na ausência de direcionalidade postulada (como em GWAS de SNPs para fenótipos), o problema de inferência causal é muito mais difícil. As Fig. 1 C e D indicam esta configuração, que inclui, por exemplo, transcriptômica ou proteômica em biologia, onde postular a direcionalidade é frequentemente difícil ou sujeito a erros. Os dados de perturbação desempenharão um papel crucial para fazer um progresso confiável no sentido de inferir estruturas causais e efeitos. Mesmo quando não é possível ter experimentos randomizados, as perturbações não randomizadas ajudam enormemente. Para campos como biologia molecular e muitos outros, priorizar bons candidatos com respeito a ser causal é muito valioso, mesmo quando declarações de confiança estatística estritas parecem fora do escopo (15). Claramente, tal priorização causal deve ser realizada por métodos de inferência causal, em vez de técnicas de associação pura, onde as últimas variam de correlação simples a regressão não linear avançada ou aprendizado de máquina de classificação.
+    
+\section*{Agradecimentos}
+
+     A pesquisa foi apoiada pelo Conselho Europeu de Pesquisa sob o Acordo de Subvenção 786461 (CausalStats - ERC-2017-ADG).
+
+\section*{Referências}
+
+1 Virgil, Georgica (vers 490, Book II, 29 BC).
+
+2 S. Bates, M. Sesia, C. Sabatti, E. Candès, Causal inference in genetic trio studies. Proc. Nat. Acad. Sci. U.S.A. 117, 24117–24126 (2020).
+
+3 G. Imbens, D. Rubin, Causal Inference for Statistics, Social, and Biomedical Sciences (Cambridge University Press, 2015).
+
+4 J. Pearl, Causality: Models, Reasoning and Inference (Cambridge University Press, ed. 2, 2009).
+
+5 J. Pearl, D. Mackenzie, The Book of Why: The New Science of Cause and Effect (Basic, 2018).
+
+6 T. Haavelmo, The statistical implications of a system of simultaneous equations. Econometrica 11, 1–12 (1943).
+
+7 A. P. Dawid, V. Didelez, Identifying the consequences of dynamic treatment strategies: A decision-theoretic overview. Stat. Surv. 4, 184–231 (2010).
+
+8 J. Peters, P. Bühlmann, N. Meinshausen, Causal inference using invariant prediction: Identification and confidence interval (with discussion). J. R. Stat. Soc. Ser. B
+Stat. Methodol. 78, 947–1012 (2016).
+
+9 J. B. S. Haldane, The combination of linkage values and the calculation of distances between the loci of linked factors. J. Genet. 8, 299–309 (1919).
+
+10 R. F. Barber, E. Candès, Controlling the false discovery rate via knockoffs. Ann. Stat. 43, 2055–2085 (2015).
+
+11 E. Candès, Y. Fan, L. Janson, J. Lv, Panning for gold: Model-X knockoffs for high dimensional controlled variable selection. J. R. Stat. Soc. Ser. B Stat. Methodol.
+80, 551–577 (2018).
+
+12 B. Yu, K. Kumbier, Veridical data science. Proc. Natl. Acad. Sci. U.S.A. 117, 3920–3929 (2020).
+
+13 R. Shah, J. Peters, The hardness of conditional independence testing and the generalised covariance measure. Ann. Stat. 48, 1514–1538 (2020).
+
+14 M. Azadkia, S. Chatterjee, A simple measure of conditional dependence. arXiv:1910.12327 (27 October 2019).
+
+15 N. Meinshausen et al., Methods for causal inference from gene perturbation experiments and validation. Proc. Nat. Acad. Sci. U.S.A. 113, 7361–7368 (2016).

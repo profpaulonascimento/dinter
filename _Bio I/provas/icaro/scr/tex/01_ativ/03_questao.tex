@@ -1,0 +1,94 @@
+% Questão 03 ------------------------------------------------------------------
+\question
+\begin{parts}
+ \part Determinar as unidades compostas de Pressão (P), Energia (E) e Potência
+	 (W) a partir:
+		 \begin{subparts}
+		  \subpart Do conjunto (genérico) de unidades básicas $\{M, L, T\}$
+				% Solução (i) =============================================================
+				\begin{solution}
+				Para estabelecermos as corretas relações, precisamos das definições de
+				\textit{Pressão}, \textit{Energia} e \textit{Potência}.
+				\begin{itemize}
+					\item \textbf{Pressão}. 
+					 É a grandeza física que relaciona a Força ($F$) 
+					 pela área de uma superfície. 
+					 Se definirmos $F = ma$, onde $m$ é a massa e $a$ a aceleração; e, $A$ a 
+						área	de uma superfície, temos: $P = \frac{F}{A}$.
+					 Assim,
+					 \[
+					  [P] = \left[\frac{F}{A}\right]
+						 = \frac{[F]}{[A]} 
+						 = \frac{MLT^{-2}}{L^2}
+						 = ML^{-1}T^{-2}
+							\qquad \therefore \qquad \ovalbox{$[P] = ML^{-1}T^{-2} $}
+					 \]
+					\item \textbf{Energia}.
+					 Se considerarmos a Energia Cinética, podemos fazer $  E = \frac{mv^2}{2}$.
+						Como $[1/2] = 1$, temos:
+						\[
+						 [E] = M (LT^{-1})^2 
+							= M L^2 T^{-2}
+						\qquad\therefore\qquad \ovalbox{$[E] = ML^{2}T^{-2} $}
+						\]
+					\item \textbf{Potência}.
+					 Se a Potência for a rapidez da Energia em certo intervalo de tempo, ou 
+						seja, $ W = \frac{E}{t}$, temos:
+						\[
+						 [W] = \left[\frac{E}{t}\right]
+							= \frac{[E]}{[t]}
+							= \frac{M L^2 T^{-2}}{T}
+							= M L^2 T^{-3}
+							\qquad\therefore\qquad \ovalbox{$[W] = M L^2 T^{-3} $}
+						\]
+				\end{itemize}
+				\end{solution}
+				%==========================================================================
+		  \subpart De um outro conjunto $\{M_1 = \delta M, L_1 = bL, T_1 = cT\}$.
+				 % Solução (i) ============================================================
+					\begin{solution}
+				  Notemos que $ M = \frac{1}{\delta} M_1$, $L = \frac{1}{b} L_1$ e	
+						$ T = \frac{1}{c} T_1$.
+					 Portanto:
+					 \begin{itemize}
+						 \item \textbf{Pressão}.
+						  \begin{align*}
+							  [P] &= M L^{-1} T^{-2}\\
+									&= \left(\frac{1}{\delta} M_1\right)\left(\frac{1}{b} L_1\right)^{-1} \left(\frac{1}{c} T_1\right)^{-2}\\
+									&= \frac{1}{\delta} b c^2 M_1 L_1^{-1} T_1^{-2}
+							 \end{align*}
+								Logo, \ovalbox{$[P] = \frac{1}{\delta} b c^2 M_1 L_1^{-1} T_1^{-2}$}.
+						 \item \textbf{Energia}.
+						  \begin{align*}
+							  [E] &= M L^2 T^{-2}\\
+									&= \left(\frac{1}{\delta}M_1\right)\left(\frac{1}{b} L_1\right)^{2}\left(\frac{1}{c} T_1\right)^{-2}\\
+									&= \frac{1}{\delta}\frac{1}{b^2} c^2 M_1 L_1^2 T_1^{-2}
+							 \end{align*}
+								Logo, \ovalbox{$ [E] = \frac{c^2}{\delta b^2} M_1 L_1^{2} T_1^{-2} $}.
+						 \item \textbf{Potência}.
+						  \begin{align*}
+							  [W] &= M L^2 T^{-3}\\
+									&= \left(\frac{1}{\delta}M_1\right)\left(\frac{1}{b} L_1\right)^{2}\left(\frac{1}{c} T_1\right)^{-3}\\
+									&= \frac{1}{\delta}\frac{1}{b^2} c^3 M_1 L_1^2 T_1^{-3}
+							 \end{align*}
+								Logo, \ovalbox{$ [W] = \frac{1}{\delta}\frac{1}{b^2} c^3 M_1 L_1^2 T_1^{-3} $}.
+					 \end{itemize}
+					\end{solution}
+				 %=========================================================================
+			\end{subparts}
+	\part Obtenha as unidades derivadas das unidades básicas para as seguintes
+	 medidas: Área, Volume, \sout{Pressão}, Densidade de Massa, Trabalho, 
+		\sout{Potência}.
+		% Solução (b)================================================================
+		\begin{solution}
+		 Das unidades expostas, lembremos que a \textit{Densidade de Massa}, $\rho$,
+			pode ser dada por $\rho = \frac{m}{V}$; bem como o \textit{Trabalho}, 
+			$\tau$ é o	produto de uma força $F$ pelo deslocamento $d$, ou seja, 
+			$\tau = Fd$.
+			Assim, denotando \textit{Área} e \textit{Volume} por $A$ e $V$, 
+			respectivamente, temos: $[A] =L^2$,	$[V] = L^3$,	$[\rho]= M L^{-3}$,
+				$[\tau] =[F][d] = (M L T^{-2})(L) = M L^2 T^{-2}$.
+		\end{solution}
+		%============================================================================
+\end{parts}
+%------------------------------------------------------------------------------

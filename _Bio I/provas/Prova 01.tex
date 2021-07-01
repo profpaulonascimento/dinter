@@ -1,0 +1,265 @@
+
+\section{Exercícios}
+
+\begin{quote}
+Os exercícios a seguir foram retirados das notas de aulas \cite{jrcastro2020elementos} e sua entrega cumpre as exigências que compõem a avaliação da disciplina de Biomatemática.
+\end{quote}
+
+\begin{exercise}
+Determine o processo de mensuração de (a) velocidade e de (b) tempo com unidades padrão de comprimento e velocidade.
+\end{exercise}
+
+
+\solucao{
+Seja:
+
+\begin{itemize}
+\item \(t\) a medida de tempo;
+\item \(v\) a taxa de variação de um corpo obtida ao deslocar \(x\) unidades de comprimento, um corpo durante um intervalo de tempo \(t\);
+\end{itemize}
+
+Tomemos como unidades padrão de comprimento e velocidade as do conjunto \(\{L, V\}\). Sendo assim, temos:
+
+\begin{description}
+\item (a) \([v] = [x t^{-1}] = V\) 
+\item (b) \([t] = [x v^{-1}] = [x] [v^{-1}] = L V^{-1}\)
+\end{description}
+}
+
+\begin{exercise}
+A medida da aceleração da gravidade \(g\) (isto é, a aceleração experimentada por um corpo submetido à atração da Terra na sua superfície) tem dimensão \([g] = LT^{-2}\) e, na unidade \(A = cm/ s^2\), mede \(g = 980 A\). Utilizando a representação algébrica, obtenha esta medida nas seguintes unidades compostas de aceleração: (a) \(A_1=L_1T_1^{-2}\), onde \(L_1 = 13 cm\), \(T_1 = 10^{-5} s\) e; (b) genericamente, na unidade composta \(A_{\ast} = L_{\ast} T_{\ast}^{-2}\), onde \(L_{\ast} = \lambda\ cm\) e \(T_{\ast} = \theta\ s\).
+\end{exercise}
+
+\solucao{
+De acordo com o que foi solicitado, temos:
+\[\begin{array}{rcl}
+(a)\ \ g = 980\ cm\ s^{-2}\ \Rightarrow\
+[g]
+&=& 980\ [cm] [s^{-2}] \\
+&=& 980 L_1\ 13^{-1} (T_1\ 10^{5})^{-2} \\
+&=& 980\ 13^{-1}  10^{-10} L_1 T_1^{-2} \\
+&\approx& 7,538\ 10^{-9} A_1 \mbox{ \quad e;}
+\end{array}\]
+
+(b) genericamente:
+\[\begin{array}{rcl}
+g &=& 980\ cm s^{-2} \Rightarrow \\
+\ [g] &=& 980 [cm] [s^{-2}] \\
+&=& 980 (L_\ast \lambda^{-1}) (T_\ast^{-2} \theta^2) \\
+&=& 9,8\ 10^2\ \theta^2 \lambda^{-1} A_\ast.
+\end{array}\]
+}
+
+
+\begin{exercise}
+Determinar as unidades compostas de Pressão (\(P\)), Energia (\(E\)) e Potência (\(W\)) (a) a partir do conjunto (genérico) de unidades básicas: \(\{M, L, T\}\) e; (b) de um outro conjunto \(\{M_{1} = a\ M, L_1 = b\ L, T_1 = c\ T\}\).
+\end{exercise}
+
+\solucao{
+Tomando as unidades de Massa \(M\), de comprimento \(L\) e de tempo \(T\), temos:
+
+(a) quanto à \(\{M, L , T\}\):
+
+\begin{itemize}
+\item Pressão: \([P] = [F A^{-1}] = [F][A]^{-1} = (MLT^{-2}) (L^2)^{-1} = M L^{-1} T^{-2}\);
+\item Energia: \([E] = [F x] = [F][x] = (M LT^{-2}) (L) = ML^{2}T^{-2}\);
+\item Potência: \([W] = [Et^{-1}] = [E]([t])^{-1} = (ML^{2}T^{-2})(T)^{-1} = ML^{2}T^{-3}\).
+\end{itemize}
+
+(b) quanto à \(\{M_1, L_1, T_1\}\), temos:
+
+\begin{itemize}
+\item Pressão: \([P] = \dfrac{M_1}{a} \left(\dfrac{L_1}{b}\right)^{-1} \left(\dfrac{T_1}{c}\right)^{-2} = a^{-1}bc^2 M_1 L_1^{-1} T_1^{-2}\);
+\item Energia: \([E] = \dfrac{M_1}{a}\ \left(\dfrac{L_1}{b}\right)^{2} \left(\dfrac{T_1}{c}\right)^{-2} = a^{-1}b^{-2}c^2 M_1L_1^{2}T_1^{-2}\);
+\item Potência: \([W] = \dfrac{M_1}{a}\ \left(\dfrac{L_1}{b}\right)^{2}\ \left(\dfrac{T_1}{c}\right)^{-3} = a^{-1} b^{-2} c^3 M_1L_1^{2}T_1^{-3}\).
+\end{itemize}
+}
+
+
+\begin{exercise}
+Obtenha as unidades derivadas das unidades básicas para as seguintes medidas: Área, Volume, Pressão, Densidade de Massa, Trabalho, Potência.
+\end{exercise}
+
+\solucao{
+Seja:
+
+\begin{itemize}
+\item \(A\) a área de uma região limitada do plano;
+\item \(V\) o volume de um sólido limitado;
+\item \(\rho\) a densidade de um sólido;
+\item \(\mathcal{T}\) o trabalho que a força \(F\) exerce ao deslocar de \(x\) unidades de comprimento um corpo de massa \(m\).
+\end{itemize}
+
+Tomando como unidades padrão de massa, comprimento e tempo, as do conjunto \(\{M, L, T\}\), temos:
+
+\begin{itemize}
+\item \([A] = [x] [x] = (L) (L) = L^{2}\);
+\item \([V] = [A][x] = L^{2} (L) = L^{3}\);
+\item \([\rho] = [m/V] = [m]/[V] = M L^{-3}\) 
+\item \([\mathcal{T}] = [F\ x\ \cos(\theta)] = [F] [x] [\cos(\theta)]= (MLT^{-2})L = ML^{2}T^{-2}\).
+\end{itemize}
+
+\textbf{Observação}: As medidas de Pressão e Potência já foram obtidas no exercício anterior.
+}
+
+
+\begin{exercise}
+Supondo que a função matemática \(\varphi\) é continuamente diferenciável, obtenha uma segunda aproximação para o período:
+\begin{equation}\label{eq:aprox_freq}
+T_{0} \simeq \left(\varphi(0) + \varphi'(0) \dfrac{A}{l}\right) \sqrt{\dfrac{l}{g}},
+\end{equation}
+calculando \(\varphi'(0)\) usando uma expansão no parâmetro \
+\(\dfrac{A}{l} = \epsilon_{1}\) após adimensionalizar adequadamente o modelo diferencial da dinâmica do pêndulo:
+\begin{equation}\label{eq:dif_leidenewtontang}
+\left\{\begin{array}{rcl}
+m \dfrac{d^2(l\theta)}{dt^{2}} &=& -mg \sin(\theta) \mbox{ (2\textordfeminine\ lei de Newton tangencial)} \\
+l\theta(0) &=& A \\
+\dfrac{d\theta}{dt}(0) &=& 0.
+\end{array}\right.
+\end{equation}
+\end{exercise}
+
+\solucao{Processo de adimensionalização:
+
+Temos que
+\[\begin{array}{rcl}
+[T_0] &=& [g]^{\alpha}\ [l]^\beta\ [m]^\gamma\ [\theta] \\[0.2cm]
+T^{1} &=& (L\ T^{-2})^{\alpha}\ L^\beta\ M^\gamma \\[0.2cm]
+T^{1} &=& L^{\alpha+\beta}\ T^{-2\alpha}\ M^\gamma
+\end{array}\]
+
+Segue que
+\[
+\left\{\begin{array}{rcl} \alpha+\beta &=& 0 \\ -2\alpha &=& 1 \\ \gamma &=& 0 \end{array}\right.
+\Rightarrow
+\left\{\begin{array}{rcl} \alpha &=& -\dfrac{1}{2} \\[0.3cm] \beta &=& \dfrac{1}{2} \\[0.3cm] \gamma &=& 0  \end{array}\right.
+\]
+
+Dessa forma, pelo princípio da similaridade, temos:
+\begin{equation}\label{eq:Tps}
+T_0 = g^{-\frac{1}{2}} l^{\frac{1}{2}} \varphi(\theta) \Rightarrow T_0 = \sqrt{\dfrac{l}{g}}\ \varphi(\theta)
+\end{equation}
+
+
+Por outro lado, temos:
+\[m \dfrac{d^2(l\theta)}{dt^2} = - m g \sin(\theta).\]
+
+Como \(m \ne 0\) é fator comum  e \(l\theta = A\), podemos reescrever a equação anterior da seguinte maneira:
+\[l \dfrac{d^2(A/l)}{dt^2} = - g \sin(A/l).\]
+
+O processo de adimensionalização é feito a seguir:
+\[\dfrac{[l]}{[g]} \dfrac{d^2(A/l)}{[T_0]^2\ d(t/[T_0])^2} = -\sin(A/l),\]
+ou ainda,
+\begin{equation}\label{eq:admensionalizada}
+\dfrac{d^2\epsilon}{d\tau^2} = -\sin(\epsilon),\quad \epsilon = A/l.
+\end{equation}
+
+Uma vez que a equação \eqref{eq:admensionalizada} possui como coeficientes, funções analíticas, consideremos a solução \(\epsilon\) como uma série de Taylor em torno do zero, ou seja:
+\begin{equation}\label{eq:episilontaylor}
+\epsilon(\tau) = \displaystyle \sum_{k=0}^{\infty} \dfrac{1}{k!} \epsilon^{(k)}(0) \tau^k
+\end{equation}
+
+Os três primeiros termos da série \eqref{eq:episilontaylor} aproximam \(\epsilon\). Assim,
+\[
+\epsilon(\tau) \simeq \epsilon(0) + \dfrac{d\epsilon(0)}{d\tau} \tau + \dfrac{1}{2} \dfrac{d^2\epsilon(0)}{d\tau^2} \tau^2.
+\]
+
+Uma vez que 
+\[0 = \dfrac{d\theta}{dt}(0) = [T_0]^{-1} \dfrac{d(A/l)}{d(t/[T_0])} \Rightarrow \dfrac{d\epsilon}{d\tau}(0) = 0\]
+e pela EDO \eqref{eq:admensionalizada},
+\[\dfrac{d^2\epsilon(0)}{d\tau^2} = -\sin(\epsilon(0)) = - \sin(A/l).\]
+
+Portanto, temos
+\[
+\epsilon(\tau) \simeq \epsilon_1 - \dfrac{1}{2} \sin(\epsilon_1)\tau^2.
+\]
+
+Assim, com base nesta aproximação, consideremos:
+\begin{equation}\label{eq:desadimensionalizacao}
+\tau = \sqrt{2 \csc(\epsilon_1)(\epsilon_1 - \epsilon)}
+\end{equation}
+
+
+Desadimensionalizando a equação \eqref{eq:desadimensionalizacao}, temos:
+\begin{equation}\label{eq:desarrumada1}
+\dfrac{T_0}{T} = \sqrt{2 \csc(A/l)(A/l-\theta)}
+\end{equation}
+ou ainda
+\begin{equation}\label{eq:desarrumada2}
+T_0 = \sqrt{\dfrac{l}{g}} \sqrt{2 \csc(A/l) (A/l-\theta)}.
+\end{equation}
+
+Comparando com a equação \eqref{eq:Tps}, temos:
+\[
+\varphi(\theta) = \sqrt{2 \csc(A/l)} \sqrt{(A/l-\theta)}
+\Rightarrow \varphi(0) = \sqrt{2 \csc(A/l)} \sqrt{(A/l)}
+\]
+
+Derivando-se \(\varphi\), obtemos:
+\[
+\dfrac{d}{d\theta}\varphi(\theta) = -\dfrac{1}{2}\sqrt{\dfrac{2 \csc(A/l)}{A/l-\theta}}
+\Rightarrow
+\varphi'(0) = 
+-\dfrac{1}{2}\sqrt{\dfrac{2 \csc(A/l)}{A/l}}
+\]
+
+Substituindo-se estes dois últimos resultados na equação \eqref{eq:aprox_freq}, obtemos:
+
+\[
+\begin{array}{rcl}
+T_{0} &\simeq&
+\left(\sqrt{2 \csc(A/l)} \sqrt{(A/l)} -\dfrac{1}{2}\sqrt{\dfrac{2 \csc(A/l)}{A/l}} A/l\right) \sqrt{\dfrac{l}{g}} \\
+&=& \dfrac{\sqrt{2}}{2} \sqrt{\dfrac{A}{g} \csc\left(\dfrac{A}{l}\right)}
+\end{array}
+\]
+
+Assim, a aproximação requerida é:
+\[
+T_{0} \simeq
+\dfrac{\sqrt{2}}{2} \sqrt{\dfrac{A}{g} \csc\left(\dfrac{A}{l}\right)}
+\]
+}
+
+
+
+\begin{exercise}
+Mostre que a solução fundamental do problema de difusão em dimensão \(n\) é dada por:
+\[\rho(x, t) = \dfrac{N_{0}}{(Dt)^{\frac{n}{2}}} \exp\left(\dfrac{-||x||^2}{4Dt}\right)
+= \dfrac{N_{0}}{(Dt)^{\frac{n}{2}}} \exp\left(\dfrac{-r^2}{4Dt}\right).\]
+\end{exercise}
+
+\solucao{Prezado professor. Como não encontrei uma resposta para tal questão, farei um breve resumo discursivo do que rabisquei.
+
+Primeiramente, considerei a equação da difusão em duas dimensões a seguir
+\[\dfrac{\partial \rho}{\partial t} = -D \left(\dfrac{\partial^2 \rho}{\partial x^2} + \dfrac{\partial^2 \rho}{\partial y^2}\right)\]
+
+Em seguida, adimensionalizando e considerando o princípio da similaridade, encontrei
+\[\rho(x,y,t) = \dfrac{N_0}{Dt} \varphi\left(\dfrac{xy}{Dt}\right)\]
+
+Ao derivar esta equação, uma vez com respeito a \(t\), duas vezes com respeito a \(x\) e, também, com respeito a \(y\) para substituir na equação da difusão (acima).
+
+Entretanto, a equação encontrada não possuía apenas as variáveis adimensionalizadas:
+
+Em seguida, parti para a equação da difusão (bidimensional) em coordenadas polares. Confesso que, devido ao tamanho das expressões e sem saber se o caminho era o correto, parei de desenvolvê-la.
+
+Justifico o não envio da dúvida, por ter começado a desenvolver a questão ontem (28/10).
+}
+
+
+\begin{comment}
+
+%Exercícios:
+
+\begin{exercise}
+Consideremos um indivíduo que assume uma estrategia de busca executando apenas um movimento aleatório de intensidade \(D\), independente de qualquer informação, em um meio constituído de ``presas'' fixas a uma densidade \(\rho\). Se a cada encontro uma presa é retirada, é razoável indagar sobre o tempo médio que ele levará para consumi-las todas. Para analisarmos este processo consideremos a dinâmica de retirada das presas que pelo modelo de ação de massas será a equação Malthusiana:
+\[\dfrac{dn}{dt} = -\kappa Dn.\]
+O tempo médio de ``sobrevivência'' de uma presa será \(\dfrac{1}{\kappa D}\) e a probabilidade de uma em particular ser capturada em um intervalo de temo \(t\) é \(p(t) = 1 - e^{-\kappa Dt}\).
+
+Este argumento utiliza a teoria que será desenvolvida no capítulo destinado ao Princípio de Malthus.
+
+(a) Obtenha o tempo médio de encontro da primeira presa por este processo de busca.
+
+(b) Analise a dependência deste tempo médio considerando a dimensão do espaço como uma variável.
+\end{exercise}
+
+\end{comment}

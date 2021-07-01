@@ -1,0 +1,213 @@
+\section*{O livro do porquê: uma crítica de Lisa R. Goldberg}
+
+
+
+\noindent
+\begin{minipage}[!ht]{0.25\columnwidth}
+\epsfig{figure=figs/fig00goldberg.png,width=0.9\columnwidth}
+%\captionof{figure}{\scriptsize }
+%\label{fig:00}
+\end{minipage}
+\begin{minipage}[!ht]{0.75\columnwidth}\scriptsize
+The Book of Why \\
+The New Science of Cause and Effect \\
+Judea Pearl and Dana Mackenzie \\
+Basic Books, 2018 \\
+432 pages \\
+ISBN-13: 978-0465097609
+\end{minipage}
+
+
+Judea Pearl tem a missão de mudar a maneira como interpretamos os dados. Um eminente professor de ciência da computação, Pearl documentou suas pesquisas e opiniões em livros e artigos acadêmicos. Agora, ele tornou suas ideias acessíveis a um amplo público em O Livro do Porquê: A Nova Ciência de Causa e Efeito, em coautoria com a escritora científica Dana Mackenzie. Com o lançamento deste livro historicamente fundamentado e instigante, Pearl salta da torre de marfim para o mundo real.
+
+    O Livro do Porquê visa as limitações percebidas dos estudos observacionais, cujos dados subjacentes são encontrados na natureza e não controlados por pesquisadores. Muitos acreditam que um estudo observacional pode elucidar a associação, mas não causa e efeito. Não pode te dizer por quê.
+
+    Talvez o exemplo mais famoso diga respeito ao impacto do tabagismo na saúde. Em meados da década de 1950, os pesquisadores estabeleceram uma forte associação entre tabagismo e câncer de pulmão. Somente em 1984, no entanto, o governo dos Estados Unidos determinou a frase "fumar causa câncer de pulmão".
+
+    O atraso era o espectro de um fator latente, talvez algo genético, que poderia causar câncer de pulmão e desejo por tabaco. Se o fator latente fosse responsável pelo câncer de pulmão, limitar o tabagismo não impediria a doença. Naturalmente, as empresas de tabaco gostavam dessa explicação, mas também foi defendida pelo proeminente estatístico Ronald A. Fisher, co-inventor do chamado padrão ouro de experimentação, o Randomized Controlled Trial (RCT).
+
+    Os participantes de um ECR sobre tabagismo e câncer de pulmão teriam sido designados a fumar ou não no cara ou coroa. O estudo tinha o potencial de desqualificar um fator latente como a principal causa de câncer de pulmão e elevar os cigarros à posição de principal suspeito. Uma vez que um ECR de tabagismo seria antiético, no entanto, os pesquisadores se contentaram com estudos observacionais que mostravam associação e objetaram sobre a questão de causa e efeito por décadas.
+
+    O problema era simplesmente que as ferramentas disponíveis nas décadas de 1950 e 1960 eram muito limitadas em escopo? Pearl aborda essa questão em sua escada de causalidade de três etapas, que organiza métodos inferenciais em termos dos problemas que podem resolver. O degrau inferior é para métodos estatísticos sem modelo que dependem estritamente de associação ou correlação. O degrau do meio é para intervenções que permitem a medição de causa e efeito. O degrau mais alto é para a análise contrafactual, a exploração de realidades alternativas.
+
+    As primeiras investigações científicas sobre a relação entre tabagismo e câncer de pulmão baseavam-se em métodos estatísticos sem modelos, degraus inferiores, cujos análogos modernos dominam a análise dos estudos observacionais hoje. Em uma das muitas anedotas históricas maravilhosas do The Book of Why, a predominância desses métodos é atribuída ao trabalho de Francis Galton, que descobriu o princípio da regressão à média em uma tentativa de compreender o processo que impulsiona a hereditariedade das características humanas. A regressão à média envolve associação, e isso levou Galton e seu discípulo, Karl Pearson, a concluir que a associação era mais central para a ciência do que a causalidade.
+
+    Pearl coloca o aprendizado profundo e outras ferramentas modernas de mineração de dados no degrau inferior da Escada da Causalidade. Os métodos inferiores incluem AlphaGo, o programa de aprendizado profundo que derrotou os melhores jogadores humanos de Go do mundo em 2015 e 2016 [1]. Para o benefício daqueles que se lembram dos tempos antigos antes da mineração de dados mudar tudo, ele explica,
+
+\begin{quotation}
+    Os sucessos do aprendizado profundo foram realmente notáveis e pegaram muitos de nós de surpresa. No entanto, o aprendizado profundo foi bem-sucedido principalmente ao mostrar que certas questões ou tarefas que pensávamos serem difíceis, na verdade não o são.
+\end{quotation}
+
+    A questão é que algoritmos, ao contrário de crianças de três anos, fazem o que mandam, mas para criar um algoritmo capaz de raciocínio causal, ... temos que ensinar o computador como quebrar seletivamente as regras da lógica. Os computadores não são bons em quebrar regras, uma habilidade na qual as crianças se destacam.
+
+
+
+\noindent
+\begin{minipage}[!ht]{\columnwidth}\centering
+\epsfig{figure=figs/fig01goldberg.png,width=0.9\columnwidth}
+\captionof{figure}{\scriptsize Modelo causal de relações presumidas entre fumo, câncer de pulmão e um gene do fumo.}
+\label{fig:01}
+\end{minipage}
+
+
+
+    Métodos para extrair conclusões causais de estudos observacionais estão no degrau intermediário da Escada de Causalidade de Pearl e podem ser expressos em uma linguagem matemática que estende a estatística clássica e enfatiza os modelos gráficos.
+
+\begin{quotation}
+    Existem várias opções para modelos causais: diagramas causais, equações estruturais, afirmações lógicas e assim por diante. Estou fortemente convencido de diagramas causais para quase todas as aplicações, principalmente devido à sua transparência, mas também devido às respostas explícitas que fornecem a muitas das perguntas que desejamos fazer.
+\end{quotation}
+
+    O uso de modelos gráficos para determinar causa e efeito em estudos observacionais foi iniciado por Sewall Wright, cujo trabalho sobre os efeitos do peso ao nascer, tamanho da ninhada, duração do período de gestação e outras variáveis sobre o peso de uma cobaia de porco de 33 dias de idade está em [2]. Pearl relata a persistência de Wright em resposta à recepção fria que seu trabalho recebeu da comunidade científica.
+
+\begin{quotation}
+    Minha admiração pela precisão de Wright só perde para a minha admiração por sua coragem e determinação. Imagine a situação em 1921. Um matemático autodidata enfrenta sozinho a hegemonia do sistema estatístico. Eles dizem a ele ``Seu método é baseado em uma compreensão totalmente equivocada da natureza da causalidade no sentido científico.'' E ele retruca: ``Não é assim! Meu método é importante e vai além de qualquer coisa que você possa gerar.''
+\end{quotation}
+
+    Pearl define um \textit{modelo causal} como um gráfico acíclico direcionado que pode ser emparelhado com dados para produzir estimativas causais quantitativas. O gráfico incorpora as relações estruturais que um pesquisador assume que estão gerando resultados empíricos. A estrutura do modelo gráfico, incluindo a identificação de vértices como mediadores, confundidores ou aceleradores, pode guiar o projeto experimental por meio da identificação de conjuntos mínimos de variáveis de controle. As exposições modernas sobre modelos gráficos de causa e efeito são [3] e [4].
+
+\noindent
+\begin{minipage}[!ht]{\columnwidth}\centering
+\epsfig{figure=figs/fig02goldberg.png,width=0.9\columnwidth}
+\captionof{figure}{\scriptsize Modelo causal mutado que facilita o cálculo do efeito do tabagismo no câncer de pulmão. A seta do gene que confunde o fumo para o ato de fumar foi deletada.}
+\label{fig:02}
+\end{minipage}
+
+
+    Dentro dessa estrutura, Pearl define o operador \(\operatorname{do}\), que isola o impacto de uma única variável de outros efeitos. A probabilidade de \(Y \operatorname{do} X\), \(P[Y|\operatorname{do}(X)]\), não é a mesma coisa que a probabilidade condicional de \(Y\) dada \(X\). Em vez disso, \(P[Y|\operatorname{do}(X)] \) é estimado em um modelo causal mutado, do qual as setas apontando para a causa assumida são removidas. \textit{Confundir} é a diferença entre \(P[Y|\operatorname{do}(X)]\) e \(P[Y|X]\). Na década de 1950, os pesquisadores estavam atrás do primeiro, mas só podiam estimar o último em estudos observacionais. Esse foi o ponto de Ronald A. Fisher.
+
+    A Figura 1 mostra uma relação simplificada entre tabagismo e câncer de pulmão. As bordas direcionadas representam relações causais assumidas, e o gene do fumo é representado por um círculo vazio, indicando que a variável não era observável quando a conexão entre fumo e câncer estava em questão. Círculos preenchidos representam quantidades que podem ser medidas, como taxas de tabagismo e câncer de pulmão em uma população. A Figura 2 mostra o modelo causal mutado que isola o impacto do tabagismo no câncer de pulmão.
+
+    A conclusão de que fumar causa câncer de pulmão foi finalmente alcançada sem recorrer a um modelo causal. Uma quantidade enorme de evidências, incluindo a poderosa análise de sensibilidade desenvolvida em [5], acabou influenciando a opinião. Pearl argumenta que seus métodos, se estivessem disponíveis, poderiam ter resolvido o problema mais cedo. Pearl ilustra seu ponto em um cenário hipotético em que fumar causa câncer apenas por depositar alcatrão nos pulmões. O diagrama causal correspondente é mostrado na Figura 3. Sua \textit{fórmula da porta da frente} corrige a confusão do gene do fumo não observável, sem nunca mencioná-lo. O impacto corrigido do preconceito do tabagismo, \(X\) no câncer de pulmão, \(Y\) pode ser expresso
+    \[P[Y|\operatorname{do}(X)] = \sum_ {Z} P[Z|X] \sum_ {X'} P[Y|X',Z] P[X'].\]
+
+
+\noindent
+\begin{minipage}[!ht]{\columnwidth}\centering
+\epsfig{figure=figs/fig03goldberg.png,width=0.9\columnwidth}
+\captionof{figure}{\scriptsize A fórmula da porta da frente de Pearl corrige o viés devido a variáveis latentes em certos exemplos.}
+\label{fig:03}
+\end{minipage}
+
+    \textit{O Livro do Porquê} extrai um corpo substancial da literatura acadêmica, que explorei a fim de obter um quadro mais completo do trabalho de Pearl. De uma perspectiva matemática, uma aplicação importante é o estudo de 2007 de Nicholas Christakis e James Fowler descrito em [6] argumentando que a obesidade é contagiosa. A alegação que chamou a atenção foi controversa porque o mecanismo de contágio social é difícil de definir e porque o estudo foi observacional. Em seu artigo, Christakis e Fowler atualizaram uma associação observada, grupos de indivíduos obesos em uma rede social, para a afirmação de que indivíduos obesos fazem com que seus amigos e amigos de seus amigos se tornem obesos. É difícil compreender a complexa rede de suposições, argumentos e dados que compõem este estudo. Também é difícil compreender suas refutações matizadas por Russell Lyons [7] e por Cosma Shalizi e Andrew Thomas [8], que surgiram em 2011. Há um momento de clareza, no entanto, no comentário de Shalizi e Thomas, quando eles citam o teorema de Pearl sobre a não identificabilidade em modelos gráficos particulares. Usando os resultados de Pearl, Shalizi e Thomas mostram que na rede social que Christakis e Fowler estudaram, é impossível separar o contágio, a propagação da obesidade por meio da amizade, das inclinações compartilhadas que levaram a amizade a se formar em primeiro lugar.
+
+    O degrau mais alto da Escada da Causação diz respeito aos contrafatuais, que Michael Lewis chamou a atenção do mundo com seu livro mais vendido, The Undoing Project [9]. Lewis conta a história dos psicólogos israelenses Daniel Kahneman e Amos Tversky, especialistas em erro humano, que mudaram fundamentalmente nossa compreensão de como tomamos decisões. Pearl se baseia no trabalho de Kahneman e Tversky em The Book of Why, e a abordagem de Pearl para analisar contrafactuais pode ser melhor explicada em termos de uma questão que Kahneman e Tversky colocaram em seu estudo [10] de como exploramos realidades alternativas.
+
+\begin{quotation}
+    Quão perto os cientistas de Hitler chegaram de desenvolver a bomba atômica na Segunda Guerra Mundial? Se eles o tivessem desenvolvido em fevereiro de 1945, o resultado da guerra teria sido diferente?
+    
+        —A Simulação Heurística
+\end{quotation}
+
+    A resposta de Pearl a esta pergunta inclui a \textit{probabilidade de necessidade} para a Alemanha e seus aliados terem ganho o Mundo II se tivessem desenvolvido a bomba atômica em 1945, dado nosso conhecimento histórico de que eles não tinham uma bomba atômica em fevereiro de 1945 e perderam a guerra. Se \(Y\) denota a Alemanha ganhando ou perdendo a guerra (0 ou 1) e \(X\) denota a Alemanha tendo a bomba em 1945 ou não a tendo (0 ou 1), a probabilidade de necessidade pode ser expressa no linguagem dos resultados potenciais,
+     \[P[Y_{X=0} = 0|X = 1, Y = 1].\]
+    
+    Dual a \textit{probabilidade de suficiência}, a probabilidade de necessidade reflete a noção legal de causalidade ``\textit{but-for}'' como em: se não fosse por seu fracasso em construir uma bomba atômica em fevereiro de 1945, a Alemanha provavelmente teria vencido a guerra. Pearl aplica o mesmo tipo de raciocínio para gerar declarações transparentes sobre as mudanças climáticas. O aquecimento global antropogênico foi responsável pela onda de calor de 2003 na Europa? Todos nós já ouvimos que, embora o aquecimento global devido à atividade humana tenda a aumentar a probabilidade de ondas de calor extremas, não é possível atribuir nenhum evento específico a essa atividade. De acordo com Pearl e uma equipe de cientistas do clima, a resposta pode ser enquadrada de forma diferente: há 90\% de chance de que a onda de calor de 2003 na Europa não teria ocorrido na ausência do aquecimento global antropogênico [11].
+
+    Essa formulação do impacto do aquecimento global antropogênico na Terra é forte e clara, mas está correta? O princípio do \textit{``lixo-dentro e do lixo-fora''} nos diz que os resultados baseados em um modelo causal não são melhores do que suas suposições subjacentes. Essas suposições podem representar o conhecimento e a experiência de um pesquisador. No entanto, muitos estudiosos estão preocupados com o fato de que os pressupostos do modelo representam o viés do pesquisador ou simplesmente não são examinados. David Freedman enfatiza isso em [12], e como ele escreveu mais recentemente em [13],
+
+\begin{quotation}
+        As suposições por trás dos modelos raramente são articuladas, muito menos defendidas. O problema é exacerbado porque os periódicos tendem a favorecer um grau moderado de novidade nos procedimentos estatísticos. Modelagem, a busca por significância, a preferência por novidades e a falta de interesse em suposições - essas normas provavelmente geram uma enxurrada de resultados não reproduzíveis.
+        
+        —Oasis ou Mirage?
+\end{quotation}
+
+    Os modelos causais podem ser usados para retroceder a partir das conclusões que preferimos para as suposições de suporte. Nossa tendência de raciocinar a serviço de nossas crenças anteriores é um tópico favorito do psicólogo moral Jonathan Haidt, autor de The Righteous Mind [14], que escreveu sobre ``o cão emocional e sua cauda racional''. Ou como Udny Yule explicou em [15],
+
+\begin{quotation}
+        Agora, suponho que seja possível, com um pouco de engenhosidade e boa vontade, racionalizar quase tudo.
+        
+        — Discurso presidencial de 1926 na Royal Statistical Society
+\end{quotation}
+
+    A preocupação com o impacto de preconceitos e preconceitos em estudos empíricos está crescendo, e vem de fontes tão diversas como o Professor de Medicina John Ioannides, que explicou por que a maioria das descobertas de pesquisas publicadas são falsas [16]; o comediante John Oliver, que nos alertou para sermos céticos ao ouvirmos a frase ``estudos mostram'' [17]; e o ex-escritor nova-iorquino Jonah Lehrer, que escreveu sobre os problemas com a ciência empírica em [18], mas mais tarde foi desacreditado por representar coisas que inventou como fatos.
+
+    A abordagem gráfica da inferência causal que Pearl favorece tem sido influente, mas não é a única abordagem. Muitos pesquisadores contam com o modelo de resultados potenciais de Neyman (ou Neyman-Rubin), que é discutido em [19], [20], [21] e [22]. Na linguagem dos ensaios clínicos randomizados, um pesquisador que usa esse modelo tenta quantificar a diferença de impacto entre o tratamento e o não tratamento em indivíduos de um estudo observacional. Os escores de propensão são combinados em uma tentativa de equilibrar as desigualdades entre assuntos tratados e não tratados. Uma vez que nenhum assunto pode ser tratado e não tratado, no entanto, a estimativa necessária do impacto às vezes é formulada como um problema de valor ausente, uma perspectiva que Pearl contesta veementemente.
+
+    Em outra direção, o conceito de fixação, desenvolvido por Heckman em [23] e Heckman e Pinto em [24], se assemelha, pelo menos superficialmente, ao operador do que Pearl utiliza. Aqueles que gostam de disputas acadêmicas podem olhar para o blog de Andrew Gelman, [25] e [26], para troca de ideias entre os discípulos de Pearl e Rubin (o próprio Rubin não parece participar - naquele fórum, pelo menos) ou para o tributos escritos por Pearl [27] e Heckman e Pinto [24] ao solitário Prêmio Nobel, Trygve Haavelmo, que foi o pioneiro da inferência causal em economia na década de 1940 em [28] e [29]. Esses diálogos têm sido controversos às vezes e trazem à mente a lei de Sayre, que diz que a política acadêmica é a forma mais cruel e amarga de política porque os riscos são muito baixos. É a opinião deste revisor que as diferenças entre essas abordagens para inferência causal são muito menos importantes do que suas semelhanças. Suporte para isso inclui construções por Pearl em [3] e por Thomas Richardson e James Robins em [30] incorporando contrafactuais em modelos gráficos de causa e efeito, unificando assim vários tópicos da literatura de inferência causal.
+
+    
+\noindent
+\begin{minipage}[!ht]{\columnwidth}\centering
+\epsfig{figure=figs/fig04goldberg.png,width=0.9\columnwidth}
+\captionof{figure}{\scriptsize Inspetores do National Transportation Safety Board examinando o Uber sem motorista que matou um pedestre em Tempe, Arizona, em 18 de março de 2018.}
+\label{fig:04}
+\end{minipage}
+
+
+
+    No final de uma tarde de julho de 2018, a coautora de Pearl, Dana Mackenzie, falou sobre inferência causal no Simons Institute da UC Berkeley. Sua apresentação foi na primeira pessoa do singular da perspectiva de Pearl, a mesma voz usada em The Book of Why, e concluiu com uma imagem do primeiro carro que dirige sozinho a matar um pedestre. De acordo com um relatório [31] do National Transportation Safety Board (NTSB), o carro reconheceu um objeto em seu caminho seis segundos antes da colisão fatal. Com um tempo de avanço de um segundo e meio, o carro identificou o objeto como um pedestre. Quando o carro tentou engatar o sistema de frenagem de emergência, nada aconteceu. O relatório do NTSB afirma que os engenheiros desativaram o sistema em resposta a uma preponderância de falsos positivos nos testes.
+
+    Os engenheiros estavam certos, é claro, que paradas frequentes e abruptas tornam um carro que dirige sozinho inútil. Mackenzie gentil e otimista sugeriu que dotar o carro com um modelo causal que pode fazer julgamentos matizados sobre a intenção do pedestre pode ajudar. Se isso levasse a carros autônomos mais seguros e inteligentes, não seria a primeira vez que as ideias de Pearl levariam a uma tecnologia melhor. Seu trabalho fundamental em redes bayesianas foi incorporado à tecnologia de telefone celular, filtros de spam, biomonitoramento e muitas outras aplicações de importância prática.
+
+    A professora Judea Pearl nos deu uma teoria da causalidade elegante, poderosa e controversa. Como ele pode dar a sua teoria a melhor chance de mudar a maneira como interpretamos os dados? Não existe uma receita para fazer isso, mas formar uma parceria com a escritora de ciências e professora Dana Mackenzie, um estudioso por direito próprio, foi uma ideia muito boa.
+
+
+ACKNOWLEDGMENT.
+
+    Esta revisão se beneficiou de diálogos com David Aldous, Bob Anderson, Wachi Bandera, Jeff Bohn, Brad DeLong, Michael Dempster, Peng Ding, Tingyue Gan, Nate Jensen, Barry Mazur, Liz Michaels, LaDene Otsuki, Caroline Ribet, Ken Ribet, Stephanie Ribet, Cosma Shalizi, Alex Shkolnik, Philip Stark, Lee Wilkinson e os participantes do grupo de almoço social do Departamento de Estatística de Berkeley da Universidade da Califórnia. Agradeço a Nick Jewell por me informar sobre os estudos científicos sobre a relação entre exercícios e colesterol, o que aumentou minha apreciação do Livro do Porquê.
+
+References
+
+    [1] Silver D, Simonyan JSK, Antonoglou I, Huang A, Guez A, Hubert T, Baker L, Lai M, Bolton A, Chen Y, Lillicrap T, Hui F, Sifre L, van den Driessche G, Graepel T, Hassabis D. Mastering the game of Go without human knowledge, Nature, vol. 550, pp. 354–359, 2017.
+
+    [2] Wright S. Correlation and causation, Journal of Agricultural Research, vol. 20, no. 7, pp. 557–585, 1921.
+    
+    [3] Pearl J. Causality: Models, Reasoning, and Inference. Cambridge University Press, second ed., 2009. MR2548166
+    
+    [4] Spirtes P, Glymour C, Scheines R. Causation, Prediction and Search. The MIT Press, 2000. MR1815675
+    
+    [5] Cornfield J, Haenszel W, Hammond EC, Shimkin MB, Wynder EL. Smoking and lung cancer: recent evidence and a discussion of some questions, Journal of the National Cancer Institute, vol. 22, no. 1, pp. 173–203, 1959.
+    
+    [6] Christakis NA, Fowler JH. The spread of obesity in a large social network over 32 years, The New England Journal of Medicine, vol. 357, no. 4, pp. 370–379, 2007.
+    
+    [7] Lyons R. The spread of evidence-poor medicine via flawed social-network analysis, Statistics, Politics, and Policy, vol. 2, no. 1, pp. DOI: 10.2202/2151–7509.1024, 2011.
+    
+    [8] Shalizi CR, Thomas AC. Homophily and contagion are generically confounded in observational social network studies, Sociological Methods \& Research, vol. 40, no. 2, pp. 211–239, 2011. MR2767833
+
+    [9] Lewis M. The Undoing Project: A Friendship That Changed Our Minds. W.W. Norton and Company, 2016.
+    
+    [10] Kahneman D, Tversky A. The simulation heuristic, in Judgment under Uncertainty: Heurisitics and Biases (D. Kahneman, P. Slovic, and A. Tversky, eds.), pp. 201–208, Cambridge University Press, 1982.
+    
+    [11] Hannart A, Pearl J, Otto F, Naveu P, Ghil M. Causal counterfactural theory for the attribution of weather and climate-related events, Bulletin of the American Meterological Society, vol. 97, pp. 99–110, 2016.
+    
+    [12] Freedman DA. Statistical models and shoe leather, Sociological Methodology, vol. 21, pp. 291–313, 1991.
+    
+    [13] Freedman DA. Oasis or mirage? Chance, vol. 21, no. 1, pp. 59–61, 2009. MR2422783
+    
+    [14] Haidt J. The Righteous Mind: Why Good People Are Divided by Politics and Religion. Vintage, 2013.
+    
+    [15] Yule U. Why do we sometimes get nonsense-correlations between time-series?–a study insampling and the nature of time-series, Royal Statistical Society, vol. 89, no. 1, 1926.
+    
+    [16] Ionnidis JPA. Why most published research findings are false, PLoS Med, vol. 2, no. 8, p. https://doi.org/10.1371/journal.pmed.0020124, 2005. MR2216666
+
+    [17] Oliver J. Scientific studies: Last week tonight with John Oliver (HBO), May 2016.
+    
+    [18] Lehrer J. The truth wears off, The New Yorker, December 2010.
+    
+    [19] Neyman J. Sur les applications de la theorie des probabilities aux experiences agricoles: Essaies des principes., Statistical Science, vol. 5, pp. 463–472, 1923, 1990. 1923 manuscript translated by D.M. Dabrowska and T.P. Speed. MR1092985
+    
+    [20] Rubin DB. Estimating causal effects of treatments in randomized and non-randomized studies, Journal of Educational Psychology, vol. 66, no. 5, pp. 688–701, 1974.
+    
+    [21] Rubin DB. Causal inference using potential outcomes, Journal of the American Statistical Association, vol. 100, no. 469, pp. 322–331, 2005. MR2166071
+    
+    [22] Sekhon J. The Neyman-Rubin model of causal inference and estimation via matching methods, in The Oxford Handbook of Political Methodology (J. M. Box-Steffensmeier, H. E. Brady, and D. Collier, eds.), Oxford Handbooks Online, Oxford University Press, 2008.
+    
+    [23] Heckman J. The scientific model of causality, Sociological Methodology, vol. 35, pp. 1–97, 2005.
+    
+    [24] Heckman J, Pinto R. Causal analysis after Haavelmo, Econometric Theory, vol. 31, no. 1, pp. 115–151, 2015. MR3303188
+    
+    [25] Gelman A. Resolving disputes between J. Pearl and D. Rubin on causal inference, July 2009.
+    
+    [26] Gelman A. Judea Pearl overview on causal inference, and more general thoughts on the reexpression of existing methods by considering their implicit assumptions, 2014.
+    
+    [27] Pearl J. Trygve Haavelmo and the emergence of causal calculus, Econometric Theory, vol. 31, no. 1, pp. 152–179, 2015. MR3303189
+    
+    [28] Haavelmo T. The statistical implications of a system of simultaneous equations, Econometrica, vol. 11, no. 1, pp. 1– 12, 1943. MR0007954
+    
+    [29] Haavelmo T. The probability approach in econometrics, Econometrica, vol. 12, no. Supplement, pp. iii–iv+1–115, 1944. MR0010953
+    
+    [30] Richardson TS, Robins JM. Single world intervention graphs (SWIGS): A unification of the counterfactual and graphical approaches to causality, April 2013.
+    
+    [31] NTSB, Preliminary report released for crash involving pedestrian, uber technologies, inc., test vehicle, May 2018.
+
+

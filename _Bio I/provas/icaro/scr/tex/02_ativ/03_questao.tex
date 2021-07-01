@@ -1,0 +1,86 @@
+% Questão 03 ------------------------------------------------------------------
+\question
+Linearização Logarítmica Assintótica.
+\paragraph{Definições:}
+\begin{enumerate}[(\bfseries D1)]
+	\item Diz-se que um Modelo Populacional, $ P \colon \mathbb{N} \to \mathbb{C} $,
+  é \textbf{Malthusiano} se para algum $ A $ e $ \gamma $, tem-se \\
+  $ \displaystyle \frac{P(k)}{Ae^{\gamma k}} = 1 $ para todo $ k $, ou, 
+  equivalentemente, se $ \displaystyle P(k) = Ae^{\gamma k} $.
+ \item Diz-se que um Modelo Populacional é \textbf{Assintoticamente Malthusiano} 
+  se para algum $ A $ e $ \gamma $, tem-se 
+  $ \displaystyle \frac{P(k)}{Ae^{\gamma k}} \to 1 $,
+  para $ k \to \infty $, ou, equivalentemente, 
+  $ \displaystyle P(k) = Ae^{\gamma k} \big(1 + \varepsilon(k)\big) $, para 
+  $\varepsilon(k) \underset{k \to \infty}{\to} 0 $.
+ \item Diz-se que uma função $ P \colon  \mathbb{N} \to \mathbb{C} $, é 
+  \textbf{Assintoticamente Linearizada na escala logarítmica} se 
+  
+  $
+   \displaystyle \lim_{k \to \infty} 
+   \left\{\,
+    \log{\vert P(k) \vert - (\alpha + \gamma k)} 
+   \,\right\}
+   = 0
+  $,
+  para algum $\alpha, \gamma$.
+ \item Diz-se que uma Relação funcional $ V = f(X) $ pode ser 
+  \textbf{Linearizada} (exatamente) se existirem funções inversíveis 
+  $ \nu = \psi{(V)} $ e $ x = \varphi{(X)} $ de tal forma que $ \nu = ax + b $
+  em algum domínio.
+ \item Diz-se que uma Relação funcional $ \nu = f(X) $ pode ser 
+  \textbf{Linearizada assintótica e localmente} nas vizinhanças de 
+  $ x = 0 $, se $ \nu = a + bx + o(x) $ paral algum $ a, b$. 
+  (
+  \textbf{Obs.} 
+  Segundo Leibniz, uma função $ h(x) $ é dita um infinitésimo de ordem menor do 
+  que $ x $, e escreve-se, $ o(x) $, se for possível representá-la na forma,
+  $ h(x) = x \varepsilon{(x)} $, onde, 
+  $ \displaystyle \lim_{x \to 0} \varepsilon{(x)} = 0$.
+  )
+\end{enumerate}
+
+\begin{parts}
+  \part Considere uma Tabela de dados demográficos representada pela função
+   $ P \colon \mathbb{N} \to \mathbb{C} $, cuja população quando medida na 
+   escala logarítmica na forma $ p(k) = \log{P(k)} $, exibe um gráfico 
+   aproximadamente linear (isto é, $ p(k) = (\alpha + \beta k) + \varepsilon $, 
+   com  $ \varepsilon \approx 0 $ para alguma faixa de valores de $ k $). 
+   Mostre como esta Dinâmica Populacional pode ser considerada aproximadamente 
+   Malthusiana nesta faixa de valores de $ k $.
+  \part Descreva o Método Numérico de Gauss (\textit{mínimos quadrados}) 
+   comumente utilizado para determinar a reta que ``melhor aproxima'' uma Tabela 
+   de dados e descreva como este Método pode ser utilizado para a formulação de 
+   um Modelo Malthusiano.
+  \part Considere uma População medida na escala logarítmica 
+   $ \log{P(k)} = p(k) $. 
+   Mostre que uma aproximação linear \textbf{assintótica} na escala logarítmica 
+   de uma população (isto é, $ \log{P(k)} - (\gamma k + \beta) \to 0 $, para 
+   $ k \to \infty $) \textbf{não} implica em um Modelo Malthusiano, mas apenas 
+   um Modelo Assintoticamente Malthusiano. 
+  {
+   \scriptsize
+   (
+    \textbf{Sugestão:} veja o próximo exercício.
+   )
+  }
+  \part Mostre \textbf{quando} uma população $ P(k) $ descrita pelo Modelo de 
+   Fibonacci é Malthusiana e \textbf{quando} ela é apenas assintoticamente 
+   Malthusiana.
+  {
+   \scriptsize
+   (
+    \textbf{Sugestão:} Analise as possíveis soluções a depender das condições 
+    iniciais.
+   )
+  }
+  \part Considere uma função ``racional bilinear'' 
+   $ \displaystyle V = \frac{AX}{CX + D}$. 
+   Mostre que é possível ``linearizar exatamente'' a relação entre as variáveis 
+   $ V $ e $ X $ tomando transformações $ \nu = \frac{1}{V}$ e 
+   $ x = \frac{1}{X} $, de tal forma que entre as ``novas variáveis'' resulte 
+   uma relação funcional de primeiro grau ( $ \nu = a + bx$ --- ``linear'').
+  \part Mostre que qualquer função diferenciável nas vizinhanças da origem 
+   pode ser localmente linearizada e vice-versa.
+\end{parts}
+%------------------------------------------------------------------------------

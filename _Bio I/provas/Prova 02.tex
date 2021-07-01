@@ -1,0 +1,2475 @@
+\section*{PROVA 02: MS680-MT624- II Sem 2020}
+
+\begin{quote}
+\textbf{POSTADA}: 22 de Dezembro de 2020 (Terça-feira)
+
+\textbf{RECEBIMENTO}: 03 de Janeiro de 2021 (Domingo)
+
+\textbf{ATENÇÃO}: ESCOLHA (apenas) 06 DENTRE AS 121 QUESTÕES DA LISTA ABAIXO.
+
+1 - As Questões devem ser encaradas como oportunidades para demonstrar conhecimento não como perguntas.
+
+\textbf{Precisão} e \textbf{Concisão} serão qualidades avaliadas.
+
+2 - A \textbf{Redação} de cada Prova deve apresentar a forma de um depoimento \textbf{pessoal} distinto. Caso ocorram, todas as cópias envolvidas serão invalidadas.
+
+3 - Cada Questão resolvida deve ser precedida de seu respectivo Enunciado Original completo.
+
+4 - A Resolução deve ser \textbf{digitalizada} em um \textbf{único documento pdf} (\textit{Manuscritos} \textbf{NÃO} serão aceitos!)
+
+5 - O documento pdf da Resolução deve ser enviado no \textbf{Anexo} de uma mensagem com título ``\textbf{PROVA 02}'' para o endereço eletrônico: wilson@unicamp.br
+
+6 - \textbf{Antes} das 24h do dia 03 de janeiro. (Sugestão: Não deixe para a última hora e evite ser responsabilizado por acidentes)
+\end{quote}
+
+
+\section*{Questão 01}
+\addcontentsline{toc}{section}{Questão 01}
+
+
+A Psicologia da Matematização: Ockham (séc. 13) \& Kanizsa (séc. 20), Galileo (séc. 17) \& Newton (séc. 17-18)
+
+    1a - Descreva o ``\textit{Efeito de Completamento (Interpolação) Visual}'' (``\textit{Efeito Kanizsa}'') em poucas linhas e exemplifique-o com o famoso triângulo de Kanizsa e especialmente com a visualização de formas sugeridas por uma sequência de pontos.
+
+    1b - Argumente com base no ``\textit{Efeito Kanizsa}'' sobre a motivação cognitiva da representação contínua para dinâmicas de grandes populações. Como se explica evolutivamente a preferência cognitiva da espécie humana por registrar informações discretas em termos (reduzidos) como ``\textit{formas geométricas}''?
+
+    1c - Descreva a Metodologia funcional de Galileo e justifique-a em termos do que foi discutido em 1a-b.
+
+    1d - Descreva o grande aperfeiçoamento da Metodologia de Galileo realizada por Newton. (Sugestão: Biblioteca de funções)
+
+    1e - Descreva o ``Princípio de Parcimônia de Ockham'' e discuta a sua conexão com a cognição humana, especialmente com o item 1b.
+
+    1f - Exemplifique os itens 1b-c com dados de mortalidade da COVID19 em 2020 para uma grande comunidade durante aproximadamente 1 ano.
+
+
+
+
+
+
+\section*{Questão 02}
+\addcontentsline{toc}{section}{Questão 02}
+
+
+
+Escala Logarítmica na Aproximação Assintótica: Princípio Sensorial (``Lei'') de
+Weber-Fechner (séc. 19)
+
+    2a - Descreva o ``\textit{Princípio Sensorial} (``\textit{Lei}'') de Weber-Fechner'' para a percepção visual, auditiva, táctil, olfativa e de cardinalidade.
+
+    2b - Argumente com base no ``Princípio de Weber-Fechner'' sobre a conveniência cognitiva da escala logarítmica para variáveis com ``grandes'' valores.
+    
+    2c - Aplique a escala logarítmica para o registro numérico da população do exemplo citado no item 1f acima e caracterize os períodos de tempo em que o comportamento é linear (Malthusiano).
+
+    2c - Mostre que, para duas sequencias de números positivos, \(\{a_k \to \infty\}\) e \(\{b_k \to \infty\}\), então valem as seguintes implicações para a aproximação assintótica em escala logarítmica
+    \[\log a_k - \log b_k \to 0 \Leftrightarrow \log \dfrac{a_k}{b_k} \to 0 \Leftrightarrow \dfrac{a_k}{b_k} \to 1\]
+
+    2d - Mostre que a aproximação assintótica na escala logarítmica  não implica necessariamente na aproximação assintótica em escala normal (isto é, \(a_k - b_k \to 0\), mas vale a implicação inversa. (Sugestão: Analise a igualdade \(a_k - b_k  a_k \left(1 - \dfrac{a_k}{b_k}\right)\) e observe que \(a_k - b_k \to 0 \Leftrightarrow \dfrac{a_k}{b_k}\) se aproxima de 1 com um erro de \(o\left(\dfrac{1}{a_k}\right)\), isto é, de ``ordem menor do que \(\dfrac{1}{a_k}\)''. Assim, para sequencias que convergem para \(\infty\) é mais interessante analisar a aproximação assintótica logarítmica , pois ela é mais abrangente e tem um fundo cognitivo. Além disso, para dois ``\textit{trens em alta velocidade uma aproximação na escala simples é extremamente perigosa}''!)
+
+%\solucao{}
+
+
+
+\section*{Questão 03}
+\addcontentsline{toc}{section}{\textcolor{green}{Questão 03}}
+
+
+Linearização logarítmica  Assintótica
+
+Definições:
+
+    1 - Diz-se que um Modelo Populacional, \(P: \mathbb{N} \to \mathbb{C}\), é \textbf{Malthusiano} se para algum \(A\) e \(\gamma\), se tem \(\dfrac{P(k)}{Ae^{\gamma k}} = 1\), para todo \(k\), ou, equivalentemente, se \(P(k) = Ae^{\gamma k}\).
+
+    2 - Diz-se que um Modelo Populacional é \textbf{Assintoticamente Malthusiano} se para algum \(A\) e \(\gamma\), se tem \(\dfrac{P(k)}{Ae^{\gamma k}} \to 1\), para \(k \to \infty\), ou, equivalentemente, \(P(k) = Ae^{\gamma k} (1+\epsilon(k)) \to 1\), para \(\epsilon(k) \to 0\).
+
+    3 - Diz-se que uma função \(P: \mathbb{N} \to \mathbb{C}\), é \textbf{Assintoticamente Linearizada na escala logarítmica} se
+    \(\displaystyle \lim_{k \to \infty} \{\log|P(k)| - (\alpha +\gamma k)\} = 0\), para algum \(\alpha, \gamma\).
+
+    4 - Diz-se que uma Relação funcional \(V = f(X)\) pode ser \textbf{Linearizada} (exatamente) se existirem funções inversíveis \(v = \psi(V)\) e \(x = \varphi(X)\) de tal forma que \(v = ax + b\), em algum domínio.
+
+    5 – Diz-se que uma Relação funcional \(v = f(x)\) pode ser \textbf{Linearizada assintótica e localmente} nas vizinhanças de \(x = 0\) se \(v = a + bx + o(x)\) para algum \(a, b\). (Obs: Segundo Leibniz, uma função \(h(x)\) é dita um infinitésimo de ordem menor do que \(x\), e escreve-se, \(o(x)\) se for possível representá-la na forma \(h(x) = x \epsilon(x)\), onde \(\displaystyle \lim_{x \to 0} \epsilon(x) = 0\).
+
+    3a - Considere uma Tabela de dados demográficos representada pela função \(P: \mathbb{N} \to \mathbb{C}\), cuja população quando medida na escala logarítmica na forma \(p(k) = \log(P(k))\), exibe um gráfico aproximadamente linear (isto é, \(p(k) = (\alpha + \beta k) + \epsilon\), com \(\epsilon \approx 0\), para alguma faixa de valores de \(k\)). Mostre como esta Dinâmica Populacional pode ser considerada aproximadamente Malthusiana nesta faixa de valores de \(k\).
+
+    3b - Descreva o Método Numérico de Gauss (``mínimos quadrados'') comumente utilizado para determinar a reta que ``melhor aproxima'' uma Tabela de dados e descreva como este Método pode ser utilizado para a formulação de um Modelo Malthusiano.
+
+    3c - Considere uma População medida na escala logarítmica \(\log P(k) = p(k)\). Mostre que uma aproximação linear \textbf{assintótica} na escala logarítmica  de uma população (isto é, \(\log P(k) - (\gamma k + \beta) \to 0\), para \(k \to \infty\)) \textbf{não} implica em um Modelo Malthusiano, mas apenas um Modelo Assintoticamente Malthusiano. (Sugestão: veja o próximo exercício).
+
+    3d - Mostre \textbf{quando} uma população \(P(k)\) descrita pelo Modelo de Fibonacci é Malthusiana e \textbf{quando} ela é \textit{apenas} assintoticamente Malthusiana. (Sugestão: Analise as possíveis soluções a depender das condições iniciais).
+
+    3e - Considere uma função ``\textbf{racional bilinear}'' \(V = \dfrac{AX}{CX+D}\). Mostre que é possível ''linearizar exatamente'' a relação entre as variáveis \(V\) e \(X\) tomando transformações \(v = \dfrac{1}{V}\) e \(x = \dfrac{1}{X}\), de tal forma que entre as ``novas variáveis'' resulte uma relação funcional de primeiro grau (\(v = a + bx\) (``\textit{linear}'').
+
+    3f - Mostre que qualquer função diferenciável nas vizinhanças da origem pode ser localmente linearizada e vice-versa.
+
+\solucao{
+
+
+\subsection*{3a}
+
+Considere a função \(p(k) = \log(P(k))\), onde \(P(k)\) é, também, uma função que associa dados de uma tabela demográfica \(k \mapsto P(k)\).
+
+Como \(p(k) = \log(P(k)) \Rightarrow P(k) = e^{p(k)}\).
+
+Tomando \(p(k) = \alpha + \gamma k + \epsilon\), uma função cujo gráfico é aproximadamente uma reta, temos:
+\[P(k)
+= e^{p(k)}
+= e^{\alpha + \gamma k + \epsilon}
+\]
+
+Fazendo \(\epsilon \to 0\), temos:
+\[P(k) 
+\approx e^{\alpha + \gamma k}
+= e^{\alpha} \cdot e^{\gamma k}
+= A \cdot e^{\gamma k}
+\]
+
+\subsection*{3b}
+
+
+Seja $d_{k} = f(x_{k})-g(x_{k})$ o desvio existente entre as imagens de $f$ e $g$ em $x_{k}$.
+
+O método dos mínimos quadrados consiste em escolher os coeficientes $\alpha_j$, $j= 1, \ldots, m$ de tal forma que a soma dos quadrados dos desvios seja mínima, isto é:
+$$\displaystyle\sum_{k=1}^{n} d_{k}^2 = \displaystyle\sum_{k=1}^{n} [f(x_{k}) - g(x_{k})]^2 \mbox{ é mínimo}.$$
+
+Assim, os coeficientes $\alpha_j$, que fazem com que $g(x)$ se aproxime ao máximo de $f(x)$, são os que minimizam a função:
+$$F(\alpha_1, \ldots, \alpha_m) = \displaystyle\sum_{k=1}^{n} [f(x_{k}) - g(x_{k})]^2 = \displaystyle\sum_{k=1}^{n} \left[f(x_{k}) - \displaystyle\sum_{j=1}^{m} \alpha_j g_j(x_{k})\right]^2.$$
+
+Para isto, é necessário que as $m$ derivadas parciais de $F$ de primeira ordem se anulem, ou seja:
+$$\dfrac{\partial F}{\partial \alpha_j}(\alpha_1, \ldots, \alpha_m) = 0, j = 1, \ldots, m,$$
+ou seja,
+$$\dfrac{\partial F}{\partial \alpha_j}(\alpha_1, \ldots, \alpha_j) = 2 \cdot \displaystyle\sum_{k=1}^{n} \left[f(x_{k}) - \displaystyle\sum_{j=1}^{m} \alpha_j g_j(x_{k})\right] \cdot \left[-g_j(x_{k})\right] = 0,\ j = 1, 2, \ldots, m.$$
+
+
+Considere, agora,
+\[\begin{array}{rcl}
+N^t = \left[\begin{array}{cccc} n_1 & n_2 & \ldots & n_N \end{array}\right]^t \mbox{ (Pontos de entrada) e } \\
+T^t = \left[\begin{array}{cccc} t_1 & t_2 & \ldots & t_N\end{array}\right]^t \mbox{ (Pontos de saída)}
+\end{array}\]
+%de um sistema \(T = N\theta\)
+
+Queremos obter um \(Z \sim T\) e, se \(Z\) é linear, temos:
+\begin{eqnarray*}
+Z
+= \theta_1 N + \theta_2 
+= \left[\begin{array}{c} n_1\theta_1+\theta_2 \\ n_2\theta_1+\theta_2 \\ \vdots \\ n_N\theta_1+\theta_2 \end{array}\right] 
+= \underbrace{\left[\begin{array}{cc} n_1 & 1 \\ n_2 & 1 \\ \vdots \\ n_N & 1 \end{array}\right]}_{\overline{N}}
+\underbrace{\left[\begin{array}{c} \theta_1 \\ \theta_2 \end{array}\right]}_{\Theta}
+\end{eqnarray*}
+
+Vamos minimizar a função
+\[E(\Theta)
+= (T-Z)^2 = (T-\overline{N}\Theta)^2
+\]
+e, para tal, determinemos:
+\[
+\dfrac{\partial E}{\partial \Theta}
+= \dfrac{\partial E}{\partial Z}\ \dfrac{\partial Z}{\partial \Theta}.\]
+
+Mas
+\[
+\dfrac{\partial E}{\partial Z}
+= \dfrac{\partial}{\partial Z} (T-Z)^2 = -2 \underbrace{(T-Z)}_{N \times 1}
+\]
+e
+\[
+\dfrac{\partial E}{\partial \Theta}
+= \dfrac{\partial}{\partial \Theta} (\overline{N}\Theta) =  \underbrace{\overline{N}^t}_{2 \times N}.
+\]
+
+Segue que
+\[0
+= \dfrac{\partial E}{\partial \Theta}
+= -2 \overline{N}^t (T-Z)
+= -2 \overline{N}^t (T-\overline{N}\Theta),
+\]
+ou seja,
+\[
+\overline{N}^t T = \overline{N}^t \overline{N} \Theta
+\]
+implicando em
+\[
+\Theta = (\overline{N}^t\ \overline{N})^{-1} \overline{N}^t T.
+\]
+%(ver \href{https://www.youtube.com/watch?v=txnrFZG7Ugs&ab_channel=LeonardoOlivi}{Youtube})
+
+
+Os valores de \(\theta_1\) e \(\theta_2\), após algumas contas, são dados por:
+\[\begin{array}{rcl}
+\theta_1 &=& \dfrac{\displaystyle\sum_{k=1}^{N} n_{k} \sum_{k=1}^{N} t_{k} - N \sum_{k=1}^{N} n_{k}\ t_{k}}{\displaystyle\left(\sum_{k=1}^{N} n_{k}\right)^2 - N \sum_{k=1}^{N} n_{k}^2} \\
+\theta_2 &=& \dfrac{\displaystyle\sum_{k=1}^{N} t_{k} - \theta_1 \sum_{k=1}^{N} n_{k}}{N}
+\end{array}
+\]
+
+Assim, ao tomarmos \(\log(Z) = \theta_1N+\theta_2 \Rightarrow Z = A \exp(\theta_1N)\)
+
+
+\subsection*{3c}
+
+\subsection*{3d}
+
+\subsection*{3e}
+Seja
+\[V = \dfrac{AX}{CX+D}.\]
+
+Efetuando as mudanças de variáveis \(V = \dfrac{1}{v}\) e \(X = \dfrac{1}{x}\), obtemos:
+\[\dfrac{1}{v} = \dfrac{A\dfrac{1}{x}}{C\dfrac{1}{x}+D}
+\Rightarrow
+v = \dfrac{D}{A} x + \dfrac{C}{A}, A \ne 0
+\Rightarrow
+v = a x + b
+.\]
+
+
+\subsection*{3f}
+
+Se \(f\) é diferenciável, pelo Teorema do Valor Médio, existe \(c \in V_0 = (-\delta, \delta)\) tal que
+\[f'(c) = \dfrac{f(x) - f(0)}{x}, x \in V_0.\]
+Logo,
+\[f(x) = f'(c)x+f(0).\]
+
+Por outro lado, se \(g\) é uma reta secante ao gráfico de \(f\), com pontos de interseção \(A(-\delta, f(-\delta))\) e \(B(\delta, f(\delta))\), então:
+\[g(x) = m(x+\delta)+f(-\delta).\]
+
+Como \(f\) é diferenciável, portanto, contínua, e \(0 \in (-\delta, \delta)\), temos:
+\[\displaystyle \lim_{\delta \to 0} |(0,f(0)) - (0,g(0))|
+= \lim_{\delta \to 0} f(0)-g(0)
+= \lim_{\delta \to 0} f(0)-(-m\delta-f(-\delta))
+= 0.
+\]
+
+Como queríamos demonstrar.
+}
+
+\section*{Questão 04}
+\addcontentsline{toc}{section}{\textcolor{green}{Questão 04}}
+
+
+Tempo Médio (\textit{Aritmético}) de Sobrevivência
+
+    4a - Defina Média Aritmética Ponderada \(M_A(a_1, \ldots, a_N)\) para uma sequência de dados numéricos \(a_k > 0\). Discuta a razão de se dizer que uma Média Aritmética \(A\) é \textbf{uma única} informação numérica \textbf{populacional} que substitui (reduzindo) um conjunto (Tabela) de \textbf{várias} informações numéricas \textbf{individuais}, \(a_k\). Argumente com base nesta distinção sobre a (usual) insensatez de se afirmar que um \textbf{casal} brasileiro tem em média, por exemplo, \(1,44\) filhos.
+
+    4b - Segundo um Teorema de Kolmogorov-Nagumo (1933) todas as ``Médias'' sobre uma sequência de dados numéricos \(a_k > 0\) ({\small conceito que pode ser facilmente definido por algumas poucas propriedades bem características}) são da forma \(M_\phi(a_1, \ldots, a_N) = \phi^{-1}(M_A(\phi(a_1), \ldots, \phi(a_N)))\), onde \(\phi\) é uma função real estritamente convexa inversível e \(M_A\) é uma Média Aritmética. Mostre a veracidade desta afirmação com respeito às médias, Aritmética, Harmônica, Geométrica e Quadrática.
+
+    4c - Interprete o Método de Quadrados Mínimos de Gauss em termos de uma Média Quadrática.
+
+    4d - Dada uma sequência de números positivos \(a = \{a_k\}\) obtenha, argumentando geometricamente, uma relação de ordem entre suas Médias Aritmética, \(M_A(a)\), Harmônica, \(M_h(a)\), Geométrica, \(M_g(a)\) e Quadrática, \(M_2(a)\). (Utilize uma sequência de apenas dois números para seus argumentos).
+
+    4e - Mostre que, a depender da escolha da média de Kolmogorov-Nagumo, pode-se dizer que a média de filhos de um casal brasileiro pode ser qualquer número real entre \(m = \min \{a_k\}\) e \(M = \max\{a_k\}\), onde \(a_k = \mbox{``Número de casais com } k \mbox{ filhos''}\).
+
+
+\solucao{
+
+\subsection*{4a - }
+
+Considere um conjunto de dados numéricos
+\[A = \{a_i; i =1, 2, \ldots, n\},\]
+em que cada \(a_i \in A\) possui frequência \(f_i\).
+
+Se a característica a ser mantida quando substituímos cada valor \(a_i \in A\) por \(M_A\) é a soma dos elementos de \(A\), obtemos a \textbf{média aritmética}.
+
+A média aritmética \(M_A\) é um valor tal que
+\[\begin{array}{rcl}
+a_1 + \ldots + a_1 + a_2 + \ldots + a_2 + \ldots + a_n + \ldots + a_n &=& M_A + \ldots + M_A \\
+\underbrace{a_1 + \ldots + a_1}_{\times f_1} + \underbrace{a_2 + \ldots + a_2}_{\times f_2} + \ldots + \underbrace{a_n + \ldots + a_n}_{\times f_n} &=& \underbrace{M_A + \ldots + M_A}_{\times (f_1 + f_2 + \ldots + f_n)},
+\end{array}\]
+ou seja,
+$$f_1 \cdot a_1 + f_2 \cdot a_2 + \ldots + f_n \cdot a_n = (f_1 + f_2 + \ldots + f_n) \cdot M_A.$$
+
+Segue que
+\begin{equation}\label{map}
+M_A
+= \dfrac{f_1 \cdot a_1 + f_2 \cdot a_2 + \ldots + f_n \cdot a_n}{f_1 + f_2 + \ldots + f_n}
+= \dfrac{\displaystyle \sum_{i=1}^{n} \{a_i \cdot f_i\}}{\displaystyle \sum_{i=1}^{n} f_i}.
+\end{equation}
+
+%Em certas situações, os dados numéricos que queremos sintetizar possuem diferentes graus de importância. Utiliza-se, portanto,
+
+Pode-se entender a frequência \(f_i\) como um ``peso'' (ou ponderação) ao valor do elemento \(a_i\), ou seja, quando os dados aparecem na forma de uma distribuição de frequências, os ponderadores são as frequências absolutas.
+
+\textbf{Observação}: Esta média aritmética é também chamada aritmética ponderada. As frequências com que aparecem determinados elementos de um conjunto (pesos ou ponderações) assumem um grau de ``importância'' para cada valor.
+
+
+%Podemos observar que a relação da equação ({\ref{map}}) é válida para dados tabulados não agrupados em classes.
+
+Caso \(f_1= \ldots = f_n = 1\), temos que a \textbf{média aritmética} para o conjunto \(A\) é:
+
+\begin{equation}\label{ma}
+M_A = \dfrac{a_1 + a_2 + \ldots + a_n}{n} = \dfrac{\displaystyle \sum_{i=1}^{n} a_i}{n}
+\end{equation}
+
+
+Se o \textbf{produto} dos elementos de \(A\) é a característica a ser mantida, obtemos a \textbf{média geométrica}.
+
+Seja \(f_i\) a frequência atribuída ao respectivo valor que a variável \(a_i \in A\) assume, \(a_i \in \mathbb{R}_+^\ast\). A \textbf{média geométrica} dos \(n\) números positivos do conjunto \(A\) é um valor positivo \(M_g\) tal que
+\[a_1^{f_1} \cdot a_2^{f_2} \cdot \ldots \cdot a_k^{f_k} = M_g \cdot M_g \cdot \ldots \cdot M_g = M_g^n, \mbox{ em que } n = \displaystyle \sum_i^k f_i.\]
+Logo,
+\begin{equation}\label{mgp}
+M_g = \sqrt[n]{a_1^{f_1} \cdot a_2^{f_2} \cdot \ldots \cdot a_k^{f_k}} = \sqrt[n]{\prod_{i=1}^{k} a_i^{f_i}}
+\end{equation}
+
+Podemos entender a frequência com que cada elemento aparece, como sendo um grau de importância para a variável.
+
+Caso \(f_1= \ldots = f_n = 1\), a \textbf{média geométrica} dos \(n\) números positivos e não nulos do conjunto \(A\) é um valor positivo \(M_g\) tal que
+$$a_1 \cdot a_2 \cdot \ldots \cdot a_n = M_g \cdot M_g \cdot \ldots \cdot M_g = M_g^n.$$
+Logo,
+\begin{equation}
+M_g = \sqrt[n]{a_1 \cdot a_2 \cdot \ldots \cdot a_n} = \sqrt[n]{\prod_{i=1}^{n} a_i}
+\end{equation}
+
+
+Se a soma dos inversos dos elementos de \(A\) é a característica a ser conservada, obteremos a \textbf{média harmônica}.
+
+Seja \(f_i\) o peso atribuído ao respectivo valor que a variável positiva e não nula \(a_i \in A\) assume. A \textbf{média harmônica} dos \(n\) números positivos do conjunto \(A\) é um valor positivo \(M_h\) tal que
+\[\dfrac{f_1}{a_1} + \dfrac{f_2}{a_2} + \ldots + \dfrac{f_n}{a_n} = \dfrac{1}{M_h} + \dfrac{1}{M_h} + \ldots + \dfrac{1}{M_h} = \dfrac{\displaystyle \sum_{i=1}^{n} f_i}{M_h}.\]
+Logo,
+\begin{equation}
+M_h = \dfrac{\displaystyle \sum_{i=1}^{n} f_i}{\dfrac{f_1}{a_1} + \dfrac{f_2}{a_2} + \ldots + \dfrac{f_n}{a_n}} = \dfrac{\displaystyle \sum_{i=1}^{n} f_i}{\displaystyle \sum_{i=1}^{n} \dfrac{f_i}{a_i}}.
+\end{equation}
+
+
+\textbf{Observação}: A possibilidade de não existirem as médias geométrica e harmônica é evitada, uma vez que estas só foram definidas para números positivos.
+
+%Considere o conjunto \(A = \{a_1, a_2, \ldots, a_n\}\), em que cada \(a_i \neq 0\) aparece \(f_i\) vezes. Então,
+
+A \textbf{média quadrática} é um valor \(M_2\) tal que
+\[
+a_1^2 \cdot f_1 + a_2^2 \cdot f_2 + \ldots + a_n^2 \cdot f_n
+= \underbrace{M_2^2 + M_2^2 + \ldots + M_2^2}_{\times (f_1+f_2+\ldots+f_n)}
+= M_2^2 \cdot (f_1+f_2+\ldots+f_n).\]
+Logo,
+\[
+M_2^2
+= \dfrac{a_1^2 \cdot f_1 + a_2^2 \cdot f_2 + \ldots + a_n^2 \cdot f_n}{f_1+f_2+\ldots+f_n}
+= \dfrac{\displaystyle \sum_{i=1}^{n} a_i^2 \cdot f_i}{\displaystyle \sum_{i=1}^{n} f_i}.
+\]
+Portanto,
+\begin{equation}\label{m2}
+M_2
+= \sqrt{\dfrac{\displaystyle \sum_{i=1}^{n} a_i^2 \cdot f_i}{\displaystyle \sum_{i=1}^{n} f_i}}.
+\end{equation}
+
+
+%{\red continuar}
+
+
+\subsection*{4b - }
+
+Seja \(\mathcal{A} = \{a_1, a_2, \ldots, a_N\}\), com \(a_k>0, \forall\ k = 1, \ldots, N\). O que devemos mostrar é que existe uma função estritamente convexa inversível \(\phi\) tal que
+\[M_\phi(\mathcal{A}) = \phi^{-1}\left(M_A(\phi(a_1), \ldots, \phi(a_N))\right)\]
+é válida para as médias aritmética \(M_A\), harmônica \(M_H\), Geométrica \(M_G\) e quadrática \(M_2\).
+
+Para a média aritmética \(M_A\) de \(\mathcal{A}\), temos:
+\[
+M_A(\mathcal{A})
+=  \dfrac{1}{N} \displaystyle\sum_{k=1}^{N} a_{k}
+=  \displaystyle\sum_{k=1}^{N} \dfrac{a_{k}}{N}
+\]
+
+Se fizermos \(\phi(a_k) = a_k\), temos \(\phi^{-1}(a_k) = a_k\). O que nos leva a:
+\[\begin{array}{rcl}
+M_A(\mathcal{A})
+&=& \displaystyle\sum_{k=1}^{N} \dfrac{a_{k}}{N} \\
+&=& \displaystyle\sum_{k=1}^{N} \dfrac{\phi(a_{k})}{N} \\
+&=& M_A(\phi(a_1), \ldots, \phi(a_N)) \\
+&=& \phi^{-1}(M_A(\phi(a_1), \ldots, \phi(a_N)) \\
+%&=& M_\phi(\mathcal{A})
+\end{array}\]
+
+\textbf{Observação}: A função identidade é inversível, estritamente monótona e convexa.
+
+No caso da média harmônica \(M_H\) de \(\mathcal{A}\), temos:
+\[
+M_H(\mathcal{A})
+=  \left(\dfrac{1}{N} \displaystyle\sum_{k=1}^{N} \dfrac{1}{a_{k}}\right)^{-1}.
+\]
+
+Se fizermos \(\phi(a_k) = \dfrac{1}{a_k}\), temos \(\phi^{-1}(a_k) = \dfrac{1}{a_k}\). O que nos leva a:
+\[\begin{array}{rcl}
+M_H(\mathcal{A})
+&=& \left(\dfrac{1}{N} \displaystyle\sum_{k=1}^{N} \phi(a_{k})\right)^{-1} \\
+&=& M_A\left(\phi(a_1), \ldots, \phi(a_k)\right)^{-1} \\
+&=& \phi^{-1}\left(M_A(\phi(a_1), \ldots, \phi(a_k))\right)
+\end{array}\]
+
+\textbf{Observação}: A função \(\phi\) é inversível, estritamente monótona e estritamente convexa.
+
+
+
+
+No caso da média geométrica \(M_G\) de \(\mathcal{A}\), temos:
+\[
+M_G(\mathcal{A})
+= \displaystyle\sqrt[N]{\prod_{k=1}^{N} a_{k}}.
+\]
+
+Se fizermos \(\phi(a_k) = \ln(a_k)\), temos \(\phi^{-1}(a_k) = \exp(a_k)\). O que nos leva a:
+\[\begin{array}{rcl}
+M_G(\mathcal{A})
+&=& \displaystyle \sqrt[N]{\prod_{k=1}^{N} \exp(\phi(a_{k}))} \\
+&=& \displaystyle \exp\left(\dfrac{1}{N} \sum_{k=1}^{N} \phi(a_k)\right) \\
+&=& \phi^{-1}(M_A(\phi(a_1), \ldots, \phi(a_N)))
+\end{array}\]
+
+\textbf{Observação}: A função \(\phi\) é inversível, estritamente monótona, mas não é convexa.
+
+
+No caso da média quadrática \(M_2\) de \(\mathcal{A}\), temos:
+\[
+M_2(\mathcal{A})
+= \displaystyle \sqrt{\dfrac{1}{N}\sum_{k=1}^{N} a_{k}^2}.
+\]
+
+Se fizermos \(\phi(a_k) = a_k^2\), temos \(\phi^{-1}(a_k) = \sqrt{a_k}\). O que nos leva a:
+\[\begin{array}{rcl}
+M_2(\mathcal{A})
+&=& \displaystyle \sqrt{\dfrac{1}{N}\sum_{k=1}^{N} \phi(a_{k})} \\
+&=& \displaystyle \sqrt{M_A(\phi(a_1), \ldots, \phi(a_N))} \\
+&=& \phi^{-1}(M_A(\phi(a_1), \ldots, \phi(a_N)))
+\end{array}\]
+
+\textbf{Observação}: A função \(\phi\) é inversível, estritamente monótona e estritamente convexa.
+
+
+
+
+
+\subsection*{4c - } %{\red fazer}
+
+
+Seja \(d_i = f(a_i)-g(a_i)\) o desvio existente entre as imagens de \(f\) e \(g\) em \(a_i\).
+
+O método dos mínimos quadrados consiste em escolher os coeficientes \(\alpha_j\), \(j = 1, \ldots, m\), de tal forma que a soma dos quadrados dos desvios seja mínima, isto é:
+\begin{equation}\label{eq:somaquadraticadosdesvios}
+\displaystyle\sum_{i=1}^{n} d_i^2 = \displaystyle\sum_{i=1}^{n} [f(a_i) - g(a_i)]^2 \mbox{ é mínimo}.
+\end{equation}
+
+Assim, os coeficientes \(\alpha_j\), que fazem com que \(g(a)\) se aproxime ao máximo de \(f(a)\), são os que minimizam a função:
+\[F(\alpha_1, \ldots, \alpha_m) = \displaystyle\sum_{i=1}^{n} [f(a_i) - g(a_i)]^2 = \displaystyle\sum_{i=1}^{n} \left[f(a_i) - \displaystyle\sum_{j=1}^{m} \alpha_j g_j(a_i)\right]^2.\]
+
+Para isto, é necessário que as \(m\) derivadas parciais de \(F\) de primeira ordem se anulem, ou seja:
+\begin{equation}\label{eq:derivadadeordemumanulada}
+\dfrac{\partial F}{\partial \alpha_j}(\alpha_1, \ldots, \alpha_m) = 0, j = 1, \ldots, m,
+\end{equation}
+ou seja,
+\[\dfrac{\partial F}{\partial \alpha_j}(\alpha_1, \ldots, \alpha_j) = 2 \cdot \displaystyle\sum_{i=1}^{n} \left[f(a_i) - \displaystyle\sum_{j=1}^{m} \alpha_j g_j(a_i)\right] \cdot \left[-g_j(a_i)\right] = 0,\ j = 1, 2, \ldots, m.\]
+
+Observa-se que ao multiplicarmos o primeiro membro da equação \eqref{eq:somaquadraticadosdesvios} por \(\left(\displaystyle\sum_{i=1}^{N} f_i\right)^{-1}\), em que \(f_i\) é a frequência com que \(a_i\) aparece no conjunto \(A\), obtendo-se:
+\begin{equation}\label{eq:mediaquadraticadosdesvios}
+\dfrac{\displaystyle \sum_{i=1}^{N} d_i^2}{\displaystyle \sum_{i=1}^{N}f_i} = \displaystyle \sum_{i=1}^{N} \dfrac{d_i^2}{\displaystyle \sum_{i=1}^{N} f_i},
+\end{equation}
+a média dos desvios quadráticos, em nada se altera a condição em \eqref{eq:derivadadeordemumanulada}.
+
+
+
+
+
+
+
+
+
+\subsection*{4d - Relação entre as Médias}
+
+Se \(a_1, a_2, \ldots, a_n\) são \(n\) números positivos e \(M_h\), \(M_g\), \(M_A\) e \(M_2\) são suas médias harmônica, geométrica, aritmética e quadrática, respectivamente, então
+\[M_h \le M_g \le M_h \le M_2.\]
+
+Além disso, duas quaisquer dessas médias serão iguais se, e somente se, \(a_1 = a_2 = \ldots = a_n\).
+
+
+
+\subsubsection*{Análise 1: Geométrica}
+
+Considere o triângulo \(\triangle ABP\), inscrito numa semicircunferência de um círculo de centro na origem do sistema cartesiano e de raio \(r\). Considere, ainda, que (sem perda da generalidade) a semicircunferência seja a que possui pontos nos I e II quadrantes, as coordenadas dos vértices sejam: \(A(-r,0)\), \(B(r,0)\) e \(P(x,y)\) um ponto arbitrário (Ver figura).
+
+
+\begin{center}
+\captionof{figure}{Interpretação geométrica das médias}
+
+{\centering
+\SpecialCoor
+
+\psset{unit=0.8cm}
+\begin{pspicture}(-8,-1)(8,8)
+\pnode(0,0){O}
+\pnode(-6.5,0){A}
+\pnode(6.5,0){B}
+\pnode(0,6.5){C}
+\pnode(4.576923077,4.615384615){P}
+\pnode(4.576923077,0){P1}
+\pnode(2.269311568,2.288381413){P2}
+%
+\pscircle*[linecolor=red](O){0.15}\uput[dl](O|,-0.25){\(O\)}
+\pscircle*[linecolor=red](A){0.15}\uput[dl](A){\(A\)}
+\pscircle*[linecolor=red](B){0.15}\uput[dr](B){\(B\)}
+\pscircle*[linecolor=red](C){0.15}\uput[ul](C){\(C\)}
+\pscircle*[linecolor=red](P){0.15}\uput[ur](P){\(P(x,y)\)}
+\pscircle*[linecolor=red](P1){0.15}\uput[d](P1|,-0.25){\(P_1\)}
+\pscircle*[linecolor=red](P2){0.15}\uput[ul](P2){\(P_2\)}
+%
+\psaxes[Dx=10,Dy=10,linecolor=red]{->}(0,0)(-8,-1)(8,8)
+%
+\psarc{-}(O){6.5}{0}{180}
+%
+\psarc{<->}(A){1.5}{0}{22.6}\rput(A|,0){\rput(2;11.3){\(\alpha\)}}
+\psarc{<->}(B){0.65}{112.6}{180}\rput(B|,0){\rput(0.9;141.3){\(\beta\)}}
+%
+\psarc{<->}(P){1.55}{270}{292.6}\rput(P){\rput(1.95;280.3){\(\alpha\)}}
+\psarc{<->}(P){1.55}{202.6}{270}\rput(P){\rput(1.95;235.3){\(\beta\)}}
+%
+\psarc{*-*}(P){0.55}{223.1}{270}\rput(P){\rput(0.85;245.3){\(\gamma\)}}
+%
+\psarc{*-*}(O){0.55}{0}{42}\rput(O){\rput(0.85;21){\(\theta\)}}
+%
+\psline(A)(P)(B)
+\psline(P)(P1)
+\psline(P)(O)
+\psline(P1)(P2)
+\psline(P1)(C)
+%
+\def\marcacaoperp{\psline(0,0.5)(0.5,0.5)(0.5,0)
+\pscircle*(0.25,0.25){0.075}
+}
+%
+\rput(O){\psrotate(0,0){90}{\marcacaoperp}}
+\rput(P2){\psrotate(0,0){-135}{\marcacaoperp}}
+\rput(P1){\marcacaoperp}
+%
+\psbrace[
+%singleline,
+%linestyle=dashed,
+linewidth=.75pt,
+braceWidth=.75pt,
+braceWidthOuter=5pt,
+braceWidthInner=5pt,
+rot=0,
+ref=tC,
+nodesepB=3pt,
+](A)(P1){$a$}
+%
+\psbrace[
+%singleline,
+%linestyle=dashed,
+linewidth=.75pt,
+braceWidth=.75pt,
+braceWidthOuter=5pt,
+braceWidthInner=5pt,
+rot=0,
+ref=tC,
+nodesepB=3pt
+](P1)(B){$b$}
+\end{pspicture}
+}
+
+
+
+
+
+\fonte{Figura elaborada pelo autor}
+\end{center}
+
+Os triângulos \(\triangle AP_1P\) e \(\triangle PP_1B\) são semelhantes (Caso \(LAA_0\)). Dessa forma,
+\[B\hat{P}P_1 = P\hat{A}B = \alpha \mbox{ e } P_1\hat{P}A = P\hat{B}A = \beta.\]
+Além disso, \(\alpha + \beta = 90^\circ\) (Pela soma dos ângulos internos de um triângulo), implicando que o triângulo \(\triangle APB\) é retângulo em \(P\).
+
+Verifica-se, facilmente, que
+\[2r = a+b \Rightarrow r = \dfrac{a+b}{2},\]
+a \textbf{média arimética} entre as medidas \(a\) e \(b\) dos respectivos comprimentos das projeções dos catetos \(PA\) e \(PB\) sobre a hipotenusa do triângulo \(\triangle APB\).
+
+Da semelhança entre os triângulos \(\triangle AP_1P\) e \(\triangle PP_1B\), podemos também extrair:
+\[\dfrac{\overline{AP_1}}{\overline{PP_1}} = \dfrac{\overline{PP_1}}{\overline{P_1B}}
+\Rightarrow
+\dfrac{a}{y} = \dfrac{y}{b}
+\Rightarrow
+y = \sqrt{a \cdot b}
+\]
+a \textbf{média geométrica} entre as medidas \(a\) e \(b\).% dos respectivos comprimentos das projeções dos catetos \(\overline{PA}\) e \(\overline{PB}\) sobre a hipotenusa do triângulo \(\triangle APB\).
+
+
+Considere, agora, o ponto \(P_2 \in OP\) de modo que \(P_2P_1 \perp OP\). Da semelhança entre os triângulos \(\triangle PP_2P_1\) e \(\triangle PP_1O\) (caso \(LAA_O\)), temos:
+\[\dfrac{\overline{AP_2}}{\overline{PP_1}} = \dfrac{\overline{PP_1}}{\overline{OP}}
+\Rightarrow
+\dfrac{\overline{AP_2}}{y} = \dfrac{y}{r}
+\Rightarrow
+\overline{AP_2} = \dfrac{a \cdot b}{\dfrac{a+b}{2}} = \dfrac{1+1}{\dfrac{1}{a}+\dfrac{1}{b}}
+\]
+a \textbf{média harmônica} entre as medidas \(a\) e \(b\).
+
+
+Já, pelo triângulo \(\triangle P_1OC\), retângulo em \(O\), as medidas dos seus catetos em função de \(a\) e \(b\) são obtidas a seguir:
+\[\overline{OC} = r = \dfrac{a+b}{2} \mbox{ e } \overline{P_1O} = r - b = \dfrac{a+b}{2}-b = \dfrac{a-b}{2}\]
+
+Aplicando em \(\triangle P_1OC\) o Teorema de Pitágoras, temos:
+\[\begin{array}{rcl}
+\overline{P_1C}^2
+&=& \overline{P_1O}^2+\overline{OC}^2 \\
+&=& \left(\dfrac{a-b}{2}\right)^2+\left(\dfrac{a+b}{2}\right)^2 \\
+&=& \dfrac{a^2+b^2}{2},
+\end{array}\]
+implicando em
+\[\overline{P_1C} = \sqrt{\dfrac{a^2+b^2}{2}}\]
+a \textbf{média quadrática} entre as medidas \(a\) e \(b\).
+
+
+
+\subsubsection*{Análise 2: Gráfica}
+
+
+Considere o conjunto \(A = \{2, 8\}\). Suas médias harmônica, geométrica, aritmética e quadrática, respectivamente, são:
+\[\begin{array}{rcl}
+M_h &=& \dfrac{1+1}{\dfrac{1}{2}+\dfrac{1}{8}} = \ca{2/(1/2+1/8)} \\
+M_g &=& \sqrt{2 \cdot 8} = 4 \\ %\ca{(2*8)^(1/2)} \\
+M_A &=& \dfrac{\ca{2+8}}{2} = \ca{(2+8)/2} \\[0.3cm]
+M_2 &=& \sqrt{\dfrac{2^2+8^2}{1+1}} \approx \ca{((2^2+8^2)/2)^(1/2)}
+\end{array}\]
+
+Graficamente, temos:
+
+\begin{minipage}[!h]{\textwidth}\centering
+\psset{yunit=0.7cm}
+\begin{pspicture}(-1,-1)(6,8)
+\psaxes[Dx=10,Dy=10,linecolor=red]{->}(0,0)(-1,-1)(6,7)
+\uput[d](6,0){\scriptsize Médias}
+\uput[l](0,7){\scriptsize Valores}
+
+\psline[linewidth=4pt](1,0)(1,3.2)
+\uput[d](1,0){\(M_h\)}\uput[l](0,3.2){\(\scriptstyle 3,20\)}
+
+\psline[linewidth=4pt](2,0)(2,4)
+\uput[d](2,0){\(M_g\)}\uput[l](0,4){\(\scriptstyle 4,00\)}
+
+\psline[linewidth=4pt](3,0)(3,5)
+\uput[d](3,0){\(M_A\)}\uput[l](0,5){\(\scriptstyle 5,00\)}
+
+\psline[linewidth=4pt](4,0)(4,5.83)
+\uput[d](4,0){\(M_2\)}\uput[l](0,5.83){\(\scriptstyle 5,83\)}
+
+\end{pspicture}
+\end{minipage}
+
+
+\subsubsection*{4e}
+
+
+
+Seja \(\mathcal{A} = \{a_k\},\ k = 1, 2, \ldots, N\), onde \(a_k = \mbox{ ``Número de casais com } k \mbox{ filhos''}\). Considere, ainda, \(M_\phi\) uma média de Kolmogorov-Nagumo dos elementos de \(\mathcal{A}\) onde \(\phi\) é uma função invertível, estritamente crescente.
+
+
+Suponha que, para todo \(k\), temos \(a_k < M_\phi\). Dessa forma,
+\[\begin{array}{rcl}
+\phi(a_k) < \phi(M_\phi)
+&\Rightarrow&
+\displaystyle\sum_{k=1}^{N}\phi(a_k) < \sum_{k=1}^{N}\phi(M_\phi) = N \phi(M_\phi) \\
+&\Rightarrow&
+\dfrac{1}{N} \displaystyle\sum_{k=1}^{N}\phi(a_k) < \phi(M_\phi) \\
+&\Rightarrow&
+\phi^{-1}\left(\dfrac{1}{N} \displaystyle\sum_{k=1}^{N}\phi(a_k)\right) < M_\phi \\
+&\Rightarrow&
+\phi^{-1}\left(M_A(\phi(a_1), \ldots, \phi(a_N))\right) < M_\phi \\
+&\Rightarrow&
+M_\phi < M_\phi \mbox{ (absurdo!)}
+\end{array}\]
+
+Logo, \(\exists a_{\max} = \max\{a_k\} = M\) tal que \(M_\phi < M\).
+
+De maneira análoga, mostramos que \(\exists a_{\min} = \min\{a_k\} = m\) tal que \(m < M_\phi\).
+
+Portanto, para \(M_\phi\) podemos ter que a média de filhos de um casal brasileiro pode ser qualquer número real entre \(m\) e \(M\).
+
+
+}
+
+\section*{Questão 05}
+\addcontentsline{toc}{section}{\textcolor{green}{Questão 05}}
+
+
+Tempo Médio (Aritmético) de Sobrevivência de uma População
+
+    \textbf{Definição}: Dado um Modelo populacional especificamente de mortalidade \(N(t)\) tal que \(\dfrac{dN}{dt} < 0\) e \(\displaystyle \lim_{t \to \infty} N(t) = 0\), diz-se que o valor (finito ou infinito) da integral \(\dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t \dfrac{dN}{dt}\ dt\) é denominado Tempo Médio (Aritmético) de Sobrevivência da População.
+
+    5a - \textbf{Argumente} sobre a motivação para que a expressão
+    \(\dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t \dfrac{dN}{dt}\ dt = \dfrac{1}{N_0} \displaystyle\int_{0}^{N_0} t \ dN\), que se refere a uma dinâmica \(N(t)\) decrescente de uma (Grande) população (sem natalidade e migração) inicialmente com \(N(0) = N_0\) indivíduos, possa \textbf{ser interpretada} como o tempo médio (aritmético) de sobrevivência desta população.
+
+    5b - \textbf{Calcule} o Tempo Médio (Aritmético) de sobrevivência de uma população Malthusiana (isto é, descrita segundo o Modelo Newtoniano \(\dfrac{1}{N} \dfrac{dN}{dt} = -\mu,\ N(0) = N_0\)) e mostre que este valor \textbf{independe} de \(N_0\). \textbf{Discuta} o significado biológico deste resultado.
+
+    5c - \textbf{Calcule} o tempo médio (aritmético) de sobrevivência de uma população cuja dinâmica de Mortalidade é descrita por uma função quase-polinomial \(N(t) = q(t)e^{-\mu t}\), onde \(q(t) = N_0 + \displaystyle \sum_{k = 1}^{m} a_k t^k\) é um polinômio e \(\mu > 0\). (Sugestão: Calcule explicitamente as integrais \(I(n) = \int_{0}^{\infty} t^n e^{-\mu t}\ dt\) recursivamente em \(n\) e utilizando integrações por partes)
+
+    5d - O mesmo para \(N(t) = \dfrac{N_0}{t+1}\).
+
+
+\solucao{
+
+\subsection*{5a}
+
+\subsection*{5b}
+
+Considere o modelo Malthusiano de Mortalidade
+\begin{equation}\label{eq:modelomathusianodemortalidade}
+\dfrac{1}{N} \dfrac{dN}{dt} = -\mu,
+\end{equation}
+com condição inicial \(N(0) = N_0\).
+
+A solução de \eqref{eq:modelomathusianodemortalidade} é obtida ao separar as variáveis, integrar indefinidamente o resultado e utilizar a sua condição inicial. A seguir, as passagens como citadas.
+
+Separando as variáveis:
+\[\dfrac{1}{N} \dfrac{dN}{dt} = -\mu \Rightarrow 
+\dfrac{dN}{N} = -\mu dt.
+\]
+
+Integrando indefinidamente:
+\[\displaystyle \int \dfrac{dN}{N} = -\int \mu dt
+\Rightarrow
+\log(N) = -\mu t + C \Rightarrow N(t) = e^{-\mu t}\ e^Ç.
+\]
+
+Utilizando a condição inicial:
+\[N(0) = N_0 \Rightarrow e^C = N_0.\]
+
+Portanto, temos:
+\begin{equation}\label{eq:solucaomalthusianamortalidade}
+N(t) = N_0\ e^{-\mu t}.
+\end{equation}
+
+O tempo médio de sobrevivência da população \(T_M\) é dado por:
+\[
+T_M = \dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t \dfrac{dN}{dt}\ dt
+\]
+
+Para determinar \(T_M\), substituímos em sequência, as equações \eqref{eq:modelomathusianodemortalidade} e \eqref{eq:solucaomalthusianamortalidade}, na fórmula de \(T_M\), cancelamos a constante \(N_0\) e resolvemos uma integral imprópria, ou seja:
+\begin{eqnarray*}
+T_M
+&=& \dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t (-\mu N)\ dt \\
+&=& \dfrac{\mu}{N_0} \displaystyle\int_{0}^{\infty} t\ 
+N_0\ e^{-\mu t}\ dt \\
+&=& 
+\mu \displaystyle\int_{0}^{\infty} t\ e^{-\mu t}\ dt \\
+&=& 
+\mu \displaystyle \lim_{a \to \infty} \int_{0}^{a} t\ e^{-\mu t}\ dt \\
+&=& \mu \displaystyle \lim_{a \to \infty} \left(t\ \dfrac{e^{-\mu t}}{-\mu} - \dfrac{1}{\mu} \left(\dfrac{e^{-\mu t}}{-\mu}\right) \right|_{0}^{a} \\
+&=& \mu \displaystyle \lim_{a \to \infty} \left.\left(t + \dfrac{1}{\mu}\right) \dfrac{e^{-\mu t}}{-\mu} \right|_{0}^{a} \\
+&=& \mu \displaystyle \lim_{a \to \infty} \left[\left(a + \dfrac{1}{\mu}\right) \dfrac{e^{-\mu a}}{-\mu} + \dfrac{1}{\mu^2} \right] \\
+&=& \mu \left(\dfrac{1}{\mu^2} \right) = \dfrac{1}{\mu}
+\end{eqnarray*}
+onde a integral na quarta igualdade foi obtida utilizando o método de integração por partes.
+
+
+
+\subsection*{5c}
+
+O tempo médio \(T_M\) de sobrevivência de uma população cuja dinâmica de mortalidade é dada por:
+\begin{equation}\label{eq:modelomortalidade}
+N(t) = \left(N_0+\displaystyle\sum_{k=1}^{m} a_{k} t^{k}\right)\ e^{-\mu t},\ \mu > 0
+\end{equation}
+é dada por:
+\begin{equation}\label{eq:temposobrevivencia}
+T_M = \dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t\ \dfrac{dN}{dt}\ dt
+\end{equation}
+
+
+A seguir, mostraremos o processo do cálculo da derivada de \eqref{eq:modelomortalidade} com respeito à variável \(t\).
+
+\[\begin{array}{rcl}
+\dfrac{dN}{dt}
+&=& \dfrac{d}{dt}\left[\left(N_0+\displaystyle\sum_{k=1}^{m} a_{k} t^{k}\right)\ e^{-\mu t}\right] \\
+&=& \dfrac{d}{dt}\left(N_0+\displaystyle\sum_{k=1}^{m} a_{k} t^{k}\right) \cdot e^{-\mu t} + \left(N_0+\displaystyle\sum_{k=1}^{m} a_{k} t^{k}\right) \cdot \dfrac{d}{dt}\left(e^{-\mu t}\right) \\
+&=& \left(\displaystyle\sum_{k=2}^{m} k a_{k} t^{k-1}\right) \cdot e^{-\mu t} + \left(N_0+\displaystyle\sum_{k=1}^{m} a_{k} t^{k}\right) \cdot (-\mu) e^{-\mu t} \\
+&=& e^{-\mu t} \cdot \left[
+a_1-\mu\ N_0 + \left(\displaystyle\sum_{k=2}^{m} (k a_{k}-\mu a_{k-1}) t^{k-1}\right) - \mu a_m t^m,
+\right]
+\end{array}\]
+implicando em
+\[\begin{array}{rcl}
+-t \dfrac{dN}{dt}
+&=& e^{-\mu t} \cdot \left[
+(\mu\ N_0-a_1) t + \left(\displaystyle\sum_{k=2}^{m} (\mu a_{k-1}-k a_{k}) t^{k}\right) + \mu a_m t^{m+1}\right]
+\end{array}\]
+
+Portanto,
+\begin{eqnarray}
+\nonumber
+T_M
+&=& \dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} 
+e^{-\mu t} \cdot \left[
+(\mu\ N_0-a_1) t + \left(\displaystyle\sum_{k=2}^{m} (\mu a_{k-1}-k a_{k}) t^{k}\right) + \mu a_m t^{m+1}\right]
+\ dt
+\\ \nonumber
+&=& 
+\left(\mu -\dfrac{a_1}{N_0}\right) \displaystyle\int_{0}^{\infty} t e^{-\mu t}\ dt +
+\dfrac{1}{N_0} \displaystyle\sum_{k=2}^{m} (\mu a_{k-1}-k a_{k}) \int_{0}^{\infty} t^{k} e^{-\mu t}\ dt \\ \label{eq:tmintegraisrecursivas}
+&& +
+\mu a_m \dfrac{1}{N_0}\displaystyle\int_{0}^{\infty} t^{m+1}\ e^{-\mu t}\ dt
+\end{eqnarray}
+
+Constatamos em \eqref{eq:tmintegraisrecursivas} que para determinar \(T_m\) é necessário encontrar integrais do tipo:
+\begin{equation}\label{eq:integralIn}
+\mathcal{I}(n) = \displaystyle\int_{0}^{\infty} t^{n}\ e^{-\mu t}\ dt. 
+\end{equation}
+
+Vamos provar que o valor de \(\mathcal{I}(n) = \dfrac{n!}{\mu^{n+1}}\) utilizando a indução sobre \(n\).
+
+Para \(n=0\),
+\begin{eqnarray}
+\nonumber
+\mathcal{I}(0)
+&=& \displaystyle\int_{0}^{\infty} e^{-\mu t}\ dt \\ \nonumber
+&=& \lim_{b_0 \to \infty} \displaystyle\int_{0}^{b_0} e^{-\mu t}\ dt \\ \nonumber
+&=& \lim_{b_0 \to \infty}  \left.\dfrac{-1}{\mu} e^{-\mu t}\right|_{0}^{b_0} \\ \nonumber
+&=& \lim_{b_0 \to \infty}  \dfrac{-1}{\mu} \left(e^{-\mu b_0} -1 \right) \\
+\label{eq:resoltado_zero}
+&=& \dfrac{1}{\mu} = \dfrac{0!}{\mu^{0+1}}.
+\end{eqnarray}
+
+Suponhamos que \(\mathcal{I}(n) = \dfrac{n!}{\mu^{n+1}}\). Vamos provar que \(\mathcal{I}(n+1) = \dfrac{(n+1)!}{\mu^{n+2}}\). De fato,
+\begin{eqnarray}
+\label{eq:passagem_I}
+\mathcal{I}(n+1)
+&=& \displaystyle\int_{0}^{\infty} t^{n+1}\ e^{-\mu t}\ dt \\
+\label{eq:passagem_II}
+&=& \displaystyle\lim_{b_{n+1} \to \infty}\int_{0}^{b_{n+1}} t^{n+1}\ e^{-\mu t}\ dt \\
+\label{eq:passagem_III}
+&=& 
+\displaystyle\lim_{b_{n+1} \to \infty} \left(\left.t^{n+1} \dfrac{e^{-\mu t}}{-\mu}\right|_{0}^{b_{n+1}} - \int_{0}^{b_{n+1}} (n+1) t^{n} \dfrac{e^{-\mu t}}{-\mu}\ dt\right) \\
+\label{eq:passagem_IV}
+&=& 
+\underbrace{\displaystyle\lim_{b_{n+1} \to \infty}  \dfrac{(b_{n+1})^{n+1}}{-\mu e^{\mu b_{n+1}}}}_{\mbox{tende a } 0}
++
+\dfrac{n+1}{\mu} \cdot
+\underbrace{\lim_{b_{n+1} \to \infty} \int_{0}^{b_{n+1}} t^{n} e^{-\mu t}\ dt}_{\mathcal{I}(n)} \\
+\label{eq:passagem_V}
+&=& \dfrac{n+1}{\mu} \cdot \dfrac{n!}{\mu^{n+1}} \\
+\label{eq:passagem_VI}
+&=& \dfrac{(n+1)!}{\mu^{n+2}},
+\end{eqnarray}
+onde, na passagem de \eqref{eq:passagem_I} para \eqref{eq:passagem_II} utilizamos a definição de integração imprópria. Na de \eqref{eq:passagem_II} para \eqref{eq:passagem_III}, integração por partes. Na de \eqref{eq:passagem_III} para \eqref{eq:passagem_IV}, propriedade de limites onde foi verificada a existência do limite. Na \eqref{eq:passagem_IV}, constatamos que o primeiro limite tende a zero utilizando \(n+1\) vezes a regra de L'Hospital.
+
+Retornando ao cálculo do tempo médio de sobrevivência, temos:
+\begin{eqnarray}
+\nonumber
+T_M
+&=& 
+\left(\mu -\dfrac{a_1}{N_0}\right) \dfrac{1}{\mu^2} +
+\dfrac{1}{N_0} \displaystyle\sum_{k=2}^{m} (\mu a_{k-1}-k a_{k}) \dfrac{k!}{\mu^{k+1}} +
+\mu a_m \dfrac{1}{N_0} \dfrac{(m+1)!}{\mu^{m+2}} \\
+&=& 
+\left(\dfrac{1}{\mu} -\dfrac{a_1}{N_0\mu^2}\right) +
+\dfrac{1}{N_0} \displaystyle\sum_{k=2}^{m} (\mu a_{k-1}-k a_{k}) \dfrac{k!}{\mu^{k+1}} + \dfrac{a_m}{N_0} \dfrac{(m+1)!}{\mu^{m+1}}
+\end{eqnarray}
+
+
+
+
+
+\subsection*{5d}
+
+A dinâmica de mortalidade da população é dada por:
+\[N(t) = \dfrac{N_0}{t+1}\]
+
+Portanto,
+\[
+\dfrac{d}{dt} N(t)
+= \dfrac{d}{dt}\left(\dfrac{N_0}{t+1}\right)
+= \dfrac{-N_0}{(t+1)^{2}}
+\]
+
+
+O tempo médio \(T_M\) de sobrevivência é dado por:
+\[\begin{array}{rcl}
+T_M
+&=&
+\dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t\ \dfrac{dN}{dt}\ dt \\[0.3cm]
+&=&
+\dfrac{1}{N_0} \displaystyle\int_{0}^{\infty} -t\ \dfrac{-N_0}{(t+1)^{2}}\ dt \\[0.3cm]
+&=&
+\displaystyle\int_{0}^{\infty}  \dfrac{t}{(t+1)^{2}}\ dt
+\end{array}\]
+
+Essa integral imprópria é resolvida a seguir:
+\[\begin{array}{rcl}
+\displaystyle\int_{0}^{\infty}  \dfrac{t}{(t+1)^{2}}\ dt
+&=&
+\displaystyle\lim_{b \to \infty} \displaystyle\int_{0}^{b}  \dfrac{t}{(t+1)^{2}}\ dt \\[0.3cm]
+&=&
+\displaystyle\lim_{b \to \infty} \displaystyle\int_{-1}^{b-1}  \dfrac{t-1}{t^{2}}\ dt \\[0.3cm]
+&=&
+\displaystyle\lim_{b \to \infty} \left.\ln|t|+\dfrac{1}{t}\right|_{-1}^{b-1} \\
+&=& 
+\displaystyle\lim_{b \to \infty} \ln|b-1|+\dfrac{1}{b-1}-\ln(1)+1 \\
+&=& \infty
+\end{array}\]
+
+}
+
+\section*{Questão 06}
+\addcontentsline{toc}{section}{Questão 06}
+
+
+    Mortalidade por Predação Periférica e \textbf{Efeito de Rebanho Egoísta}:
+    
+    \begin{citacao}
+    (Dois ``amigos'' em um campo de cerrado e uma onça esfomeada. Um deles, para e toma seu tempo para amarrar bem o calçado. O outro, apressado, lhe repreende:''Vamos correr logo que a onça é mais rápida do que nós!''. O Amigo (da onça): ``Eu não preciso correr mais do que a onça, eu preciso correr mais do que você!''. Ditado caboclo: ``Mingau quente, se come pelas beiradas''.
+    \end{citacao}
+
+    Considere uma população distribuída uniformemente em uma região delimitada no plano descrita por uma função diferenciável \(N(t)\) cuja mortalidade é causada unicamente por uma predação ``periférica'' da forma \(p(N) = -\mu \sqrt{N}\), caracterizada matematicamente segundo a Metodologia Newtoniana pela equação diferencial: \(\dfrac{dN}{dt} = - \mu \sqrt{N}\). (A justificativa da função de mortalidade na forma \(p(N) = -\mu \sqrt{N}\) para predação ``periférica'' se deve ao fato de que um grupo uniformemente distribuído em uma região delimitada do plano é predado apenas na fronteira, cuja extensão tem medida da ordem da dimensão linear da região, enquanto que a área, que é proporcional à população, é da ordem do quadrado da medida linear e, portanto, a fronteira é da ordem de \(N^{\frac{1}{2}}\). O formato da região pode ser considerado aproximadamente um disco (2D) ou uma esfera (3D) porque estas são as formas que apresentam menor extensão de fronteira para um mesmo conteúdo populacional.(Por exemplo, sapos na beira da lagoa diante da ameaça de cobras, ou rebanho de ovelhas diante de lobos).
+
+    \textbf{Definição}: Diz-se que uma Dinâmica de mortalidade apresenta o ``\textbf{Efeito de Rebanho Egoísta}''(*)quando a mortalidade especifica (``\textit{per capita}'' \(\dfrac{1}{N} \dfrac{dN}{dt} = f(N))\) \textbf{diminui} com o aumento do tamanho do grupo, em outros termos, um individuo se sente particularmente mais ''protegido'' em um grupo maior; por isso ele se junta aos vencedores.. (*) Termo introduzido por W. Hamilton no antológico artigo: - \textbf{The Selfish Herd}, J. Theor.Biol, 1970).
+
+    6a - Argumente como o conceito de ``Efeito Rebanho Egoísta'' pode ser interpretado em termos do Tempo Médio de Sobrevivência.
+
+    6b - Mostre que não há ``Efeito Rebanho Egoista'' em uma população cuja mortalidade é unicamente Malthusiana.
+
+    6c - Descreva uma Dinâmica Adimensional de mortalidade por predação periférica para um grupo populacional que ocupa uma região delimitada do espaço físico \textbf{tridimensional}. (Por exemplo, um cardume de Sardinhas e Baleias) e verifique se esta dinâmica apresenta um ``Efeito Rebanho Egoista'' e é dizimada em tempo finito.
+
+    6d - Considere uma população com predação per capita tipo Holling II: \(p(N) = \dfrac{A}{B+N}\). Adimensionalize a equação e verifique se ocorre um ``Efeito Rebanho'' nesta dinâmica.
+
+    6e - Discuta o comportamento individual das presas em termos de uma proteção por agrupamento com base na percepção de cardinalidade segundo a ``\textbf{Lei de Weber-Fechner}''.
+
+
+%\solucao{}
+
+\section*{Questão 07}
+\addcontentsline{toc}{section}{Questão 07}
+
+
+    7a – \textbf{Utilizando o Método Operacional} explicado no texto, obtenha uma expressão explícita (em termos de integrais) da solução da Equação de (Euler-Malthus) Verhulst \(\dfrac{1}{N} \dfrac{dN}{dt} = r(t) - \lambda(t)N\), onde \(r(t)\) e \(\lambda(t)\) são funções reais positivas. (Sugestão: Utilize a transformação linearizadora \(m = \dfrac{1}{N}\) seguida pelo Método Operacional).
+
+    7b - Apresente um cenário biológico que indique a utilização desta equação como Modelo Matemático para uma Dinâmica Populacional.
+
+    7c - Considere uma população cujo tamanho \(N(t)\) é regulado pelo chamado Modelo de Euler-Verhulst, \(\dfrac{1}{N} \dfrac{dN}{dt} = r - \lambda N\) (isto é, com taxa de natalidade Malthusiana (\textit{per capita}) \(r\) e mortalidade (\textit{per capita}) \(\lambda N,\ r, \lambda > 0\) constantes) que se inicia com uma população ``\textbf{colonizadora}'' de \(N_0 = N(0)\) indivíduos. Considere a decrescente população \(n(t)\) dos indivíduos colonizadores (\(n(0) = N_0\)) submetidos à taxa de mortalidade ambiente. ({\small Os descendentes de colonizadores não são colonizadores mas fazem parte da população ambiente!}). Obtenha uma expressão para a dinâmica desta população \(n(t)\) de colonizadores e mostre que o tempo médio de sobrevivência neste caso, apresenta uma dependência do tamanho da população inicial \(N_0\), indicando um fenômeno interativo no processo de mortalidade.
+
+
+%\solucao{}
+
+\section*{Questão 08}
+\addcontentsline{toc}{section}{\textcolor{green}{Questão 08}}
+
+    Sistemas Malthusianos com Acoplamento Sequencial
+
+    \[\ldots
+    A_1 \ \substack{\mu_1 \\ \longrightarrow} \
+    A_2 \ \substack{\mu_2 \\ \longrightarrow} \
+    A_3 \ \substack{\mu_3 \\ \longrightarrow} \
+    \ldots
+    A_n \ \substack{\mu_n \\ \longrightarrow} \
+    A_{n+1} \ldots\]
+    
+    Considere um sistema de compartimentos sequencialmente acoplados com dinâmicas Malthusianas.
+
+    8a - Supondo uma sequencia com \(N\) compartimentos, \(1 \le k \le N\), com \(\mu_N = 0\), escreva o Modelo deste sistema na forma de Equações Diferenciais Ordinárias (acopladas) \(\dfrac{dA}{dt} = DA = MA\), e Operacional \((D - M)A = 0\) identificando a matriz \textbf{numérica} \(M\), e a matriz \textbf{operacional} \(m(D) = D - A\). \(\left(\dfrac{d}{dt} \equiv D\right)\)
+
+    8b - Se \(N = 3\) e \(\mu_k = \mu > 0\) obtenha as expressões analíticas elementares para as soluções \(A(t) = (A_1 \ A_2 \ A_3)^t = \left(\begin{array}{c} A_1 \\ A_2 \\ A_3 \end{array}\right)\), resolvendo antes as equações desacopladas \(\det m(D) x = 0\). (Refer. Bassanezi-Ferreira).
+
+    8c - Mostre que, em geral, \(A_k(t) \to 0\) exponencialmente, como \(t^2 e^{-\mu t}\), isto é, \(\displaystyle \lim_{t \to \infty} \dfrac{A_k(t)}{t^2 e^{-\mu t}} = c \neq 0\).
+
+    8d - Determine o tempo médio (aritmético) que estas partículas/organismos permanecem no sistema de compartimentos se inicialmente todas elas estão no primeiro no primeiro compartimento \(A_1(0) = 1, A_k(0) = 0,\ k > 1\).
+
+    8e - Determine a relação entre o tempo médio (aritmético) de permanência destas partículas/organismos no sistema em termos da sua distribuição inicial, \(A_k(0) = A_{k0}\).
+
+
+\solucao{
+
+\subsection*{8a-}
+
+
+Temos que a população total \(A\) é formada por \(N\) subpopulações sequencialmente acopladas. Então, esse modelo é regido por:
+\[\begin{array}{rcl}
+\dfrac{dA_{1}}{dt} &=& -\mu_{1} A_{1} \\[0.3cm]
+\dfrac{dA_{k}}{dt} &=& \mu_{k-1} A_{k-1} - \mu_{k} A_{k},\ k = 2, \ldots, N \\[0.3cm]
+\end{array}\]
+
+Se fizermos \(\mathcal{A} = [A_1 \ A_2 \ \ldots\ A_N]^t\) e
+\[M
+= \left[
+\begin{array}{cccccc}
+-\mu_{1} & 0 & 0 & \cdots & 0 & 0 \\
+\mu_{1} & -\mu_{2} & 0 & \cdots & 0 & 0 \\
+0 & \mu_{2} & -\mu_{3} & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & -\mu_{N-1} & 0 \\
+0 & 0 & 0 & \cdots & \mu_{N-1} & \mu_N
+\end{array}\right]
+\]
+teremos
+\[\dfrac{dA}{dt} = MA \Rightarrow DA = MA \Rightarrow DA - MA = \mathbf{0},\]
+sendo \(\mathbf{0}\) matriz nula de ordem \(N \times 1\). Segue que
+\[(D-M) A = \mathbf{0},\]
+com a matriz operacional
+\[m(D) = D-A
+= \left[
+\left(\frac{d}{dt}-A_1\right) \ \ 
+\left(\frac{d}{dt}-A_2\right) \ \
+\left(\frac{d}{dt}-A_3\right)
+\right]^t
+%\left[
+%\begin{array}{cccccc}
+%\frac{d}{dt}-\mu_{1} & 0 & 0 & \cdots & 0 & 0 \\
+%\mu_{1} & \frac{d}{dt}+\mu_{2} & 0 & \cdots & 0 & 0 \\
+%0 & -\mu_{2} & \frac{d}{dt}+\mu_{3} & \cdots & 0 & 0 \\
+%\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+%0 & 0 & 0 & \cdots & \frac{d}{dt}+\mu_{N-1} & 0 \\
+%0 & 0 & 0 & \cdots & \mu_{N-1} & \frac{d}{dt}-\mu_N
+%\end{array}\right]
+\]
+
+
+\subsection*{8b-}
+
+Considere o sistema 
+\[
+A_1 \ \substack{\mu_1 \\ \longrightarrow} \
+A_2 \ \substack{\mu_2 \\ \longrightarrow} \
+A_3
+\]
+de compartimentos sequencialmente acoplados, de três subpopulações com dinâmicas malthusianas. Então, esse modelo é regido por:
+\[\begin{array}{rcl}
+\dfrac{dA_{1}}{dt} &=& -\mu A_{1} \Rightarrow A_1(t) = K_1 e^{-\mu t} \\[0.3cm]
+\dfrac{dA_{2}}{dt} &=& \mu(A_1 - A_{2}) \\[0.3cm]
+\dfrac{dA_{3}}{dt} &=& \mu(A_2 - A_{3}).
+\end{array}\]
+
+
+\subsection*{8c-}
+
+\subsection*{8d-}
+
+
+O tempo médio \(T_M\) de sobrevivência da população total \(A\) é dado por:
+\[
+T_M
+= \dfrac{1}{A_0} \displaystyle\int_{0}^{\infty} -t \dfrac{dA}{dt}\ dt
+\]
+
+Uma vez que ela está concentrada na subpopulação \(A_1\) malthusiana, com \(A_1(0) = 1\), temos:
+\[
+T_M
+= \dfrac{1}{A_1(0)} \displaystyle\int_{0}^{\infty} -t \dfrac{dA_1}{dt}\ dt
+= \displaystyle\int_{0}^{\infty} -t \dfrac{dA_1}{dt}\ dt
+= \displaystyle\int_{0}^{\infty} -t e^{-\mu t}\ dt
+= \dfrac{1}{\mu}
+\]
+
+}
+
+
+
+\section*{Questão 09}
+\addcontentsline{toc}{section}{\textcolor{green}{Questão 09}}
+
+
+Modelos Efetivos
+
+    9a - Considere uma população de indivíduos não interativos formada por uma mistura de subpopulações Malthusianas (homogêneas e não interativas) \(A_k\), sendo \(T_k\) seu respectivo tempo médio (aritmético) de sobrevivência. Considere agora a população total \(A(t) = \displaystyle \sum A_k(t)\) que obviamente decresce. Mostre que o tempo médio (aritmético) de sobrevivência da população misturada \(A\) é dado pela Média (aritmética) ponderada de \(T_k\).
+
+    9b - Considere agora uma descrição da dinâmica de uma população ``Malthusianamente heterogênea'' por um ``Modelo Malthusiano Efetivo'', isto é, da forma \(\dfrac{dA}{dt} = -\mu A\). Argumente sobre o fato de que neste caso a ``melhor escolha'' para o coeficiente \(\mu\) do Modelo diferencial seria a \textbf{média harmônica} dos coeficientes \(\mu_k\).
+
+    9c - Analise a mesma questão supondo que a população total é formada por \(N\) subpopulações sequencialmente acopladas na forma
+    \[
+    A_1 \ \substack{\mu_1 \\ \longrightarrow} \
+    A_2 \ \substack{\mu_2 \\ \longrightarrow} \
+    A_3 \
+    \ \ldots \
+    A_{N-1} \ \substack{\mu_{N-1} \\ \longrightarrow} \
+    A_{N},\ \mu_N = 0.\]
+
+
+
+\solucao{
+
+\subsection*{9a-}
+
+Temos uma população \(A\) de indivíduos não interativos formada por uma mistura de subpopulações Malthusianas \(A_k\) (homogêneas e não interativas). Logo, para cada \(1 \le k \le N\), temos:
+\[\dfrac{1}{A_k} \dfrac{A_k}{dt} = -\mu_k,\ A_{k}(0) = A_{0_{k}} \Rightarrow A_{k}(t) = A_{0_{k}} e^{-\mu_{k}t}.\]
+
+Segue que
+\[A = \displaystyle\sum_{k=1}^{N} A_{k}(t) = \displaystyle\sum_{k=1}^{N} A_{0_{k}} e^{-\mu_{k}t}
+\Rightarrow
+\dfrac{dA}{dt} = \displaystyle\sum_{k=1}^{N} -\mu_{k} A_{0_{k}} e^{-\mu_{k}t}.
+\]
+Claramente, como visto nesta última equação, é bem provável que \(A\) seja não malthusiana, uma vez que isso só ocorrerá caso \(\mu_1 = \mu_2 = \ldots = \mu_N\). Entretanto, o tempo médio de sobrevivência \(T_M\) pode ser calculado como a seguir:
+\[\begin{array}{rcl}
+T_M
+&=& \dfrac{1}{A_0} \displaystyle\int_{0}^{\infty} -t\ \dfrac{dA}{dt}\ dt \\
+&=& \dfrac{1}{A_0} \displaystyle\int_{0}^{\infty} -t\ \left(\sum_{k=1}^{N} -\mu_{k} A_{0_{k}} e^{-\mu_{k}t}\right) dt\\
+&=& \dfrac{1}{A_0} \displaystyle\left[\sum_{k=1}^{N} \mu_{k} A_{0_{k}} \underbrace{\left(\int_{0}^{\infty} t e^{-\mu_{k}t}\ dt \right)}_{\mathcal{I}(1)}\right] \\
+&=& \dfrac{1}{A_0} \displaystyle\left[\sum_{k=1}^{N} \mu_{k} A_{0_{k}} \left(\dfrac{1}{\mu_{k}^{2}}\right) \right] \\
+&=& \dfrac{1}{A_0} \displaystyle \sum_{k=1}^{N} \dfrac{A_{0_{k}}}{\mu_{k}},
+\end{array}\]
+onde o resultado da integral \(\mathcal{I}(1)\) foi o obtido na Questão 05.
+
+Considerando que \(\displaystyle \sum_{k=1}^{N} A_{0_{k}} = A_0\), temos:
+\[T_M = \dfrac{1}{\displaystyle \sum_{k=1}^{N} \mu_{k}}.\]
+
+Por outro lado, a média aritmética (ponderada) de \(T_{M_{k}}\) é:
+\[
+M\left(T_{M_{k}}\right)
+= \dfrac{1}{N} \displaystyle\sum_{k=1}^{N} T_{M_{k}}
+= \dfrac{1}{N} \displaystyle\sum_{k=1}^{N} \dfrac{1}{\mu_{k}}
+= \dfrac{1}{N} \dfrac{\displaystyle\sum_{k=1}^{N} 1}{\displaystyle\sum_{k=1}^{N} \mu_{k}}
+= \dfrac{1}{N} \dfrac{N}{\displaystyle\sum_{k=1}^{N} \mu_{k}}
+= \dfrac{1}{\displaystyle\sum_{k=1}^{N} \mu_{k}}
+= T_M.
+\]
+Como queríamos mostrar.
+
+
+\subsection*{9b-}
+
+Seja \(\bar{A}(t) = \displaystyle\sum_{k=1}^{N} A_{0_{k}} e^{-\mu_k t}\) e \(A(t) = A_{0} e^{-\mu t}\), com \(\mu = \dfrac{N}{\displaystyle\sum_{k=1}^{N} \dfrac{1}{\mu_k}}\).
+
+Considerando a norma euclidiana, analisemos a proximidade entre esses modelos de população.
+\[\begin{array}{rcl}
+\left|A(t)-\bar{A}(t)\right|
+&=& \left|\displaystyle\sum_{k=1}^{N} A_{0_{k}} e^{-\mu_k t}-A_{0} e^{-\mu t}\right| \\
+&=& \left|\displaystyle\sum_{k=1}^{N} A_{0_{k}} e^{-\mu_k t}-e^{-\mu t} \sum_{k=1}^{N} A_{0_{k}} \right| \\
+&=& \left|\displaystyle\sum_{k=1}^{N} A_{0_{k}} (e^{-\mu_k t}-e^{-\mu t}) \right| \\
+&\le& \displaystyle\sum_{k=1}^{N} A_{0_{k}} \left|e^{-\mu_k t}-e^{-\mu t}\right|.
+\end{array}\]
+
+Considere, agora, \(\min\{\mu_k\} = \mu_{\min}\) e \(\max\{\mu_k\} = \mu_{\max}\). Pelo Teorema do Valor Médio, temos que:
+\(\left|e^{-\mu_k t}-e^{-\mu t}\right| \le t e^{-\mu_{\min} t} |\mu -\mu_k|.\)
+
+Como \(\mu\) é a média harmônica dos \(\mu_k\), temos:
+\[
+|\mu -\mu_k| \le \mu_{\max} - \mu_{\min},\ \forall\ k.
+\]
+
+Portanto,
+\[\begin{array}{rcl}
+\left|A(t)-\bar{A}(t)\right|
+&\le& \displaystyle\sum_{k=1}^{N} A_{0_{k}} t\ e^{-\mu_{\min} t} (\mu_{\max} - \mu_{\min}) \\
+&=& A_{0} t\ e^{-\mu_{\min} t} (\mu_{\max} - \mu_{\min}).
+\end{array}\]
+
+Sendo assim
+\[\begin{array}{rcl}
+\displaystyle\lim_{t\to \tau} \left|A(t)-\bar{A}(t)\right|
+&\le& 
+A_{0} (\mu_{\max} - \mu_{\min}) \displaystyle\lim_{t\to \tau} \dfrac{t}{e^{\, \mu_{\min} t}},
+\end{array}\]
+e, portanto, teremos uma boa aproximação entre os modelos se:
+
+(a) \(\tau\) crescem indefinidamente;
+(b) os valores de \(\tau\) são pequenos e a amplitude entre os tempos médios de sobrevivência máximo e mínimo for pequeno e; (c) o tempo médio de sobrevivência mínimo for grande.  
+
+
+\subsection*{9c-}
+
+Temos que a população total \(A\) é formada por \(N\) subpopulações sequencialmente acopladas. Então, esse modelo é regido por:
+\[\begin{array}{rcl}
+\dfrac{dA_{1}}{dt} &=& -\mu_{1} A_{1} \\[0.3cm]
+\dfrac{dA_{k}}{dt} &=& \mu_{k-1} A_{k-1} - \mu_{k} A_{k},\ k = 2, \ldots, N \\[0.3cm]
+%\dfrac{dA_{N}}{dt} &=& \mu_{N} A_{N}
+\end{array}\]
+
+Se fizermos \(\mathcal{A} = [A_1 \ A_2 \ \ldots\ A_N]^t\), \(\mathbf{1} = (1 \ \ 1 \ \ldots\ \ 1)_{1 \times N}\) e
+\[\Phi
+=\left[
+\begin{array}{cccccc}
+-\mu_{1} & 0 & 0 & \cdots & 0 & 0 \\
+\mu_{1} & -\mu_{2} & 0 & \cdots & 0 & 0 \\
+0 & \mu_{2} & -\mu_{3} & \cdots & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & -\mu_{N-1} & 0 \\
+0 & 0 & 0 & \cdots & \mu_{N-1} & \mu_N
+\end{array}\right]
+\]
+teremos
+\[\displaystyle\sum_{k=1}^{N} \dfrac{dA_{k}}{dt}
+= \mathbf{1} \cdot \Phi \cdot \mathcal{A}
+= -\mu_{N} \dfrac{dA_{N}}{dt}.\]
+
+
+
+O tempo médio de sobrevivência da população total é então dado por:
+\[
+T_M
+= \dfrac{1}{A_0} \displaystyle\int_{0}^{\infty} -t \displaystyle\sum_{k=1}^{N} \dfrac{dA_{k}}{dt}\ dt
+= \dfrac{1}{A_0} \displaystyle\int_{0}^{\infty} t\ \mu_{N}\ \dfrac{dA_{N}}{dt}\ dt
+= 0,
+\]
+uma vez que \(\mu_N = 0\).
+
+Dessa forma, se cada subpopulação \(A_{k}, k = 1, \ldots, N\) de uma população \(A\) segue um modelo malthusiano com tempo médio de sobrevivência muito pequeno, o modelo da população total formada por \(N\) subpopulações sequencialmente acopladas possui o tempo médio de sobrevivência muito próximos.
+}
+
+\section*{Questão 10}
+\addcontentsline{toc}{section}{Questão 10}
+
+
+    Sistemas Malthusianos com Acoplamentos Multilaterais (Difusivos)
+
+    Considere um sistema de \(N\) compartimentos \(\{A_k\}_{1 \le k \le N}\) conectados sequencialmente e simetricamente por dinâmicas Malthusianas bilaterais como no seguinte esquema
+    \[A_0 \substack{\mu \\ \longleftarrow \\ \longrightarrow \\ \mu_0} 
+    A_1 \substack{\mu \\ \longleftrightarrow}
+    A_2 \substack{\mu \\ \longleftrightarrow}
+    A_3 \substack{\mu \\ \longleftrightarrow}
+    \ldots
+    A_{N-1} \substack{\mu \\ \longleftrightarrow}
+    A_N \substack{\mu_N \\ \longleftrightarrow}
+    A_{N+1}\]
+
+
+    10a - Mostre que um compartimento interior \(A_k , 2 \le k \le N-1\), é regido pela seguinte equação: \(\dfrac{dA_k}{dt} = -2\mu A_k + \mu A_{k-1} + \mu A_{k+1}\).
+
+    10b - Obtenha a dinâmica do compartimento \(A_N\) que está obstruído à direita (isto é, não perde nem ganha população de \(A_{N+1}\)). Diz-se também que é reflexivo, ou que \(\mu_N = 0\).
+
+    10c - Obtenha a dinâmica do compartimento \(A_1\) que somente perde indivíduos para o compartimento \(A_0\) e não recebe nada do mesmo, isto é, \(\mu_0 = 0\), Interprete este fato como a existência de um ``deserto'' em \(A_0\).
+
+    10d - Escreva a dinâmica de todo o sistema acoplado na forma matricial \(\dfrac{dA}{dt} = S\ A\), \(A = A_1, \ldots, A_N)^t\) e mostre que a matriz \(S\) é simétrica e tridiagonal.
+
+    10d - Mostre que \(n(t) = \displaystyle \sum_{k=1}{N} A_k\) é monotonicamente decrescente, isto é, \(\dfrac{dn}{dt} < 0\).
+    \textbf{Sugestão}: \(\dfrac{dn}{dt} = \dfrac{d}{dt} \langle A, 1 \rangle = \langle \dfrac{dA}{dt}, 1 \rangle = \langle S\ A, 1 \rangle < 0\).
+
+    10f - Na verdade, mostre que \(n(t)\) é exponencialmente decrescente, isto é, existe \(\lambda > 0\) tal que \(\displaystyle \lim_{t \to \infty} \dfrac{n(t)}{e^{-\lambda t}} = c > 0\).
+
+    10g - Utilize o Método de Fourier para mostrar que a solução geral do sistema acima pode ser escrito na forma: \(A(t) = \displaystyle \sum_{k=1}^{N} c_k e^{\lambda_k t}\), verificando como determinar algebricamente os coeficientes \(c_k\) e os parâmetros \(\lambda_k\) e mostrando que \(\lambda_k < 0, 1 \le k \le N\).
+
+    10h - Argumente sobre a propriedade ``homogeneizadora'' desta dinâmica no sentido de que todos \(A_k(t)\) convergem para uma média.
+
+    {\small Obs: O Método de Fourier resolve completamente o Sistema de EDOs utilizando combinações lineares de soluções básicas \(e^{\lambda t} v\) para o Sistema, onde \(\lambda\) é autovalor da matriz simétrica \(S\) e \(v\) o seu autovetor correspondente, \(Sv = \lambda v\). Lembre-se do Teorema Espectral para matrizes simétricas que garante a expansão de qualquer vetor \(u\) na forma, \(u = \displaystyle \sum a_k v^{(k)}\) onde \(v^{(k)}\) é base ortonormal de autovetores de \(S\).}
+
+
+%\solucao{}
+
+\section*{Questão 11}
+\addcontentsline{toc}{section}{Questão 11}
+
+
+Acoplamento Difusivo de Dinâmicas Malthusianas
+
+    Considere um Grafo com \(4\) vértices, \(3\) localizados nas quinas de um triângulo e \(1\) deles, \(A_0\), no seu centro. Cada vértice \(A_k\) das quinas é conectado bilateralmente aos seus dois adjacentes, \(A_{k-1}\) e \(A_{k+1}\) e todos, da mesma forma, ao centro \(A_0\) por uma dinâmica Malthusiana com o mesmo parâmetro \(\mu\) em todas as direções.
+
+    11a - Escreva a dinâmica do sistema \(A = (A_1, A_2, A_3, A_0)^t\) na forma matricial,
+    \(\dfrac{dA}{dt} = S\ A\)
+
+    11b - Mostre que \(S\) é simétrica e tem autovalor nulo com autovetor \(1 =(1, \ldots, 1)\).
+
+    11c - Mostre que \(n(t) = \displaystyle \sum_{k=0}^{4} A_k(t)\) é constante e que \(\displaystyle \lim_{t \to \infty} A(t) = n(0) (1, \ldots, 1)\).
+
+
+%\solucao{}
+
+\section*{Questão 12}
+\addcontentsline{toc}{section}{Questão 12}
+
+
+
+    12a - Mostre que em uma dinâmica Malthusiana com parâmetros \(\mu, \nu\) constantes a operação funcional ``Multiplicação de \(N(t)\) por \(e^{-\mu T}\)'' produz um resultado (função) que representa ``O número de sobreviventes dos indivíduos \(N(t)\) após um intervalo de tempo \(T\)''. Interprete analogamente as operações funcionais ``Multiplicação por \(1-e^{-\mu T}\)'' e ''Multiplicação por \(e^{\nu T}\)''.
+
+    12b - Interprete probabilisticamente a operação sobre uma dinâmica Malthusiana \(N(t)\) definida pela operação funcional resultante da multiplicação por \(\dfrac{(1-e^{-\mu T})}{N(t)}\)
+
+    12c - Considere uma população estruturada em duas faixas etárias, como no problema de Fibonacci, uma delas imatura, \(A_1(t)\) com dinâmica contínua de mortalidade Malthusiana e outra reprodutiva, \(A_2(t)\), com dinâmica contínua de mortalidade e reprodutividade também Malthusiana.
+
+    \textbf{Argumente convincentemente} sobre o significado da expressão de cada termo e parâmetro do Modelo Matemático para a Dinâmica desta população expresso segundo o sistema de Equações Diferenciais Ordinárias com retardamento:
+    \[\begin{array}{rcl}
+    \dfrac{dA_1(t)}{dt} &=& \nu A_2(t) - \mu_1 A_1(t) - e^{-\mu_1 T_0} \nu A_2(t-T_0) \\[0.3cm]
+    \dfrac{dA_2(t)}{dt} &=& e^{-\mu_1 T_0} \nu A_2(t-T_0) - \mu_2 A_2(t)
+    \end{array}\]
+
+    12d - Suponha que \(T_0\) seja ``muito pequeno'' comparado com as outras unidades intrínsecas de tempo \(\left(\dfrac{1}{\nu}, \dfrac{1}{\mu_k}\right)\) do Modelo Malthusiano com retardamento e substitua a expressão \(A_2(t-T_0)\) por sua aproximação de Taylor: \(A_2(t-T_0) = A_2(t) - T_0 A_2'(t) + \dfrac{T_0^2}{2} A_2''(t)\) obtendo um sistema de equações diferenciais ordinárias (não retardadas).
+
+    12e - Utilize o Método Operacional e reescreva o Sistema de EDO obtido anteriormente na forma matricial operacional \(P(D) \left(\begin{array}{c} A_1 \\ A_2 \end{array}\right) = 0\) e obtenha expressões elementares gerais para as funções \(A_j(t)\) soluções do Sistema.
+
+
+%\solucao{}
+
+\section*{Questão EXTRA}
+\addcontentsline{toc}{section}{\textcolor{green}{Questão EXTRA}}
+
+
+
+Hipótese (Gauss - Legendre ~1796) - Teorema (Hadamard - de la Vallé-Poussin 1896) sobre a densidade dos Números Primos.
+
+    A - Considere o Teorema de Distribuição Assintótica (da densidade da População) de Números Primos em \(\mathbb{N}\), descrita pela função \(\rho(n) = \dfrac{\pi(n)}{n}\), onde \(\pi(n) = \# \{\mbox{Números primos } p \le n\}\) em termos de uma linearização logarítmica assintótica utilizando uma Tabela de Números Primos (encontrada, por exemplo, no valioso M. Abramowitz \& I. Stegun - Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables - online). (Sugestão: Como é fácil ver pela tabela que \(\dfrac{1}{\rho(n)} = \dfrac{n}{\pi(n)} \to \infty\) mais ``lentamente'' do que \(n \to \infty\) re-escale a variável ``independente'' \(n\) ``logaritmizando-a'' e analise o gráfico de \(\dfrac{1}{\rho(n)}\) em função de \(\log n\)).
+
+    B - Interprete a questão em termos do Princípio Sensorial (``Lei'') de Weber-Fechner.
+
+
+\solucao{
+
+\subsection*{13A}
+
+A análise tem como ponto de partida a Tabela \ref{tab:milnumerosprimos}:
+
+
+\captionof{table}{Sequência crescente dos primeiros 1000 números primos}
+\label{tab:milnumerosprimos}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+1 & 0 & 0 & 0 \\ \hline
+2 & 0 & 0,301029996 & 0 \\ \hline
+3 & 1 & 0,477121255 & 0,333333333 \\ \hline
+4 & 2 & 0,602059991 & 0,5 \\ \hline
+5 & 2 & 0,698970004 & 0,4 \\ \hline
+6 & 3 & 0,77815125 & 0,5 \\ \hline
+7 & 3 & 0,84509804 & 0,428571429 \\ \hline
+8 & 4 & 0,903089987 & 0,5 \\ \hline
+9 & 4 & 0,954242509 & 0,444444444 \\ \hline
+10 & 4 & 1 & 0,4 \\ \hline
+11 & 4 & 1,041392685 & 0,363636364 \\ \hline
+12 & 5 & 1,079181246 & 0,416666667 \\ \hline
+13 & 5 & 1,113943352 & 0,384615385 \\ \hline
+14 & 6 & 1,146128036 & 0,428571429 \\ \hline
+15 & 6 & 1,176091259 & 0,4 \\ \hline
+16 & 6 & 1,204119983 & 0,375 \\ \hline
+17 & 6 & 1,230448921 & 0,352941176 \\ \hline
+18 & 7 & 1,255272505 & 0,388888889 \\ \hline
+19 & 7 & 1,278753601 & 0,368421053 \\ \hline
+20 & 8 & 1,301029996 & 0,4 \\ \hline
+21 & 8 & 1,322219295 & 0,380952381 \\ \hline
+22 & 8 & 1,342422681 & 0,363636364 \\ \hline
+23 & 8 & 1,361727836 & 0,347826087 \\ \hline
+24 & 9 & 1,380211242 & 0,375 \\ \hline
+25 & 9 & 1,397940009 & 0,36 \\ \hline
+26 & 9 & 1,414973348 & 0,346153846 \\ \hline
+27 & 9 & 1,431363764 & 0,333333333 \\ \hline
+28 & 9 & 1,447158031 & 0,321428571 \\ \hline
+29 & 9 & 1,462397998 & 0,310344828 \\ \hline
+30 & 10 & 1,477121255 & 0,333333333 \\ \hline
+31 & 10 & 1,491361694 & 0,322580645 \\ \hline
+32 & 11 & 1,505149978 & 0,34375 \\ \hline
+33 & 11 & 1,51851394 & 0,333333333 \\ \hline
+34 & 11 & 1,531478917 & 0,323529412 \\ \hline
+35 & 11 & 1,544068044 & 0,314285714 \\ \hline
+36 & 11 & 1,556302501 & 0,305555556 \\ \hline
+37 & 11 & 1,568201724 & 0,297297297 \\ \hline
+38 & 12 & 1,579783597 & 0,315789474 \\ \hline
+39 & 12 & 1,591064607 & 0,307692308 \\ \hline
+40 & 12 & 1,602059991 & 0,3 \\ \hline
+41 & 12 & 1,612783857 & 0,292682927 \\ \hline
+42 & 13 & 1,62324929 & 0,30952381 \\ \hline
+43 & 13 & 1,633468456 & 0,302325581 \\ \hline
+44 & 14 & 1,643452676 & 0,318181818 \\ \hline
+45 & 14 & 1,653212514 & 0,311111111 \\ \hline
+46 & 14 & 1,662757832 & 0,304347826 \\ \hline
+47 & 14 & 1,672097858 & 0,29787234 \\ \hline
+48 & 15 & 1,681241237 & 0,3125 \\ \hline
+49 & 15 & 1,69019608 & 0,306122449 \\ \hline
+50 & 15 & 1,698970004 & 0,3 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+51 & 15 & 1,707570176 & 0,294117647 \\ \hline
+52 & 15 & 1,716003344 & 0,288461538 \\ \hline
+53 & 15 & 1,72427587 & 0,283018868 \\ \hline
+54 & 16 & 1,73239376 & 0,296296296 \\ \hline
+55 & 16 & 1,740362689 & 0,290909091 \\ \hline
+56 & 16 & 1,748188027 & 0,285714286 \\ \hline
+57 & 16 & 1,755874856 & 0,280701754 \\ \hline
+58 & 16 & 1,763427994 & 0,275862069 \\ \hline
+59 & 16 & 1,770852012 & 0,271186441 \\ \hline
+60 & 17 & 1,77815125 & 0,283333333 \\ \hline
+61 & 17 & 1,785329835 & 0,278688525 \\ \hline
+62 & 18 & 1,792391689 & 0,290322581 \\ \hline
+63 & 18 & 1,799340549 & 0,285714286 \\ \hline
+64 & 18 & 1,806179974 & 0,28125 \\ \hline
+65 & 18 & 1,812913357 & 0,276923077 \\ \hline
+66 & 18 & 1,819543936 & 0,272727273 \\ \hline
+67 & 18 & 1,826074803 & 0,268656716 \\ \hline
+68 & 19 & 1,832508913 & 0,279411765 \\ \hline
+69 & 19 & 1,838849091 & 0,275362319 \\ \hline
+70 & 19 & 1,84509804 & 0,271428571 \\ \hline
+71 & 19 & 1,851258349 & 0,267605634 \\ \hline
+72 & 20 & 1,857332496 & 0,277777778 \\ \hline
+73 & 20 & 1,86332286 & 0,273972603 \\ \hline
+74 & 21 & 1,86923172 & 0,283783784 \\ \hline
+75 & 21 & 1,875061263 & 0,28 \\ \hline
+76 & 21 & 1,880813592 & 0,276315789 \\ \hline
+77 & 21 & 1,886490725 & 0,272727273 \\ \hline
+78 & 21 & 1,892094603 & 0,269230769 \\ \hline
+79 & 21 & 1,897627091 & 0,265822785 \\ \hline
+80 & 22 & 1,903089987 & 0,275 \\ \hline
+81 & 22 & 1,908485019 & 0,271604938 \\ \hline
+82 & 22 & 1,913813852 & 0,268292683 \\ \hline
+83 & 22 & 1,919078092 & 0,265060241 \\ \hline
+84 & 23 & 1,924279286 & 0,273809524 \\ \hline
+85 & 23 & 1,929418926 & 0,270588235 \\ \hline
+86 & 23 & 1,934498451 & 0,26744186 \\ \hline
+87 & 23 & 1,939519253 & 0,264367816 \\ \hline
+88 & 23 & 1,944482672 & 0,261363636 \\ \hline
+89 & 23 & 1,949390007 & 0,258426966 \\ \hline
+90 & 24 & 1,954242509 & 0,266666667 \\ \hline
+91 & 24 & 1,959041392 & 0,263736264 \\ \hline
+92 & 24 & 1,963787827 & 0,260869565 \\ \hline
+93 & 24 & 1,968482949 & 0,258064516 \\ \hline
+94 & 24 & 1,973127854 & 0,255319149 \\ \hline
+95 & 24 & 1,977723605 & 0,252631579 \\ \hline
+96 & 24 & 1,982271233 & 0,25 \\ \hline
+97 & 24 & 1,986771734 & 0,24742268 \\ \hline
+98 & 25 & 1,991226076 & 0,255102041 \\ \hline
+99 & 25 & 1,995635195 & 0,252525253 \\ \hline
+100 & 25 & 2 & 0,25 \\ \hline
+\end{longtable}
+\end{minipage}
+
+
+
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+101 & 25 & 2,004321374 & 0,247524752 \\ \hline
+102 & 26 & 2,008600172 & 0,254901961 \\ \hline
+103 & 26 & 2,012837225 & 0,252427184 \\ \hline
+104 & 27 & 2,017033339 & 0,259615385 \\ \hline
+105 & 27 & 2,021189299 & 0,257142857 \\ \hline
+106 & 27 & 2,025305865 & 0,254716981 \\ \hline
+107 & 27 & 2,029383778 & 0,252336449 \\ \hline
+108 & 28 & 2,033423755 & 0,259259259 \\ \hline
+109 & 28 & 2,037426498 & 0,256880734 \\ \hline
+110 & 29 & 2,041392685 & 0,263636364 \\ \hline
+111 & 29 & 2,045322979 & 0,261261261 \\ \hline
+112 & 29 & 2,049218023 & 0,258928571 \\ \hline
+113 & 29 & 2,053078443 & 0,256637168 \\ \hline
+114 & 30 & 2,056904851 & 0,263157895 \\ \hline
+115 & 30 & 2,06069784 & 0,260869565 \\ \hline
+116 & 30 & 2,064457989 & 0,25862069 \\ \hline
+117 & 30 & 2,068185862 & 0,256410256 \\ \hline
+118 & 30 & 2,071882007 & 0,254237288 \\ \hline
+119 & 30 & 2,075546961 & 0,25210084 \\ \hline
+120 & 30 & 2,079181246 & 0,25 \\ \hline
+121 & 30 & 2,08278537 & 0,247933884 \\ \hline
+122 & 30 & 2,086359831 & 0,245901639 \\ \hline
+123 & 30 & 2,089905111 & 0,243902439 \\ \hline
+124 & 30 & 2,093421685 & 0,241935484 \\ \hline
+125 & 30 & 2,096910013 & 0,24 \\ \hline
+126 & 30 & 2,100370545 & 0,238095238 \\ \hline
+127 & 30 & 2,103803721 & 0,236220472 \\ \hline
+128 & 31 & 2,10720997 & 0,2421875 \\ \hline
+129 & 31 & 2,11058971 & 0,240310078 \\ \hline
+130 & 31 & 2,113943352 & 0,238461538 \\ \hline
+131 & 31 & 2,117271296 & 0,236641221 \\ \hline
+132 & 32 & 2,120573931 & 0,242424242 \\ \hline
+133 & 32 & 2,123851641 & 0,240601504 \\ \hline
+134 & 32 & 2,127104798 & 0,23880597 \\ \hline
+135 & 32 & 2,130333768 & 0,237037037 \\ \hline
+136 & 32 & 2,133538908 & 0,235294118 \\ \hline
+137 & 32 & 2,136720567 & 0,233576642 \\ \hline
+138 & 33 & 2,139879086 & 0,239130435 \\ \hline
+139 & 33 & 2,1430148 & 0,237410072 \\ \hline
+140 & 34 & 2,146128036 & 0,242857143 \\ \hline
+141 & 34 & 2,149219113 & 0,241134752 \\ \hline
+142 & 34 & 2,152288344 & 0,23943662 \\ \hline
+143 & 34 & 2,155336037 & 0,237762238 \\ \hline
+144 & 34 & 2,158362492 & 0,236111111 \\ \hline
+145 & 34 & 2,161368002 & 0,234482759 \\ \hline
+146 & 34 & 2,164352856 & 0,232876712 \\ \hline
+147 & 34 & 2,167317335 & 0,231292517 \\ \hline
+148 & 34 & 2,170261715 & 0,22972973 \\ \hline
+149 & 34 & 2,173186268 & 0,228187919 \\ \hline
+150 & 35 & 2,176091259 & 0,233333333 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline151 & 35 & 2,178976947 & 0,231788079 \\ \hline
+152 & 36 & 2,181843588 & 0,236842105 \\ \hline
+153 & 36 & 2,184691431 & 0,235294118 \\ \hline
+154 & 36 & 2,187520721 & 0,233766234 \\ \hline
+155 & 36 & 2,190331698 & 0,232258065 \\ \hline
+156 & 36 & 2,193124598 & 0,230769231 \\ \hline
+157 & 36 & 2,195899652 & 0,229299363 \\ \hline
+158 & 37 & 2,198657087 & 0,234177215 \\ \hline
+159 & 37 & 2,201397124 & 0,232704403 \\ \hline
+160 & 37 & 2,204119983 & 0,23125 \\ \hline
+161 & 37 & 2,206825876 & 0,229813665 \\ \hline
+162 & 37 & 2,209515015 & 0,228395062 \\ \hline
+163 & 37 & 2,212187604 & 0,226993865 \\ \hline
+164 & 38 & 2,214843848 & 0,231707317 \\ \hline
+165 & 38 & 2,217483944 & 0,23030303 \\ \hline
+166 & 38 & 2,220108088 & 0,228915663 \\ \hline
+167 & 38 & 2,222716471 & 0,22754491 \\ \hline
+168 & 39 & 2,225309282 & 0,232142857 \\ \hline
+169 & 39 & 2,227886705 & 0,230769231 \\ \hline
+170 & 39 & 2,230448921 & 0,229411765 \\ \hline
+171 & 39 & 2,23299611 & 0,228070175 \\ \hline
+172 & 39 & 2,235528447 & 0,226744186 \\ \hline
+173 & 39 & 2,238046103 & 0,225433526 \\ \hline
+174 & 40 & 2,240549248 & 0,229885057 \\ \hline
+175 & 40 & 2,243038049 & 0,228571429 \\ \hline
+176 & 40 & 2,245512668 & 0,227272727 \\ \hline
+177 & 40 & 2,247973266 & 0,225988701 \\ \hline
+178 & 40 & 2,250420002 & 0,224719101 \\ \hline
+179 & 40 & 2,252853031 & 0,223463687 \\ \hline
+180 & 41 & 2,255272505 & 0,227777778 \\ \hline
+181 & 41 & 2,257678575 & 0,226519337 \\ \hline
+182 & 42 & 2,260071388 & 0,230769231 \\ \hline
+183 & 42 & 2,26245109 & 0,229508197 \\ \hline
+184 & 42 & 2,264817823 & 0,22826087 \\ \hline
+185 & 42 & 2,267171728 & 0,227027027 \\ \hline
+186 & 42 & 2,269512944 & 0,225806452 \\ \hline
+187 & 42 & 2,271841607 & 0,22459893 \\ \hline
+188 & 42 & 2,274157849 & 0,223404255 \\ \hline
+189 & 42 & 2,276461804 & 0,222222222 \\ \hline
+190 & 42 & 2,278753601 & 0,221052632 \\ \hline
+191 & 42 & 2,281033367 & 0,219895288 \\ \hline
+192 & 43 & 2,283301229 & 0,223958333 \\ \hline
+193 & 43 & 2,285557309 & 0,222797927 \\ \hline
+194 & 44 & 2,28780173 & 0,226804124 \\ \hline
+195 & 44 & 2,290034611 & 0,225641026 \\ \hline
+196 & 44 & 2,292256071 & 0,224489796 \\ \hline
+197 & 44 & 2,294466226 & 0,223350254 \\ \hline
+198 & 45 & 2,29666519 & 0,227272727 \\ \hline
+199 & 45 & 2,298853076 & 0,226130653 \\ \hline
+200 & 46 & 2,301029996 & 0,23 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline201 & 46 & 2,303196057 & 0,228855721 \\ \hline
+202 & 46 & 2,305351369 & 0,227722772 \\ \hline
+203 & 46 & 2,307496038 & 0,226600985 \\ \hline
+204 & 46 & 2,309630167 & 0,225490196 \\ \hline
+205 & 46 & 2,311753861 & 0,224390244 \\ \hline
+206 & 46 & 2,31386722 & 0,223300971 \\ \hline
+207 & 46 & 2,315970345 & 0,222222222 \\ \hline
+208 & 46 & 2,318063335 & 0,221153846 \\ \hline
+209 & 46 & 2,320146286 & 0,220095694 \\ \hline
+210 & 46 & 2,322219295 & 0,219047619 \\ \hline
+211 & 46 & 2,324282455 & 0,218009479 \\ \hline
+212 & 47 & 2,326335861 & 0,221698113 \\ \hline
+213 & 47 & 2,328379603 & 0,220657277 \\ \hline
+214 & 47 & 2,330413773 & 0,219626168 \\ \hline
+215 & 47 & 2,33243846 & 0,218604651 \\ \hline
+216 & 47 & 2,334453751 & 0,217592593 \\ \hline
+217 & 47 & 2,336459734 & 0,216589862 \\ \hline
+218 & 47 & 2,338456494 & 0,21559633 \\ \hline
+219 & 47 & 2,340444115 & 0,214611872 \\ \hline
+220 & 47 & 2,342422681 & 0,213636364 \\ \hline
+221 & 47 & 2,344392274 & 0,212669683 \\ \hline
+222 & 47 & 2,346352974 & 0,211711712 \\ \hline
+223 & 47 & 2,348304863 & 0,210762332 \\ \hline
+224 & 48 & 2,350248018 & 0,214285714 \\ \hline
+225 & 48 & 2,352182518 & 0,213333333 \\ \hline
+226 & 48 & 2,354108439 & 0,212389381 \\ \hline
+227 & 48 & 2,356025857 & 0,211453744 \\ \hline
+228 & 49 & 2,357934847 & 0,214912281 \\ \hline
+229 & 49 & 2,359835482 & 0,213973799 \\ \hline
+230 & 50 & 2,361727836 & 0,217391304 \\ \hline
+231 & 50 & 2,36361198 & 0,216450216 \\ \hline
+232 & 50 & 2,365487985 & 0,215517241 \\ \hline
+233 & 50 & 2,367355921 & 0,214592275 \\ \hline
+234 & 51 & 2,369215857 & 0,217948718 \\ \hline
+235 & 51 & 2,371067862 & 0,217021277 \\ \hline
+236 & 51 & 2,372912003 & 0,216101695 \\ \hline
+237 & 51 & 2,374748346 & 0,215189873 \\ \hline
+238 & 51 & 2,376576957 & 0,214285714 \\ \hline
+239 & 51 & 2,378397901 & 0,213389121 \\ \hline
+240 & 52 & 2,380211242 & 0,216666667 \\ \hline
+241 & 52 & 2,382017043 & 0,215767635 \\ \hline
+242 & 53 & 2,383815366 & 0,219008264 \\ \hline
+243 & 53 & 2,385606274 & 0,218106996 \\ \hline
+244 & 53 & 2,387389826 & 0,217213115 \\ \hline
+245 & 53 & 2,389166084 & 0,216326531 \\ \hline
+246 & 53 & 2,390935107 & 0,215447154 \\ \hline
+247 & 53 & 2,392696953 & 0,214574899 \\ \hline
+248 & 53 & 2,394451681 & 0,213709677 \\ \hline
+249 & 53 & 2,396199347 & 0,212851406 \\ \hline
+250 & 53 & 2,397940009 & 0,212 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+251 & 53 & 2,399673721 & 0,211155378 \\ \hline
+252 & 54 & 2,401400541 & 0,214285714 \\ \hline
+253 & 54 & 2,403120521 & 0,213438735 \\ \hline
+254 & 54 & 2,404833717 & 0,212598425 \\ \hline
+255 & 54 & 2,40654018 & 0,211764706 \\ \hline
+256 & 54 & 2,408239965 & 0,2109375 \\ \hline
+257 & 54 & 2,409933123 & 0,210116732 \\ \hline
+258 & 55 & 2,411619706 & 0,213178295 \\ \hline
+259 & 55 & 2,413299764 & 0,212355212 \\ \hline
+260 & 55 & 2,414973348 & 0,211538462 \\ \hline
+261 & 55 & 2,416640507 & 0,210727969 \\ \hline
+262 & 55 & 2,418301291 & 0,209923664 \\ \hline
+263 & 55 & 2,419955748 & 0,209125475 \\ \hline
+264 & 56 & 2,421603927 & 0,212121212 \\ \hline
+265 & 56 & 2,423245874 & 0,211320755 \\ \hline
+266 & 56 & 2,424881637 & 0,210526316 \\ \hline
+267 & 56 & 2,426511261 & 0,209737828 \\ \hline
+268 & 56 & 2,428134794 & 0,208955224 \\ \hline
+269 & 56 & 2,42975228 & 0,208178439 \\ \hline
+270 & 57 & 2,431363764 & 0,211111111 \\ \hline
+271 & 57 & 2,432969291 & 0,210332103 \\ \hline
+272 & 58 & 2,434568904 & 0,213235294 \\ \hline
+273 & 58 & 2,436162647 & 0,212454212 \\ \hline
+274 & 58 & 2,437750563 & 0,211678832 \\ \hline
+275 & 58 & 2,439332694 & 0,210909091 \\ \hline
+276 & 58 & 2,440909082 & 0,210144928 \\ \hline
+277 & 58 & 2,442479769 & 0,209386282 \\ \hline
+278 & 59 & 2,444044796 & 0,212230216 \\ \hline
+279 & 59 & 2,445604203 & 0,211469534 \\ \hline
+280 & 59 & 2,447158031 & 0,210714286 \\ \hline
+281 & 59 & 2,44870632 & 0,209964413 \\ \hline
+282 & 60 & 2,450249108 & 0,212765957 \\ \hline
+283 & 60 & 2,451786436 & 0,212014134 \\ \hline
+284 & 61 & 2,45331834 & 0,214788732 \\ \hline
+285 & 61 & 2,45484486 & 0,214035088 \\ \hline
+286 & 61 & 2,456366033 & 0,213286713 \\ \hline
+287 & 61 & 2,457881897 & 0,212543554 \\ \hline
+288 & 61 & 2,459392488 & 0,211805556 \\ \hline
+289 & 61 & 2,460897843 & 0,211072664 \\ \hline
+290 & 61 & 2,462397998 & 0,210344828 \\ \hline
+291 & 61 & 2,463892989 & 0,209621993 \\ \hline
+292 & 61 & 2,465382851 & 0,20890411 \\ \hline
+293 & 61 & 2,46686762 & 0,208191126 \\ \hline
+294 & 62 & 2,46834733 & 0,210884354 \\ \hline
+295 & 62 & 2,469822016 & 0,210169492 \\ \hline
+296 & 62 & 2,471291711 & 0,209459459 \\ \hline
+297 & 62 & 2,472756449 & 0,208754209 \\ \hline
+298 & 62 & 2,474216264 & 0,208053691 \\ \hline
+299 & 62 & 2,475671188 & 0,20735786 \\ \hline
+300 & 62 & 2,477121255 & 0,206666667 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+301 & 62 & 2,478566496 & 0,205980066 \\ \hline
+302 & 62 & 2,480006943 & 0,205298013 \\ \hline
+303 & 62 & 2,481442629 & 0,204620462 \\ \hline
+304 & 62 & 2,482873584 & 0,203947368 \\ \hline
+305 & 62 & 2,484299839 & 0,203278689 \\ \hline
+306 & 62 & 2,485721426 & 0,202614379 \\ \hline
+307 & 62 & 2,487138375 & 0,201954397 \\ \hline
+308 & 63 & 2,488550717 & 0,204545455 \\ \hline
+309 & 63 & 2,489958479 & 0,203883495 \\ \hline
+310 & 63 & 2,491361694 & 0,203225806 \\ \hline
+311 & 63 & 2,492760389 & 0,202572347 \\ \hline
+312 & 64 & 2,494154594 & 0,205128205 \\ \hline
+313 & 64 & 2,495544338 & 0,204472843 \\ \hline
+314 & 65 & 2,496929648 & 0,207006369 \\ \hline
+315 & 65 & 2,498310554 & 0,206349206 \\ \hline
+316 & 65 & 2,499687083 & 0,205696203 \\ \hline
+317 & 65 & 2,501059262 & 0,205047319 \\ \hline
+318 & 66 & 2,50242712 & 0,20754717 \\ \hline
+319 & 66 & 2,503790683 & 0,206896552 \\ \hline
+320 & 66 & 2,505149978 & 0,20625 \\ \hline
+321 & 66 & 2,506505032 & 0,205607477 \\ \hline
+322 & 66 & 2,507855872 & 0,204968944 \\ \hline
+323 & 66 & 2,509202522 & 0,204334365 \\ \hline
+324 & 66 & 2,51054501 & 0,203703704 \\ \hline
+325 & 66 & 2,511883361 & 0,203076923 \\ \hline
+326 & 66 & 2,5132176 & 0,202453988 \\ \hline
+327 & 66 & 2,514547753 & 0,201834862 \\ \hline
+328 & 66 & 2,515873844 & 0,201219512 \\ \hline
+329 & 66 & 2,517195898 & 0,200607903 \\ \hline
+330 & 66 & 2,51851394 & 0,2 \\ \hline
+331 & 66 & 2,519827994 & 0,19939577 \\ \hline
+332 & 67 & 2,521138084 & 0,201807229 \\ \hline
+333 & 67 & 2,522444234 & 0,201201201 \\ \hline
+334 & 67 & 2,523746467 & 0,200598802 \\ \hline
+335 & 67 & 2,525044807 & 0,2 \\ \hline
+336 & 67 & 2,526339277 & 0,199404762 \\ \hline
+337 & 67 & 2,527629901 & 0,198813056 \\ \hline
+338 & 68 & 2,5289167 & 0,201183432 \\ \hline
+339 & 68 & 2,530199698 & 0,200589971 \\ \hline
+340 & 68 & 2,531478917 & 0,2 \\ \hline
+341 & 68 & 2,532754379 & 0,19941349 \\ \hline
+342 & 68 & 2,534026106 & 0,198830409 \\ \hline
+343 & 68 & 2,53529412 & 0,198250729 \\ \hline
+344 & 68 & 2,536558443 & 0,197674419 \\ \hline
+345 & 68 & 2,537819095 & 0,197101449 \\ \hline
+346 & 68 & 2,539076099 & 0,196531792 \\ \hline
+347 & 68 & 2,540329475 & 0,195965418 \\ \hline
+348 & 69 & 2,541579244 & 0,198275862 \\ \hline
+349 & 69 & 2,542825427 & 0,197707736 \\ \hline
+350 & 70 & 2,544068044 & 0,2 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+351 & 70 & 2,545307116 & 0,199430199 \\ \hline
+352 & 70 & 2,546542663 & 0,198863636 \\ \hline
+353 & 70 & 2,547774705 & 0,198300283 \\ \hline
+354 & 71 & 2,549003262 & 0,200564972 \\ \hline
+355 & 71 & 2,550228353 & 0,2 \\ \hline
+356 & 71 & 2,551449998 & 0,199438202 \\ \hline
+357 & 71 & 2,552668216 & 0,198879552 \\ \hline
+358 & 71 & 2,553883027 & 0,198324022 \\ \hline
+359 & 71 & 2,555094449 & 0,197771588 \\ \hline
+360 & 72 & 2,556302501 & 0,2 \\ \hline
+361 & 72 & 2,557507202 & 0,199445983 \\ \hline
+362 & 72 & 2,558708571 & 0,198895028 \\ \hline
+363 & 72 & 2,559906625 & 0,198347107 \\ \hline
+364 & 72 & 2,561101384 & 0,197802198 \\ \hline
+365 & 72 & 2,562292864 & 0,197260274 \\ \hline
+366 & 72 & 2,563481085 & 0,196721311 \\ \hline
+367 & 72 & 2,564666064 & 0,196185286 \\ \hline
+368 & 73 & 2,565847819 & 0,198369565 \\ \hline
+369 & 73 & 2,567026366 & 0,197831978 \\ \hline
+370 & 73 & 2,568201724 & 0,197297297 \\ \hline
+371 & 73 & 2,56937391 & 0,196765499 \\ \hline
+372 & 73 & 2,57054294 & 0,196236559 \\ \hline
+373 & 73 & 2,571708832 & 0,195710456 \\ \hline
+374 & 74 & 2,572871602 & 0,197860963 \\ \hline
+375 & 74 & 2,574031268 & 0,197333333 \\ \hline
+376 & 74 & 2,575187845 & 0,196808511 \\ \hline
+377 & 74 & 2,57634135 & 0,196286472 \\ \hline
+378 & 74 & 2,5774918 & 0,195767196 \\ \hline
+379 & 74 & 2,57863921 & 0,19525066 \\ \hline
+380 & 75 & 2,579783597 & 0,197368421 \\ \hline
+381 & 75 & 2,580924976 & 0,196850394 \\ \hline
+382 & 75 & 2,582063363 & 0,196335079 \\ \hline
+383 & 75 & 2,583198774 & 0,195822454 \\ \hline
+384 & 76 & 2,584331224 & 0,197916667 \\ \hline
+385 & 76 & 2,58546073 & 0,197402597 \\ \hline
+386 & 76 & 2,586587305 & 0,196891192 \\ \hline
+387 & 76 & 2,587710965 & 0,196382429 \\ \hline
+388 & 76 & 2,588831726 & 0,195876289 \\ \hline
+389 & 76 & 2,589949601 & 0,195372751 \\ \hline
+390 & 77 & 2,591064607 & 0,197435897 \\ \hline
+391 & 77 & 2,592176757 & 0,196930946 \\ \hline
+392 & 77 & 2,593286067 & 0,196428571 \\ \hline
+393 & 77 & 2,59439255 & 0,195928753 \\ \hline
+394 & 77 & 2,595496222 & 0,195431472 \\ \hline
+395 & 77 & 2,596597096 & 0,194936709 \\ \hline
+396 & 77 & 2,597695186 & 0,194444444 \\ \hline
+397 & 77 & 2,598790507 & 0,19395466 \\ \hline
+398 & 78 & 2,599883072 & 0,195979899 \\ \hline
+399 & 78 & 2,600972896 & 0,195488722 \\ \hline
+400 & 78 & 2,602059991 & 0,195 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+401 & 78 & 2,603144373 & 0,194513716 \\ \hline
+402 & 79 & 2,604226053 & 0,196517413 \\ \hline
+403 & 79 & 2,605305046 & 0,196029777 \\ \hline
+404 & 79 & 2,606381365 & 0,195544554 \\ \hline
+405 & 79 & 2,607455023 & 0,195061728 \\ \hline
+406 & 79 & 2,608526034 & 0,194581281 \\ \hline
+407 & 79 & 2,609594409 & 0,194103194 \\ \hline
+408 & 79 & 2,610660163 & 0,193627451 \\ \hline
+409 & 79 & 2,611723308 & 0,193154034 \\ \hline
+410 & 80 & 2,612783857 & 0,195121951 \\ \hline
+411 & 80 & 2,613841822 & 0,194647202 \\ \hline
+412 & 80 & 2,614897216 & 0,194174757 \\ \hline
+413 & 80 & 2,615950052 & 0,1937046 \\ \hline
+414 & 80 & 2,617000341 & 0,193236715 \\ \hline
+415 & 80 & 2,618048097 & 0,192771084 \\ \hline
+416 & 80 & 2,619093331 & 0,192307692 \\ \hline
+417 & 80 & 2,620136055 & 0,191846523 \\ \hline
+418 & 80 & 2,621176282 & 0,19138756 \\ \hline
+419 & 80 & 2,622214023 & 0,190930788 \\ \hline
+420 & 81 & 2,62324929 & 0,192857143 \\ \hline
+421 & 81 & 2,624282096 & 0,19239905 \\ \hline
+422 & 82 & 2,625312451 & 0,194312796 \\ \hline
+423 & 82 & 2,626340367 & 0,193853428 \\ \hline
+424 & 82 & 2,627365857 & 0,193396226 \\ \hline
+425 & 82 & 2,62838893 & 0,192941176 \\ \hline
+426 & 82 & 2,629409599 & 0,192488263 \\ \hline
+427 & 82 & 2,630427875 & 0,192037471 \\ \hline
+428 & 82 & 2,631443769 & 0,191588785 \\ \hline
+429 & 82 & 2,632457292 & 0,191142191 \\ \hline
+430 & 82 & 2,633468456 & 0,190697674 \\ \hline
+431 & 82 & 2,63447727 & 0,19025522 \\ \hline
+432 & 83 & 2,635483747 & 0,19212963 \\ \hline
+433 & 83 & 2,636487896 & 0,191685912 \\ \hline
+434 & 84 & 2,63748973 & 0,193548387 \\ \hline
+435 & 84 & 2,638489257 & 0,193103448 \\ \hline
+436 & 84 & 2,639486489 & 0,19266055 \\ \hline
+437 & 84 & 2,640481437 & 0,19221968 \\ \hline
+438 & 84 & 2,641474111 & 0,191780822 \\ \hline
+439 & 84 & 2,64246452 & 0,191343964 \\ \hline
+440 & 85 & 2,643452676 & 0,193181818 \\ \hline
+441 & 85 & 2,644438589 & 0,192743764 \\ \hline
+442 & 85 & 2,645422269 & 0,192307692 \\ \hline
+443 & 85 & 2,646403726 & 0,191873589 \\ \hline
+444 & 86 & 2,64738297 & 0,193693694 \\ \hline
+445 & 86 & 2,648360011 & 0,193258427 \\ \hline
+446 & 86 & 2,649334859 & 0,192825112 \\ \hline
+447 & 86 & 2,650307523 & 0,192393736 \\ \hline
+448 & 86 & 2,651278014 & 0,191964286 \\ \hline
+449 & 86 & 2,652246341 & 0,191536748 \\ \hline
+450 & 87 & 2,653212514 & 0,193333333 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+451 & 87 & 2,654176542 & 0,192904656 \\ \hline
+452 & 87 & 2,655138435 & 0,192477876 \\ \hline
+453 & 87 & 2,656098202 & 0,19205298 \\ \hline
+454 & 87 & 2,657055853 & 0,191629956 \\ \hline
+455 & 87 & 2,658011397 & 0,191208791 \\ \hline
+456 & 87 & 2,658964843 & 0,190789474 \\ \hline
+457 & 87 & 2,6599162 & 0,190371991 \\ \hline
+458 & 88 & 2,660865478 & 0,192139738 \\ \hline
+459 & 88 & 2,661812686 & 0,191721133 \\ \hline
+460 & 88 & 2,662757832 & 0,191304348 \\ \hline
+461 & 88 & 2,663700925 & 0,190889371 \\ \hline
+462 & 89 & 2,664641976 & 0,192640693 \\ \hline
+463 & 89 & 2,665580991 & 0,192224622 \\ \hline
+464 & 90 & 2,666517981 & 0,193965517 \\ \hline
+465 & 90 & 2,667452953 & 0,193548387 \\ \hline
+466 & 90 & 2,668385917 & 0,193133047 \\ \hline
+467 & 90 & 2,669316881 & 0,192719486 \\ \hline
+468 & 91 & 2,670245853 & 0,194444444 \\ \hline
+469 & 91 & 2,671172843 & 0,194029851 \\ \hline
+470 & 91 & 2,672097858 & 0,193617021 \\ \hline
+471 & 91 & 2,673020907 & 0,193205945 \\ \hline
+472 & 91 & 2,673941999 & 0,19279661 \\ \hline
+473 & 91 & 2,674861141 & 0,192389006 \\ \hline
+474 & 91 & 2,675778342 & 0,191983122 \\ \hline
+475 & 91 & 2,67669361 & 0,191578947 \\ \hline
+476 & 91 & 2,677606953 & 0,191176471 \\ \hline
+477 & 91 & 2,678518379 & 0,190775681 \\ \hline
+478 & 91 & 2,679427897 & 0,190376569 \\ \hline
+479 & 91 & 2,680335513 & 0,189979123 \\ \hline
+480 & 92 & 2,681241237 & 0,191666667 \\ \hline
+481 & 92 & 2,682145076 & 0,191268191 \\ \hline
+482 & 92 & 2,683047038 & 0,190871369 \\ \hline
+483 & 92 & 2,683947131 & 0,19047619 \\ \hline
+484 & 92 & 2,684845362 & 0,190082645 \\ \hline
+485 & 92 & 2,685741739 & 0,189690722 \\ \hline
+486 & 92 & 2,686636269 & 0,189300412 \\ \hline
+487 & 92 & 2,687528961 & 0,188911704 \\ \hline
+488 & 93 & 2,688419822 & 0,19057377 \\ \hline
+489 & 93 & 2,689308859 & 0,190184049 \\ \hline
+490 & 93 & 2,69019608 & 0,189795918 \\ \hline
+491 & 93 & 2,691081492 & 0,189409369 \\ \hline
+492 & 94 & 2,691965103 & 0,191056911 \\ \hline
+493 & 94 & 2,692846919 & 0,190669371 \\ \hline
+494 & 94 & 2,693726949 & 0,190283401 \\ \hline
+495 & 94 & 2,694605199 & 0,18989899 \\ \hline
+496 & 94 & 2,695481676 & 0,189516129 \\ \hline
+497 & 94 & 2,696356389 & 0,189134809 \\ \hline
+498 & 94 & 2,697229343 & 0,18875502 \\ \hline
+499 & 94 & 2,698100546 & 0,188376754 \\ \hline
+500 & 95 & 2,698970004 & 0,19 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+501 & 95 & 2,699837726 & 0,189620758 \\ \hline
+502 & 95 & 2,700703717 & 0,189243028 \\ \hline
+503 & 95 & 2,701567985 & 0,188866799 \\ \hline
+504 & 96 & 2,702430536 & 0,19047619 \\ \hline
+505 & 96 & 2,703291378 & 0,19009901 \\ \hline
+506 & 96 & 2,704150517 & 0,18972332 \\ \hline
+507 & 96 & 2,705007959 & 0,189349112 \\ \hline
+508 & 96 & 2,705863712 & 0,188976378 \\ \hline
+509 & 96 & 2,706717782 & 0,188605108 \\ \hline
+510 & 97 & 2,707570176 & 0,190196078 \\ \hline
+511 & 97 & 2,7084209 & 0,189823875 \\ \hline
+512 & 97 & 2,709269961 & 0,189453125 \\ \hline
+513 & 97 & 2,710117365 & 0,189083821 \\ \hline
+514 & 97 & 2,710963119 & 0,188715953 \\ \hline
+515 & 97 & 2,711807229 & 0,188349515 \\ \hline
+516 & 97 & 2,712649702 & 0,187984496 \\ \hline
+517 & 97 & 2,713490543 & 0,18762089 \\ \hline
+518 & 97 & 2,71432976 & 0,187258687 \\ \hline
+519 & 97 & 2,715167358 & 0,186897881 \\ \hline
+520 & 97 & 2,716003344 & 0,186538462 \\ \hline
+521 & 97 & 2,716837723 & 0,186180422 \\ \hline
+522 & 98 & 2,717670503 & 0,187739464 \\ \hline
+523 & 98 & 2,718501689 & 0,187380497 \\ \hline
+524 & 99 & 2,719331287 & 0,188931298 \\ \hline
+525 & 99 & 2,720159303 & 0,188571429 \\ \hline
+526 & 99 & 2,720985744 & 0,188212928 \\ \hline
+527 & 99 & 2,721810615 & 0,187855787 \\ \hline
+528 & 99 & 2,722633923 & 0,1875 \\ \hline
+529 & 99 & 2,723455672 & 0,187145558 \\ \hline
+530 & 99 & 2,72427587 & 0,186792453 \\ \hline
+531 & 99 & 2,725094521 & 0,186440678 \\ \hline
+532 & 99 & 2,725911632 & 0,186090226 \\ \hline
+533 & 99 & 2,726727209 & 0,185741088 \\ \hline
+534 & 99 & 2,727541257 & 0,185393258 \\ \hline
+535 & 99 & 2,728353782 & 0,185046729 \\ \hline
+536 & 99 & 2,72916479 & 0,184701493 \\ \hline
+537 & 99 & 2,729974286 & 0,184357542 \\ \hline
+538 & 99 & 2,730782276 & 0,18401487 \\ \hline
+539 & 99 & 2,731588765 & 0,183673469 \\ \hline
+540 & 99 & 2,73239376 & 0,183333333 \\ \hline
+541 & 99 & 2,733197265 & 0,182994455 \\ \hline
+542 & 100 & 2,733999287 & 0,184501845 \\ \hline
+543 & 100 & 2,73479983 & 0,184162063 \\ \hline
+544 & 100 & 2,7355989 & 0,183823529 \\ \hline
+545 & 100 & 2,736396502 & 0,183486239 \\ \hline
+546 & 100 & 2,737192643 & 0,183150183 \\ \hline
+547 & 100 & 2,737987326 & 0,182815356 \\ \hline
+548 & 101 & 2,738780558 & 0,184306569 \\ \hline
+549 & 101 & 2,739572344 & 0,183970856 \\ \hline
+550 & 101 & 2,740362689 & 0,183636364 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+551 & 101 & 2,741151599 & 0,183303085 \\ \hline
+552 & 101 & 2,741939078 & 0,182971014 \\ \hline
+553 & 101 & 2,742725131 & 0,182640145 \\ \hline
+554 & 101 & 2,743509765 & 0,182310469 \\ \hline
+555 & 101 & 2,744292983 & 0,181981982 \\ \hline
+556 & 101 & 2,745074792 & 0,181654676 \\ \hline
+557 & 101 & 2,745855195 & 0,181328546 \\ \hline
+558 & 102 & 2,746634199 & 0,182795699 \\ \hline
+559 & 102 & 2,747411808 & 0,182468694 \\ \hline
+560 & 102 & 2,748188027 & 0,182142857 \\ \hline
+561 & 102 & 2,748962861 & 0,181818182 \\ \hline
+562 & 102 & 2,749736316 & 0,181494662 \\ \hline
+563 & 102 & 2,750508395 & 0,181172291 \\ \hline
+564 & 103 & 2,751279104 & 0,182624113 \\ \hline
+565 & 103 & 2,752048448 & 0,182300885 \\ \hline
+566 & 103 & 2,752816431 & 0,181978799 \\ \hline
+567 & 103 & 2,753583059 & 0,181657848 \\ \hline
+568 & 103 & 2,754348336 & 0,181338028 \\ \hline
+569 & 103 & 2,755112266 & 0,181019332 \\ \hline
+570 & 104 & 2,755874856 & 0,18245614 \\ \hline
+571 & 104 & 2,756636108 & 0,182136602 \\ \hline
+572 & 105 & 2,757396029 & 0,183566434 \\ \hline
+573 & 105 & 2,758154622 & 0,183246073 \\ \hline
+574 & 105 & 2,758911892 & 0,182926829 \\ \hline
+575 & 105 & 2,759667845 & 0,182608696 \\ \hline
+576 & 105 & 2,760422483 & 0,182291667 \\ \hline
+577 & 105 & 2,761175813 & 0,181975737 \\ \hline
+578 & 106 & 2,761927838 & 0,183391003 \\ \hline
+579 & 106 & 2,762678564 & 0,183074266 \\ \hline
+580 & 106 & 2,763427994 & 0,182758621 \\ \hline
+581 & 106 & 2,764176132 & 0,182444062 \\ \hline
+582 & 106 & 2,764922985 & 0,182130584 \\ \hline
+583 & 106 & 2,765668555 & 0,181818182 \\ \hline
+584 & 106 & 2,766412847 & 0,181506849 \\ \hline
+585 & 106 & 2,767155866 & 0,181196581 \\ \hline
+586 & 106 & 2,767897616 & 0,180887372 \\ \hline
+587 & 106 & 2,768638101 & 0,180579216 \\ \hline
+588 & 107 & 2,769377326 & 0,181972789 \\ \hline
+589 & 107 & 2,770115295 & 0,181663837 \\ \hline
+590 & 107 & 2,770852012 & 0,181355932 \\ \hline
+591 & 107 & 2,771587481 & 0,181049069 \\ \hline
+592 & 107 & 2,772321707 & 0,180743243 \\ \hline
+593 & 107 & 2,773054693 & 0,180438449 \\ \hline
+594 & 108 & 2,773786445 & 0,181818182 \\ \hline
+595 & 108 & 2,774516966 & 0,181512605 \\ \hline
+596 & 108 & 2,77524626 & 0,181208054 \\ \hline
+597 & 108 & 2,775974331 & 0,180904523 \\ \hline
+598 & 108 & 2,776701184 & 0,180602007 \\ \hline
+599 & 108 & 2,777426822 & 0,180300501 \\ \hline
+600 & 109 & 2,77815125 & 0,181666667 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+601 & 109 & 2,778874472 & 0,181364393 \\ \hline
+602 & 110 & 2,779596491 & 0,182724252 \\ \hline
+603 & 110 & 2,780317312 & 0,182421227 \\ \hline
+604 & 110 & 2,781036939 & 0,182119205 \\ \hline
+605 & 110 & 2,781755375 & 0,181818182 \\ \hline
+606 & 110 & 2,782472624 & 0,181518152 \\ \hline
+607 & 110 & 2,783188691 & 0,18121911 \\ \hline
+608 & 111 & 2,783903579 & 0,182565789 \\ \hline
+609 & 111 & 2,784617293 & 0,18226601 \\ \hline
+610 & 111 & 2,785329835 & 0,181967213 \\ \hline
+611 & 111 & 2,78604121 & 0,181669394 \\ \hline
+612 & 111 & 2,786751422 & 0,181372549 \\ \hline
+613 & 111 & 2,787460475 & 0,181076672 \\ \hline
+614 & 112 & 2,788168371 & 0,182410423 \\ \hline
+615 & 112 & 2,788875116 & 0,182113821 \\ \hline
+616 & 112 & 2,789580712 & 0,181818182 \\ \hline
+617 & 112 & 2,790285164 & 0,181523501 \\ \hline
+618 & 113 & 2,790988475 & 0,182847896 \\ \hline
+619 & 113 & 2,791690649 & 0,182552504 \\ \hline
+620 & 114 & 2,792391689 & 0,183870968 \\ \hline
+621 & 114 & 2,7930916 & 0,183574879 \\ \hline
+622 & 114 & 2,793790385 & 0,183279743 \\ \hline
+623 & 114 & 2,794488047 & 0,182985554 \\ \hline
+624 & 114 & 2,79518459 & 0,182692308 \\ \hline
+625 & 114 & 2,795880017 & 0,1824 \\ \hline
+626 & 114 & 2,796574333 & 0,182108626 \\ \hline
+627 & 114 & 2,797267541 & 0,181818182 \\ \hline
+628 & 114 & 2,797959644 & 0,181528662 \\ \hline
+629 & 114 & 2,798650645 & 0,181240064 \\ \hline
+630 & 114 & 2,799340549 & 0,180952381 \\ \hline
+631 & 114 & 2,800029359 & 0,18066561 \\ \hline
+632 & 115 & 2,800717078 & 0,181962025 \\ \hline
+633 & 115 & 2,80140371 & 0,181674566 \\ \hline
+634 & 115 & 2,802089258 & 0,181388013 \\ \hline
+635 & 115 & 2,802773725 & 0,181102362 \\ \hline
+636 & 115 & 2,803457116 & 0,18081761 \\ \hline
+637 & 115 & 2,804139432 & 0,180533752 \\ \hline
+638 & 115 & 2,804820679 & 0,180250784 \\ \hline
+639 & 115 & 2,805500858 & 0,179968701 \\ \hline
+640 & 115 & 2,806179974 & 0,1796875 \\ \hline
+641 & 115 & 2,80685803 & 0,179407176 \\ \hline
+642 & 116 & 2,807535028 & 0,180685358 \\ \hline
+643 & 116 & 2,808210973 & 0,180404355 \\ \hline
+644 & 117 & 2,808885867 & 0,181677019 \\ \hline
+645 & 117 & 2,809559715 & 0,181395349 \\ \hline
+646 & 117 & 2,810232518 & 0,181114551 \\ \hline
+647 & 117 & 2,810904281 & 0,180834621 \\ \hline
+648 & 118 & 2,811575006 & 0,182098765 \\ \hline
+649 & 118 & 2,812244697 & 0,181818182 \\ \hline
+650 & 118 & 2,812913357 & 0,181538462 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+651 & 118 & 2,813580989 & 0,181259601 \\ \hline
+652 & 118 & 2,814247596 & 0,180981595 \\ \hline
+653 & 118 & 2,814913181 & 0,180704441 \\ \hline
+654 & 119 & 2,815577748 & 0,181957187 \\ \hline
+655 & 119 & 2,8162413 & 0,181679389 \\ \hline
+656 & 119 & 2,816903839 & 0,181402439 \\ \hline
+657 & 119 & 2,81756537 & 0,181126332 \\ \hline
+658 & 119 & 2,818225894 & 0,180851064 \\ \hline
+659 & 119 & 2,818885415 & 0,180576631 \\ \hline
+660 & 120 & 2,819543936 & 0,181818182 \\ \hline
+661 & 120 & 2,820201459 & 0,181543116 \\ \hline
+662 & 121 & 2,820857989 & 0,182779456 \\ \hline
+663 & 121 & 2,821513528 & 0,182503771 \\ \hline
+664 & 121 & 2,822168079 & 0,182228916 \\ \hline
+665 & 121 & 2,822821645 & 0,181954887 \\ \hline
+666 & 121 & 2,823474229 & 0,181681682 \\ \hline
+667 & 121 & 2,824125834 & 0,181409295 \\ \hline
+668 & 121 & 2,824776462 & 0,181137725 \\ \hline
+669 & 121 & 2,825426118 & 0,180866966 \\ \hline
+670 & 121 & 2,826074803 & 0,180597015 \\ \hline
+671 & 121 & 2,82672252 & 0,180327869 \\ \hline
+672 & 121 & 2,827369273 & 0,180059524 \\ \hline
+673 & 121 & 2,828015064 & 0,179791976 \\ \hline
+674 & 122 & 2,828659897 & 0,181008902 \\ \hline
+675 & 122 & 2,829303773 & 0,180740741 \\ \hline
+676 & 122 & 2,829946696 & 0,180473373 \\ \hline
+677 & 122 & 2,830588669 & 0,180206795 \\ \hline
+678 & 123 & 2,831229694 & 0,181415929 \\ \hline
+679 & 123 & 2,831869774 & 0,181148748 \\ \hline
+680 & 123 & 2,832508913 & 0,180882353 \\ \hline
+681 & 123 & 2,833147112 & 0,18061674 \\ \hline
+682 & 123 & 2,833784375 & 0,180351906 \\ \hline
+683 & 123 & 2,834420704 & 0,180087848 \\ \hline
+684 & 124 & 2,835056102 & 0,18128655 \\ \hline
+685 & 124 & 2,835690571 & 0,181021898 \\ \hline
+686 & 124 & 2,836324116 & 0,180758017 \\ \hline
+687 & 124 & 2,836956737 & 0,180494905 \\ \hline
+688 & 124 & 2,837588438 & 0,180232558 \\ \hline
+689 & 124 & 2,838219222 & 0,179970972 \\ \hline
+690 & 124 & 2,838849091 & 0,179710145 \\ \hline
+691 & 124 & 2,839478047 & 0,179450072 \\ \hline
+692 & 125 & 2,840106094 & 0,180635838 \\ \hline
+693 & 125 & 2,840733235 & 0,18037518 \\ \hline
+694 & 125 & 2,84135947 & 0,180115274 \\ \hline
+695 & 125 & 2,841984805 & 0,179856115 \\ \hline
+696 & 125 & 2,84260924 & 0,179597701 \\ \hline
+697 & 125 & 2,843232778 & 0,179340029 \\ \hline
+698 & 125 & 2,843855423 & 0,179083095 \\ \hline
+699 & 125 & 2,844477176 & 0,178826896 \\ \hline
+700 & 125 & 2,84509804 & 0,178571429 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+701 & 125 & 2,845718018 & 0,17831669 \\ \hline
+702 & 126 & 2,846337112 & 0,179487179 \\ \hline
+703 & 126 & 2,846955325 & 0,179231863 \\ \hline
+704 & 126 & 2,847572659 & 0,178977273 \\ \hline
+705 & 126 & 2,848189117 & 0,178723404 \\ \hline
+706 & 126 & 2,848804701 & 0,178470255 \\ \hline
+707 & 126 & 2,849419414 & 0,178217822 \\ \hline
+708 & 126 & 2,850033258 & 0,177966102 \\ \hline
+709 & 126 & 2,850646235 & 0,177715092 \\ \hline
+710 & 127 & 2,851258349 & 0,178873239 \\ \hline
+711 & 127 & 2,851869601 & 0,17862166 \\ \hline
+712 & 127 & 2,852479994 & 0,178370787 \\ \hline
+713 & 127 & 2,85308953 & 0,178120617 \\ \hline
+714 & 127 & 2,853698212 & 0,177871148 \\ \hline
+715 & 127 & 2,854306042 & 0,177622378 \\ \hline
+716 & 127 & 2,854913022 & 0,177374302 \\ \hline
+717 & 127 & 2,855519156 & 0,177126918 \\ \hline
+718 & 127 & 2,856124444 & 0,176880223 \\ \hline
+719 & 127 & 2,85672889 & 0,176634214 \\ \hline
+720 & 128 & 2,857332496 & 0,177777778 \\ \hline
+721 & 128 & 2,857935265 & 0,177531207 \\ \hline
+722 & 128 & 2,858537198 & 0,177285319 \\ \hline
+723 & 128 & 2,859138297 & 0,177040111 \\ \hline
+724 & 128 & 2,859738566 & 0,17679558 \\ \hline
+725 & 128 & 2,860338007 & 0,176551724 \\ \hline
+726 & 128 & 2,860936621 & 0,17630854 \\ \hline
+727 & 128 & 2,861534411 & 0,176066025 \\ \hline
+728 & 129 & 2,862131379 & 0,177197802 \\ \hline
+729 & 129 & 2,862727528 & 0,176954733 \\ \hline
+730 & 129 & 2,86332286 & 0,176712329 \\ \hline
+731 & 129 & 2,863917377 & 0,176470588 \\ \hline
+732 & 129 & 2,864511081 & 0,176229508 \\ \hline
+733 & 129 & 2,865103975 & 0,175989086 \\ \hline
+734 & 130 & 2,86569606 & 0,177111717 \\ \hline
+735 & 130 & 2,866287339 & 0,176870748 \\ \hline
+736 & 130 & 2,866877814 & 0,176630435 \\ \hline
+737 & 130 & 2,867467488 & 0,176390773 \\ \hline
+738 & 130 & 2,868056362 & 0,176151762 \\ \hline
+739 & 130 & 2,868644438 & 0,175913396 \\ \hline
+740 & 131 & 2,86923172 & 0,177027027 \\ \hline
+741 & 131 & 2,869818208 & 0,176788124 \\ \hline
+742 & 131 & 2,870403905 & 0,176549865 \\ \hline
+743 & 131 & 2,870988814 & 0,176312248 \\ \hline
+744 & 132 & 2,871572936 & 0,177419355 \\ \hline
+745 & 132 & 2,872156273 & 0,177181208 \\ \hline
+746 & 132 & 2,872738827 & 0,1769437 \\ \hline
+747 & 132 & 2,873320602 & 0,176706827 \\ \hline
+748 & 132 & 2,873901598 & 0,176470588 \\ \hline
+749 & 132 & 2,874481818 & 0,17623498 \\ \hline
+750 & 132 & 2,875061263 & 0,176 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+751 & 132 & 2,875639937 & 0,175765646 \\ \hline
+752 & 133 & 2,876217841 & 0,176861702 \\ \hline
+753 & 133 & 2,876794976 & 0,176626826 \\ \hline
+754 & 133 & 2,877371346 & 0,176392573 \\ \hline
+755 & 133 & 2,877946952 & 0,17615894 \\ \hline
+756 & 133 & 2,878521796 & 0,175925926 \\ \hline
+757 & 133 & 2,87909588 & 0,175693527 \\ \hline
+758 & 134 & 2,879669206 & 0,176781003 \\ \hline
+759 & 134 & 2,880241776 & 0,17654809 \\ \hline
+760 & 134 & 2,880813592 & 0,176315789 \\ \hline
+761 & 134 & 2,881384657 & 0,1760841 \\ \hline
+762 & 135 & 2,881954971 & 0,177165354 \\ \hline
+763 & 135 & 2,882524538 & 0,176933159 \\ \hline
+764 & 135 & 2,883093359 & 0,176701571 \\ \hline
+765 & 135 & 2,883661435 & 0,176470588 \\ \hline
+766 & 135 & 2,88422877 & 0,176240209 \\ \hline
+767 & 135 & 2,884795364 & 0,17601043 \\ \hline
+768 & 135 & 2,88536122 & 0,17578125 \\ \hline
+769 & 135 & 2,88592634 & 0,175552666 \\ \hline
+770 & 136 & 2,886490725 & 0,176623377 \\ \hline
+771 & 136 & 2,887054378 & 0,176394293 \\ \hline
+772 & 136 & 2,8876173 & 0,176165803 \\ \hline
+773 & 136 & 2,888179494 & 0,175937904 \\ \hline
+774 & 137 & 2,888740961 & 0,177002584 \\ \hline
+775 & 137 & 2,889301703 & 0,176774194 \\ \hline
+776 & 137 & 2,889861721 & 0,176546392 \\ \hline
+777 & 137 & 2,890421019 & 0,176319176 \\ \hline
+778 & 137 & 2,890979597 & 0,176092545 \\ \hline
+779 & 137 & 2,891537458 & 0,175866496 \\ \hline
+780 & 137 & 2,892094603 & 0,175641026 \\ \hline
+781 & 137 & 2,892651034 & 0,175416133 \\ \hline
+782 & 137 & 2,893206753 & 0,175191816 \\ \hline
+783 & 137 & 2,893761762 & 0,174968072 \\ \hline
+784 & 137 & 2,894316063 & 0,174744898 \\ \hline
+785 & 137 & 2,894869657 & 0,174522293 \\ \hline
+786 & 137 & 2,895422546 & 0,174300254 \\ \hline
+787 & 137 & 2,895974732 & 0,17407878 \\ \hline
+788 & 138 & 2,896526217 & 0,175126904 \\ \hline
+789 & 138 & 2,897077003 & 0,174904943 \\ \hline
+790 & 138 & 2,897627091 & 0,174683544 \\ \hline
+791 & 138 & 2,898176483 & 0,174462705 \\ \hline
+792 & 138 & 2,898725182 & 0,174242424 \\ \hline
+793 & 138 & 2,899273187 & 0,174022699 \\ \hline
+794 & 138 & 2,899820502 & 0,173803526 \\ \hline
+795 & 138 & 2,900367129 & 0,173584906 \\ \hline
+796 & 138 & 2,900913068 & 0,173366834 \\ \hline
+797 & 138 & 2,901458321 & 0,17314931 \\ \hline
+798 & 139 & 2,902002891 & 0,174185464 \\ \hline
+799 & 139 & 2,902546779 & 0,173967459 \\ \hline
+800 & 139 & 2,903089987 & 0,17375 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+801 & 139 & 2,903632516 & 0,173533084 \\ \hline
+802 & 139 & 2,904174368 & 0,173316708 \\ \hline
+803 & 139 & 2,904715545 & 0,173100872 \\ \hline
+804 & 139 & 2,905256049 & 0,172885572 \\ \hline
+805 & 139 & 2,90579588 & 0,172670807 \\ \hline
+806 & 139 & 2,906335042 & 0,172456576 \\ \hline
+807 & 139 & 2,906873535 & 0,172242875 \\ \hline
+808 & 139 & 2,907411361 & 0,172029703 \\ \hline
+809 & 139 & 2,907948522 & 0,171817058 \\ \hline
+810 & 140 & 2,908485019 & 0,172839506 \\ \hline
+811 & 140 & 2,909020854 & 0,172626387 \\ \hline
+812 & 141 & 2,909556029 & 0,17364532 \\ \hline
+813 & 141 & 2,910090546 & 0,173431734 \\ \hline
+814 & 141 & 2,910624405 & 0,173218673 \\ \hline
+815 & 141 & 2,911157609 & 0,173006135 \\ \hline
+816 & 141 & 2,911690159 & 0,172794118 \\ \hline
+817 & 141 & 2,912222057 & 0,172582619 \\ \hline
+818 & 141 & 2,912753304 & 0,172371638 \\ \hline
+819 & 141 & 2,913283902 & 0,172161172 \\ \hline
+820 & 141 & 2,913813852 & 0,17195122 \\ \hline
+821 & 141 & 2,914343157 & 0,171741778 \\ \hline
+822 & 142 & 2,914871818 & 0,172749392 \\ \hline
+823 & 142 & 2,915399835 & 0,17253949 \\ \hline
+824 & 143 & 2,915927212 & 0,173543689 \\ \hline
+825 & 143 & 2,916453949 & 0,173333333 \\ \hline
+826 & 143 & 2,916980047 & 0,173123487 \\ \hline
+827 & 143 & 2,91750551 & 0,172914148 \\ \hline
+828 & 144 & 2,918030337 & 0,173913043 \\ \hline
+829 & 144 & 2,918554531 & 0,173703257 \\ \hline
+830 & 145 & 2,919078092 & 0,174698795 \\ \hline
+831 & 145 & 2,919601024 & 0,174488568 \\ \hline
+832 & 145 & 2,920123326 & 0,174278846 \\ \hline
+833 & 145 & 2,920645001 & 0,174069628 \\ \hline
+834 & 145 & 2,921166051 & 0,173860911 \\ \hline
+835 & 145 & 2,921686475 & 0,173652695 \\ \hline
+836 & 145 & 2,922206277 & 0,173444976 \\ \hline
+837 & 145 & 2,922725458 & 0,173237754 \\ \hline
+838 & 145 & 2,923244019 & 0,173031026 \\ \hline
+839 & 145 & 2,923761961 & 0,172824791 \\ \hline
+840 & 146 & 2,924279286 & 0,173809524 \\ \hline
+841 & 146 & 2,924795996 & 0,173602854 \\ \hline
+842 & 146 & 2,925312091 & 0,173396675 \\ \hline
+843 & 146 & 2,925827575 & 0,173190985 \\ \hline
+844 & 146 & 2,926342447 & 0,172985782 \\ \hline
+845 & 146 & 2,926856709 & 0,172781065 \\ \hline
+846 & 146 & 2,927370363 & 0,172576832 \\ \hline
+847 & 146 & 2,92788341 & 0,172373081 \\ \hline
+848 & 146 & 2,928395852 & 0,172169811 \\ \hline
+849 & 146 & 2,92890769 & 0,17196702 \\ \hline
+850 & 146 & 2,929418926 & 0,171764706 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+851 & 146 & 2,92992956 & 0,171562867 \\ \hline
+852 & 146 & 2,930439595 & 0,171361502 \\ \hline
+853 & 146 & 2,930949031 & 0,17116061 \\ \hline
+854 & 147 & 2,931457871 & 0,172131148 \\ \hline
+855 & 147 & 2,931966115 & 0,171929825 \\ \hline
+856 & 147 & 2,932473765 & 0,171728972 \\ \hline
+857 & 147 & 2,932980822 & 0,171528588 \\ \hline
+858 & 148 & 2,933487288 & 0,172494172 \\ \hline
+859 & 148 & 2,933993164 & 0,172293364 \\ \hline
+860 & 149 & 2,934498451 & 0,173255814 \\ \hline
+861 & 149 & 2,935003151 & 0,173054588 \\ \hline
+862 & 149 & 2,935507266 & 0,172853828 \\ \hline
+863 & 149 & 2,936010796 & 0,172653534 \\ \hline
+864 & 150 & 2,936513742 & 0,173611111 \\ \hline
+865 & 150 & 2,937016107 & 0,173410405 \\ \hline
+866 & 150 & 2,937517892 & 0,173210162 \\ \hline
+867 & 150 & 2,938019097 & 0,173010381 \\ \hline
+868 & 150 & 2,938519725 & 0,17281106 \\ \hline
+869 & 150 & 2,939019776 & 0,172612198 \\ \hline
+870 & 150 & 2,939519253 & 0,172413793 \\ \hline
+871 & 150 & 2,940018155 & 0,172215844 \\ \hline
+872 & 150 & 2,940516485 & 0,172018349 \\ \hline
+873 & 150 & 2,941014244 & 0,171821306 \\ \hline
+874 & 150 & 2,941511433 & 0,171624714 \\ \hline
+875 & 150 & 2,942008053 & 0,171428571 \\ \hline
+876 & 150 & 2,942504106 & 0,171232877 \\ \hline
+877 & 150 & 2,942999593 & 0,171037628 \\ \hline
+878 & 151 & 2,943494516 & 0,171981777 \\ \hline
+879 & 151 & 2,943988875 & 0,171786121 \\ \hline
+880 & 151 & 2,944482672 & 0,171590909 \\ \hline
+881 & 151 & 2,944975908 & 0,171396141 \\ \hline
+882 & 152 & 2,945468585 & 0,172335601 \\ \hline
+883 & 152 & 2,945960704 & 0,17214043 \\ \hline
+884 & 153 & 2,946452265 & 0,173076923 \\ \hline
+885 & 153 & 2,946943271 & 0,172881356 \\ \hline
+886 & 153 & 2,947433722 & 0,17268623 \\ \hline
+887 & 153 & 2,94792362 & 0,172491545 \\ \hline
+888 & 154 & 2,948412966 & 0,173423423 \\ \hline
+889 & 154 & 2,948901761 & 0,173228346 \\ \hline
+890 & 154 & 2,949390007 & 0,173033708 \\ \hline
+891 & 154 & 2,949877704 & 0,172839506 \\ \hline
+892 & 154 & 2,950364854 & 0,17264574 \\ \hline
+893 & 154 & 2,950851459 & 0,172452408 \\ \hline
+894 & 154 & 2,951337519 & 0,172259508 \\ \hline
+895 & 154 & 2,951823035 & 0,172067039 \\ \hline
+896 & 154 & 2,95230801 & 0,171875 \\ \hline
+897 & 154 & 2,952792443 & 0,171683389 \\ \hline
+898 & 154 & 2,953276337 & 0,171492205 \\ \hline
+899 & 154 & 2,953759692 & 0,171301446 \\ \hline
+900 & 154 & 2,954242509 & 0,171111111 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+901 & 154 & 2,954724791 & 0,170921199 \\ \hline
+902 & 154 & 2,955206538 & 0,170731707 \\ \hline
+903 & 154 & 2,95568775 & 0,170542636 \\ \hline
+904 & 154 & 2,95616843 & 0,170353982 \\ \hline
+905 & 154 & 2,956648579 & 0,170165746 \\ \hline
+906 & 154 & 2,957128198 & 0,169977925 \\ \hline
+907 & 154 & 2,957607287 & 0,169790518 \\ \hline
+908 & 155 & 2,958085849 & 0,170704846 \\ \hline
+909 & 155 & 2,958563883 & 0,170517052 \\ \hline
+910 & 155 & 2,959041392 & 0,17032967 \\ \hline
+911 & 155 & 2,959518377 & 0,1701427 \\ \hline
+912 & 156 & 2,959994838 & 0,171052632 \\ \hline
+913 & 156 & 2,960470778 & 0,170865279 \\ \hline
+914 & 156 & 2,960946196 & 0,170678337 \\ \hline
+915 & 156 & 2,961421094 & 0,170491803 \\ \hline
+916 & 156 & 2,961895474 & 0,170305677 \\ \hline
+917 & 156 & 2,962369336 & 0,170119956 \\ \hline
+918 & 156 & 2,962842681 & 0,169934641 \\ \hline
+919 & 156 & 2,963315511 & 0,169749728 \\ \hline
+920 & 157 & 2,963787827 & 0,170652174 \\ \hline
+921 & 157 & 2,96425963 & 0,170466884 \\ \hline
+922 & 157 & 2,964730921 & 0,170281996 \\ \hline
+923 & 157 & 2,965201701 & 0,170097508 \\ \hline
+924 & 157 & 2,965671971 & 0,16991342 \\ \hline
+925 & 157 & 2,966141733 & 0,16972973 \\ \hline
+926 & 157 & 2,966610987 & 0,169546436 \\ \hline
+927 & 157 & 2,967079734 & 0,169363538 \\ \hline
+928 & 157 & 2,967547976 & 0,169181034 \\ \hline
+929 & 157 & 2,968015714 & 0,168998924 \\ \hline
+930 & 158 & 2,968482949 & 0,169892473 \\ \hline
+931 & 158 & 2,968949681 & 0,169709989 \\ \hline
+932 & 158 & 2,969415912 & 0,169527897 \\ \hline
+933 & 158 & 2,969881644 & 0,169346195 \\ \hline
+934 & 158 & 2,970346876 & 0,169164882 \\ \hline
+935 & 158 & 2,970811611 & 0,168983957 \\ \hline
+936 & 158 & 2,971275849 & 0,168803419 \\ \hline
+937 & 158 & 2,971739591 & 0,168623266 \\ \hline
+938 & 159 & 2,972202838 & 0,169509595 \\ \hline
+939 & 159 & 2,972665592 & 0,169329073 \\ \hline
+940 & 159 & 2,973127854 & 0,169148936 \\ \hline
+941 & 159 & 2,973589623 & 0,168969182 \\ \hline
+942 & 160 & 2,974050903 & 0,16985138 \\ \hline
+943 & 160 & 2,974511693 & 0,169671262 \\ \hline
+944 & 160 & 2,974971994 & 0,169491525 \\ \hline
+945 & 160 & 2,975431809 & 0,169312169 \\ \hline
+946 & 160 & 2,975891136 & 0,169133192 \\ \hline
+947 & 160 & 2,976349979 & 0,168954593 \\ \hline
+948 & 161 & 2,976808337 & 0,169831224 \\ \hline
+949 & 161 & 2,977266212 & 0,169652266 \\ \hline
+950 & 161 & 2,977723605 & 0,169473684 \\ \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[!h]{0.45\textwidth}\centering
+\tiny
+\begin{longtable}{cccc} \hline
+\(n\) & \(\pi(n)\) & \(\log(n)\) & \(\pi(n)/n\) \\ \hline
+951 & 161 & 2,978180517 & 0,169295478 \\ \hline
+952 & 161 & 2,978636948 & 0,169117647 \\ \hline
+953 & 161 & 2,979092901 & 0,168940189 \\ \hline
+954 & 162 & 2,979548375 & 0,169811321 \\ \hline
+955 & 162 & 2,980003372 & 0,169633508 \\ \hline
+956 & 162 & 2,980457892 & 0,169456067 \\ \hline
+957 & 162 & 2,980911938 & 0,169278997 \\ \hline
+958 & 162 & 2,981365509 & 0,169102296 \\ \hline
+959 & 162 & 2,981818607 & 0,168925965 \\ \hline
+960 & 162 & 2,982271233 & 0,16875 \\ \hline
+961 & 162 & 2,982723388 & 0,168574402 \\ \hline
+962 & 162 & 2,983175072 & 0,168399168 \\ \hline
+963 & 162 & 2,983626287 & 0,168224299 \\ \hline
+964 & 162 & 2,984077034 & 0,168049793 \\ \hline
+965 & 162 & 2,984527313 & 0,167875648 \\ \hline
+966 & 162 & 2,984977126 & 0,167701863 \\ \hline
+967 & 162 & 2,985426474 & 0,167528438 \\ \hline
+968 & 163 & 2,985875357 & 0,16838843 \\ \hline
+969 & 163 & 2,986323777 & 0,168214654 \\ \hline
+970 & 163 & 2,986771734 & 0,168041237 \\ \hline
+971 & 163 & 2,98721923 & 0,167868177 \\ \hline
+972 & 164 & 2,987666265 & 0,16872428 \\ \hline
+973 & 164 & 2,98811284 & 0,168550874 \\ \hline
+974 & 164 & 2,988558957 & 0,168377823 \\ \hline
+975 & 164 & 2,989004616 & 0,168205128 \\ \hline
+976 & 164 & 2,989449818 & 0,168032787 \\ \hline
+977 & 164 & 2,989894564 & 0,167860798 \\ \hline
+978 & 165 & 2,990338855 & 0,168711656 \\ \hline
+979 & 165 & 2,990782692 & 0,168539326 \\ \hline
+980 & 165 & 2,991226076 & 0,168367347 \\ \hline
+981 & 165 & 2,991669007 & 0,168195719 \\ \hline
+982 & 165 & 2,992111488 & 0,16802444 \\ \hline
+983 & 165 & 2,992553518 & 0,16785351 \\ \hline
+984 & 166 & 2,992995098 & 0,168699187 \\ \hline
+985 & 166 & 2,99343623 & 0,168527919 \\ \hline
+986 & 166 & 2,993876915 & 0,168356998 \\ \hline
+987 & 166 & 2,994317153 & 0,168186424 \\ \hline
+988 & 166 & 2,994756945 & 0,168016194 \\ \hline
+989 & 166 & 2,995196292 & 0,167846309 \\ \hline
+990 & 166 & 2,995635195 & 0,167676768 \\ \hline
+991 & 166 & 2,996073654 & 0,167507568 \\ \hline
+992 & 167 & 2,996511672 & 0,168346774 \\ \hline
+993 & 167 & 2,996949248 & 0,168177241 \\ \hline
+994 & 167 & 2,997386384 & 0,168008048 \\ \hline
+995 & 167 & 2,997823081 & 0,167839196 \\ \hline
+996 & 167 & 2,998259338 & 0,167670683 \\ \hline
+997 & 167 & 2,998695158 & 0,167502508 \\ \hline
+998 & 168 & 2,999130541 & 0,168336673 \\ \hline
+999 & 168 & 2,999565488 & 0,168168168 \\ \hline
+1000 & 168 & 3 & 0,168 \\ \hline
+\end{longtable}
+\end{minipage}
+
+\fonte{https://pt.wikipedia.org/}
+
+
+\textbf{Observação}: (a) Os valores na segunda coluna (valores da função \(\pi(n)\)) foram obtidos mediante ao uso de uma fórmula do Excel (a saber CONT.SES()). (b) À medida que os valores de \(n\) crescem, os valores de \(\rho(n)\) tendem a zero (deforma lenta)
+
+
+
+\subsection*{Gráfico de dispersão da função \(\rho(n) = \dfrac{\pi(n)}{n}\) com valores de \(n\) logaritmizados}
+
+\readdata{\data}{testZ.dat}
+\begin{center}
+\captionof{figure}{Gráfico de dispersão de \(\rho(n)\)}
+\psset{xunit=3.6cm,yunit=10cm}% wirkt auch auf pspicture
+\begin{pspicture}(-0.1,-0.1)(3.2,0.7)
+\psaxes[
+%axesstyle=frame,
+%xlogBase=10,
+%logLines=x, 
+xticksize=0 0.5,
+yticksize=0 3.2,
+Dx=0.5,
+Dy=0.1,
+%subticksize=3.5,
+%%%subticksize relativ
+tickwidth=0.05pt,
+%subtickwidth=0.25pt,
+%subticks=5,
+tickcolor=black!20
+]{->}(0,0)(-0.099,-0.099)(3.2,0.6)
+%\pstScalePoints(1,1){log}{}
+\listplot[plotstyle=dots,dotscale=0.75,linecolor=red]{\data}
+\end{pspicture}
+\fonte{Elaborado pelo autor}
+\end{center}
+
+\subsection*{13B}
+
+
+A lei de Weber-Fechner tenta descrever a relação existente entre a magnitude física de um estímulo e a intensidade do estímulo que é percebida. Pode ser enunciada como: ``a resposta a qualquer estímulo é proporcional ao logaritmo da intensidade do estímulo''. Esta lei aplica-se aos 5 sentidos, mas as suas implicações são mais bem entendidas quando se refere aos estímulos provocados pela luz e pelo som. É decorrente do fenômeno assim descrito, que as medidas de percepção da intensidade sonora pelo ouvido humano, e luminosa pelos órgãos de visão, são feitas por grandezas logarítmicas. É o caso do Decibel (dB) definido como 10 vezes o logaritmo decimal da intensidade sonora. A mesma grandeza logarítmica descreve também a intensidade luminosa percepcionada, sendo genericamente usada em óptica e engenharia. (WIKIPEDIA)
+
+Ernst Heinrich Weber (1795–1878) foi um dos primeiros a fazer uma aproximação ao estudo da resposta do ser humano a um estímulo físico de uma maneira quantitativa. Gustav Theodor Fechner (1801–1887) mais tarde elaborou uma interpretação teórica elaborada sobre as descobertas de Weber. (Encyclopædia Britannica \textit{Online})
+
+
+Com base nas afirmações anteriores, no que Gauss já havia constatado em suas observações feitas na tabela por ele construída (onde relacionava os valores de \(n = \mbox{ ``posição de um número na sequência crescente de primos''}\) e a densidade média \(\rho(n) = \dfrac{\pi(n)}{n}\), onde:
+\[\pi(n) = \mbox{ ``quantidade de números primos existentes no intervalo } [0, n]''\]
+e, posteriormente, substituindo os valores de \(n\) por \(\log(n)\)), e verificando-se, tabuladamente (tabela construída no Excel), constatamos que:
+\[\displaystyle\lim_{n \to \infty} \dfrac{\rho(n)}{\dfrac{1}{\log(n)}} = \lim_{n \to \infty} \dfrac{\pi(n)}{n} \log(n) = 1.\]
+
+
+}
+
+

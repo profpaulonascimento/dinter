@@ -1,0 +1,162 @@
+\documentclass[
+% -- opções da classe memoir --
+ebook,% indica que é um artigo acadêmico
+extrafontsizes,
+14pt,% tamanho da fonte
+oneside,% para impressão apenas no recto. Oposto a twoside
+a4paper,% tamanho do papel
+% -- opções da classe abntex2 --
+%chapter=TITLE,% títulos de capítulos convertidos em letras maiúsculas
+%section=TITLE,% títulos de seções convertidos em letras maiúsculas
+%subsection=TITLE,% títulos de subseções convertidos em letras maiúsculas
+%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+% -- opções do pacote babel --
+onecolumn,  % texto em duas colunas
+english,% idioma adicional para hifenização
+brazil,% o último idioma é o principal do documento
+sumario=tradicional
+]{abntex2}
+
+
+\usepackage{dinter}
+
+
+%\title{ELEMENTOS DE MATEMÁTICA APLICADA: PRINCÍPIOS, MÉTODOS E FINS}
+
+
+\title{Notas de Aula} % Title
+
+%\author{Wilson Castro Ferreira Jr}
+\author{Paulo Henrique Ribeiro do Nascimento}% Author
+
+\date{\today}% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+
+
+
+
+
+\begin{document}
+\begin{sansmath}
+\helveticafamily
+\def\normalfont{\helveticafamily}
+
+
+
+%\pretextual
+%\maketitle
+
+
+% CAPA
+%%%%%%%%%
+\def\capa{
+\centering
+%\includegraphics[scale = 0.75]{logo.png}\\[1.0 cm]% University Logo
+\textsc{\LARGE \newline\newline Universidade Estadual de Campinas} \\[2.0 cm]% University Name
+\textsc{\Large MT-624: Biomatemática I}\\[0.5 cm] % Course Code
+\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+{ \huge \textbf{\thetitle}} \\
+\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft} \large
+\emph{Professor:} \\
+Wilson Castro Ferreira Jr \\
+IMECC-UNICAMP \\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{flushright} \large
+\emph{Estudante:} \\
+Paulo Henrique Ribeiro do Nascimento \\
+CETEC-UFRB
+\end{flushright}
+\end{minipage}
+
+
+\vspace{6cm}
+
+\begin{center}
+\thedate
+\end{center}
+
+
+\clearpage
+}
+%\capa
+
+
+
+
+%%%%%
+\tableofcontents
+%\listailustracoes
+%\listatabelas
+%\textual
+\pagebreak
+%%%%%
+
+
+\title{Notas de aula de Introdução ao Cálculo Fracionário}
+\input{_ICF/aula00}
+
+%\input{_ICF/integracao}
+
+
+%\title{Notas de aula de Biomatemática II}
+%\input{_Bio_II/apontamentos}
+%\input{_Bio_II/leah_en}
+
+
+%\title{Notas de aula de Biomatemática I}
+%\input{Bio I/apontamentos}
+%\input{Bio I/wilson/notasdeaula}
+
+
+%\title{EXAME} % Title
+%\input{_Bio I/Provas/Prova 02}
+%\input{_Bio I/Provas/Prova 03}
+%\input{_Bio I/provas/Prova 04}
+
+
+
+
+%\includepdf[pages=-]{Bio I/pdf/Sol prova 02}
+%\includepdf[pages=-]{Bio I/pdf/Comentarios_prova03}
+
+%%inserindo apenas uma página
+%\includepdf[pages=1,landscape]{V/certificadoRNCINEP2018.pdf}
+
+%%inserindo algumas páginas: 1 até 7, depois 50 e 57
+%\includepdf[pages={1-7,50,57}]{arquivo02.pdf}
+
+%%inserindo uma página em branco depois da página 1
+%%\includepdf[pages={1,{},2-10}]{arquivo03.pdf}
+
+%%inserindo todas as páginas
+%%\includepdf[pages=-]{arquivo04.pdf}
+
+%%inserindo múltiplas páginas numa única página
+%%\includepdf[pages={286-291},nup=2x3]{arquivo05.pdf}
+
+%%inserindo páginas em landscape
+%%\includepdf[pages=-,landscape]{arquivo06.pdf}
+
+\newpage
+%\bibliographystyle{plain}
+\bibliography{biblist}
+
+\end{sansmath}
+\end{document}

@@ -1,0 +1,477 @@
+
+Segue a ``monstração'' feita para indicar que a equação
+
+\begin{eqnarray}\label{eq:01}
+\dfrac{\partial c}{\partial t} - \alpha \Delta_{xy} c + \nu \cdot \nabla_{xy} c + \mu c = f(x,y,t)
+\end{eqnarray}
+em que \(c = c(x,y,t)\), \((x,y) \in \Omega \subset \mathbb{R}^2\) e \(t \in (0, T] \subset \mathbb{R}\), tendo como condição de contorno, uma das formas da condição de \textbf{Robin}:
+\begin{equation}
+a \cdot c(x,y,t) + b \dfrac{\partial c}{\partial \eta} (x,y,t) = h(x,y,t),
+\end{equation}
+em que \((x,y) \in \partial\Omega\) e \(t \in I = (0, T]\).
+
+A derivada direcional
+\[\dfrac{\partial c}{\partial \eta}(x,y,t) = \nabla c \cdot \eta,\]
+sendo \(\eta\) o vetor unitário ortogonal a \(\partial \Omega\) e externo a \(\Omega\).
+
+\begin{remark}
+Se \(b=0\) e \(h \equiv 0\), então a condição é de Dirichlet Homogênea e se \(h \not\equiv 0\) é de Dirichlet não homogênea.
+\end{remark}
+
+\begin{remark}
+Se \(a=0\) e dependendo de \(h\) ser ou não identicamente nula, a condição fica sendo de von Neumann homogênea ou não.
+\end{remark}
+
+\begin{remark}
+\eqref{eq:01} e a sequência são evidentemente análogas se \(\Omega \subset \mathbb{R}\) ou \(\Omega \subset \mathbb{R}^3\).
+\end{remark}
+
+
+Consideremos alguns casos:
+
+1.  Se este problema, para \(\Omega \subset \mathbb{R}\) for estacionário, \eqref{eq:01} se reduz a
+\begin{eqnarray}\label{eq:02}
+- \alpha c''(x) + \nu c'(x) + \mu c(x) = f(x), x \in \Omega
+\end{eqnarray}
+com condições de fronteira adequadas.
+
+À primeira vista, esta EDO de 1\textordfeminine\ ordem, linear e a coeficientes constantes deve ser resolvida por métodos analíticos mas \ldots supusemos, em aula, que considerando \(\Omega = [0, h]\), \(f\) será dada por
+\[f(x) = \left\{\begin{array}{rcl}
+0 &,& 0 \le x < h \\
+F &,& x = h
+\end{array}\right.\]
+
+% FIGURA
+
+
+Pronto, é necessário aproximar!
+
+Uma aproximação usual, via Diferenças Divididas Centrais, considera, mas usando
+\[c_i \approx c(x_i) \mbox{ ou } c_{i+1} = c(x_{i+1}) = c(x_i+\Delta x),\]
+em que \(x_i = i \Delta x, i = 0, 1, 2, \ldots, n\) e \(\Delta x = \dfrac{h}{n}\).
+
+
+Temos, via série de Taylor/MacLaurin:
+\begin{eqnarray}
+\label{eq:03}
+c_{i+1} = c_i + (\Delta x) c'_i + \dfrac{(\Delta x)^2}{2} c''_i + \dfrac{(\Delta x)^3}{6} c'''_i + \dfrac{(\Delta x)^4}{24} c^{IV}_i + \ldots \\
+\label{eq:04}
+c_{i-1} = c_i - (\Delta x) c'_i + \dfrac{(\Delta x)^2}{2} c''_i - \dfrac{(\Delta x)^3}{6} c'''_i + \dfrac{(\Delta x)^4}{24} c^{IV}_i \pm \ldots
+\end{eqnarray}
+
+Ora, fazendo \eqref{eq:03} +\eqref{eq:04} e ``ajeitando'', temos:
+\[c_{i-1} -2 c_{i} + c_{i+1} = (\Delta x)^2c''_i + o[(\Delta x)^4]\]
+ou ainda,
+\begin{equation}
+\label{eq:05}
+c''_i \approx \dfrac{c_{i-1} -2c_i+c_{i+1}}{(\Delta x)^2}.
+\end{equation}
+
+A operação em \eqref{eq:05} aproxima o valor da 2\textordfeminine\ derivada, com erro \(o(\Delta x)^2\).
+
+Agora, fazendo \eqref{eq:03} -\eqref{eq:04} e ``ajeitando'', temos:
+\[c_{i+1} - c_{i-1} = 2\Delta x c'_i + o[(\Delta x)^3]\]
+ou ainda,
+\begin{equation}
+\label{eq:06}
+c'_i \approx \dfrac{c_{i+1} - c_{i-1}}{2 \Delta x}.
+\end{equation}
+
+Pode-se observar que em \eqref{eq:05}, ao dividir \(o[(\Delta x)^4]\) por \((\Delta x)^2\), temos \(o[(\Delta x)^2]\) e, em \eqref{eq:06}, ao dividir \(o[(\Delta x)^3]\) por \(2 \Delta x\), temos, também, \(o[(\Delta x)^2]\).
+
+A aproximação de \eqref{eq:02}, para um \(x_i\) da partição do intervalo \(J\) fica sendo
+\begin{equation}
+\label{eq:07}
+-\alpha \dfrac{c_{i-1} -2c_i+c_{i+1}}{(\Delta x)^2} + \nu \dfrac{c_{i+1} - c_{i-1}}{2 \Delta x} + \mu c_i = f_i.
+\end{equation}
+
+De \eqref{eq:07}, rearranjando, obtém-se um sistema linear cuja \(i\)-ésima linha (com \(i \ne 0\) e \(i \ne n\)) é dada por
+\begin{equation}
+\label{eq:08}
+\left(-\dfrac{\alpha}{(\Delta x)^2} - \dfrac{\nu}{2\Delta x}\right) c_{i-1} +
+\left(\dfrac{2\alpha}{(\Delta x)^2} + \mu \right) c_{i} + 
+\left(-\dfrac{\alpha}{(\Delta x)^2} + \dfrac{\nu}{2\Delta x}\right) c_{i+1} = f_i.
+\end{equation}
+
+E porque isto não vale para os extremos?
+
+Nesses dois pontos existem condições de contorno. Por exemplo, consideremos um poço onde, no fundo (\(x=0\)), um poluente que não chega lá, ou seja, \(c(0) = 0\) (Dirichlet homogênea) e, na superfície, como o poluente não evapora, que \(c'(h) = 0\). Isto significa que \(c(h)\) não é conhecida, mesmo conhecendo sua derivada, assim como \(c(0)\) é conhecida.
+
+Assim, temos para:
+
+\begin{itemize}
+\item \(i=1\),
+\begin{equation}
+\left(-\dfrac{\alpha}{(\Delta x)^2} - \dfrac{\nu}{2\Delta x}\right) \cdot 0 +
+\left(\dfrac{2\alpha}{(\Delta x)^2} + \mu \right) c_{1} + 
+\left(-\dfrac{\alpha}{(\Delta x)^2} + \dfrac{\nu}{2\Delta x}\right) c_{2} = f_1,
+\end{equation}
+
+\item \(2 \le i < n\), a expressão \eqref{eq:08} e,
+
+\item \(i = n\),
+\begin{equation}
+-\dfrac{2\alpha}{(\Delta x)^2} c_{n-1}+
+\left(\dfrac{2\alpha}{(\Delta x)^2} + \mu \right) c_{n} = f_n.
+\end{equation}
+
+``\textit{A explicação seguirá, é preciso confiar na matemática}''!
+\end{itemize}
+
+Assim, a aproximação de \(c = c(x)\), dada por:
+\[\overline{c} = [0, c_{1}, c_{2}, c_{3}, \ldots, c_{i}, \ldots, c_{n}],\]
+é obtida ao resolver
+\[\overline{c} = M^{-1} f_b,\]
+em que \(M\) é dada por:
+\def\Mum{\dfrac{2\alpha}{(\Delta x)^2}+\mu}
+\def\Mdo{-\dfrac{\alpha}{(\Delta x)^2}-\dfrac{\nu}{2\Delta x}}
+\def\Mtr{-\dfrac{\alpha}{(\Delta x)^2}+\dfrac{\nu}{2\Delta x}}
+\def\Mnumn{-\dfrac{2\alpha}{(\Delta x)^2}}
+
+\begin{landscape}
+
+\quad
+
+{\tiny
+\[
+\left[\begin{array}{cccccccc}
+\Mum & \Mtr & 0 & 0 & 0 & 0 & \cdots & 0 \\[0.4cm]
+\Mdo & \Mum & \Mtr & 0 & 0 & 0 & \cdots & 0 \\[0.4cm]
+0 & \Mdo & \Mum & \Mtr & 0 & 0 & \cdots & 0 \\[0.4cm]
+\vdots & & & \ddots & & & & \\[0.4cm]
+0 & \cdots & 0 & \Mdo & \Mum & \Mtr & 0 & 0 \\[0.4cm]
+0 & 0 & \cdots & 0 & \Mdo & \Mum & \Mtr & 0 \\[0.4cm]
+0 & 0 & 0 & \cdots & 0 & \Mdo & \Mum & \Mtr \\
+0 & 0 & 0 & \cdots & 0 & 0 & \Mnumn & \Mtr
+\end{array}\right]
+\]
+}
+\end{landscape}
+
+O termo independente, acima indicado por \(f_b\) é da forma
+\[\left[\begin{array}{cccccc}
+0 & 0 & 0 & \cdots & 0 & F
+\end{array}\right]^t\]
+
+\begin{remark}
+A fonte é pontual em \(x=h\), ou seja, na \(n\)-ésima posição de um vetor que até a posição \((n-1)\) só tem zeros
+\end{remark}
+
+
+\begin{verbatim}
+    
+%programa de poluição na coluna de água num lago de profundidade
+%considerada como constante, usando a EDP de
+%difusão-advecção-reação com decaimento sem variação temporal:
+%-alfa.y''(x) + v*y'(x) + mu*y(x) = f(x).
+clc
+clear all
+%
+% Dados do Problema
+alfa=0.125e-2;
+v=0.4e-2;
+mu=0.5e-5;
+f=2.4;
+
+%
+% Dados do Domínio
+h=2;
+
+% Dados de Discretização
+nx=50; dx=h/nx; dx2=dx*dx; d2x=2*dx;
+verx=[0:dx:h];
+
+% Verificação de estabilidade (Limiar de Péclet)
+display('Núcleo de Péclet')
+v*dx/alfa
+
+% 
+% Cálculos auxiliares
+dp = 2*alfa/dx2 + mu; 
+dsi= -alfa/dx2 - v/d2x;
+dss= -alfa/dx2 + v/d2x;
+fx=zeros(nx,1); fx(nx)=f;
+
+%
+% Montagem da Matriz
+% Diagonal Principal
+m=zeros(nx,nx);
+for i=1:nx
+  m(i,i)=dp;
+endfor
+% Diagonais Secundárias
+for i=1:nx-1
+  m(i,i+1)=dss;
+  m(i+1,i)=dsi;
+endfor
+m(nx,nx-1)=-dp;
+%
+% Solução do sistema m*c = fx
+c=m / fx;
+% Para acrescentar o zero no fundo, quando x=0, "cógnita"
+verc=[0 c'];
+
+% Para se ver o gráfico, é usual inverter os eixos, colocando
+% os valores de x (de zero até h) no eixo das ordenadas eos valores
+% da concentração do poluente no eixo das abscissas.
+% Em vez de "plot", usei "comet" para enxergar melhor o gráfico
+comet(verc, verx),grid, title('Poluição na Coluna de Água')
+xlabel('concentração de poluente'), ylabel('profundidade')
+\end{verbatim}
+
+
+
+
+Considerando que a EDP é dada por
+\begin{equation}
+\label{eq:concentracaoxt}
+\dfrac{\partial c}{\partial t} - \alpha \dfrac{\partial^{2} c}{\partial x^{2}}  + \nu \dfrac{\partial c}{\partial x} + \mu c = f,
+\end{equation}
+com $c = c (x, t), x \in \Omega = [0 , h]$ e $t \in J = \left(0, T\right]$, com $c\left(0, t\right) = 0, \forall~ t \in J$, e com $\dfrac{\partial c}{\partial x}(h,t) = 0, \forall~t \in J$, mais a condição inicial $c\left(x, 0\right) = c_{0}\left(x\right), \forall~ x \in \Omega$. 
+
+A discretização já foi vista quando se tem o caso estacionário isto é:
+$$\dfrac{\partial c}{\partial t}(x, t) \equiv 0, \forall~ x, \forall~ t$$
+
+Mas e se temos a variação no tempo - ou seja, quando  $\dfrac{\partial c}{\partial t}(x, t) \not\equiv 0$, então temos muitas possibilidades das quais se destacam $3$:
+
+\begin{enumerate}
+\item Método Explícito
+
+\textbf{Notação}: $c(x_{i}, t_{k}) \approx c_{i}^{(k)}$, sendo $x_{i}$ de uma partição de $\Omega$ e $t_{k}$ de uma partição de $J$.
+
+Substituindo na \autoref{eq:concentracaoxt}, temos:
+$$\dfrac{c_{i}^{(k+1)} - c_{i}^{(k)}}{\Delta t}  - \alpha \left(\dfrac{c_{i-1}^{(k)} - 2 c_{i}^{(k)} + c_{i+1}^{(k)}}{(\Delta x)^{2}}  \right) + \nu \left(\dfrac{c_{i+1}^{(k)} - c_{i-1}^{(k)}}{2 \Delta x}\right) + \mu c_{i}^{(k)} = f_{i}^{(k)}$$
+
+A condição inicial é discretizada com
+$$c^{(0)} = \left(c_{1}^{(0)}, c_{2}^{(0)}, c_{3}^{(0)}, \ldots, c_{i}^{(0)}, \ldots, c_{n_{x}}^{(0)} \right),$$
+com $c_{i}^{(0)} = c_{0}(x_i), i = 1, 2, \ldots, n_{x}$.
+
+Então, isolando os valores de $c^{(k+1)}$ do lado esquerdo e os de $c^{(k)}$, temos:
+$$\begin{array}{rcl}
+c_{i}^{(k+1)}
+&=& \left(\dfrac{\alpha \Delta t}{(\Delta x)^{2}} - \dfrac{\nu \Delta t}{2\Delta x}\right) c_{i-1}^{(k)} \\
+& & + \left(1- \dfrac{2\alpha \Delta t}{(\Delta x)^{2}} - \mu \Delta t\right) c_{i}^{(k)} \\
+& & + \left(\dfrac{\alpha \Delta t}{(\Delta x)^{2}} + \dfrac{\nu \Delta t}{2\Delta x}\right) c_{i+1}^{(k)} + \Delta t f_i^{(k)},
+\end{array}$$
+para $i = 1, 2, \ldots, n_{x}$ (\textbf{Atenção}: com aquele malabarismo quando $x = h$) implica
+$$\mathfrak{C}^{(k+1)} = \mathfrak{M} \mathfrak{C}^{(k)} + \mathfrak{f}^{(k)}.$$
+
+No lugar de $\mathfrak{C}^{(k)}$, usamos $\mathfrak{C}^{(0)}$ e obtemos $\mathfrak{C}^{(1)}$ e depois de $\mathfrak{C}^{(1)}$, obtém-se $\mathfrak{C}^{(2)}$ e assim sucessivamente.
+
+\begin{remark}
+A aproximação de $\dfrac{\partial c}{\partial t} \left(x_{i}, x_{k}\right)$, dada por $\dfrac{c_{i}^{(k+1)} - c_{i}^{(k)}}{\Delta t}$ é da ordem de $\Delta t$.
+\end{remark}
+
+\begin{remark}
+Dado um $\mathfrak{C}^{(0)}$, a obtenção de $\mathfrak{C}^{(1)}$ custa o produto de $\mathfrak{M}$ por $\mathfrak{C}^{(0)}$ mais o vetor $\mathfrak{f}$, a cada passo (esse é o custo).
+\end{remark}
+
+Mas (era bom demais para ser assim!) este método - o explícito - é condicionalmente convergente e a condição depende da relação entre $\Delta t$ e $\Delta x$. Isto pode vir a exigir um $\Delta t$ muito pequeno, o que é que vale a um $n_{t}$ muito grande.
+
+\item Método implícito 
+
+Nesta técnica numérica, usa-se a mesma aproximação para $\dfrac{\partial c}{\partial t} (x_{i},t_{k})$, ou seja, $\dfrac{c_{i}^{(k+1)} - c_{i}^{(k)}}{\Delta t}$ e, para os demais termos, em vez de aproximar em $t_{k}$, isto é feito em $t_{k+1}$:
+$$\begin{array}{rcl}
+\dfrac{c_{i}^{(k+1)}-c_{i}^{(k)}}{\Delta t}  
+&=&
+\left(\dfrac{\alpha}{(\Delta x)^{2}} + \dfrac{\nu}{2\Delta x}\right) c_{i-1}^{(k+1)} \\[0.3cm]
+&& +
+\left(\dfrac{-2\alpha}{(\Delta x)^{2}} + \mu\right) c_{i}^{(k+1)} \\[0.3cm]
+&& +
+\left(\dfrac{\alpha}{(\Delta x)^{2}}-\dfrac{\nu}{2 \Delta x} \right) c_{i+1}^{(k+1)} \\[0.3cm]
+&& + \Delta t ~ f_{i}^{(k+1)}
+\end{array}$$
+
+Isolando $c_{i}^{(k+1)}$ do lado esquerdo, teremos:
+$$\begin{array}{rcl}
+& & \left(-\dfrac{\alpha \Delta t}{(\Delta x)^{2}}-\dfrac{\nu \Delta t}{2 \Delta x}\right) c_{i-1}^{(k+1)} \\[0.3cm]
+&&+
+\left(1 + \dfrac{2 \alpha \Delta t}{(\Delta x)^{2}} +
+\mu \Delta t \right) c_{i}^{(k+1)} \\[0.3cm]
+&&+
+\left(-\dfrac{\alpha \Delta t}{(\Delta x)^{2}}+
+\dfrac{\nu\Delta t}{2 \Delta x}\right) c_{i+1}^{(k+1)} \\[0.3cm]
+&=& c_{i}^{(k)} + \Delta t ~ f_{i}^{(k+1)},
+\end{array}$$
+isto é 
+$$\mathfrak{P} \mathfrak{C}^{(k+1)} =  \mathfrak{C}^{(k)} + \mathfrak{f}^{( k+1)},
+$$
+lembrando sempre da mudança na última linha na matriz $\mathfrak{P}$, onde o valor $P_{n_{t},n_{t-1}} = -\dfrac{2\alpha \Delta t}{(\Delta x)^{2}}$, mantendo o valor da diagonal principal para $P_{n_{t},n_{t}}$
+
+\begin{remark}
+A aproximação ainda é $o\left(\Delta t\right)$ mas, como é implícito, o método é incondicionalmente convergente e, então, não há imposição sobre a relação entre $\Delta t$ e $\Delta x$. Entretanto, é mais caro: em vez de ``custar'' o produto de uma matriz por um vetor ($\approx n^{2}$ operações) custa uma solução de sistema ($\approx n^{3}$ operações).
+\end{remark}
+
+
+Há métodos híbridos que misturam aspectos explícitos e aspectos implícitos. 
+
+A não ser em casos excepcionais, não iremos usar nenhum nem outro. Usaremos o método de Crank-Nicolson que ``custa'' tanto quanto o método implícito mas, as aproximações são da ordem de $\Delta t^{2}$: $o\left(\Delta t^{2}\right)$.
+\end{enumerate}
+
+
+
+
+
+%%% AULA DO DIA 22/04/2021
+
+Depois dos Métodos Explicito e Implícito com $\dfrac{\partial c}{\partial t} \not\equiv 0$, $\forall\ x \in \Omega$, $\forall\ t \in J$, o Método de Crank-Nicolson.
+
+Só recordando: tanto o Método Explicito quanto o Implícito são métodos de 1\textordfeminine\ ordem: o erro é $o(\Delta t)$.
+
+O explicito exige cerca de $o(n^{2})$ operações:
+\begin{equation}
+\mathfrak{C}^{(n+1)} = \mathfrak{M} \mathfrak{C}^{(n)} + \mathfrak{f},
+\end{equation}
+enquanto o implícito exige $o(n^{3})$ operações:
+\begin{equation}
+\mathfrak{P} \cdot \mathfrak{C}^{(n+1)} = \mathfrak{C}^{(n)} + \mathfrak{f}.
+\end{equation}
+
+Crank-Nicolson é de 2\textordfeminine\ ordem, ou seja, seu erro é $o(\Delta t^2)$ e ``custa'' só $\approx o(n^3)$ operações.
+
+Este método se baseia em estimativas, usando os valores $c_i^{(k)}$ e $C^{(k+1)}$, para cálculos de $c\left(x_i, t_k + \dfrac{\Delta t}{2}\right)$ ou na notação usual $c_i^{(k+ 1/2)}$.
+
+Como obter as estimativas? Usando a série de Taylor (ou McLaunin)!
+
+Aproximação de $C(x_i, t + \Delta t)$ em torno de $t_k + \dfrac{\Delta t}{2}$:
+
+\begin{eqnarray}
+c_{i}^{(k+1)}
+&=&
+c_{i}^{(k+1/2)}
++
+\dfrac{\Delta t}{2} \dfrac{\partial c_{i}^{(k+1/2)}}{\partial t}
++
+\dfrac{\Delta t^2}{8} \dfrac{\partial^2 c_{i}^{(k+1/2)}}{\partial t^2}
++
+\dfrac{\Delta t^3}{48} \dfrac{\partial^3 c_{i}^{(k+1/2)}}{\partial t^3}
++ \ldots \\
+%%%
+c_{i}^{(k)}
+&=&
+c_{i}^{(k+1/2)}
+-
+\dfrac{\Delta t}{2} \dfrac{\partial c_{i}^{(k+1/2)}}{\partial t}
++
+\dfrac{\Delta t^2}{8} \dfrac{\partial^2 c_{i}^{(k+1/2)}}{\partial t^2}
+-
+\dfrac{\Delta t^3}{48} \dfrac{\partial^3 c_{i}^{(k+1/2)}}{\partial t^3}
++ \ldots
+\end{eqnarray}
+
+Fazendo (1) + (2), obtemos:
+\begin{equation}
+c_{i}^{(k+1)} + c_{i}^{(k)} = 2 c_{i}^{(k+1/2)} + o(\Delta t^2)
+\Rightarrow
+c_{i}^{(k+1/2)} \approx \dfrac{c_{i}^{(k+1)}+c_{i}^{(k)}}{2}
+\label{eq:coefcranknicolson01}
+\end{equation}
+
+
+Fazendo (1)-(2), obtemos:
+\begin{equation}
+c_{i}^{(k+1)} - c_{i}^{(k)} = 2 \dfrac{\Delta t}{2} \dfrac{\partial c_{i}^{(k+1/2)}}{\partial t} + o(\Delta t^3)
+\Rightarrow
+\dfrac{\partial c_{i}^{(k+1/2)}}{\partial t} \approx \dfrac{c_{i}^{(k+1)}-c_{i}^{(k)}}{\Delta t}.
+\label{eq:coefcranknicolson02}
+\end{equation}
+
+Ε isto serve para aproximar $c_i$ usando a \autoref{eq:concentracaoxt} inicialmente apresentada para $c = (x, t)$, $x\in [0,h]$ e $t \in [0, t_f]$, com uma condição inicial e as condições de contorno:
+$$c(0) = 0; \dfrac{\partial c}{\partial x}(h) = 0 \mbox{ e } c(x,0)=c_0(x).$$
+
+A equação \autoref{eq:concentracaoxt} foi aproximada espacialmente por
+$$\dfrac{c_{i}^{(k+1)} - c_{i}^{(k)}}{\Delta t}
+-
+\alpha \left(\dfrac{c_{i-1}^{(j)} - 2 c_{i}^{(j)} + c_{i+1}^{(j)}}{(\Delta x)^{2}}\right)
++
+\nu \left(\dfrac{c_{i+1}^{(j)} - c_{i-1}^{(j)}}{2 \Delta x}\right)
++
+\mu c_{i}^{(j)} = f_{i}^{(k)}
+$$
+
+No método explícito, tínhamos $j=k$ e, no implícito, usou-se $j=k+1$.
+
+No método de Crank-Nicolson, usa-se $j = k+1/2$ e, consequentemente, as aproximações em \eqref{eq:coefcranknicolson01} e \eqref{eq:coefcranknicolson02}, ou seja,
+
+%% aqui em vez de pegar o ponto médio poderia se levar em consideração um peso para colocar em delta t?
+
+\begin{eqnarray}
+\dfrac{c_{i}^{(k+1)} - c_{i}^{(k)}}{\Delta t}
+&-&
+\dfrac{\alpha}{\Delta x^2}
+\left[
+\dfrac{c_{i-1}^{(k+1)}+c_{i-1}^{(k)}}{2}
+-2
+\dfrac{c_{i}^{(k+1)}+c_{i}^{(k)}}{2}
++
+\dfrac{c_{i+1}^{(k+1)}+c_{i+1}^{(k)}}{2}
+\right]
+\nonumber \\
+&+&
+\dfrac{\nu}{2\Delta x}
+\left[
+\dfrac{c_{i+1}^{(k+1)}+c_{i+1}^{(k)}}{2}
+-
+\dfrac{c_{i-1}^{(k+1)}+c_{i-1}^{(k)}}{2}
+\right]
+\nonumber \\
+&+&
+\mu
+\left[
+\dfrac{c_{i+1}^{(k+1)}+c_{i+1}^{(k)}}{2}
+\right]
+= f_{i}^{(k+1/2)}
+\label{eq:crank03}
+\end{eqnarray}
+
+Rearrumando essa equação, com o isolamento dos coeficientes de $\mathfrak{C}^{(k+1)} = \left(c_1^{(k+1)}, c_2^{(k+1)}, \ldots, c_{n_x}^{(k+1)}\right)$ do lado esquerdo e os coeficientes de $\mathfrak{C}^{(k)} = \left(c_1^{(k)}, c_2^{(k)}, \ldots, c_{n_x}^{(k)}\right)$ do lado direito, tem-se:
+$$\small
+\left[
+\begin{array}{c}
+- \dfrac{\alpha \Delta t}{2 \Delta x^2} - \dfrac{\nu\Delta t}{4\Delta x} \\[0.5cm]
+1 + \dfrac{\alpha \Delta t}{\Delta x^2} + \dfrac{\mu \Delta t}{2} \\[0.5cm]
+- \dfrac{\alpha \Delta t}{2 \Delta x^2} + \dfrac{\nu\Delta t}{4\Delta x}
+\end{array}
+\right]
+\cdot
+\left[
+\begin{array}{c}
+c_{i-1}^{(k+1)} \\[0.5cm]
+c_{i}^{(k+1)} \\[0.5cm]
+c_{i+1}^{(k+1)}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+\dfrac{\alpha \Delta t}{2 \Delta x^2} + \dfrac{\nu\Delta t}{4\Delta x} \\[0.5cm]
+1 - \dfrac{\alpha \Delta t}{\Delta x^2} - \dfrac{\mu \Delta t}{2} \\[0.5cm]
+\dfrac{\alpha \Delta t}{2 \Delta x^2} - \dfrac{\nu\Delta t}{4\Delta x}
+\end{array}
+\right]
+\cdot
+\left[
+\begin{array}{c}
+c_{i-1}^{(k)} \\[0.5cm]
+c_{i}^{(k)} \\[0.5cm]
+c_{i+1}^{(k)}
+\end{array}
+\right]
++ \Delta t\ f_i^{(k+1/2)}
+$$
+
+Observações:
+
+1. Em linguagem matricial, o método pode ser estabelecido equação anterior se torna-se:
+
+dado $\mathfrak{C}^{(0)} = (c_0(x_1), c_0(x_2), \ldots, c_0(x_n))$ que corresponde à discretização da condição inicial, os valores sucessivos de $\mathfrak{C}^{(1)}, \mathfrak{C}^{(2)}, \ldots, \mathfrak{C}^{(n_t)}$ usando
+$$\mathfrak{E} ~ \mathfrak{C}^{(k+1)} = \mathfrak{D} + \mathfrak{f}.$$
+
+2. $\mathfrak{f}^{(k+1/2)}$ pode ser obtido calculando-se $f(x_i, t + \Delta t/2)$ se função $f$ é dada; mas se são dados apenas os valores de $f_i^{(k)}$, pode-se fazer
+$$f_i^{(k+1/2)} = \dfrac{f_i^{(k)} + f_i^{(k+1)}}{2},$$
+que é uma aproximação $o(\Delta t^{2})$.
+
+3. O método Implícito é incondicionalmente convergente e ``custa'' $o(n^{3})$ operações e o método de Crank-Nicolson também é incondicionalmente convergente e também $o(n^{3})$ operações (os dois métodos custam computacionalmente o mesmo), mas enquanto o M. Implícito é $o(\Delta t)$, M. Crank-Nicolson é $o(\Delta t^{2})$.
+
+4. Nos métodos ditos Híbridos há a possibilidade de outras combinações além de $$\dfrac{c_i^{(k+1)} + c_i^{(k)}}{2}$$
+e \underline{todas} coincidam com a série de Taylor mais ou menos do mesmo jeito que (1), (2) e (3).

@@ -1,0 +1,1423 @@
+
+\chapter{Funções Especiais}
+
+
+\section{A Função Gama}
+
+Partiremos de um problema para estabelecer uma relação que, com algumas manipulações, encontraremos a definição da função Gama.
+
+Suponha que queiramos encontrar a área \(A\) da região limitada pelo gráfico da função \(f(r) = e^{-r}\), \(r \ge 0\). Dessa forma, temos
+\begin{equation*}
+A
+= \dint_{0}^{\infty} e^{-r} \ dr
+= \dlim_{b \to \infty} \dint_{0}^{b} e^{-r}\ dr
+= \dlim_{b \to \infty} -e^{-r} \Bigg|_{0}^{b}
+= \dlim_{b \to \infty} -e^{-b} + e^{0}
+= 1,
+\end{equation*}
+ou seja,
+\begin{equation}\label{eq:relacaoparaobtergama}
+\dint_{0}^{\infty} e^{-r} \ dr = 1.
+\end{equation}
+
+Usando em \eqref{eq:relacaoparaobtergama} a substituição $r = st$, com $s>0$ (claramente $t>0$), de modo que $dr = s \ dt$, obtemos:
+\begin{equation}\label{eq:relacaoparaobtergamaMV}
+\dint_{0}^{\infty} e^{-st} \ dt = \dfrac{1}{s}.
+\end{equation}
+
+Derivando-se a equação\eqref{eq:relacaoparaobtergamaMV} em relação a $s$, temos:
+\begin{equation}
+\dint_{0}^{\infty} t e^{-st}\dt = \dfrac{1}{s^2}.
+\end{equation}
+
+Utilizando o mesmo processo:
+\begin{equation}
+\dint_{0}^{\infty} t^{2} e^{-st} \dt = \dfrac{2}{s^{3}}.
+\end{equation}
+
+Derivando, sucessivamente, $n$-vezes em relação a $s$:
+\begin{equation}
+\dint_{0}^{\infty} t^{n} e^{-st}\dt = \dfrac{n!}{s^{n+1}}.
+\end{equation}
+
+Para $s=1$, temos:
+\begin{equation}
+\dint_{0}^{\infty} t^{n} e^{-t}\dt = n!
+\end{equation}
+a relação entre do fatorial de um número inteiro \(n\) e a integral imprópria do produto do monômio de grau $n$ por uma função exponencial decrescente de base $e$.
+
+Com o intuito de estender o conceito de fatorial de um número natural, definimos a função
+\begin{equation}
+g(x) = \dint_{0}^{\infty} t^{x} e^{-t} \ dt, \qquad x \in \mathbb{R} \setminus (\mathbb{Z}_{-} \cup \{1\}).
+\end{equation}
+Entretanto, consagrou-se a Função Gama de Euler como:
+\begin{equation}
+\Gamma(x) = g(x-1) = \dint_{0}^{\infty} t^{x-1} e^{-t} \ dt. \qquad x \in \mathbb{R} \setminus \mathbb{Z}_{-}
+\end{equation}
+
+
+Assim, a função gama completa de Euler ($\Gamma$\footnote{A notação $\Gamma$ se deve a Legendre}), ou simplesmente função gama, pode ser entendida como uma extensão da função fatorial de um número inteiro positivo para um subconjunto dos números reais ou complexos e é definida por uma integral imprópria convergente.
+
+
+
+\subsection*{Propriedade Fundamental da Função Gama}
+
+Comecemos por aplicar a definição para avaliar a função em $x = z+1$:
+\begin{equation}
+\Gamma(z+1)= \dint_{0}^{\infty} t^{z} e^{-t} \dt.
+\end{equation}
+
+Utilizando o método da integração por partes,
+\begin{equation}
+\Gamma(z+1)
+= \left.- t^{z} e^{-t}\right\vert_{0}^{\infty}+z\dint_{0}^{\infty}t^{z-1}e^{-t}\dt
+\end{equation}
+
+Uma vez que 
+$$\left.-t^{z}e^{-t}\right\vert_{0}^{\infty}=0$$
+e
+$$\dint_{0}^{\infty}t^{z-1}e^{-t}\dt = \Gamma(z),$$
+temos,
+\begin{equation}\label{propumfuncgamma}
+\Gamma(z+1)=z\Gamma(z)
+\end{equation}
+
+Segue, da propriedade dada pela equação (\ref{propumfuncgamma}), que:
+$$\Gamma(z+1)=z \cdot (z-1) \cdot (z-2) \cdot \ldots \cdot (z-k) \cdot \Gamma(z-k), z > k,$$
+em que $k$ é um número inteiro positivo.
+
+Observe que se $z \in \mathbb{N}$, chegaremos a $\Gamma(1) = \dint_{0}^{\infty} t^{0} e^{-t}\dt = 1$ e isso seria equivalente a calcular $z!$.
+
+%Esta propriedade é válida também para números no domínio dos complexos.
+
+\subsection*{Domínio da Função Gama}
+
+
+Escrevendo a função Gama como:
+$$\dint_{0}^{1}t^{x-1}e^{-t}\dt+\dint_{1}^{\infty}t^{x-1}e^{-t}\dt,$$
+podemos ver que:
+\begin{enumerate}
+\item $\dint_{1}^{\infty}t^{x-1}e^{-t}\dt$ converge rapidamente, uma vez que o fator $e^{-t}$ tende a zero quando $t$ cresce indefinidamente. De outra forma, podemos usar o fato de que
+$$t^{x-1} < e^{\frac{t}{2}},$$
+para valores de $t$ suficientemente grandes (em outras palavras, dizemos que a função exponencial cresce mais rápido do que qualquer função polinomial). Logo, 
+$$t^{x-1} e^{-t} < e^{-\frac{t}{2}}.$$
+
+Portanto, temos que:
+$$\dint_{1}^{\infty} t^{x-1} e^{-t} \dt < \dint_{1}^{\infty} e^{-\frac{t}{2}} \dt = \dfrac{2}{\sqrt{e}},$$
+o que garante a convergência de $\dint_{1}^{\infty} t^{x-1} e^{-t} \dt$.
+
+\item $\dint_{0}^{1}t^{x-1}e^{-t}\dt$, temos que a função $e^{-t}$ é limitada, para $0<t<1$. Logo, analisemos a convergência dessa integral observando o comportamento apenas do termo $t^{x-1}$.
+\begin{enumerate}
+\item Para $x>0$, $\dint_{0}^{1} t^{x-1}\dt= \left.\dfrac{t^{x}}{x} \right\vert_{0}^{1} = \dfrac{1}{x}<{\infty}$.
+\item Para $x=0$, $\dint_{0}^{1}t^{-1}\dt={\infty}$.
+\item Para $x<0$, temos que $x-1<-1$, então:
+$$\dint_{0}^{1}t^{x-1}\dt>\dint_{0}^{1}t^{-1}\dt={\infty}.$$
+\end{enumerate}
+\end{enumerate}
+
+Assim, a integral que define a função Gama converge, se $x>0$.
+
+
+Pela propriedade fundamental, pode-se estender o domínio da função gama em intervalos que contém números negativos definindo que:
+$$\Gamma(x)=\dfrac{\Gamma(x+1)}{x}.$$
+
+Observe, aqui, que não temos uma definição para $\Gamma(x)$, com $x \in \mathbb{Z}_{-}$.
+
+Para $x \in (-k-1, -k)$, com $k$ um número par, vê-se que $\Gamma(x) < 0$ e que
+$$\dlim_{x\to -k^{-}} \Gamma(x) = \dlim_{x\to (-k-1)^{+}} \Gamma(x) = -\infty.$$
+
+Para $x \in (-k-1, -k)$, com $k$ um número ímpar, vê-se que $\Gamma(x) > 0$ e que
+$$\dlim_{x\to -k^{-}} \Gamma(x) = \dlim_{x\to (-k-1)^{+}} \Gamma(x) = \infty.$$
+
+Dessa forma, o domínio da função Gama passa a ser $\mathbb{R} \setminus \mathbb{Z}_{-}$.
+
+A seguir, temos o esboço do gráfico da função \(\Gamma\) no plano.
+
+
+\indent
+
+\begin{minipage}[!h]{0.9\textwidth}\centering
+\psset{yunit=0.4cm,labelsep=5pt,linewidth=0.4pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-5.5,-6.5)(6.2,6.2)
+\psaxes[labelFontSize=\scriptstyle,Dy=2,ticksize=-2pt 0,subticks=0]{->}(0,0)(-5.5,-6)(4.5,6.5)
+\multido{\iA=-1+-1}{5}{\psline[linestyle=dashed](\iA,-6)(\iA,6)}%
+%\uput[d](4.6,0){$x+1$}
+\psset{plotpoints=100,linewidth=1pt}
+\psplot[linecolor=red]{0.01}{4}{ x GAMMA }
+\psplot[linecolor=red]{-0.801}{-0.2}{ x GAMMA }
+\psplot[linecolor=red]{-1.99}{-1.01}{ x GAMMA }
+\psplot[linecolor=red]{-2.97}{-2.083}{ x GAMMA }
+\psplot[linecolor=red]{-3.99}{-3.01}{ x GAMMA }
+\psplot[linecolor=red]{-4.99}{-4.01}{ x GAMMA }
+
+\psdots[dotsize=2pt 0,dotstyle=*](!1 1 GAMMA)\uput[90](!1 1 GAMMA){0!}
+\psdots[dotsize=2pt 0,dotstyle=*](!2 2 GAMMA)\uput[90](!2 2 GAMMA){1!}
+\psdots[dotsize=2pt 0,dotstyle=*](!3 3 GAMMA)\uput[110](!3 3 GAMMA){2!}
+\psdots[dotsize=2pt 0,dotstyle=*](!4 4 GAMMA)\uput[200](!4 4 GAMMA){3!}
+\psdots[dotsize=2pt 0,dotstyle=*](!5 5 GAMMA)\uput[200](!5 5 GAMMA){4!}
+\end{pspicture*}
+\end{minipage}
+
+
+Utilizando as mudanças de variáveis \(t = u^{2}\) e \(v = e^{-t}\), podemos encontrar as seguintes relações para a função gama de Euler:
+\begin{eqnarray}\label{funcaogama}
+\Gamma(x)
+&=& \dint_{0}^{\infty} t^{x-1} e^{-t} \ dt \\
+&=& 2 \dint_{0}^{\infty} u^{2x-1} e^{-u^2} \ du \\
+&=& \dint_{0}^{1} \left[\ln\left(\dfrac{1}{v}\right)\right]^{x-1}\ dv.
+\end{eqnarray}
+
+A função gama não possui raízes, e no campo complexo, $\Gamma$ é analítica, exceto em $\mathbb{Z}_{-}$ e o resíduo em $z=-n$ é
+$$\displaystyle \mathrm{Res}_{z=-n} \Gamma(z) = \dfrac{(-1)^{n}}{n!}.$$
+
+
+A função gama está relacionada:
+
+(a) às funções gama incompletas:
+$$\Gamma(a,x) = \dint_{x}^{\infty} t^{{a-1}} e^{-t}\dt.$$
+$$\gamma(a,x) = \dint_{0}^{x} t^{a-1} e^{-t}\dt.$$
+
+(b) a função digama (derivada do logaritmo da função gama):
+$$\psi(x)=\dfrac{d}{\dx}\ln\left(\Gamma(x)\right) = \dfrac{\Gamma'(x)}{\Gamma(x)}.$$
+
+São exemplos de funções ou relações que utilizam a definição da função gama:
+
+(a) a função beta, também chamada de Integral de Euler de primeiro tipo, pode ser definida por uma razão de funções gama:
+$$\beta(x,y) = \dfrac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$$
+
+(b) o produto entre $\Gamma(z)$ e a função zeta de Riemann $\zeta(z)$ (Havil 2003, p. 60), dada por:
+$$\zeta(z)\Gamma(z)=\dint_{0}^{\infty} (u^{z-1})/(e^u-1)\du, R[z]>1.$$
+
+
+% e complexos, com o argumento subtraído em $1$. Se $n$ é um inteiro positivo, define-se da seguinte forma:$$\Gamma (n+1)=n!$$
+%Podemos encontrar a demonstração da convergência desta integral no artigo de Emil Artin, The Gamma Function.
+%
+%A função gama é debutante em diversas funções de distribuição probabilísticas, sendo assim encontra aplicações nos campos da probabilidade, estatística e combinatória.
+%
+%
+%%Motivação
+%A função gama pode ser vista como solução do seguinte problema de interpolação: Encontrar uma curva suave que conecta os pontos $(x,y)$ dados por $y = (x - 1)!$ em que $x$ é um inteiro positivo.
+%
+%Esboçando em um gráfico os primeiros números fatoriais fica claro que a curva pode ser desenhada, mas seria preferível ter um expressão analítica que descreve precisamente a curva, na qual o número de operações não dependa do tamanho de x. A simples fórmula recursiva para o fatorial x! = x \times ... \times 2 \times 1, não pode ser usada para obter valores fracionários, pois é válida apenas quando x é um número natural. No entanto, foi demonstrado por Euler que não há uma expressão analítica convencional para fatorial, no sentido que não pode ser a combinação finita (com um número finito de termos) de somas, potências, produtos, funções exponenciais e logaritmos, demonstrado em seu artigo intitulado "Sobre progressões transcendentais, nas quais o termo geral não pode ser expresso algebricamente", ("De progressionibus transcendentibus seu quarum termini generales algebraice dari nequeunt"). A função gama é uma solução que não só resolve este problema, mas também possuí distinguíveis propriedades entre as candidatas, como é mostrado no Teorema de Bohr-Mollerup.
+%
+%Prova[editar | editar código-fonte]
+
+
+
+Em suma, vale lembrar que a função gama aparece ocasionalmente em diversos problemas físicos tais como a normalização das funções de onda de Coulomb e o computo de probabilidades em mecânica estatística, embora sua importância, na verdade, é derivada de sua utilidade no desenvolvimento de outras funções que apresentam aplicações físicas diretas, como a de Bessel. Além desta definição em termos de integral imprópria, devida a Euler, temos no mínimo outras duas definições equivalentes da função gama, uma através de um limite infinito (também devida a Euler) e outra através de um produto infinito (devida a Weierstrass) (ver, por exemplo, Arfken [4]).
+
+Muito da importância da função gama provem da seguinte fórmula facilmente demonstrável
+usando-se integração por partes,
+$$\Gamma(p+1) = p\Gamma(p).$$
+Daí resulta que, quando $p = n$ é um inteiro não-negativo,
+$$\Gamma(n+1) = n!$$
+de maneira que a função gama generaliza o fatorial de números inteiros positivos para valores reais. A figura seguinte mostra o gráfico da função gama.
+
+
+
+
+\subsection*{Alguns resultados notáveis}
+
+\exemplo{}{
+Prove que o zero fatorial é igual a um.
+}
+
+\solexemplo{
+Temos que:
+\[\Gamma(1)=0!=\dint_{0}^{\infty} t^{1-1} e^{-t}\dt = \left.-e^{-t} \right\vert_{0}^{\infty} = 1.\]
+}
+
+
+\exemplo{}{
+Determine o valor $\Gamma\left(\dfrac{1}{2}\right)$.
+}
+
+\solexemplo{
+\[\Gamma\left(\dfrac{1}{2}\right) =\dint_{0}^{\infty} t^{-\frac{1}{2}} e^{-t}\dt.\]
+
+Fazendo $t=r^{2}$, obtemos $\dt=2r\dr$.
+
+Logo,
+\[\dint_{0}^{\infty}t^{-\frac{1}{2}} e^{-t}\dt = 2 \dint_{0}^{\infty}e^{-r^{2}}\dr.\]
+
+Utilizando a técnica de Liouville, temos que:
+\[I = \dint_{0}^{\infty} e^{-x^{2}}\dx = \dint_{0}^{\infty} e^{-y^{2}}\dy.\]
+
+Logo, podemos escrever
+\[I^{2}=\dint_{0}^{\infty} e^{-x^{2}} \dx \dint_{0}^{\infty} e^{-y^{2}}\dy = \dint_{0}^{\infty}\dint_{0}^{\infty} e^{-(x^{2}+y^{2})} \dx\dy.\]
+
+Fazendo a mudança de variáveis em coordenadas polares:
+\[I^{2}=\dint_{0}^{\frac{\pi}{2}}\dint_{0}^{\infty} e^{-r^{2}}r\dr\dtheta = \dfrac{\pi}{4}.\]
+
+Como
+\[I=\frac{\sqrt{\pi}}{2},\]
+temos que
+\[2\dint_{0}^{\infty}e^{-r^{2}}\dr = 2 \dfrac{\sqrt{\pi}}{2} = \sqrt{\pi}.\]
+
+Sendo assim:
+\[\Gamma\left(\dfrac{1}{2}\right)=\sqrt{\pi}.\]
+}
+
+
+%Referências
+%
+%Boyce e DiPrima. Equações Diferenciais Elementares e Problemas de Valores de Contorno, editora LTC, 9ª edição, 2010.
+%Dennis G. Zill, Michael R. Cullen; Equações Diferenciais, vol 1; Editora Makron Books do Brasil;
+%Davis, Philip J.; Abramowitz, Milton; Stegun, Irene. Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables. 1972.
+
+
+
+\section{A Função Beta}
+
+
+\definicao{}{}{
+A função \(\mathfrak{B}(y,x)\), também chamada de integral de Euler de primeiro tipo, é definida por
+\begin{equation}\label{eq:beta}
+\displaystyle \mathfrak{B}(y,x) = \int_{0}^{1} t^{x-1}\ (1-t)^{y-1}\ dt
+\end{equation}
+}
+
+
+
+\subsection{Propriedades}
+
+\proposicao{}{}{
+A função beta é simétrica, o que significa que:
+\begin{equation}
+\mathfrak{B}(y,x) = \mathfrak{B}(x,y).
+\end{equation}
+}
+
+\textbf{Demonstração}:
+
+Tomando \(u = 1-t \Rightarrow du = -dt\). Segue que
+\[\begin{array}{rcl}
+\mathfrak{B}(y,x)
+&=& \displaystyle\int_{0}^{1} t^{x-1}\ (1-t)^{y-1}\ dt \\
+&=& \displaystyle\int_{1}^{0} (1-u)^{x-1}\ u^{y-1}\ -du \\
+&=& \displaystyle\int_{0}^{1} (1-u)^{x-1}\ u^{y-1}\ du \\
+&=& \mathfrak{B}(x,y).
+\end{array}\]
+
+
+
+\subsection{Outras formas da função beta}
+
+
+\proposicao{}{}{
+A função beta possui a forma trigonométrica:
+\begin{equation}
+\displaystyle \mathfrak{B}(y,x) = 2 \int_{0}^{\frac{\pi}{2}} [\cos(\theta)]^{2x-1}[\sin(\theta)]^{2y-1}\,\mathrm{d}\theta,\qquad \mathrm{Re}(x) > 0,\ \mathrm{Re}(y) > 0.
+\end{equation}
+}
+
+\textbf{Demonstração}: Apliquemos a mudança de variáveis \(t = \cos^2(\theta) \Rightarrow dt = -2\cos(\theta)\sin(\theta) d\theta\) em \eqref{eq:beta}. Assim,
+\[\begin{array}{rcl}
+\mathfrak{B}(y,x)
+&=& \displaystyle\int_{\frac{\pi}{2}}^{0} [\cos^2(\theta)]^{x-1}\ [1-\cos^2(\theta)]^{y-1} [-2\cos(\theta)\sin(\theta)]\ d\theta \\
+&=& \displaystyle\int_{0}^{\frac{\pi}{2}} [\cos(\theta)]^{2x-2}\ [\sin(\theta)]^{2y-2} [2\cos(\theta)\sin(\theta)]\ d\theta \\
+&=& 2 \displaystyle\int_{0}^{\frac{\pi}{2}} [\cos(\theta)]^{2x-1}\ [\sin(\theta)]^{2y-1}\ d\theta.
+\end{array}\]
+
+
+
+\proposicao{}{}{
+A expressão de beta em função de \(\Gamma\) é:
+\begin{equation}
+\displaystyle \mathfrak{B}(y,x) = \dfrac{\Gamma(x)\,\Gamma(y)}{\Gamma(x+y)}.
+\end{equation}
+}
+
+
+\textbf{Demonstração}: Temos que
+\[\begin{array}{rcl}
+\Gamma(x) &=& \displaystyle\int_{0}^{\infty} e^{-t} t^{x-1}\ dt \\
+\Gamma(y) &=& \displaystyle\int_{0}^{\infty} e^{-s} s^{y-1}\ ds \\
+\end{array}\]
+
+
+Apliquemos as seguintes mudanças de variáveis:
+\[\begin{array}{rcl}
+t = u^2 &\Rightarrow& dt = 2u\,du \\
+s = v^2 &\Rightarrow& ds = 2v\,dv
+\end{array}\]
+
+Então,
+\[\begin{array}{rcl}
+\Gamma(x)
+&=& \displaystyle\int_{0}^{\infty} e^{-u^2} u^{2x-2}\ 2u\,du
+= 2 \int_{0}^{\infty} e^{-u^2} u^{2x-1}\,du \\
+\Gamma(y)
+&=& \displaystyle\int_{0}^{\infty} e^{-v^2} v^{2y-2}\ 2v\,dv
+= 2 \int_{0}^{\infty} e^{-v^2} v^{2y-1}\,dv \\
+\end{array}\]
+
+Logo,
+\[
+\Gamma(x)\cdot\Gamma(y) = 4 \displaystyle\int_{0}^{\infty}\int_{0}^{\infty} e^{-(u^2+v^2)} u^{2x-1} v^{2y-1} \ du\ dv
+\]
+
+Apliquemos, agora, as seguintes mudanças de variáveis:
+\[\begin{array}{rcl}
+u = r\cos(\theta) \\
+v = r \sin(\theta)
+\end{array}\]
+
+Segue que
+\[\begin{array}{rcl}
+\Gamma(x)\cdot\Gamma(y)
+&=& 4 \displaystyle\int_{0}^{\frac{\pi}{2}}\int_{0}^{\infty} e^{-r^2} r^{2x-1} [\cos(\theta)]^{2x-1} r^{2y-1} [\sin(\theta)]^{2y-1}\ r\ dr\ d\theta \\
+&=& 4 \displaystyle\int_{0}^{\frac{\pi}{2}}\int_{0}^{\infty} e^{-r^2} r^{2x+2y-1} [\cos(\theta)]^{2x-1} [\sin(\theta)]^{2y-1}\ dr\ d\theta \\
+&=& \underbrace{2\displaystyle\int_{0}^{\infty} e^{-r^2} r^{2x+2y-1} \dr}_{k} \cdot \underbrace{2\int_{0}^{\frac{\pi}{2}} [\cos(\theta)]^{2x-1} [\sin(\theta)]^{2y-1}\ d\theta}_{\mathfrak{B}(y,x)}
+\end{array}\]
+
+Para determinarmos \(I\), façamos a seguinte mudança de variável
+\[r^2 = \xi \Rightarrow 2r\ dr = d\xi.\]
+
+Portanto,
+\[I = \displaystyle\int_{0}^{\infty} e^{-\xi} \xi^{y+x-1}\ d\xi = \Gamma(y+x)\]
+
+Segue que
+\[\Gamma(y) \cdot \Gamma(x) = \Gamma(y+x) \mathfrak{B}(y,x).\]
+
+\begin{corollary}
+Se \(x\) e \(y\) são inteiros positivos, então:
+\begin{equation}
+\displaystyle \mathfrak{B}(x,y) = \dfrac{(x-1)!\,(y-1)!}{(x+y-1)!}.
+\end{equation}
+\end{corollary}
+
+
+
+\proposicao{}{}{
+A expressão de beta assume as formas:
+\begin{eqnarray}
+\displaystyle \mathfrak{B}(x,y) &=& \int_{0}^{\infty} \dfrac{t^{x-1}}{(1+t)^{x+y}}\,\mathrm{d}t,\qquad \mathrm{Re}(x) > 0,\ \mathrm{Re}(y) > 0. \\
+\displaystyle \mathfrak{B}(x,y) &=& \sum_{n=0}^{\infty} \dfrac{\binom{n-y}{n}}{x+n}. \\
+\displaystyle \mathfrak{B}(x,y) &=& {\dfrac{x+y}{xy}} \prod_{n=1}^{\infty} \left(1+{\dfrac{xy}{n(x+y+n)}}\right)^{-1}.
+\end{eqnarray}
+}
+
+\subsection{Algumas Identidades}
+
+\proposicao{}{}{
+A função Beta satisfaz as identidades
+\begin{eqnarray}
+\displaystyle \mathfrak{B}(x,y) &=& \mathfrak{B}(x,y+1)+\mathfrak{B}(x+1,y) \\
+\displaystyle \mathfrak{B}(x+1,y) &=& \mathfrak{B}(x,y) \cdot \dfrac{x}{x+y} \\
+\displaystyle \mathfrak{B}(x,y+1) &=& \mathfrak{B}(x,y)\cdot \dfrac{y}{x+y} \\
+\displaystyle \mathfrak{B}(x,y) \cdot (t \mapsto t_{+}^{x+y-1}) &=& (t \to t_{+}^{x-1})*(t\to t_{+}^{y-1})\qquad x\geq 1,y\geq 1 \\
+\displaystyle \mathfrak{B}(x,y)\cdot \mathfrak{B}(x+y,1-y) &=& \dfrac{\pi}{x\sin(\pi y)}\label{eq:identidade5},
+\end{eqnarray}
+onde \(\displaystyle t\mapsto t_{+}^{x}\) é um função de potência truncada e a estrela da denota convolução.
+}
+
+\textbf{Observações}:
+
+\begin{enumerate}
+\item A identidade\eqref{eq:identidade5} demonstra, em particular, que \(\displaystyle \Gamma\left(\dfrac{1}{2}\right) = \sqrt{\pi}\).
+
+\item Algumas destas identidades, por exemplo, a fórmula trigonométrica, pode ser aplicada para derivar o volume de uma bola-n[3][4][5] em coordenadas cartesianas.
+
+\item A integral de Euler para a função Beta pode ser convertida em uma integral sobre o contorno \(C\) de Pochhammer [6] [7] [8] como:
+\begin{equation}
+\displaystyle \displaystyle (1-e^{2\pi i\alpha})(1-e^{2\pi i\beta})\mathfrak{B}(\alpha ,\beta) = \int_{C} t^{\alpha-1}(1-t)^{\beta-1}\, \mathrm{d} t.
+\end{equation}
+
+Esta integral do contorno de Pochhammer converge para todos os valores de \(\alpha\) e \(\beta\) e assim dá a continuação analítica da função beta.
+
+\item Assim como a função gama ``\(\Gamma\)'' para inteiros descreve fatoriais, a função beta pode definir um coeficiente binomial depois de ajustar os índices:
+\[\displaystyle \binom{n}{k} = \dfrac{1}{(n+1) \mathfrak{B}(n-k+1,k+1)}.\]
+Além disso, para o inteiro \(n\), \(\displaystyle \mathfrak{B}\) pode ser fatorado para dar uma forma fechada, uma função de interpolação para valores contínuos de \(k\):
+\begin{equation}
+\displaystyle \binom{n}{k} = (-1)^{n}n! {\cfrac{\sin(\pi k)}{\pi \displaystyle \prod_{i=0}^{n}(k-i)}}.
+\end{equation}
+
+\item A função beta foi a primeira amplitude de dispersão conhecida na teoria das cordas, primeiramente conjecturado por Gabriele Veneziano. Ocorre também na teoria do processo de ligação preferencial [9] [10], um tipo de processo de urna [11] estocástica.
+\end{enumerate}
+
+\subsection{Função beta incompleta}
+
+\definicao{}{}{
+A função beta incompleta (generalização da função beta) é dada por:
+\begin{equation}
+\mathfrak{B}(\tau;\, y,x) = \displaystyle \int_{0}^{\tau} t^{x-1}\,(1-t)^{y-1}\,dt.
+\end{equation}
+}
+
+Para \(\tau = 1\), a função beta incompleta coincide com a função beta completa, ou seja,
+\[\mathfrak{B}(1;\, y,x) = \mathfrak{B}(y,x)\]
+
+\textbf{Observação}: A relação existente entre estas duas funções é como a que existe entre a função gama e sua generalização, a função gama incompleta.
+
+\definicao{}{}{
+A função beta incompleta regularizada (ou função beta regularizada para abreviar) é definida em termos da função beta incompleta e da função beta completa por:
+\begin{equation}
+\mathfrak{B}_{\tau}(y,x) = \dfrac{\mathfrak{B}(\tau;\,y,x)}{\mathfrak{B}(y,x)}.
+\end{equation}
+}
+
+
+
+
+\section{Funções de Mittag-Leffler}
+
+\subsection{Funções de Mittag-Leffler com um parâmetro}
+
+\definicao{}{}{
+A função de Mittag-Leffler com UM parâmetro \(\alpha \in \mathbb{C}, \ \mathrm{Re}(\alpha) > 0\) é dada por:
+\begin{equation}
+\mathfrak{E}_\alpha = \displaystyle\sum_{k=0}^{\infty} \dfrac{t^k}{\Gamma(\alpha k + 1)}, \ \mathrm{Re}(\alpha) > 0.
+\end{equation}
+}
+
+\textbf{Observação}:
+\begin{equation}
+\mathfrak{E}_1 = \displaystyle\sum_{k=0}^{\infty} \dfrac{t^k}{\Gamma(k + 1)} = \displaystyle\sum_{k=0}^{\infty} \dfrac{t^k}{k!} = e^t.
+\end{equation}
+
+\subsection{Funções de Mittag-Leffler com dois parâmetros}
+
+\definicao{}{}{
+A função de Mittag-Leffler com DOIS parâmetros é dada por:
+\begin{equation}
+\mathfrak{E}_{\alpha,\beta} = \displaystyle\sum_{k=0}^{\infty} \dfrac{t^k}{\Gamma(\alpha k + \beta)}.
+\end{equation}
+}
+
+
+
+\subsection{Valores notáveis}
+
+\proposicao{}{}{
+\begin{eqnarray}
+\label{eq:mittagalphaum}
+\mathfrak{E}_{\alpha,1}(z)
+&=& \mathfrak{E}_{\alpha}(z). \\
+%
+\label{eq:mittagumum}
+\mathfrak{E}_{1,1}
+&=& e^z. \\
+%
+\label{eq:mittagzeroum}
+\mathfrak{E}_{0,1}
+&=& \dfrac{1}{1-z},\qquad |z| < 1.
+\end{eqnarray}
+}
+
+
+
+\proposicao{}{}{
+\begin{eqnarray}
+\mathfrak{E}_{1,n}(z)
+= \dfrac{1}{z^{n-1}} \left[e^z + \displaystyle\sum_{k=0}^{n-2} z^k\right].
+\end{eqnarray}
+}
+
+
+\begin{eqnarray}
+\label{eq:mittagumdois}
+\mathfrak{E}_{1,2}(z)
+&=& \displaystyle\sum_{k=0}^{\infty} \frac{z^k}{\Gamma(k+2)}
+= \displaystyle\sum_{k=0}^{\infty} \frac{z^k}{(k+1)!}
+= \frac{1}{z} \displaystyle\sum_{k=0}^{\infty} \frac{z^{k+1}}{(k+1)!} \\
+\nonumber
+&=& \frac{1}{z} \left(-1+1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\ldots\right)
+= \frac{-1+e^z}{z}. \\
+%
+\label{eq:mittagumtres}
+\mathfrak{E}_{1,3}(z)
+&=& \displaystyle\sum_{k=0}^{\infty} \frac{z^k}{\Gamma(k+3)}
+= \displaystyle\sum_{k=0}^{\infty} \frac{z^k}{(k+2)!}
+= \frac{1}{z^2} \displaystyle\sum_{k=0}^{\infty} \frac{z^{k+2}}{(k+2)!} \\
+\nonumber
+&=& \frac{1}{z^2} \left(-1-z+1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\ldots\right)
+= \frac{-1-z+e^z}{z^2}. \\
+&\vdots&
+\end{eqnarray}
+
+
+
+\proposicao{}{}{
+\begin{eqnarray}
+\mathfrak{E}_{2,1}(z) &=& \cosh(\sqrt{z}) \\
+\mathfrak{E}_{2,2}(z^2) &=& \dfrac{1}{z}\sinh(\sqrt{z}) \\
+\mathfrak{E}_{2,1}(-z^2) &=& \cos(z) \\
+\mathfrak{E}_{2,2}(-z^2) &=& \dfrac{1}{z}\sin(z)
+\end{eqnarray}
+}
+
+\subsection{Relação de recorrência da Função de Mittag Leffer}
+
+\proposicao{}{}{
+\begin{eqnarray}
+\mathfrak{E}_{\alpha,\beta}(Z) = z \mathfrak{E}_{\alpha,\alpha+\beta}(Z) + \dfrac{1}{\Gamma(\beta)}
+\end{eqnarray}
+}
+
+
+
+
+
+
+\subsection{Transformada de Laplace da função de Mittag-Leffler}
+
+\definicao{}{}{
+Seja \(f\) uma função contínua por partes
+\begin{equation}
+F(s) = \mathcal{L}\{f(t)\} = \displaystyle\int_{0}^{\infty} e^{-st}\ f(t)\ dt,
+\end{equation}
+onde \(f\) é 
+}
+
+
+%MT952-AULA00–Introdução ao Cálculo Fracionário
+
+\chapter{Sobre algumas integrais}
+
+Como é sabido, várias integrais reais são de difícil resolução. Muitas vezes, sempre que possível, fazemos uso do plano complexo para calcular as integrais reais. Além disso, vários truques são sempre sugeridos, dentre eles aquele que atende pelo nome de integrais de Feynman.
+
+Como uma breve introdução, vamos discutir duas integrais aparentemente complicadas que com um pouco de treino são reduzidas a integrais de fácil manipulação. Imediatamente após apresentamos o truque proposto por Feynman para calcular integrais reais.
+
+\section{Substituição trigonométrica}
+
+Através de dois exemplos, utilizando substituição trigonométrica, vamos calcular duas integrais reais, aparentemente não imediatas.
+
+\exemplo{exam:01}{
+%Exemplo 1.
+Seja $x \in \mathbb{R}$. Calcular a integral
+$$\Lambda = \dint \sin(2 \arctan(x)) dx.$$
+}
+
+\solexemplo{Começamos com a relação trigonométrica envolvendo o seno do arco dobro, assim
+$$\Lambda = 2 \dint \sin(\arctan(x)) \cos(\arctan(x)) dx.$$
+
+Agora, introduzimos a mudança de variável $\arctan(x) = u$, de onde segue, $\tan(u) = x$ e $dx = \sec^{2}(u) du$. Logo,
+$$\Lambda = 2 \dint \sin(u) \cos(u) \sec^{2}(u) du,$$
+ou ainda, na seguinte forma,
+$$\Lambda = 2 \dint \dfrac{\sin(u)}{\cos(u)} du.$$
+
+Essa integral é calculada a partir da mudança de variável $\cos(u) = t$ cujo diferencial é exatamente o numerador, de
+onde podemos escrever
+$$\Lambda = 2 \dint -\dfrac{1}{t} dt = -2 \dint \dfrac{1}{t} dt$$
+que é uma integral imediata
+$$\Lambda = -2 \ln|t| + C,$$
+onde $C$ é uma constante de integração.
+
+Voltando com as variáveis que foram introduzidas a partir das mudanças de variáveis, obtemos
+$$\Lambda = \ln(1 + x^{2}) + C$$
+sendo $C$ uma constante de integração.
+
+Vamos, agora, obter o mesmo resultado através de uma simplificação que, sempre que possível, agiliza o cálculo.
+
+Considere o triângulo retângulo:
+\begin{center}
+\captionof{figure}{\small Triângulo retângulo: seno, cosseno e tangente.}
+\label{fig:01}
+\begin{pspicture}(-.5,-.5)(4.5,4.5)
+\pnode(4,0){A}
+\pnode(4,3){B}
+\pnode(0,0){C}
+\pspolygon(A)(B)(C)
+\rput(0,.5){\rput{36.87}(2.2;36.87){$\sqrt{1+x^2}$}}
+\uput[r](4,1.5){$x$}
+\uput[d](2,0){$1$}
+\psarc{-}(0,0){0.9}{0}{36.87}
+\rput(1.1;18.44){$u$}
+\end{pspicture}
+\end{center}
+
+Da \autoref{fig:01} são imediatas as relações
+$$\tan(u) = x, \sin(u) = \dfrac{x}{\sqrt{1 + x^{2}}}, \cos(u) = \dfrac{1}{\sqrt{1 + x^{2}}}.$$
+
+Assim, substituindo na integral de partida, temos:
+$$
+\Lambda
+= 2 \dint \dfrac{x}{\sqrt{1 + x^{2}}} \dfrac{1}{\sqrt{1 + x^{2}}} dx
+= 2 \dint \dfrac{x}{1 + x^{2}} dx
+= \ln(1+x^2) + C,
+$$
+que é o resultado desejado.
+}
+
+
+
+\exercicio{}{%Do lar 1.
+Complete a integração e obtenha o mesmo resultado, conforme metodologia anterior.
+}
+
+\solexercicio{Aqui, basta tomar $x = \tan(t)$. Segue que, $dx = \sec^{2}(t) dt$.
+
+Logo,
+$$\Lambda = 2 \int \dfrac{\sin(t)}{\cos(t)} dt = 2\ln|\sec(t)| + C$$
+}
+
+
+
+\exemplo{exam:02}{
+%Exemplo 2.
+Seja $x \in \mathbb{R}$. Calcular a integral
+$$\Omega = \dint \dfrac{dx}{2 + \cos(x)}.$$
+}
+
+\solexemplo{Observemos que o denominador nunca se anula (a integral é não singular). 
+
+Vamos introduzir a mudança de variável envolvendo a tangente do arco metade. 
+
+Analogamente à integral discutida no Exemplo \ref{exam:01}, considere o triângulo retângulo:
+\begin{center}
+\captionof{figure}{\small Triângulo retângulo: seno, cosseno e tangente do arco metade.}
+\label{fig:02}
+\begin{pspicture}(-.5,-.5)(4.5,4.5)
+\pnode(4,0){A}
+\pnode(4,3){B}
+\pnode(0,0){C}
+\pspolygon(A)(B)(C)
+\rput(0,.5){\rput{36.87}(2.2;36.87){$\sqrt{1+t^{2}}$}}
+\uput[r](4,1.5){$t$}
+\uput[d](2,0){$1$}
+\psarc{-}(0,0){0.9}{0}{36.87}
+\rput(1.1;18.44){$\frac{x}{2}$}
+\end{pspicture}
+\end{center}
+
+Da \autoref{fig:02} seguem as relações
+$$\tan\left(\dfrac{x}{2}\right) = t, \sin\left(\dfrac{x}{2}\right) = \dfrac{t}{\sqrt{1 + t^{2}}} \mbox{ e } \cos\left(\dfrac{x}{2}\right) = \dfrac{1}{\sqrt{1 + t^{2}}}.$$
+
+
+Utilizando a expressão para o cosseno do arco dobro, podemos escrever
+$$\cos(x)
+=
+\left(\dfrac{1}{\sqrt{1 + t^{2}}}\right)^{2}
+- \left(\dfrac{t}{\sqrt{1 + t^{2}}}\right)^{2}
+=
+\dfrac{1 - t^{2}}{1 + t^{2}}.$$
+
+Ainda mais, para o diferencial, temos:
+$$dt = \dfrac{1}{2} \sec^{2} \left(\dfrac{x}{2}\right) dx \Rightarrow dx = \dfrac{2 dt}{1 + t^{2}}.$$
+
+Substituindo na integral a ser calculada e simplificando, obtemos a seguinte integral:
+$$\Omega
+=
+\dint
+\dfrac{2 dt}{1 + t^{2}}
+\left(\dfrac{1}{2 + \dfrac{1-t^{2}}{1 + t^{2}}}\right)
+= 2 \dint \dfrac{dt}{t^{2} + 3}.$$
+
+Esta integral é tabelada. Logo,
+$$\Omega
+= \dfrac{2}{\sqrt{3}} \arctan\left(\dfrac{t}{\sqrt{3}}\right)
++ C,$$
+em que $C$ é uma constante de integração.
+
+Voltando com a mudança de variável, obtemos:
+$$
+\Omega = \dfrac{2}{\sqrt{3}} \arctan\left[\dfrac{1}{\sqrt{3}} \tan\left(\dfrac{x}{2}\right)\right] + C,
+$$
+sendo $C$ a constante de integração.
+}
+
+
+
+\section{Metodologia de Feynman}
+
+Este truque, popularizado por Feynman, visando o cálculo de integrais reais, está baseado na possibilidade de se poder derivar sob o sinal de integral.
+
+\subsection{Derivação sob o sinal de integral}
+
+
+Considere $D \subset \mathbb{R}^{2}$ e $f: D \to \mathbb{R}$, uma função de classe $C^{1}$ em $D$ e o retângulo $[a, b] \times [c, d] \subset D$.
+
+Seja a função
+$F: [c, d] \to \mathbb{R}$, tal que
+\begin{equation}
+\label{eq:01}
+F(\alpha) = \dint_{a}^{b} f(x, \alpha) dx.
+\end{equation}
+Logo $F(\alpha)$ é uma integral dependendo do parâmetro $\alpha$.
+
+\teorema{}{}{\label{teo:01}
+%Teorema 1.
+A derivada em relação ao parâmetro $\alpha$
+comuta com a integração em relação à variável $x$, ou seja,
+$$
+\dfrac{d}{d\alpha} \dint_{a}^{b} f(x, \alpha) dx
+=
+\dint_{a}^{b} \dfrac{\partial}{\partial \alpha} f(x, \alpha) dx.$$
+}
+
+\demteorema{Ver \cite{deoliveira2021}. %\footnote{oliveira@ime.usp.br}, \href{http://www.ime.usp.br/\%7Eoliveira}{http://www.ime.usp.br/$\sim$oliveira}.
+}
+
+Voltemos ao método. Vamos subdividir em quatro etapas para padronizar a metodologia.
+
+Considere o problema de calcular a integral
+\begin{equation}\label{eq:integraldefx}
+\displaystyle\int_{a}^{b} f(x) dx.
+\end{equation}
+O método consiste em:
+\begin{enumerate}
+\item Introduzindo um parâmetro $\alpha$ no integrando de \eqref{eq:integraldefx}, transformando-o em $f(x,\alpha)$, criando, assim uma função
+\begin{equation}\label{eq:funcaoFalpha}
+F(\alpha) = \displaystyle\int_{a}^{b} f(x, \alpha) dx,
+\end{equation}
+de forma conveniente.
+\item Após diferenciamos \eqref{eq:funcaoFalpha} com respeito ao parâmetro \(\alpha\), ou seja, determinarmos uma expressão para $\dfrac{d}{d\alpha} F(\alpha)$, efetuando a integração em relação a $x$, obtemos uma equação diferencial.
+
+\item Resolvemos a equação diferencial para obter uma expressão para $F(\alpha)$. Note que $F(\alpha)$ não deve ser função da variável de integração.
+
+\item Com o conveniente valor de $\alpha$, obter a integral de partida.
+\end{enumerate}
+
+É importante notar que a dificuldade reside na primeira etapa, pois a partir da segunda, é calcular uma derivada, resolver uma equação diferencial e calcular o valor de uma função num ponto ou substituir o valor do parâmetro por um número conveniente. Ainda mais, ao introduzir o parâmetro ou a função, coisa que requer treino e mais treino além, claro, de criatividade, devemos ser capazes de integrar. Vamos apresentar o cálculo explícito para alguns exemplos.
+
+\exemplo{exam:03}{
+%Exemplo 3.
+Seja $x \in \mathbb{R}$. Calcule a integral
+$$\mathcal{I} = \dint_{0}^{\infty} \dfrac{\sin(x)}{x} dx,$$
+conhecida como a integral de Dirichlet.
+}
+
+\solexemplo{Apenas para mencionar, esta integral é um clássico exemplo que faz uso plano complexo para calcular uma integral real. Vamos utilizar o truque de Feynman.
+
+Esta é uma integral que não é absolutamente convergente, logo não está definida no sentido da integração de Lebesgue. Ainda mais, esta é uma integral clássica que é calculada através do plano complexo, como já mencionamos. Em particular, o integrando $f(z) = \dfrac{\sin(z)}{z}$ é uma função que apresenta uma singularidade removível; com um contorno evitando o zero do denominador.
+
+Aqui, a fim de utilizar a metodologia de Feynman, introduzimos uma função $e^{\alpha x}$, com $\alpha \leq 0$\footnote{A importância de impormos o parâmetro não estritamente positivo é devido ao extremo superior da integral de partida.}, tal que
+$$F(\alpha) = \dint_{0}^{\infty} \dfrac{\sin(x)}{x} e^{\alpha x} dx.$$
+
+Com esta função, recuperamos a integral inicial a partir de $\alpha = 0$, de onde obtemos $F(0) = \mathcal{I}$.
+
+Agora, derivamos a função em relação ao parâmetro $\alpha$ (derivada parcial, pois o integrando é uma função de duas variáveis)
+$$\dfrac{d}{d\alpha} F(\alpha)
+=
+\dint_{0}^{\infty} \dfrac{\sin(x)}{x} x e^{\alpha x} dx
+=
+\dint_{0}^{\infty} \sin(x) e^{\alpha x} dx$$
+
+A fim de resolver esta integral, podemos utilizar duas vezes integração por partes, porém, aqui, vamos usar a
+relação de Euler
+$$\sin(x) = \dfrac{1}{2i} (e^{ix} - e^{-ix})$$
+de onde podemos escrever, apenas para o segundo membro, denotado por $\mathbb{I}_M$,
+$$
+\mathbb{I}_M =
+\dfrac{1}{2i}
+\dint_{0}^{\infty}
+(e^{ix} - e^{-ix}) e^{\alpha x} dx
+=
+\dfrac{1}{2i}
+\dint_{0}^{\infty}
+[e^{x(\alpha +i)} - e^{x(\alpha -i)}] dx.
+$$
+
+Note que as integrais existem, pois com a imposição no parâmetro $a$, convergem. Logo, integrando e simplificando, temos:
+$$
+\mathbb{I}_M =
+\dfrac{1}{2i}
+\left[
+\dfrac{e^{x(\alpha+i)}}{\alpha+i} - \dfrac{e^{x(\alpha-i)}}{\alpha-i}
+\right]_{x=0}^{\infty}
+=
+\dfrac{1}{2i}
+\left(-\dfrac{1}{\alpha+i} + \dfrac{1}{\alpha-i}\right)
+=
+\dfrac{1}{1+\alpha^{2}}.
+$$
+
+Assim, voltando na expressão para a derivada, obtemos:
+$$\dfrac{\partial }{\partial \alpha} F(\alpha) = \dfrac{1}{1+\alpha^{2}}$$
+que é uma equação diferencial cuja integração é imediata, pois é a primitiva do arco tangente. Logo,
+$$F(\alpha) = \arctan(\alpha) + C,$$
+onde $C$ é uma constante de integração.
+
+A próxima etapa requer determinar a constante de integração. Para tal, aqui, vamos considerar o limite do parâmetro $\alpha \to -\infty$. Logo
+$$\displaystyle\lim_{\alpha\to-\infty} F(\alpha) = \lim_{\alpha\to-\infty} (\arctan(\alpha) + C) = -\dfrac{\pi}{2} + C$$
+que, levando na definição de $F(\alpha)$ fornece
+$$-\dfrac{\pi}{2} + C = \lim_{\alpha\to-\infty}
+\dint_{0}^{\infty} \dfrac{\sin(x)}{x} e^{\alpha x} dx = 0$$
+de onde segue $C = \dfrac{\pi}{2}$.
+
+Voltando na integral de partida, podemos escrever
+$$\dint_{0}^{\infty} \dfrac{\sin(x)}{x} e^{\alpha x} dx = F(\alpha) = \arctan(\alpha) + \dfrac{\pi}{2},$$
+para todo $\alpha \leq 0$. Note que esta é uma fórmula geral que, em nosso caso, requer apenas que se calcule $F(0)$. Logo,
+$$\dint_{0}^{\infty} \dfrac{\sin(x)}{x} dx = \dfrac{\pi}{2},$$
+que é o resultado desejado.
+}
+
+
+\exemplo{exam:04}{
+%Exemplo 4.
+Seja $x \in \mathbb{R}$. Calcule a integral
+$$\Omega = \dint_{0}^{1} \dfrac{x^{2} - 1}{\ln(x)} dx.$$
+}
+
+\solexemplo{Este tipo de integral real também faz uso do plano complexo, pois a função
+$$f(z) = \dfrac{z^{2} - 1}{\ln(z)},$$
+apresenta um ponto de ramificação em $z = 0$ \cite{capelas2005funcoes}
+
+Aqui, a fim de utilizar a metodologia de Feynman, introduzimos um parâmetro $\alpha \geq 0$ de tal modo que tenhamos a função
+$$
+F(\alpha) = \dint_{0}^{1} \dfrac{x^{\alpha} - 1}{\ln(x)}dx.
+$$
+para, ao final, calcular $F(2) = \Omega$.
+
+Antes de continuarmos, notamos que tanto no primeiro quanto no segundo exemplos, a escolha do parâmetro é feita já pensando na segunda etapa, de modo que ao derivar em relação ao parâmetro, o integrando deixa de apresentar a singularidade.
+
+Assim, derivando em relação ao parâmetro $\alpha$, temos:
+$$\dfrac{\partial}{\partial \alpha} F(\alpha) = \dint_{0}^{1} \dfrac{1}{\ln(x)} x^{\alpha} \ln(x) dx$$
+que, simplificando, permite escrever
+$$\dfrac{\partial}{\partial \alpha} F(\alpha) = \dint_{0}^{1} x^{\alpha} dx,$$
+que é uma integral imediata, de onde segue
+$$\dfrac{\partial}{\partial \alpha} F(\alpha) = \left.\dfrac{x^{\alpha+1}}{\alpha+1} \right|_{x=0}^{x=1} = \dfrac{1}{1+\alpha}$$
+que é uma equação diferencial separável, cuja integração permite escrever a igualdade
+$$F(\alpha) = \ln(\alpha + 1) + C,$$
+onde $C$ é uma constante de integração.
+
+Para determinar a constante, tomamos $\alpha = 0$ (note que é outro extremo de integração) de onde segue
+$$F(0) = \dint_{0}^{1} \dfrac{x^{0} - 1}{\ln(x)} dx = \ln(1) + C = 0.$$
+
+Logo, $C = 0$ e assim, a integral geral é tal que
+$$\dint_{0}^{1} \dfrac{x^{\alpha} - 1}{\ln(x)} dx = \ln(1+\alpha),$$
+com $\alpha \geq 0$.
+
+Como já foi mencionado, devemos calcular $\Omega = F(2)$, de onde segue
+$$F(2) = \dint_{0}^{1} \dfrac{x^{2} - 1}{\ln(x)} dx = \ln(2 + 1) = \ln(3)$$
+que é o resultado desejado.
+}
+
+
+
+\exercicio{}{%Do lar 2.
+Seja $x \in \mathbb{R}$. Calcule a integral
+$$
+\Omega = \dint_{0}^{1} \dfrac{x - 1}{\ln(x)} dx.
+$$
+}
+
+\solexercicio{Este caso utilizaremos a mesma função $F(\alpha)$ e todo o método do Exemplo \ref{exam:04}. Entretanto, devemos determinar $F(1) = \ln(2)$.
+}
+
+
+Depois desses dois primeiros exemplos, convém notar que esta maneira de calcular a integral real não exige o plano complexo, isto é, não se faz necessário escolher uma conveniente função complexa que recupere a função real quando a parte imaginária é zero, nem a escolha do respectivo contorno de integração.
+
+\exemplo{exam:05}{
+%Exemplo 5. (Fatorial).
+Seja $n \in \mathbb{N}$. Calcular a integral
+$$\Omega(n) = \dint_{0}^{\infty} x^{n}e^{-x} dx.$$
+}
+
+\solexemplo{Vamos considerar a seguinte integral:
+$$F(\alpha) = \dint_{0}^{\infty} e^{-\alpha x} dx,$$
+com $a > 0$.
+
+Neste caso, a integral é imediata, pois o integrando é uma exponencial. Logo, derivando em relação ao parâmetro $\alpha$, aqui $n$ vezes, obtemos:
+$$\dfrac{\partial^{n}}{\partial \alpha^{n}} F(\alpha)
+=
+\dint_{0}^{\infty} (-x)^{n} e^{-\alpha x} dx,
+$$
+ou ainda, na seguinte forma
+$$\dfrac{\partial^{n}}{\partial \alpha^{n}} F(\alpha) = (-1)^{n}\Omega(n),$$
+que é uma equação diferencial. Aqui, é imediato pois $F(\alpha)$ é conhecida
+$$F(\alpha) = \dfrac{1}{\alpha}$$
+de onde segue, derivando $n$ vezes,
+$$\dfrac{\partial^{n}}{\partial \alpha^{n}} F(\alpha) = \dfrac{(-1)^{n} n!}{\alpha^{n+1}}$$
+que, identificando com a equação diferencial permite escrever,
+já simplificando
+$$\Omega(n) = \dfrac{n!}{\alpha^{n+1}}$$.
+
+Voltando na integral em função do parâmetro, obtemos
+$$\dint_{0}^{\infty} x^{n} e^{-\alpha x} dx = \dfrac{n!}{\alpha^{n+1}}.$$
+
+Assim, para recuperar a integral inicial consideramos o parâmetro $\alpha = 1$. Logo,
+$$\dint_{0}^{\infty} x^{n} e^{-x} dx = n!$$
+que é o resultado desejado.
+}
+
+
+\exemplo{exam:06}{
+%Exemplo 6.
+Calcule a integral imprópria
+$$\Lambda = \dint_{0}^{\infty} \dfrac{\ln(1 + x^{2})}{1 + x^{2}} dx.$$
+}
+
+\solexemplo{Para calcular esta integral, vamos introduzir o parâmetro $\alpha \leq 0$, tal que tenhamos
+$$F(\alpha) = \dint_{0}^{\infty} \dfrac{\ln(1 + \alpha^{2}x^{2})}{1 + x^{2}} dx.$$
+
+Derivando $F(\alpha)$ em relação ao parâmetro, temos:
+$$\dfrac{\partial}{\partial \alpha} F(\alpha) =
+\dint_{0}^{\infty} \dfrac{2\alpha x^{2}}{(1 + \alpha^{2}x^{2})(1 + x^{2})} dx.$$
+
+A fim de calcular esta integral, utilizamos frações parciais. Devemos determinar constantes $A$ e $B$, tais que
+$$\dfrac{2\alpha x^{2}}{(1 + \alpha^{2}x^{2})(1 + x^{2})}
+=
+\dfrac{A}{1 + \alpha^{2}x^{2}} + \dfrac{B}{1 + x^{2}}$$
+de onde segue
+$$A = \dfrac{2\alpha}{1 - \alpha^{2}} \mbox{  e  } B = \dfrac{2\alpha}{\alpha^{2} - 1}.$$
+
+Voltando na expressão para a derivada, obtemos:
+$$\dfrac{\partial}{\partial \alpha} F(\alpha) = \dfrac{2\alpha}{1 - \alpha^{2}}
+\left[\dint_{0}^{\infty} \dfrac{dx}{1 + \alpha^{2}x^{2}} - \dint_{0}^{\infty} \dfrac{dx}{1 + x^{2}}\right].$$
+
+Estas duas integrais são imediatas, pois ambas resultam no arco tangente.
+
+{\red
+\textbf{Lembrete}:
+$$
+\dint \dfrac{dx}{1 + \alpha^{2}x^{2}}
+=
+\alpha \arctan(\alpha x)+C
+$$
+}
+
+Logo,
+$$\begin{array}{rcl}
+\dfrac{\partial}{\partial \alpha} F(\alpha)
+&=& \dfrac{2\alpha}{1-\alpha^2} \left[\alpha\arctan(\alpha x)-\arctan(x)\right.\Bigg|_{0}^{\infty} \\
+&=& - \dfrac{\pi}{1 - \alpha^{2}} - \dfrac{\alpha\pi}{1 - \alpha^{2}} \\[0.3cm]
+&=& \dfrac{\pi}{\alpha-1}.
+\end{array}$$
+
+{\red
+Observe aqui a necessidade do $\alpha \le 0$. Caso contrário, o resultado da integração seria igual a zero!
+}
+
+Por fim, integrando os dois membros, obtemos:
+$$F(\alpha) = \pi \ln|\alpha-1| + C,$$
+em que $C$ é uma constante de integração.
+
+Para determinar a constante, tomamos $\alpha = 0$. Assim,
+$$F(0) = \pi \ln(1) + C = 0,$$
+de onde segue $C = 0$.
+
+Logo, podemos escrever a integral geral, dependendo do parâmetro,
+$$\dint_{0}^{\infty} \dfrac{\ln(1 + \alpha^{2}x^{2})}{1 + x^{2}} dx = \pi \ln|\alpha-1|.$$
+
+
+Agora, para o nosso caso, tomamos $\alpha = -1$. Assim,
+$$\dint_{0}^{\infty} \dfrac{\ln(1 + x^{2})}{1 + x^{2}} dx = \pi \ln(2),$$
+que é o resultado desejado.
+}
+
+
+%Exemplo 7.
+\exemplo{exam:07}{
+Calcule a integral
+$$\Omega = \dint_{\infty}^{0} \dfrac{\ln(x)}{(x^{2} + 1)^{4}} dx.$$
+}
+
+\solexemplo{Vamos considerar a seguinte integral
+$$F(\alpha) = - \dint_{0}^{\infty} \dfrac{x^{\alpha}}{(x^{2} + 1)^{4}} dx,$$
+com $\alpha \leq 0$.
+
+A fim de resolver esta integral, sem utilizar o plano complexo, vamos derivá-la em relação ao parâmetro
+$$\dfrac{\partial}{\partial \alpha} F(\alpha) = - \dint_{0}^{\infty}
+\dfrac{x^{\alpha} \ln(x)}{(x^{2}+1)^{4}} dx$$
+que, calculada em $\alpha = 0$ fornece a integral desejada.
+
+Assim, primeiro, introduzimos a mudança de variável $x^{2} = t$ na expressão de $F(\alpha)$, de onde segue
+$$F(\alpha) = -\dfrac{1}{2} \dint_{0}^{\infty} \dfrac{t^{\frac{\alpha-1}{2}}}{(t + 1)^{4}} dt$$
+e, ainda uma outra mudança de variável $t + 1 = u$, nos leva à seguinte integral
+$$F(\alpha) = -\dfrac{1}{2} \dint_{1}^{\infty} \dfrac{(u-1)^{\frac{\alpha-1}{2}}}{u^{4}} du.$$
+
+Por fim, a mudança de variável $\dfrac{u-1}{u} = \xi$, de onde obtemos a integral, já rearranjando
+$$F(\alpha) = - \dfrac{1}{2} \dint_{0}^{1}
+\xi^{\frac{\alpha-1}{2}} (1 - \xi)^{\frac{5-\alpha}{2}}.$$
+
+Esta integral é calculada a partir da função beta. Logo,
+$$F(\alpha) = -\dfrac{1}{2} B\left(\dfrac{\alpha+1}{2}, \dfrac{7-\alpha}{2}\right)$$
+que, expressa em termos da função gama permite escrever
+$$F(\alpha) = -\dfrac{1}{2} \dfrac{\Gamma\left(\dfrac{\alpha+1}{2}\right)\Gamma\left(\dfrac{7-\alpha}{2}\right)}{\Gamma(4)}$$
+ou ainda, simplificada a partir das propriedades da função
+gama:
+$$F(\alpha) = \dfrac{\pi}{96} (\alpha - 5)(\alpha - 3)(\alpha - 1) \sin^{-1}\left(\dfrac{\alpha+1}{2} \pi\right).$$ \cite{capelas2012funcoesespeciais}
+
+
+Derivando em relação ao parâmetro $\alpha$, obtemos
+\begin{eqnarray}
+F'(\alpha) 
+&=& \dfrac{\pi}{96} (3\alpha^{2} - 18\alpha + 23) \sin^{-1}\left(\dfrac{\alpha+1}{2} \pi\right) \nonumber \\
+&-& \dfrac{\pi^2}{192} (\alpha - 5)(\alpha - 3)(\alpha - 1) \dfrac{\sin^{-2}\left(\dfrac{\alpha+1}{2} \pi\right)}{\cos^{-1}\left(\dfrac{\alpha+1}{2} \pi\right)}
+\end{eqnarray}
+
+Por fim, tomando $\alpha = 0$ na expressão para a derivada, podemos escrever para a integral de partida
+$$\Omega = \left.\dfrac{\partial}{\partial \alpha} F(\alpha)\right|_{\alpha=0}$$
+de onde segue
+$$\Omega = \dfrac{\pi}{96} \cdot 23 \sin^{-1}\left(\dfrac{\pi}{2}\right) = \dfrac{23}{96} \pi
+$$
+que é o resultado desejado.
+}
+
+
+\exemplo{exam:08}{
+%Exemplo 8.
+Calcular a integral real
+$$\mathcal{J} = \dint_{-\infty}^{\infty} \dfrac{e^{-x^{2}}}{1 + x^{2}} dx.$$
+}
+
+\solexemplo{Primeiro, introduzimos o parâmetro $\alpha$ tal que tenhamos uma função deste
+$$\mathcal{J}(\alpha) = \dint_{-\infty}^{\infty} \dfrac{e^{-\alpha^{2}x^{2}}}{1 + x^{2}} dx,$$
+que, para $\mathcal{J}(1)$, recupera a integral desejada.
+
+Agora, calculamos a derivada em relação ao parâmetro
+$$\dfrac{d}{d\alpha} \mathcal{J}(\alpha) = \dint_{-\infty}^{\infty}
+\dfrac{e^{-\alpha^{2}x^{2}}}{1 + x^{2}} (-2\alpha x^{2}) dx.$$
+
+Adicionando e subtraindo a unidade e rearranjando, podemos escrever a expressão
+$$\dfrac{d}{d\alpha} \mathcal{J}(\alpha) = -2\alpha \dint_{-\infty}^{\infty} e^{-\alpha^{2}x^{2}}
+dx + 2\alpha \dint_{-\infty}^{\infty} \dfrac{e^{-\alpha^{2}x^{2}}}{1 + x^{2}} dx.$$
+
+A primeira integral do lado direito (gaussiana) é conhecida de onde segue a equação diferencial
+$$\dfrac{d}{d\alpha} \mathcal{J}(\alpha) = -2\sqrt{\pi} + 2\alpha \mathcal{J}(\alpha).$$
+
+Agora, devemos resolver a equação diferencial ordinária, por exemplo, via fator integrante,
+$$e^{-\alpha^{2}} \dfrac{d}{d\alpha} \mathcal{J}(\alpha) - 2\alpha e^{-\alpha^{2}} \mathcal{J}(\alpha) = -2 \sqrt{\pi} e^{-\alpha^{2}},$$
+de onde segue
+$$\dfrac{d}{d\alpha}
+\left[e^{-\alpha^{2}} \mathcal{J}(\alpha)\right]
+= -2\sqrt{\pi} e^{-\alpha^{2}}$$
+cuja integração permite escrever
+$$\dint_{0}^{\alpha} \dfrac{d}{dx} \left[e^{-\alpha^{2}} \mathcal{J}(\alpha)\right] dx = -2 \sqrt{\pi} \dint_{0}^{\alpha} e^{-x^{2}} dx,$$
+ou ainda, na seguinte forma
+$$e^{-\alpha^{2}} \mathcal{J}(\alpha) - \mathcal{J}(0) = -2 \sqrt{\pi} \dint_{0}^{\alpha} e^{-x^{2}} dx.$$
+
+No segundo membro, temos uma função erro
+$$\dfrac{\sqrt{2}}{2} \dint_{0}^{\alpha} e^{-x^{2}} dx = \erf(\alpha).$$
+\cite{capelas2012funcoesespeciais}
+
+Assim, voltando com esse resultado e rearranjando, podemos escrever
+$$\mathcal{J}(\alpha) = \pi e^{\alpha^{2}} \erfc(\alpha),$$
+em que $\erfc(\alpha)$ é a função erro complementar.
+
+Agora, uma vez resolvida a equação diferencial, temos:
+$$\mathcal{J}(\alpha) = \dint_{-\infty}^{\infty} \dfrac{e^{-\alpha^{2}x^{2}}}{1 + x^{2}} dx = \pi e^{\alpha^{2}} \erfc(\alpha).$$
+
+Por fim, tomando $\alpha = 1$, obtemos:
+$$\dint_{-\infty}^{\infty} \dfrac{e^{-x^{2}}}{1 + x^{2}} dx = \pi e \erfc(1)$$
+que é o resultado desejado.
+}
+
+
+\exercicio{}{%Do lar 3.
+Mostre o seguinte resultado
+$$\dint_{0}^{\infty} \dfrac{\ln(\mu x)}{\nu^{2} + x^{2}} dx = \dfrac{\pi}{2\nu} \ln(\mu\nu)$$
+sendo $\mu > 0$ e $\nu > 0$.
+}
+
+\solexercicio{Seja
+$$
+\Omega
+= \dint_{0}^{\infty} \dfrac{\ln(\mu x)}{\nu^{2} + x^{2}} dx
+= \mu^2 \dint_{0}^{\infty} \dfrac{\ln(\mu x)}{(\mu\nu)^{2} + (\mu x)^{2}} dx.
+$$
+
+Façamos $\mu\nu = \xi$ e $\mu x = w \Rightarrow \mu dx = dw$. Logo,
+$$
+\Omega
+= \mu \dint_{0}^{\infty} \dfrac{\ln(w)}{\xi^{2} + w^{2}} dw.
+$$
+
+Empregaremos a metodologia popularizada por Feynman. Com base nessa última integral, vamos considerar a função
+$$F(\alpha) = \dint_{0}^{\infty} \dfrac{w^\alpha}{\xi^{2} + w^{2}} dw
+\Rightarrow
+\dfrac{d}{d\alpha} F(\alpha) = \dint_{0}^{\infty} \dfrac{w^\alpha \ln(w)}{\xi^{2} + w^{2}} dw,
+$$
+de onde temos:
+$$\dfrac{d}{d\alpha} F(0) = \dfrac{1}{\mu}\Omega$$
+
+Observemos que não é simples, ou é até mesmo impossível, encontrar uma expressão para $\dfrac{d}{d\alpha} F(\alpha)$ desenvolvendo a integral.
+
+A saída é calcularmos a integral em $F(\alpha)$ e só depois derivarmos para obter a expressão de $\dfrac{d}{d\alpha} F(\alpha)$. Segue que,
+
+$$\begin{array}{rcl}
+F(\alpha)
+&=& \dfrac{\xi^\alpha}{\xi^2} \dint_{0}^{\infty} \dfrac{(w/\xi)^\alpha}{1+(w/\xi)^2} dw \\
+&=& \xi^{\alpha-2} \dint_{0}^{\infty} \dfrac{{[(w/\xi)^2]}^{\alpha/2}}{1+(w/\xi)^2} dw \\
+&=& \xi^{\alpha-2} \dint_{0}^{\infty} \dfrac{{[(w/\xi)^2+1-1]}^{\alpha/2}}{1+(w/\xi)^2} dw
+\end{array}$$
+
+Façamos,
+$$(w/\xi)^2+1 = \lambda \Rightarrow w = \xi \sqrt{\lambda-1} \mbox{ e } dw = \dfrac{\xi^2}{2w},$$
+observando que $0 \le w < \infty \Rightarrow 1 \le \lambda \le \infty$.
+
+Logo,
+$$
+F(\alpha)
+= \xi^{\alpha-2} \dint_{1}^{\infty} \dfrac{(\lambda-1)^{\alpha/2}}{\lambda} \dfrac{\xi^2}{2\xi\sqrt{\lambda-1}} d\lambda
+= \dfrac{1}{2} \xi^{\alpha-1} \dint_{1}^{\infty} \dfrac{(\lambda-1)^{(\alpha-1)/2}}{\lambda} d\lambda
+$$
+
+Façamos, agora,
+$$\dfrac{\lambda-1}{\lambda} = u \Rightarrow \lambda = \dfrac{1}{1-u} \Rightarrow \lambda -1 = \dfrac{1}{1-u} -1 = \dfrac{u}{1-u}$$
+Além disso, $0 \le \lambda < \infty \Rightarrow 0 \le u < 1$ e
+$$d\lambda = (1-u)^2 du.$$
+
+Logo,
+$$\begin{array}{rcl}
+F(\alpha)
+&=&
+\dfrac{1}{2} \xi^{\alpha-1} \dint_{0}^{1} \dfrac{\left(\dfrac{u}{1-u}\right)^{(\alpha-1)/2}}{\dfrac{1}{1-u}} \dfrac{1}{(1-u)^2} du \\
+&=&
+\dfrac{1}{2} \xi^{\alpha-1} \dint_{0}^{1} u^{\frac{\alpha-1}{2}} (1-u)^{\frac{1-\alpha}{2}-1} du \\
+&=&
+\dfrac{1}{2} \xi^{\alpha-1} \dint_{0}^{1} u^{\frac{\alpha+1-1-1}{2}} (1-u)^{\frac{-1-1+1-\alpha}{2}} du \\
+&=&
+\dfrac{1}{2} \xi^{\alpha-1} \dint_{0}^{1} u^{\frac{\alpha+1}{2}-1} (1-u)^{\frac{1-\alpha}{2}-1} du
+\end{array}$$
+
+Esta última integral é dada pela função beta. Assim,
+$$
+F(\alpha)
+= \dfrac{1}{2} \xi^{\alpha-1} \mathfrak{B}\left(\dfrac{1+\alpha}{2}, \dfrac{1-\alpha}{2}\right)
+$$
+
+Utilizando a relação existente entre as funções beta e gama, temos:
+$$
+F(\alpha)
+= \dfrac{1}{2} \xi^{\alpha-1} 
+\dfrac{
+\Gamma\left(\dfrac{1+\alpha}{2}\right) \cdot
+\Gamma\left(\dfrac{1-\alpha}{2}\right)
+}
+{
+\Gamma\left(\dfrac{1+\alpha}{2}+\dfrac{1-\alpha}{2}\right)
+}
+$$
+
+Como
+$\dfrac{1+\alpha}{2}+\dfrac{1-\alpha}{2} = \dfrac{1+\alpha}{2}+1-\dfrac{1+\alpha}{2} = 1$ e $\Gamma(\eta) \cdot \Gamma(1-\eta) = \dfrac{\pi}{\sin(\pi\eta)}$, temos que:
+$$
+F(\alpha)
+= \dfrac{1}{2} \xi^{\alpha-1} \dfrac{\pi}{\sin\left[\pi\left(\dfrac{\alpha+1}{2}\right)\right]}
+= \dfrac{\pi}{2} \xi^{\alpha-1} \csc\left[\pi\left(\dfrac{\alpha+1}{2}\right)\right],
+$$
+a expressão de $F$ sem o operador de integração.
+
+Derivando esta expressão de $F$, obtemos:
+{\tiny
+$$
+\dfrac{d}{d\alpha}F(\alpha)
+=
+\dfrac{\pi}{2} \left\{
+\xi^{\alpha-1} \ln(\xi) \cdot \csc\left[\pi\left(\dfrac{\alpha+1}{2}\right)\right] - \dfrac{\pi}{2} \xi^{\alpha-1} \csc\left[\pi\left(\dfrac{\alpha+1}{2}\right)\right] \cdot \cot\left[\pi\left(\dfrac{\alpha+1}{2}\right)\right]
+\right\}
+$$}
+
+Uma vez que $\cot(\pi/2) = 1$ e $\csc(\pi/2) =0$, segue que:
+$$
+\dfrac{d}{d\alpha}F(0) = \dfrac{\pi}{2} [\xi^{-1}\ln(\xi)]
+$$
+
+Retornando ao resultado desejado, efetuando a substituição $\xi = \mu\nu$, temos:
+$$\Omega = \dfrac{\pi}{2\nu} \ln(\mu\nu).$$
+}
+
+
+
+\exemplo{exam:09}{
+%Exemplo 9.
+Calcular a integral real
+$$\dint_{0}^{\frac{\pi}{4}} x \tan^{2}(x) dx.$$
+}
+
+\solexemplo{Visto que não temos uma maneira direta para utilizar a metodologia como proposta por Feynman primeiro vamos calcular uma integral auxiliar
+$$\mathcal{J}(\alpha) = \dint_{0}^{\frac{\pi}{4}} \tan(\alpha x) dx,$$
+sendo $\alpha \in \mathbb{R}$. Essa integral é imediata, pois introduzindo a mudança de variável $\cos(\alpha x) = t$, de onde segue o diferencial $\sin(\alpha x) dx = -dt$ e assim podemos escrever
+$$\mathcal{J}(\alpha) = \dint_{0}^{\frac{\pi}{4}} \dfrac{\sin(\alpha x)}{\cos(\alpha x)} dx = - \dfrac{1}{\alpha} \dint_{1}^{\cos\left(\dfrac{\alpha\pi}{4}\right)} \dfrac{dt}{t}
+= - \dfrac{1}{\alpha} \ln\left[\cos\left(\dfrac{\alpha\pi}{4}\right)\right].$$
+
+Agora sim, vamos derivar ambos os membros da integral
+$$\mathcal{J}(\alpha) = \dint_{0}^{\frac{\pi}{4}} \tan(\alpha x) dx,$$
+em relação ao parâmetro sendo $\alpha \in \mathbb{R}$. Logo,
+$$\dfrac{\partial}{\partial \alpha} \mathcal{J}(\alpha) = \dint_{0}^{\frac{\pi}{4}} x \sec^{2}(\alpha x) dx.$$
+
+Utilizando a relação trigonométrica entre a tangente e a secante e escrevendo de forma conveniente, temos:
+$$\dfrac{\partial}{\partial \alpha} \mathcal{J}(\alpha) = \dint_{0}^{\frac{\pi}{4}} x dx + \dint_{0}^{\frac{\pi}{4}} x \tan^{2}(\alpha x) dx$$
+
+Integrando e rearranjando, obtemos:
+$$\dint_{0}^{\frac{\pi}{4}} x \tan^{2}(\alpha x) dx =
+\dfrac{\partial}{\partial \alpha} \mathcal{J}(\alpha) -
+\dfrac{\pi^{2}}{32}.$$
+
+Calculando a derivada de $\mathcal{J}(\alpha)$ em relação ao parâmetro $\alpha$ e substituindo na anterior, obtemos:
+$$
+\dint_{0}^{\frac{\pi}{4}} x \tan^{2}(\alpha x) dx
+= -\dfrac{\pi^{2}}{32} + \dfrac{1}{\alpha^{2}} \ln\left[\cos\left(\dfrac{\alpha\pi}{4}\right)\right] + \dfrac{\pi}{4\alpha} \tan\left(\dfrac{\alpha\pi}{4}\right)$$
+que é o resultado dependente do parâmetro $\alpha$.
+
+Em nosso caso, consideramos $\alpha = 1$, de onde segue
+$$\dint_{0}^{\frac{\pi}{4}} x \tan^{2}(x) dx = -\dfrac{\pi^{2}}{32} + \dfrac{1}{2} \ln(2) + \dfrac{\pi}{4}$$
+que é o resultado desejado.
+}
+
+\exercicio{}{
+%Do lar 4.
+Mostre que
+$$\dint_{0}^{\frac{\pi}{4}} \dfrac{x^{2} \tan(x)}{\cos^{2}(x)} dx = \dfrac{1}{2}\ln(2)-\dfrac{\pi}{4}+\dfrac{\pi^2}{16}.$$
+\cite{cornel2019almost}
+}
+
+\solexemplo{$$\Lambda = \dint_{0}^{\frac{\pi}{4}} \dfrac{x^{2} \cdot \tan(x)}{\cos^{2}(x)} dx$$
+
+Façamos:
+\begin{eqnarray}
+\label{eq:dolar03}
+J(\alpha)
+&=& \dint_{0}^{\frac{\pi}{4}} \tan(\alpha x) dx
+= \dint_{0}^{\frac{\pi}{4}} \dfrac{\sin(\alpha x)}{\cos(\alpha x)} dx \nonumber\\
+&=& \dfrac{1}{\alpha} \dint_{1}^{\cos\left(\alpha \frac{\pi}{4}\right)}\dfrac{dt}{t}
+= -\dfrac{1}{\alpha} \ln\left[\cos\left(\alpha \dfrac{\pi}{4}\right)\right].
+\end{eqnarray}
+
+Então,
+$$
+J'(\alpha)
+= \dint_{0}^{\frac{\pi}{4}} x \sec^{2}(\alpha x) dx
+$$
+e
+$$
+J''(\alpha)
+= \dint_{0}^{\frac{\pi}{4}} x^{2} \cdot 2 \cdot \sec(\alpha x) \cdot \sec(\alpha x) \cdot \tan(\alpha x) dx
+= 2 \dint_{0}^{\frac{\pi}{4}} \dfrac{x^{2}\tan(\alpha x)}{\cos^2(\alpha x)} dx.
+$$
+Então, o que queremos é $\dfrac{J''(1)}{2}$.
+
+De \eqref{eq:dolar03}, temos que
+$$\begin{array}{rcl}
+J'(\alpha)
+&=& \dfrac{1}{\alpha^2} \ln\left[\cos\left(\alpha\dfrac{\pi}{4}\right)\right] - \dfrac{1}{\alpha} \cdot \dfrac{1}{\cos\left(\alpha\dfrac{\pi}{4}\right)} \cdot \left[-\sin\left(\alpha\dfrac{\pi}{4}\right)\right] \frac{\pi}{4} \\
+&=& \dfrac{1}{\alpha^{2}} \ln\left[\cos\left(\alpha \dfrac{\pi}{4}\right)\right] + \dfrac{\pi}{4\alpha} \cdot \tan\left(\alpha\dfrac{\pi}{4}\right)
+\end{array}$$
+
+Implicando em
+$$\begin{array}{rcl}
+J''(\alpha)
+&=& -\dfrac{2}{\alpha^{3}} \cdot \left[\cos\left(\alpha\dfrac{\pi}{4}\right)\right] + \dfrac{1}{\alpha^{2}} \cdot \dfrac{1}{\cos\left(\alpha\dfrac{\pi}{4}\right)} \cdot \left[-\sin\left(\dfrac{\alpha\pi}{4}\right) \cdot \dfrac{\pi}{4}\right] \\
+&&+ \dfrac{\pi}{4} \cdot \left(-\dfrac{1}{\alpha^{2}}\right) \cdot \tan\left(\alpha\dfrac{\pi}{4}\right) + \dfrac{\pi}{4 \alpha} \cdot \sec^{2}\left(\alpha\dfrac{\pi}{4}\right) \cdot \dfrac{\pi}{4} \\
+&=& -\dfrac{2}{\alpha^3} \ln\left[\cos\left(\alpha\dfrac{\pi}{4}\right)\right] - \dfrac{\pi}{4\alpha^{2}} \cdot \tan\left(\alpha\dfrac{\pi}{4}\right) - \dfrac{\pi}{4\alpha^{2}} \cdot \tan\left(\alpha\dfrac{\pi}{4}\right) \\
+&&+ \dfrac{\pi^{2}}{16\alpha} \cdot \sec^{2}\left(\alpha\dfrac{\pi}{4}\right)
+\end{array}$$
+
+Segue que
+$$
+J''(1) = 2 \cdot \dfrac{1}{2} \cdot \ln(2) - \dfrac{\pi}{2} + \dfrac{\pi^{2}}{8}
+$$
+e
+$$\Lambda = \dfrac{J''(1)}{2} = \dfrac{1}{2} \ln(2) -\dfrac{\pi}{4} + \dfrac{\pi^{2}}{16}.$$
+}
+
+
+
+\exercicio{}{[Putnam Competition]%and Joint Entrance Examination Advanced]
+%Diversão.
+
+\indent
+\begin{description}
+\item (a) Calcular a integral
+$$\dint_{0}^{1} \dfrac{x^{4} (1 - x)^{4}}{1 + x^{2}} dx$$
+\item (b) Mostre que $\pi < \dfrac{22}{7}$.
+\end{description}
+}
+
+
+\exemplo{exam:10}{
+%Exemplo 10.
+Seja $x \in \mathbb{R}$. Mostre que
+$$\Omega = \dint_{0}^{1} \dfrac{\ln(x)}{\sqrt{1 - x^{2}}} dx = -\dfrac{\pi}{2} \ln(2).$$
+}
+
+\solexemplo{Considere a integral
+$$\Lambda(a) =
+\dint_{0}^{1} \dfrac{x^{a}}{\sqrt{1 - x^{2}}} dx,$$
+onde $a$ é um parâmetro.
+
+Derivando em relação a $a$, temos:
+$$\dfrac{\partial}{\partial a} \Lambda(a)
+=
+\dint_{0}^{1}
+\dfrac{x^{a} \ln(x)}{\sqrt{1 - x^{2}}} dx$$
+e, para $a \to 0$, podemos escrever
+$$\lim_{a \to 0} \dfrac{\partial}{\partial a}
+\Lambda(a) = \Omega.$$
+
+Vamos, então, calcular $\Lambda(a)$.
+
+Introduzindo a mudança de variável $x = t^{\frac{1}{2}}$, obtemos, já simplificando,
+$$\Lambda(a) = \dfrac{1}{2} \dint_{0}^{1} t^{\frac{a+1}{2}-1} (1 - t)^{\frac{1}{2}-1} dt.$$
+
+Utilizando a definição da função beta, bem como a sua relação com a função gama, obtemos:
+$$\Lambda(a) = \dfrac{1}{2} \mathcal{B}\left(\dfrac{a+1}{2}, \dfrac{1}{2}\right) = \dfrac{\sqrt{\pi}}{2} \dfrac{\Gamma\left(\dfrac{a+1}{2}\right)}{\Gamma\left(\dfrac{a}{2}+1\right)},$$
+onde utilizamos o resultado $\Gamma\left(\dfrac{1}{2}\right) = \sqrt{\pi}$.
+
+Derivando em relação ao parâmetro $a$ e tomando o limite $a \to 0$, podemos escrever:
+$$\Omega = \dfrac{\sqrt{\pi}}{2} \left[\dfrac{1}{2} \Gamma'\left(\dfrac{1}{2}\right) - \Gamma\left(\dfrac{1}{2}\right) \dfrac{1}{2} \Gamma(1)\right]
+=
+\dfrac{\sqrt{\pi}}{4}\left[\Gamma'\left(\dfrac{1}{2}\right) - \sqrt{\pi} \Gamma'(1)\right].$$
+onde a $'$ denota a derivada.
+
+Utilizando a relação $\Gamma'(z) = \Gamma(z) \psi(z)$, onde $\psi(z)$ é a chamada função digama ou função $\psi$, definida por
+$$\psi(z) = \dfrac{d}{dz} \ln\left[\Gamma(z + 1)\right)$$
+na seguinte forma
+$$
+\Omega =
+\dfrac{\sqrt{\pi}}{4}
+\left[
+\Gamma\left(\dfrac{1}{2}\right)
+\psi\left(\dfrac{1}{2}\right)
+- \sqrt{\pi} \psi(1)
+\right]
+=
+\dfrac{\sqrt{\pi}}{4}
+\left[
+\psi\left(\dfrac{1}{2}\right)-\psi(1)
+\right].
+$$
+Visto que valem as relações
+$$ 
+\psi\left(\dfrac{1}{2}\right) = -\gamma - 2\ln(2)
+\mbox{ e }
+\psi(1) = -\gamma
+$$
+sendo
+$$\gamma = \lim_{n\to\infty}
+\left(
+1 + \dfrac{1}{2} + \dfrac{1}{3} + \ldots + \dfrac{1}{n} - \ln(n)
+\right)$$
+a chamada constante de Euler (Euler-Mascheroni), podemos escrever para a integral de partida
+$$\dint_{0}^{1}
+\ln(x)\sqrt{1 - x^{2}} dx = \dint_{0}^{1} \dfrac{\pi}{4}
+[-\gamma- 2\ln(2) - (-\gamma)] = -\dfrac{\pi}{2}\ln(2)$$
+que é o resultado desejado.
+}
+
+%Do lar 5.
+\exercicio{}{
+Mostre que
+$$\dint_{0}^{\pi} x \tan(x) dx = -\pi \ln(2).$$
+}
+
+
+%Do lar 6.
+\exercicio{}{\label{exer:dolar06}
+Sejam $a, b, c \in \mathbb{R}$, mostre que
+$$\dint_{0}^{1} \dfrac{\ln(x)}{ax^{2} + bx + c} dx = - \dint_{0}^{\infty} \dfrac{\ln(x)}{cx^{2} + bx + a} dx.$$
+}
+
+%Do lar 7.
+\exercicio{}{
+Utilizando o exercício \ref{exer:dolar06}, calcule
+$$\Omega =
+\dint_{0}^{\infty} \dfrac{\ln(x)}{ax^{2} + bx + a} dx.
+$$
+}
+
+%Do lar 8.
+\exercicio{}{
+Calcule a integral
+$$\Lambda = \dint_{0}^{\infty} \dfrac{\ln(x)}{x^{2} + 6x + 25} dx.$$
+}
+
+
+
+
+
+
+

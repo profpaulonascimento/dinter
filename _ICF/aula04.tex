@@ -1,0 +1,3331 @@
+%% AULA 04
+
+\chapter{Transformadas integrais}
+
+Como já mencionamos, existem várias maneiras de procurar uma solução de uma equação diferencial, por exemplo, as séries de Frobenius. Aqui, vamos introduzir as transformadas integrais como uma metodologia, que, em linhas gerais, transforma um particular problema, equação ou sistema com as condições, num outro, aparentemente mais simples de ser abordado. 
+Resolvemos esse problema e voltamos com o processo inverso, a fim de determinar a solução do problema de partida.
+
+Existem várias transformadas integrais, mas aqui vamos tratar apenas três delas, as transformadas de Fourier, de Laplace e de Mellin. Cada uma delas apropriada para um particular problema, dependendo da geometria ou do intervalo de definição da função a ser transformada. Iniciamos com a transformada de Fourier, a partir do chamado teorema integral de Fourier e, como um caso particular de transformação (mudança de variável), introduzimos a transformada de Laplace. Ao final são apresentadas e discutidas as transformadas de Mellin.
+
+Importante notar que, ao postergar a solução do problema de partida para o problema transformado, também chamado de auxiliar, transferimos o problema para a inversão. Assim, para recuperar a solução do problema de partida, devemos proceder com a transformada inversa que, em geral, requer o uso do plano complexo.
+
+Cada uma das transformadas integrais é caracterizada pela escolha do intervalo de validade, onde a função a ser transformada está definida, das especificidades dessa função para as quais a integral seja convergente e do chamado núcleo da transformada, uma função de duas variáveis, a variável de partida e a variável transformada.
+
+Optamos, como já mencionado, começar com a transformada de Fourier onde, em analogia às séries de Fourier, a paridade da função desempenha papel importante.
+
+Serão, portanto, introduzidas as transformadas seno e cosseno de Fourier, sendo as principais propriedades apresentadas em termos de proposições ou teoremas, em particular, aquelas associadas às derivadas da função, visando a discussão de uma equação diferencial. Analogamente para as transformadas de Laplace e de Mellin.
+
+
+\section{Preliminares}
+
+Ainda que venhamos a discutir apenas três transformadas integrais, cada uma delas com as suas particularidades, começamos com o caso geral para depois particularizar. Vamos apresentar a definição de uma transformada integral geral, bem como discutir alguns conceitos que serão necessários, em particular, aqueles relativos às funções a serem transformadas.
+
+
+\definicao{Transformada integral}{def:aula04.01}{%Definição 1.
+Considere $x \in \mathbb{R}$. Seja $f(x)$ uma função definida num intervalo da reta real, denotado por $I$. Chama-se transformada (transformação) integral, denotada por
+$\mathscr{T}[f(x)]$, a expressão
+$$\mathscr{T}[f(x)] = F(y) := \int_{I} N(x, y) f(x) dx,$$
+onde $y$ é a variável transformada, $F(y)$ é a transformada da função $f(x)$ e $N(x, y)$, uma função de duas variáveis, é o núcleo da transformação.
+}
+
+Lembremos que, na metodologia das transformadas integrais, o problema original é conduzido (transformado) a um outro problema (auxiliar) aparentemente mais simples de ser abordado. O problema, agora, diz respeito ao retorno, a solução do problema original, que será determinado pela respectiva transformada integral inversa, denotada por $\mathscr{T}^{-1}[F(y)]$. Então, em geral, temos, o par de transformadas integrais, a chamada direta
+$$\mathscr{T}[f(x)] = F(y)$$
+e a respectiva transformada integral inversa, que recupera a função original
+$$\mathscr{T}^{-1}[F(y)] = f(x).$$
+
+Às vezes encontramos a notação, numa única expressão
+$$f(x) \div F(y)$$
+que, lida da esquerda para a direita, afirma que a função $f(x)$ é recuperada a partir da transformada inversa da função, a partir de agora apenas transformada inversa,
+$F(y)$, enquanto, lida da direita para a esquerda, assegura que a função $F(y)$ é a transformada direta da função, a partir de agora apenas transformada, $f(x)$.
+
+\definicao{Funções admissíveis}{def:aula04.02}{%Definição 2.
+Seja $f(x)$ uma função seccionalmente contínua no intervalo real $0 \le x < \infty$. Dizemos que $f(x)$ é uma função admissível se existem duas constantes positivas $M$ e $\alpha$ tais que, para todo $x$ no intervalo $0 \le x < \infty$, vale a desigualdade
+$$|f(x)| < M e^{\alpha x}.$$
+Neste caso, $f(x)$ também é chamada de função de \textbf{ordem exponencial}.
+}
+
+Após a apresentação das funções que vamos operar, vamos postergar, para cada uma das transformadas, a discussão relativa ao intervalo a ser considerado, bem como as características que devem ter o núcleo, quando explicitarmos a particular transformada.
+
+\section{Integral de Fourier}
+
+  Ainda que existam outros caminhos, vamos apresentar a chamada integral de Fourier, como uma extensão das séries de Fourier. Lembremos que as séries de Fourier são introduzidas, tendo a periodicidade da função como característica essencial, a validade da expansão apenas para o particular intervalo onde a função é periódica e, querendo para além do intervalo, devemos impor que a função seja periódica com período igual onde havia sido definida, precisamos estender o intervalo.
+
+  Com isso podemos estudar problemas envolvendo uma equação diferencial, por exemplo, descrevendo um particular fenômeno. A pergunta natural que emerge é: o que acontece se a função não é periódica, podemos ainda utilizar séries de Fourier? A resposta é não e é esse exatamente o objetivo de estudar a transformada de Fourier, estender o método das séries de Fourier de modo que possamos incluir funções não periódicas.
+
+  Começamos com uma simples forma da série de Fourier. Sejam $x \in \mathbb{R}$ e $f_{\ell}(x)$ uma função periódica, com período $2\ell$ cuja representação em série de Fourier pode ser escrita na seguinte forma:
+    $$f_{\ell}(x) = A_0 + \sum_{k=1}^{\infty} (A_k \cos(\alpha_k x) + B_k \sin(\alpha_k x),$$
+    com $A_0$, $A_k$ e $B_k$ os chamados coeficientes de Fourier e onde introduzimos o parâmetro $\alpha_k = \dfrac{k\pi}{\ell}$.
+
+    O parâmetro depende de $\ell$ e está associado ao período.
+
+    Vamos estender o período para todo o eixo real e, para tanto, tomar o limite $\ell \to \infty$. Assim, não está garantida a periodicidade que, a partir de agora, não será mais uma imposição a ser feita sobre a função. Ainda mais, nesse limite $\ell \to \infty$, é natural que tenhamos uma integral ao invés de um somatório, a passagem do discreto para o contínuo, pois $\alpha_{k}$ se torna tão pequeno quanto queiramos, tomando todos os valores e não só múltiplos inteiros.
+
+A partir das expressões que fornecem os coeficientes de Fourier, podemos escrever
+{\tiny
+$$f_{\ell}(x) = \dfrac{1}{2\ell} \int_{-\ell}^{\ell} f_{\ell}(y) dy +
+\dfrac{1}{\ell} \sum_{k=1}^{\infty}
+\left\{
+\cos(\alpha_k x)
+\int_{-\ell}^{\ell} f_{\ell}(y) \cos(\alpha_{k}y) dy +
+\sin(\alpha_{k}x)
+\int_{-\ell}^{\ell} f_{\ell}(y) \sin(\alpha_{k}y) dy
+\right\}.$$
+}
+
+Visto que $\Delta\alpha$ não depende do índice de soma, temos
+$\Delta\alpha = \dfrac{\pi}{\ell}$  de onde fica claro que, no limite $\ell \to \infty$, acarreta $\Delta\alpha \to 0$. Substituindo $\ell$ por $\dfrac{\pi}{\Delta\alpha}$ na expressão para $f_{\ell}(x)$, já rearranjando e simplificando, temos
+{\tiny
+$$f_{\ell}(x) = \dfrac{\Delta\alpha}{2\pi} 
+\int_{-\frac{\pi}{\Delta\alpha}}^{\frac{\pi}{\Delta\alpha}}
+f_{\ell}(y) dy +
+\dfrac{1}{\pi} 
+\sum_{k=1}^{\infty}
+\Delta\alpha 
+\left\{
+\cos(\alpha_{k}x)
+\int_{-\frac{\pi}{\Delta\alpha}}^{\frac{\pi}{\Delta\alpha}}
+f_{\ell}(y) \cos(\alpha_{k}y) dy +
+\sin(\alpha_{k}x)
+\int_{-\frac{\pi}{\Delta\alpha}}^{\frac{\pi}{\Delta\alpha}}
+f_{\ell}(y) \sin(\alpha_{k}y) dy
+\right\},$$
+}
+com $\Delta\alpha$ fixo, tão pequeno quanto se queira. Note que, tão pequeno quanto se queira, não é zero.
+
+Agora, devemos impor que a função $f_{\red \ell}(x)$ seja absolutamente integrável, obtida pelo limite $\ell \to \infty$ de $f_{\ell}(x)$. Assim, nesse limite, a transição do discreto para o contínuo, o somatório passa a ser uma integral, de onde segue
+{\small
+\begin{equation}\label{eq:aula04.01}
+f_{\red \ell}(x) = \dfrac{1}{\pi} 
+\int_{0}^{\infty}
+\left\{
+\cos(\alpha_{k}x)
+\int_{-\infty}^{\infty}
+f_{\red \ell}(x)(y) \cos(\alpha_{k}y) dy +
+\sin(\alpha_{k}x)
+\int_{-\infty}^{\infty}
+f_{\red \ell}(x)(y) \sin(\alpha_{k}y) dy\right\} d\alpha,
+\end{equation}
+}
+uma vez que o termo independente vai a zero nesse limite $\Delta\alpha \to 0$.
+
+A expressão precedente é a chamada \textbf{integral de Fourier} e é provada de maneira formal.
+
+Antes de formalizar o teorema da integral de Fourier, escrevemos a \autoref{eq:aula04.01} em termos dos coeficientes de Fourier
+\begin{equation}\label{eq:aula04.02}
+f(x) = \int_{0}^{\infty}
+[A(\alpha) \cos(\alpha x) + B(\alpha) \sin(\alpha x)] d\alpha,
+\end{equation}
+sendo os coeficientes dados por
+\begin{equation}\label{eq:aula04.03}
+\left[\begin{array}{c}
+A(\alpha) \\
+B(\alpha)
+\end{array}\right]
+=
+\dfrac{1}{\pi} 
+\int_{-\infty}^{\infty}
+\left[\begin{array}{c}
+\cos(\alpha y) \\
+\sin(\alpha y)
+\end{array}\right]
+f(y) dy.
+\end{equation}
+
+\teorema{Integral de Fourier}{}{%Teorema 1.
+Seja $f(x)$ uma função seccionalmente contínua em todo o intervalo finito do eixo $x$ e definida por
+$$\dfrac{1}{2} [f(a + 0) + f(a - 0)]$$
+em cada ponto de descontinuidade $x = a$; ainda mais, seja $f(x)$ tal que a integral
+$$\int_{-\infty}^{\infty} |f(x)| dx$$
+exista. Então, em todo ponto $x$ onde as derivadas laterais à esquerda, $f'_e(x)$, e à direita, $f'_d(x)$, existam, a função é representada por
+\begin{equation}\label{eq:aula04.04}
+f(x) = \dfrac{1}{\pi} 
+\int_{0}^{\infty}
+\int_{-\infty}^{\infty}
+f(\xi) \cos[\alpha(\xi - x)] d\xi d\alpha,
+\end{equation}
+para $-\infty < x < \infty$, chamada \textbf{integral de Fourier}.
+}
+
+\demteorema{\cite{churchill1963fourier}.}
+
+
+    Às vezes é conveniente escrever a fórmula integral de Fourier (\autoref{eq:aula04.04}) na forma contendo exponenciais, a fim de introduzir a chamada transformada de Fourier. Assim, vamos utilizar a fórmula de Euler para obter a expressão que fornece a integral de Fourier na forma complexa.
+
+Podemos escrever a \autoref{eq:aula04.04} na seguinte forma
+\begin{equation}\label{eq:aula04.05}
+f(x) = \dfrac{1}{2\pi} 
+\int_{-\infty}^{\infty}
+\int_{-\infty}^{\infty}
+f(\xi) \cos[\alpha(\xi - x)] d\xi d\alpha,
+\end{equation}
+justificada pelo fato de a expressão entre colchetes na
+\autoref{eq:aula04.04}, função de $\alpha$, ser uma função par, pois a função cosseno é uma função par, enquanto a função $f(x)$, não
+depende de $\alpha$, sendo a integração em relação a $\xi$. Note
+que a troca de $x$ por $\xi$ e vice-versa $\xi$ por $x$ não altera o
+resultado, afinal a função cosseno é uma função par.
+
+Por outro lado, ainda em relação à \autoref{eq:aula04.05}, visto que a
+função seno é uma função ímpar, podemos escrever
+\begin{equation}\label{eq:aula04.06}
+0 =
+\dfrac{1}{2\pi} 
+\int_{-\infty}^{\infty}
+\int_{-\infty}^{\infty}
+f(\xi) \sin[\alpha(\xi - x)] d\xi d\alpha,
+\end{equation}
+valendo a observação com relação à integração, e a troca de $x$ por $\xi$ e vice-versa $\xi$ por $x$ porém, agora, com o argumento de que o primeiro membro é zero.
+
+Por fim, multiplicando a \autoref{eq:aula04.06} por $i$, adicionando-a à
+\autoref{eq:aula04.05} e utilizando a relação de Euler, obtemos
+\begin{equation}\label{eq:aula04.07}
+f(x) = 
+\dfrac{1}{2\pi} 
+\int_{-\infty}^{\infty}
+\int_{-\infty}^{\infty}
+f(\xi) e^{i\alpha (\xi -x)}
+d\xi d\alpha
+\end{equation}
+a chamada integral de Fourier na forma complexa, ou integral de Fourier complexa.
+
+Desta expressão fica claro que o produto dos dois fatores multiplicativos deve ser $1/2\pi$, enquanto no núcleo os sinais devem ser contrários,
+como mostra o argumento $k(\xi - x)$.
+
+
+
+\section{Transformada de Fourier}
+
+Vamos definir a transformada de Fourier de uma função e a respectiva transformada de Fourier inversa, a partir da integral de Fourier complexa.
+
+Começamos com a \autoref{eq:aula04.07} escrita na seguinte forma
+\begin{equation}\label{eq:aula04.08}
+f(x) =
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{-\infty}^{\infty}
+\left\{
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{-\infty}^{\infty}
+f(\xi) e^{i\alpha \xi} d\xi 
+\right\}
+e^{-i\alpha x} d\alpha 
+\end{equation}
+ainda que pudesse ser escrita numa outra forma, cuja justificativa será apresentada a seguir.
+
+A expressão entre chaves é uma função da variável $\alpha$ e que vamos denotar por $F(\alpha)$, chamada transformada de Fourier da função $f(x)$,
+$$F(\alpha) =
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{-\infty}^{\infty}
+f(x) e^{i\alpha x} dx,$$
+onde substituímos $\xi$ por $x$, pois a variável de integração é uma variável muda. A partir dessa expressão e da \autoref{eq:aula04.08} podemos escrever
+$$f(x) = 
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{-\infty}^{\infty}
+F(\alpha) e^{-i\alpha x} d\alpha$$ 
+chamada \textbf{transformada de Fourier inversa} de $F(\alpha)$.
+
+\definicao{Transformada de Fourier}{def:aula04.03}{%Definição 3.
+Sejam $f(x)$ uma função absolutamente integrável no intervalo $-\infty < x < \infty$ enquanto $N(x, k) = e^{ikx}$, o núcleo da transformada de Fourier, sendo $k$ a variável transformada. Definimos a transformada de Fourier,
+denotada por $\mathscr{F}[f(x)]$, a partir da integral
+$$F(k) = \mathscr{F}[f(x)] := 1
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{-\infty}^{\infty}
+f(x) e^{ikx} dx$$
+desde que a integral exista.
+}
+
+\definicao{Transformada de Fourier inversa}{def:aula04.04}{%Definição 4. 
+Seja $F(k)$ uma função absolutamente integrável no intervalo $-\infty < x < \infty$. Definimos a transformada de Fourier inversa, denotada por $\mathscr{F}^{-1}[F(k)]$, a partir da integral
+$$
+f(x) = \mathscr{F}^{-1}[F(k)] :=
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{-\infty}^{\infty}
+F(k) e^{-ikx} dk,$$
+desde que a integral exista.
+}
+
+A partir das Definições \ref{def:aula04.03} e \ref{def:aula04.04}, e da \autoref{eq:aula04.08} podemos escrever para o par de transformada de Fourier, direta e inversa, $f(x) \div F(k)$, como já mencionado.
+
+Antes de passarmos ao estudo de propriedades, façamos um breve comentário com relação a algumas liberdades de escolha. Primeiro, também é encontrado na literatura, como variável transformada, tanto $y$ quanto $\omega$ ou $\alpha$, porém optamos pela letra $k$. Em relação ao fator $1/\sqrt{2\pi}$ que se encontra em ambas as definições, forma simétrica, pode ser encontrado, também, o fator $1/2\pi$ ou na transformada direta ou na transformada inversa. Uma vez colocado em uma delas, a respectiva transformada não contém nenhum fator. Preferimos trabalhar com a forma simétrica, colocando o fator $1/\sqrt{2\pi}$ em ambas, Definição \ref{def:aula04.03} e Definição \ref{def:aula04.04}, pois o produto deve ser $1/2\pi$. Em relação ao núcleo, a transformada de Fourier foi definida com o sinal no expoente positivo, enquanto na respectiva transformada de Fourier inversa, trocamos o sinal. Também encontra-se na literatura o contrário, a transformada de Fourier com o sinal negativo e a respectiva inversa com o sinal positivo.
+
+    Tanto uma escolha, em relação ao fator, quanto a outra, relativa ao núcleo, em princípio, são arbitrárias; uma vez escolhidos o fator e o sinal do núcleo, estes devem ser mantidos, pois a inversa é consequência.
+
+    Passemos a apresentar algumas propriedades das transformadas de Fourier, direta e inversa, todas elas podendo ser mostradas através da definição e uma particular mudança de variável ou integração por partes.
+
+\proposicao{Linearidade}{prop:aula04.01}{%Propriedade 1.
+Sejam $f(x)$, $g(x)$ e $h(x)$ funções absolutamente integráveis e $F(k)$, $G(k)$ e $H(k)$ as respectivas transformadas de Fourier. As transformadas de Fourier direta e inversa são lineares
+$$\begin{array}{rl}
+ &
+\mathscr{F}[f(x)] \{\mathscr{F}^{-1}[F(k)]\} \\
+=&
+\mathscr{F}[c_1 g(x) \pm c_2 h(x)] \{\mathscr{F}^{-1} [c_1 G(k) \pm c_2 H(k)]\} \\
+=& c_1 \mathscr{F}[g(x)] \{\mathscr{F}^{-1} [G(k)]\} \pm c_2 \mathscr{F}[h(x)] \{\mathscr{F}^{-1} [H(k)]\}
+\end{array}$$
+sendo $c_1$ e $c_2$ duas constantes arbitrárias e $k$ a variável transformada.
+}
+
+\proposicao{Deslocamento}{prop:aula04.02}{%Propriedade 2.
+Seja $c$ uma constante real. Se $F(k)$ é a transformada de Fourier da função $f(x)$, então a transformada de Fourier da função $f(x \pm c)$ é
+$$\mathscr{F}[f(x \pm c)] = e^{\mp ikc} \mathscr{F}[f(x)] = e^{\mp ikc} F(k).$$
+}
+
+\proposicao{Escala}{prop:aula04.03}{%Propriedade 3.
+Se $\mu \in \mathbb{R}^\ast$ e $F(k)$ é a transformada de Fourier da função $f(x)$, então a transformada de Fourier da função $f(\mu x)$ é
+$$\mathscr{F}[f(\mu x)] = \dfrac{1}{|\mu|}
+F\left(\dfrac{k}{\mu}\right).$$
+}
+
+Antes de apresentar a propriedade associada às derivadas de uma função, visando a metodologia das transformadas integrais para discutir uma equação diferencial, e o teorema de convolução que responde a pergunta: quando a transformada de um produto é o produto das transformadas?, discutimos o cálculo de uma transformada de Fourier que nos será útil na resolução de uma equação diferencial associada a um processo de difusão.
+
+
+\exemplo{exem:aula04.01}{%Exemplo 1.
+\textbf{Transformada de Fourier de uma Gaussiana}. Seja $\sigma > 0$. Calcule a transformada de Fourier da função
+$$f(x) = e^{-\sigma x^{2}}.$$
+}
+
+\solexemplo{
+Utilizando a definição da transformada de Fourier, devemos calcular a integral
+$$F(k)
+= \mathscr{F}[e^{-\sigma x^{2}}]
+= \dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty} 
+e^{-\sigma x^{2}} e^{ikx} dx,$$
+onde $k$ é a variável transformada.
+
+Começamos forçando um quadrado perfeito
+$$-\sigma x^{2} + ikx = -\sigma \left(x^{2} - i\dfrac{k}{\sigma} x\right)$$
+que, adicionando e subtraindo a parcela $\dfrac{k^{2}}{4\sigma^{2}}$,
+fornece
+$$-\sigma \left(x^{2} - i\dfrac{k}{\sigma} x\right)
+=
+-\sigma \left(x^{2} - i\dfrac{k}{\sigma} x + \dfrac{k^{2}}{4\sigma^{2}} - \dfrac{k^{2}}{4\sigma^{2}}\right)
+= -\sigma 
+\left(x - i\dfrac{k}{2\sigma}\right)^{2} - \dfrac{k^{2}}{4\sigma^{2}}
+$$
+de onde segue a igualdade
+$$-\sigma x^{2} + ikx
+=
+-\sigma 
+\left(x - i\dfrac{k}{2\sigma}\right)^{2}-\underbrace{\dfrac{k^{2}}{4\sigma^{2}}}_{(\ast)}.$$
+
+Visto que a segunda parcela, destacada por ($\ast$), é independente de $x$ e utilizando a linearidade das transformadas de Fourier (Proposição \ref{prop:aula04.01}), podemos escrever
+$$
+F(k)
+= \mathscr{F}[e^{-\sigma x^{2}}]
+=
+e^{\frac{-k^{2}}{4\sigma^{2}}} 
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty} 
+\exp\left[-\sigma \left(x - i\dfrac{k}{2\sigma}\right)^{2}\right]dx.$$
+
+A fim de calcular a integral remanescente, introduzimos a mudança de variável $x - i\dfrac{k}{2\sigma} = \xi$. Logo,
+$$F(k)
+= \mathscr{F}[e^{-\sigma x^{2}}]
+=
+e^{\frac{-k^{2}}{4\sigma^{2}}}
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+e^{-\sigma \xi^{2}} d\xi.$$
+
+A mudança de variável tem justificativa com o uso do plano complexo, sugerimos ver \cite{capelas2012funcoesespeciais}.
+
+%REF. E. Capelas de Oliveira, Funções Especiais com Aplicações, Livraria Editora da Física, São Paulo, (2012).
+
+
+Esta integral é conhecida como Gaussiana ou distribuição Gaussiana. Para calculá-la, vamos usar as coordenadas polares no plano, definidas pelas equações paramétricas
+$$\left\{
+\begin{array}{rcl}
+\xi  &=& r \cos(\theta) \\
+\eta &=& r \sin(\theta),
+\end{array}\right.$$
+com $r \ge 0$ e $0 \le \theta < 2\pi$.
+
+Para simplificar a notação, introduzimos
+$$\Omega = \int_{-\infty}^{\infty} e^{-\sigma \xi^{2}} d\xi,$$
+de modo a calcular o produto $\omega^{2}$,
+$$\Omega^{2} =
+\int_{-\infty}^{\infty} e^{-\sigma \xi^{2}} d\xi \cdot \int_{-\infty}^{\infty} e^{-\sigma \eta^{2}} d\eta.$$
+
+A partir das coordenadas polares no plano, temos
+$$\left\{
+\begin{array}{rcl}
+\xi^{2} + \eta^{2} &=& r^{2} [\cos^{2}(\theta) + \sin^{2}(\theta)] = r^{2} \\
+d\xi d\eta &=& r dr d\theta
+\end{array}\right.$$
+que, substituídas na expressão para $\Omega^{2}$ e fazendo uso da
+paridade, permite escrever
+$$
+\Omega^{2}
+= 4
+\int_{0}^{\infty}
+r e^{-\sigma r^{2}} dr
+\cdot
+\int_{0}^{\frac{\pi}{2}}
+d\theta.$$
+
+A integral na variável $\theta$ é imediata, enquanto para a integral na variável $r$, introduzimos a mudança de variável $r^{2} = t$, de onde podemos escrever, já simplificando:
+$$\Omega^{2} = \pi \int_{0}^{\infty} e^{-\sigma t} dt$$
+que, após integração e simplificação, nos leva ao resultado
+$$\Omega^{2} = \dfrac{\pi}{\sigma}.$$
+
+Assim, voltando com esse resultado na integral na variável inicial, temos para a transformada de Fourier
+$$F(k) = \dfrac{1}{\sqrt{2\sigma}} e^{\frac{-k^{2}}{4\sigma^{2}}}.$$
+
+Note que, desta expressão, a menos de um fator multiplicativo, tanto a função $f(x)$, quanto a transformada de Fourier desta função, $F(k)$, são funções exponenciais com argumentos do mesmo tipo.
+}
+
+
+\teorema{Transformada da derivada}{teo:aula04.02}{%Teorema 2.
+Seja $f(x)$ uma função continuamente diferenciável e com $f(x) \to 0$, quando $|x| \to \infty$, então
+$$\mathscr{F}[f'(x)] = -ik\mathscr{F}[f(x)] = -ikF(k).$$
+}
+
+\exercicio{exer:aula04.01}{%Do lar 1.
+Mostre esse resultado.
+}
+
+Podemos estender esse resultado através do teorema.
+
+\teorema{}{teo:aula04.03}{%Teorema 3.
+Se $f(x)$ é $n$-vezes continuamente diferenciável, $n = 0, 1, \ldots$ e $f^{(k)}(x) \to 0$ quando $|x| \to \infty$, para $k = 1, 2, \ldots$, então a transformada de Fourier da derivada de ordem $n$ é
+\begin{equation}\label{eq:aula04.09}
+\mathscr{F}[f^{(n)}(x)] = (-ik)^n \mathscr{F}[f(x)] = (-ik)^n F(k).
+\end{equation}
+}
+
+\exercicio{exer:aula04.02}{%Do lar 2.
+Mostre esse resultado.
+}
+
+\exercicio{exer:aula04.03}{%Do lar 3.
+Utilize a definição da transformada de Fourier para mostrar o \autoref{teo:aula04.03}.
+}
+
+A fim de que discutamos um exemplo elucidativo do uso da expressão para a derivada, vamos apresentar o oscilador harmônico amortecido, discussão análoga vale para o circuito RLC \cite{capelas2005funcoes}.
+
+% REF. E. Capelas de Oliveira e W. A. Rodrigues Jr., Funções Analíticas com Aplicações, Editora Livraria da Física, São Paulo, (2005).
+
+%%28 maio 21
+
+
+\exemplo{exem:aula04.02}{%Exemplo 2. Oscilador harmônico amortecido. ˆ
+Consideremos um \textbf{oscilador harmônico amortecido} sobre o qual age uma força externa $g(t)$. Esse movimento é governado pela equação diferencial ordinária,
+$$\dfrac{d^{2}}{dt^{2}} x(t) - 2\alpha \dfrac{d}{dt} x(t) + \omega^{2} x(t) = f(t)$$
+com $x: \mathbb{R} \supset I \to \mathbb{R}$, onde $f(t) = g(t)/m$, sendo
+$m$ a massa, $2\alpha > 0$ o coeficiente de amortecimento e $\omega$ a frequência.
+
+Para resolver a equação diferencial ordinária devemos impor que, tanto $x(t)$ quanto suas derivadas primeira e segunda, e a função $f(t)$, admitam transformada de Fourier.
+}
+
+\solexemplo{
+Multiplicando a equação diferencial ordinária por $e^{ikt}$, integrando no intervalo de $-\infty$ a $\infty$ e utilizando a \autoref{eq:aula04.09}, com $n = 1$ e $n = 2$, obtemos a seguinte equação
+$$-k^{2} A(k) - 2\alpha ik A(k) + \omega^{2} A(k) = F(k)$$
+sendo as funções $A(k)$ e $F(k)$ as respectivas transformadas de Fourier, tais que
+$$\left[\begin{array}{c} A(k) \\ F(k) \end{array}\right]
+=
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\left[\begin{array}{c} x(t) \\ f(t) \end{array}\right]
+e^{ikt} dt.$$
+Essa equação é uma equação algébrica, com solução
+$$A(k) = \dfrac{F(k)}{(\omega^{2} - k^{2}) - 2\alpha ik}.$$
+
+Como já mencionado, a metodologia da transformada integral conduz o problema de partida, em um outro problema, auxiliar, que, supostamente, é mais simples de ser abordado. Neste particular exemplo, a metodologia da transformada de Fourier conduziu uma equação diferencial ordinária de segunda ordem, linear, com coeficientes constantes e não homogênea, numa equação algébrica, realmente, mais simples de ser resolvida.
+
+A imposição de que as funções admitam a transformada de Fourier é fundamental, caso contrário não seria possível a resolução com tal metodologia. Uma vez obtida a solução da equação algébrica, recuperamos a solução da equação diferencial ordinária de segunda ordem, linear, com coeficientes constantes e não homogênea, a partir da respectiva transformada de Fourier inversa,
+$$x(t) = \dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+F(k) e^{-ikt} (\omega^{2} - k^{2}) - 2\alpha ik dk.$$
+
+Uma vez conhecida a função $f(t)$, calculamos a transformada de Fourier para obter $F(k)$. Substituindo-a na expressão anterior e calculando a integral resultante, obtemos a solução da equação diferencial associada ao oscilador harmônico amortecido. Para o oscilador harmônico livre, obtido como caso particular deste resultado, basta tomar o coeficiente de atrito $2\alpha = 0$.
+}
+
+
+\exemplo{exem:aula04.03}{%Exemplo 3.
+Discuta o caso $\alpha = 0$ e $f(t) = \delta(t)$.
+}
+
+\solexemplo{
+A equação diferencial a ser resolvida é
+$$
+\dfrac{d^{2}}{dt^{2}} x(t) + \omega^{2} x(t) = \delta(t),
+$$
+com $\omega^{2}$ uma constante positiva.
+
+Tomando a transformada de Fourier de ambos os lados, isto é, multiplicando a equação por $e^{ikt}$, com $k \in \mathbb{C}$ e integrando, temos:
+$$
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\dfrac{d^{2}}{dt^{2}} x(t)
+e^{ikt} dt
++
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\omega^{2} x(t)
+e^{ikt} dt
+=
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\delta(t)
+e^{ikt} dt
+$$
+
+Utilizando a expressão para a derivada de ordem dois (duas integrações por partes) e que a integral no segundo membro é igual à unidade, obtemos:
+$$-k^{2} A(k) + \omega^{2} A(k) = 1$$
+onde $A(k)$ é dada pela integral (transformada de Fourier)
+$$
+A(k) =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+x(t) e^{ikt} dt.$$
+
+Essa é uma equação algébrica (\textit{\red nosso propósito de converter a equação de partida numa outra, mais fácil de ser resolvida}) com solução dada por
+$$A(k) = \dfrac{1}{\omega^{2} - k^{2}}.$$
+
+Agora, devemos recuperar a solução x(t) através da transformada inversa, ou ainda, a partir da integral
+$$x(t) = \mathscr{F}^{-1}[A(k)] = \dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\dfrac{e^{-ikt}}{\omega^{2} - k^{2}} dk,$$
+que é o resultado desejado. 
+}
+
+
+\exercicio{exer:aula04.04}{%Do lar 4.
+Utilize as funções analíticas para resolver a integral remanescente do Exemplo 3. Note que ambos os polos simples estão no eixo real.
+}
+
+
+\subsection{Produto de convolução}
+
+Vamos responder a pergunta relativa ao produto de transformadas, especificamente: a transformada do produto é o produto das transformadas? Para responder a essa pergunta, começamos introduzindo o chamado produto de convolução, ou convolução de Fourier, e um teorema que garante o produto das transformadas.
+
+Façamos um breve comentário. Antes de apresentar a definição de produto de convolução, em termos de uma integral, vamos discutir o produto de duas séries envolvendo índices que fornecem termos com potências positivas e negativas, as chamadas séries de Laurent.
+
+Consideremos duas séries do tipo Laurent, admitindo potências positivas e negativas
+$$A(x)
+= \sum_{j=-\infty}^{+\infty} a_j x^j
+\mbox{ e }
+B(x)
+= \sum_{\ell=-\infty}^{+\infty} b_\ell x^\ell
+$$
+sendo $a_j$ e $b_\ell$ os respectivos coeficientes.
+
+Efetuando o produto dessas duas séries, podemos escrever
+$$A(x) B(x) = \sum_{j=-\infty}^{+\infty} a_j x^j \sum_{\ell=-\infty}^{+\infty} b_\ell x^\ell$$
+ou ainda , denotando o produto por $C(x)$, na forma
+$$C(x) = \sum_{j=-\infty}^{+\infty}\sum_{\ell=-\infty}^{+\infty} a_j b_\ell x^{j+l}.$$
+
+Introduzindo uma mudança de índice $j+\ell = k$, podemos escrever, já rearranjando
+$$C(x) = \sum_{k=-\infty}^{+\infty}\sum_{j=-\infty}^{+\infty}
+a_j b_{k-j} x^k.$$
+admitindo possível a troca de ordem das séries.
+
+Denotando por $c_k$ a série em $j$,
+$$c_k = \sum_{j=-\infty}^{+\infty} a_j b_{k-j},$$
+podemos escrever para a série produto
+$$C(x) = \sum_{k=-\infty}^{+\infty}
+c_k x^k,$$
+com os coeficientes dados em termos de uma série.
+
+Note que, após efetuado o produto, obtivemos uma série do mesmo tipo das séries que foram multiplicadas. A sequência $\{c_k\}_{-\infty}^{+\infty}$ é chamada de convolução das sequências $\{a_j\}_{-\infty}^{+\infty}$ e $\{b_\ell\}_{-\infty}^{+\infty}$, ou somente, convolução.
+
+Em analogia à série, caso discreto, podemos escrever um resultado similar para o produto de duas integrais, caso contínuo, a partir de uma conveniente mudança de variável a fim de obter uma integral do mesmo tipo, como será visto a seguir.
+
+Considere as transformadas
+$$\begin{array}{rcl}\displaystyle
+A(k)
+&=&
+\int_{-\infty}^{\infty}
+e^{-ikt} a(t) dt \\
+B(k)
+&=&
+\int_{-\infty}^{\infty}
+e^{-ikx} b(x) dx
+\end{array}$$
+sendo $k$ o parâmetro das transformadas. Efetuando o produto das duas integrais, temos, já definindo o produto dessas duas integrais por:
+$$C(k) = A(k)B(k) =
+\int_{-\infty}^{\infty}
+\int_{-\infty}^{\infty}
+e^{-ikt-ikx} a(t) b(x) dt dx.
+$$
+
+Introduzindo a mudança de variável $t + x = \xi$. obtemos:
+$$
+C(k)
+=\int_{-\infty}^{\infty}
+e^{-ik\xi} c(\xi) d\xi,$$ 
+onde $c(\xi)$ é dado por uma das duas integrais
+$$
+c(x)
+=
+\int_{-\infty}^{\infty}
+a(x-\xi) b(\xi) d\xi
+=
+\int_{-\infty}^{\infty}
+a(\xi) b(x-\xi) d\xi
+$$
+desde que a integral exista. Aqui, como no caso discreto, $c(x)$ é a convolução de $a(x)$ e $b(x)$ denotada por $a \star b$.
+
+O produto de convolução de duas funções $f$ e $g$ é:
+$$[f \star g](x) = \int_{-\infty}^{\infty} \mathscr{G}(x - \xi) f(\xi) d\xi,$$ onde $\mathscr{G}(x)$ é conhecido pelo nome de \textbf{núcleo}.
+
+\definicao{Produto de convolução}{def:aula04.05}{%Definição 5. .
+Sejam duas funções $f(x)$ e $g(x)$ definidas no intervalo $-\infty < x < \infty$. Definimos o \textbf{produto de convolução} das funções $f(x)$ e $g(x)$, denotado por $[f \star g](x)$, pela integral
+$$h(x) = [f \star g](x) := \int_{-\infty}^{\infty}
+f(x - \xi) g(\xi) d\xi  := \int_{-\infty}^{\infty}
+f(\xi) g(x - \xi) d\xi$$ 
+desde que as integrais existam.
+}
+
+    Após definirmos o produto de convolução de Fourier, vamos apresentar o teorema de convolução que garante que a transformada de Fourier de um produto de convolução é igual ao produto das transformadas de Fourier das funções envolvidas na convolução.
+
+    Note que estamos usando o termo convolução de Fourier, exclusivamente para chamar a atenção da transformada, pois para cada transformada a definição do produto de convolução tem a sua particularidade.
+
+\teorema{Teorema de convolução}{teo:aula04.04}{%Teorema 4.
+Consideremos duas funções $f(x)$ e $g(x)$ definidas no intervalo $-\infty < x < \infty$ e as respectivas transformadas de Fourier, $F(k)$ e $G(k)$. Então, a transformada de Fourier do produto de convolução de Fourier, denotado por $\mathscr{F}[(f \star g)(x)]$, destas duas funções é igual ao produto das transformadas de Fourier $F(k)$ e $G(k)$,
+$$H(k) \equiv \mathscr{F}[(f \star g)(x)]
+= \sqrt{2\pi} \mathscr{F}[f(x)] \mathscr{F}[g(x)]
+= \sqrt{2\pi} F(k) G(k).$$
+}
+
+\demteorema{Ver Exemplo \ref{exem:aula04.04}}
+
+
+\exemplo{exem:aula04.04}{
+Mostre o resultado do \autoref{teo:aula04.04}.
+}
+
+\solexemplo{
+A fim de mostrar que a transformada de Fourier do produto de convolução é igual ao produto das transformadas multiplicado por $\sqrt{2\pi}$, partimos da definição do produto de convolução
+$$
+\mathscr{F}[f(x)\star g(x)] =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+e^{-ikx} dx
+\int_{-\infty}^{\infty}
+f(\tau') g(x-\tau') d\tau'
+$$
+que, multiplicando e dividindo por $e^{-ik\tau'}$, permite escrever, já rearranjando
+$$
+\mathscr{F}[f(x) \star g(x)] =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+dx
+\int_{-\infty}^{\infty}
+e^{-ik(x-\tau')} g(x - \tau') e^{-ik\tau'} f(\tau') d\tau'
+$$
+ou ainda, reescrito na seguinte forma
+$$
+\mathscr{F}[f(x) \star g(x)]
+=
+\sqrt{2\pi} \dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+d\xi
+e-ik\xi g(\xi)
+\cdot
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+d\tau'
+e^{-ik\tau'} f(\tau')
+$$
+e, pela definição de transformada de Fourier, fornece
+$$
+\mathscr{F}[f(x) \star g(x)]
+=
+\sqrt{2\pi}
+\mathscr{F}[f(x)] \mathscr{F}[g(x)]
+=
+\sqrt{2\pi} F(k)G(k),$$
+que é o resultado desejado. 
+}
+
+
+\exemplo{exem:aula04.05}{%Exemplo 5.
+Mostre que a transformada de Fourier inversa do produto de duas funções é, a menos de uma constante multiplicativa $1/\sqrt{2\pi}$, igual ao produto de convolução das transformadas de Fourier inversa ou ainda o produto de convolução das funções
+$$\mathscr{F}^{-1}[F(k)G(k)]
+=
+\dfrac{1}{\sqrt{2\pi}}
+\mathscr{F}^{-1}[F(s)] \star \mathscr{F}^{-1}[G(s)]
+=
+\dfrac{1}{\sqrt{2\pi}} f(x) \star g(x).
+$$
+}
+
+\solexemplo{
+A fim de mostrar esse resultado, partimos da expressão para a transformada de Fourier inversa do produto de duas funções,
+$$
+\mathscr{F}^{-1}[F(k) G(k)]
+=
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+e^{-ikx} F(k) G(k) dk.
+$$
+
+Utilizando a propriedade de filtragem envolvendo a função delta de Dirac, podemos escrever
+$$
+=
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty} e^{-ikx} F(k)
+\underbrace{\int_{-\infty}^{\infty} G(\tau') \delta(k - \tau') d\tau'}_{= G(k)} dk.$$
+
+Utilizando a representação integral da função delta de Dirac, dada pela integral
+$$
+\dfrac{1}{2\pi} \int_{-\infty}^{\infty} e^{ix(s-t)} dx = \delta(s - t),
+$$
+obtemos:
+$$
+=
+\dfrac{1}{(2\pi)^{\frac{3}{2}}}
+\int_{-\infty}^{\infty} dk e^{-ikx} F(k)
+\int_{-\infty}^{\infty} d\tau' G(\tau')
+\int_{-\infty}^{\infty} d\xi e^{i\xi (k-\tau')}
+$$
+que, rearranjando, permite escrever
+$$\begin{array}{rcl}
+& & \mathscr{F}^{-1}[F(k) G(k)] \\[0.3cm]
+&=&
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty} d\xi 
+\underbrace{\dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} d\tau' G(\tau') e^{-i\xi \tau'}}_{= g(\xi)}
+\cdot
+\underbrace{\dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} dk e^{-ik(x-\xi)} F(k)}_{= f(x-\xi)},
+\end{array}$$
+ou ainda, na seguinte forma
+$$
+\mathscr{F}^{-1}[F(k) G(k)] =
+\dfrac{1}{\sqrt{2\pi}}
+\mathscr{F}^{-1}[F(k)] \star \mathscr{F}^{-1}[G(k)]
+=
+\dfrac{1}{\sqrt{2\pi}} f(x) \star g(x),$$
+que é o resultado desejado.
+}
+
+
+\exercicio{exer:aula04.05}{%Do lar 5.
+Mostre que o produto de convolução goza da propriedade comutativa,
+$$f(t) \star g(t) = g(t) \star f(t).$$
+}
+
+\exemplo{exem:aula04.06}{%Exemplo 6.
+\textbf{Convolução de duas funções elementares}. Sejam $x \in \mathbb{R}$ e as funções $f(x) = e^{-|x|}$ e $g(x) = \cos(x)$. Calcule o produto de convolução.
+}
+
+\solexemplo{
+Utilizando a definição do produto de convolução de Fourier, podemos escrever:
+$$h(x) = 
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty} e^{-|\xi|} \cos(x - \xi) d\xi.
+$$
+
+Separando em dois intervalos e rearranjando, temos
+$$
+h(x) =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{0}^{\infty} [\cos(x - \xi) + \cos(x + \xi)] e^{-\xi} d\xi.
+$$
+
+Utilizando a expressão para a soma do cosseno de dois arcos e simplificando, obtemos:
+$$h(x) = 
+\dfrac{2}{\sqrt{2\pi}} \cos(x)
+\int_{0}^{\infty}
+\cos(\xi) e^{-\xi} d\xi.
+$$
+
+A integral remanescente é calculada, por exemplo, com a integração por partes, de onde segue
+$$h(x) = \dfrac{1}{\sqrt{2\pi}} \cos(x),$$
+que é o resultado desejado.
+}
+
+\exercicio{exer:aula04.06}{%Do lar 6.
+
+(i) Calcule a transformada de Fourier da função
+$$
+f(x) = \left\{\begin{array}{rcl}
+1&,& \mbox{ se } |x| < a, \\
+0&,& \mbox{ se } |x| > a.
+\end{array}\right.$$
+
+(ii) Discuta o caso $a \to \infty$.
+}
+
+\exemplo{exem:aula04.07}{%Exemplo 7.
+\textbf{Equação integral}. Seja $x(t)$ uma função real. Resolva a equação integral
+$$\int_{-\infty}^{\infty} x(\xi) x(t - \xi) d\xi = e^{-t^{2}}.$$
+}
+
+\solexemplo{
+A função desconhecida $x(t)$ se encontra no integrando, daí o nome de equação integral. Tomando a transformada de Fourier de ambos os lados da equação e utilizando o \autoref{teo:aula04.04} (teorema de convolução), temos
+$$
+\mathscr{F}
+\left\{
+\int_{-\infty}^{\infty}
+x(\xi)x(t - \xi) d\xi 
+\right\}
+=
+\mathscr{F}
+\left\{
+e^{-t^{2}}
+\right\}
+$$
+ou ainda, na seguinte forma
+$$X(k)X(k) =
+\mathscr{F}
+\left\{
+e^{-t^{2}}
+\right\},
+$$
+onde $X(k)$ denota a transformada de Fourier da função $x(t)$.
+
+A partir do Exemplo \ref{exem:aula04.01}, temos
+$$X(k)X(k) =
+\dfrac{1}{\sqrt{2}}
+e^{-\frac{k^{2}}{4}},$$
+com $k$ o parâmetro da transformada de Fourier.
+
+Logo,
+$$X(k) = \dfrac{1}{\sqrt[4]{2}} e^{-\frac{k^{2}}{8}}$$
+de onde, para obter o resultado desejado, devemos calcular a respectiva transformada de Fourier inversa.
+
+Então, devemos calcular a seguinte integral
+$$x(t) = \mathscr{F}^{-1}[X(k)]
+= \dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+\dfrac{1}{\sqrt[4]{2}} e^{-\frac{k^{2}}{8}}
+e^{ikt} dk$$
+que pode ser escrita, já simplificando e utilizando o resultado do Exemplo \ref{exem:aula04.01}, na seguinte forma:
+$$x(t) = \left(\dfrac{2}{\pi^{2}}\right)^{\frac{1}{4}} e^{-2t^{2}}.$$
+que é o resultado desejado. 
+}
+
+
+
+
+\section{Transformadas seno e cosseno de Fourier}
+
+Assim como nas séries de Fourier, vamos discutir as chamadas transformadas seno e cosseno de Fourier, onde a paridade da função desempenha papel preponderante, pois o intervalo de definição da transformada de Fourier, conforme \ref{def:aula04.03}, é simétrico.
+
+Admitindo satisfeitas as condições do teorema integral de Fourier e utilizando a expressão trigonométrica para o cosseno da diferença de arcos, a \autoref{eq:aula04.04} toma a forma:
+{\small
+$$F(x) =
+\dfrac{1}{\pi}
+\int_{0}^{\infty}
+\cos(kx) \left[
+\int_{-\infty}^{\infty}
+f(\xi) \cos(k\xi) d\xi 
+\right] dk
++
+\dfrac{1}{\pi}
+\int_{0}^{\infty}
+\sin(kx) \left[
+\int_{-\infty}^{\infty}
+f(\xi) \sin(k\xi) d\xi 
+\right] dk.
+$$
+}
+
+Essa expressão pode ser simplificada se soubermos a paridade da função $f(x)$. Então, vamos obter expressões considerando $f(x)$ ora uma função par, ora uma função ímpar. Se $f(x)$ é uma função par $f(x) = f(-x)$, a integral no segundo colchetes é zero. Logo,
+\begin{equation}\label{eq:aula04.10}
+f(x) =
+\dfrac{2}{\pi}
+\int_{0}^{\infty}
+\cos(kx) \left[
+\int_{0}^{\infty}
+f(\xi) \cos(k\xi) d\xi 
+\right]
+dk
+\end{equation}
+enquanto, sendo $f(x)$ uma função ímpar $f(x) = -f(-x)$, agora, o primeiro colchetes é zero,
+\begin{equation}\label{eq:aula04.11}
+f(x) =
+\dfrac{2}{\pi}
+\int_{0}^{\infty}
+\sin(kx) \left[
+\int_{0}^{\infty}
+f(\xi) \sin(k\xi) d\xi 
+\right] dk
+\end{equation}
+
+Das duas expressões anteriores, concluímos que se $f(x)$ é definida somente para $0 \le x < \infty$, então a \autoref{eq:aula04.10} fornece uma extensão par de $f(x)$, para todo o eixo $x$, enquanto a \autoref{eq:aula04.11} fornece uma extensão ímpar de $f(x)$.
+
+Ainda mais, note que ambas são sempre válidas para $x > 0$, mas para valores negativos fornecem valores diferentes. Em particular, na extensão ímpar devemos impor $f(0) = 0$, uma vez que a expressão foi introduzida levando em conta que
+$$\dfrac{1}{2}[f(0+) + f(0-)], \mbox{ em } x = 0.$$
+
+Diante das considerações anteriores, as \autoref{eq:aula04.10} e \autoref{eq:aula04.10} podem, respectivamente, ser escritas na forma
+\begin{eqnarray*}
+f(x) &=&
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+\cos(kx)
+\left[
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+f(\xi) \cos(k\xi) d\xi 
+\right] \\
+f(x) &=&
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+\sin(kx)
+\left[
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+f(\xi) \sin(k\xi) d\xi 
+\right].
+\end{eqnarray*}
+
+Essas expressões nos permitem definir os pares de transformadas, direta e inversa, seno e cosseno de Fourier.
+
+\definicao{Transformada cosseno de Fourier}{def:aula04.06}{%Definição 6.
+Seja $f(x)$ uma função definida no intervalo $0 \le x < \infty$, satisfazendo as condições do teorema integral de Fourier. Definimos a transformada cosseno
+de Fourier a partir da expressão
+\begin{equation}\label{eq:aula04.12}
+\mathscr{F}_C[f(\xi)] \equiv F_C(k) =
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+f(\xi) \cos(k\xi) d\xi
+\end{equation}
+cuja respectiva inversa é dada por
+\begin{equation}\label{eq:aula04.13}
+\mathscr{F}_C^{-1} [F_C(k)] \equiv f(x) =
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+F_C(k) \cos(kx) dk.
+\end{equation}
+}
+
+
+\definicao{Transformada seno de Fourier}{def:aula04.07}{%Definição 7.
+Consideremos $f(x)$ uma função definida no intervalo $0 \le x < \infty$, satisfazendo as condições do teorema integral de Fourier. Definimos a transformada seno
+de Fourier a partir da expressão
+\begin{equation}\label{eq:aula04.14}
+\mathscr{F}_S[f(\xi)] \simeq F_S(k) =
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+f(\xi) \sin(k\xi) d\xi
+\end{equation}
+cuja respectiva inversa é dada por
+\begin{equation}\label{eq:aula04.15}
+\mathscr{F}_S^{-1} [F_C(k)] \simeq f(x) =
+\dfrac{2}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+F_S(k) \sin(kx) dk.
+\end{equation}
+}
+
+
+Façamos uma observação sobre esses dois pares de transformadas. Se $f(x)$ é uma função conhecida, a \autoref{eq:aula04.12} e \autoref{eq:aula04.14} podem ser interpretadas como soluções das respectivas equações integrais \autoref{eq:aula04.13} e \autoref{eq:aula04.15}.
+
+As propriedades apresentadas: linearidade, deslocamento e; escala, para a transformada de Fourier, continuam válidas para as transformadas seno e cosseno de Fourier, como pode ser verificado pela definição.
+    
+Devido a importância na resolução de equações diferenciais vamos apresentar, como propriedades, as expressões envolvendo as derivadas de primeira e segunda ordens da função.
+
+Sejam $f(x)$, $f'(x)$ e $f''(x)$ a função e as derivadas de ordens um e dois, respectivamente. Considere tais funções admitindo as transformadas seno e cosseno de Fourier.
+
+\proposicao{Transformada cosseno de Fourier}{prop:aula04.04}{%Propriedade 4.
+Com as condições acima, valem as relações
+$$
+\mathscr{F}_C[f'(x)] = -\dfrac{2}{\sqrt{2\pi}} f(0+) + k F_S(k)
+$$
+e
+$$
+\mathscr{F}_C[f''(x)] = -\dfrac{2}{\sqrt{2\pi}} f'(0+) - k^{2} F_C(k),
+$$
+onde $k$ é o parâmetro da transformada de Fourier.
+}
+
+Dessas expressões, percebe-se que a transformada cosseno de Fourier da derivada primeira é dada em termos da transformada seno de Fourier, o que não ocorre com a derivada segunda. Expressões similares valem para a transformada seno de Fourier.
+
+\proposicao{Transformada seno de Fourier}{prop:aula04.05}{%Propriedade 5.
+Com as condições acima, valem as relações
+$$\begin{array}{rcl}
+\mathscr{F}_S[f'(x)] &=& -k F_C(k) \\
+\mathscr{F}_S[f''(x)] &=& \dfrac{2}{\sqrt{2\pi}} kf(0+) - k^{2} F_S(k),
+\end{array}$$
+onde $k$ é o parâmetro da transformada de Fourier.
+}
+
+Em analogia à transformada cosseno de Fourier, percebe-se que a transformada seno de Fourier da derivada primeira é dada em termos da transformada cosseno de Fourier, o que não ocorre com a derivada segunda.
+
+\teorema{Identidade de Parseval}{teo:aula04.05}{%Teorema 5.
+Se $F(k)$ e $G(k)$ são as transformadas de Fourier de $f(x)$ e $g(x)$, respectivamente, então
+$$\int_{-\infty}^\infty f(x) g(x) dx =
+\int_{-\infty}^\infty F(k) \overline{G(k)} dk,$$
+onde a barra denota o complexo conjugado. Resultados similares podem ser obtidos para as transformadas seno e cosseno de Fourier.
+}
+
+\demteorema{\cite{tolstov1962fourier}.}
+
+\exemplo{exem:aula04.08}{%Exemplo 8.
+Utilize a identidade de Parseval para calcular a integral
+$$\int_{0}^{\infty} \dfrac{dx}{(x^{2} + 1)^{2}}.$$
+}
+
+
+\solexemplo{
+A fim de utilizar a identidade de Parseval que relaciona, através de integrais, as funções e as respectivas transformadas de Fourier, vamos admitir conhecido o cálculo da transformada de Fourier da função $(x^{2} + 1)^{-1}$.
+
+Então, admita conhecida a expressão
+$$\mathscr{F}\left[\dfrac{1}{x^{2} + 1}\right] = F(k) =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+e^{ikx} \dfrac{1}{x^{2} + 1} dx
+=
+\dfrac{\sqrt{2\pi}}{2} 
+e^{-|k|},$$
+a transformada de Fourier, com parâmetro $k$, da função $(x^{2} + 1)^{-1}$.
+
+Utilizando a identidade de Parseval, as duas funções são iguais, podemos escrever
+$$
+\int_{-\infty}^{\infty}
+\dfrac{1}{x^{2} + 1}\dfrac{1}{x^{2} + 1} dx
+=
+\int_{-\infty}^{\infty}
+\dfrac{\sqrt{2\pi}}{2}
+e^{-|k|}
+\dfrac{\sqrt{2\pi}}{2}
+e^{-|k|}
+dk
+$$
+ou ainda, utilizando a paridade, visto que o integrando no primeiro membro é uma função par e o intervalo é simétrico, na seguinte forma
+$$2
+\int_{0}^{\infty}
+\dfrac{1}{(x^{2} + 1)^{2}}
+dx
+=
+\dfrac{\pi}{2}
+\int_{-\infty}^{\infty}
+e^{-2|k|}dk.
+$$
+
+Sem dúvida, a integral no segundo membro é imediata, de onde segue
+$$\int_{0}^{\infty}
+\dfrac{1}{(x^{2} + 1)^{2}} dx
+= \dfrac{\pi}{4},$$
+que é o resultado desejado.
+}
+
+
+Note que, admitido conhecido o resultado da transformada de Fourier da função $(x^{2} + 1)^{-1}$, a integral no segundo membro, com a identidade de Parseval, é mais
+fácil de ser calculada.
+
+
+\exercicio{exer:aula04.07}{%Do lar 7.
+Calcule a transformada de Fourier de
+$$f(x) = \dfrac{1}{x^{2} + 1}.$$
+}
+
+
+\section{Transformada de Fourier finita}
+
+Após introduzirmos as transformadas de Fourier, no intervalo $-\infty < x < \infty$, e as transformadas seno e cosseno de Fourier, no intervalo $0 < x < \infty$, passemos a tratar as transformadas seno e cosseno de Fourier finitas, definidas a partir das séries de Fourier em seno e em cossenos, respectivamente. Ressaltamos que, em analogia às transformadas anteriores, as propriedades são similares porém não apresentamos no texto, ficando relegadas a cargo do estudante. Apresentamos as respectivas definições das transformadas finitas, bem como as respectivas transformadas inversas, visando a discussão nos problemas que envolvem equações diferenciais em intervalos finitos.
+
+\definicao{}{def:aula04.08}{% Definição 8.
+Transformadas seno de Fourier finita, direta e inversa. Considere $f(x)$ uma
+função contínua (seccionalmente contínua) no intervalo $0 < x < a$, então a transformada seno de Fourier finita, denotada por $\mathscr{F}_S[f(x)]$, da função $f(x)$ é dada pela seguinte integral
+$$\mathscr{F}_S[f(x)] = F_S(n) = \int_{0}^{a} f(x) \sin\left(\dfrac{n\pi x}{a}\right) dx,$$
+com $n = 1, 2, \ldots$.
+}
+
+
+A série de Fourier em senos para $f(x)$, no intervalo $0 < x < a$, dada por
+$$\dfrac{2}{a} \sum_{n=1}^{\infty} F_S(n) \sin\left(\dfrac{n\pi x}{a}\right)$$
+converge para o valor de $f(x)$ em cada ponto onde a função é contínua nesse intervalo e para o valor
+$$\dfrac{1}{2}[f(x + 0) + f(x - 0)]$$
+nos pontos onde a função tem pontos de descontinuidade.
+
+A respectiva inversa da transformada seno de Fourier finita, denotada por $\mathscr{F}^{-1}_S[F(n)]$, é dada por
+$$\mathscr{F}^{-1}_S[F(n)] = f(x) = \dfrac{2}{a} \sum_{n=1}^{\infty} F_S(n) \sin\left(\dfrac{n\pi x}{a}\right)$$
+que recupera a função $f(x)$, em analogia às transformadas de Fourier e seno de Fourier.
+
+Em completa analogia à transformada seno de Fourier finita, vamos definir a transformada cosseno de Fourier finita. E importante notar que, a paridade da função ´
+desempenha papel preponderante, assim como nas transformadas seno e cosseno de Fourier.
+
+\definicao{Transformadas cosseno de Fourier finita, direta e inversa.}{def:aula04.09}{%Definição 9.
+Se $f(x)$ é uma função contínua (seccionalmente contínua) no intervalo $0 < x < a$, então a transformada cosseno de Fourier finita, denotada por $\mathscr{F}_C[f(x)]$, da função $f(x)$ é dada pela seguinte integral
+$$\mathscr{F}_C[f(x)] = F_C(n) = \int_{0}^{a} f(x) \cos\left(\dfrac{n\pi x}{a}\right) dx,$$
+com $n = 0, 1, 2, \ldots$.
+}
+
+
+Lembremos que a série de Fourier em cossenos para $f(x)$, no intervalo $0 < x < a$, dada por
+$$\dfrac{F_C(0)}{a} +
+\dfrac{2}{a} \sum_{n=1}^{\infty} F_C(n) \cos\left(\dfrac{n\pi x}{a}\right)
+$$
+converge para o valor de $f(x)$ em cada ponto onde a função é contínua nesse intervalo e para o valor
+$$\dfrac{1}{2} [f(x + 0) + f(x - 0)]$$
+nos pontos onde a função tem pontos de descontinuidade.
+
+A respectiva inversa da transformada cosseno de Fourier finita, denotada por $\mathscr{F}^{-1}_C[F(n)]$, é:
+$$\mathscr{F}^{-1}_C[F(n)] = f(x) =
+\dfrac{F_C(0)}{a} +
+\dfrac{2}{a} \sum_{n=1}^{\infty} F_C(n) \cos\left(\dfrac{n\pi x}{a}\right)$$
+que recupera a função $f(x)$, em analogia às transformadas de Fourier e de Fourier em senos.
+
+Visando as equações diferenciais no sentido de que a transformada cosseno de Fourier finita seja a ferramenta a ser utilizada, vamos obter uma expressão para a transformada seno de Fourier finita da derivada primeira da função. Expressões similares podem ser obtidas para a transformada cosseno (seno) de Fourier finita da derivada segunda da função.
+
+\exemplo{exem:aula04.09}{%Exemplo 9.
+\textbf{Transformada cosseno de Fourier finita da derivada}. Calcular a transformada cosseno de Fourier finita da derivada primeira da função $f(x)$, admitida existir em $0 < x < a$.
+}
+
+
+\solexemplo{
+Devemos calcular a seguinte integral,
+$$\mathscr{F}_C[f'(x)] = \int_{0}^{a} f'(x) \cos\left(\dfrac{n\pi x}{a}\right) dx,$$
+com $n = 0, 1, 2, \ldots$.
+
+Para calcular essa integral, utilizamos integração por partes que, já simplificando, permite escrever a expressão
+$$F_C[f'(x)] = (-1)^n f(a) - f(0) + \left(\dfrac{n\pi}{a}\right) F_S(n).$$
+
+    Note a analogia com a transformada cosseno de Fourier, pois a expressão para a transformada cosseno de Fourier finita da derivada primeira é expressa em termos da transformada seno de Fourier finita.
+
+Expressões similares são como aquelas a seguir, onde a notação deixa claro que tipo de transformada de Fourier finita, estamos considerando
+$$\begin{array}{rcl}
+\mathscr{F}_C[f''(x)] &=& - \left(\dfrac{n\pi}{a}\right)^{2} F_C(n) + (-1)^n f'(a) - f'(0), \\[0.5cm]
+\mathscr{F}_S[f'(x)] &=& - \left(\dfrac{n\pi}{a}\right) F_C(n), \\[0.5cm]
+\mathscr{F}_S[f''(x)] &=& - \left(\dfrac{n\pi x}{a}\right)^{2} F_S(n) + \dfrac{n\pi}{a} [(-1)^{n+1} f(a) + f(0)].
+\end{array}$$
+que é o resultado desejado.
+}
+
+
+\exemplo{exem:aula04.10}{%Exemplo 10.
+Transformada seno (cosseno) de Fourier finita de derivadas. Tome $a = \pi$.
+}
+
+\solexemplo{
+Consideremos as quatro últimas expressões no caso em que $a = \pi$, de modo que tenhamos o intervalo dado por $0 < x < \pi$. Basta, então, substituir $a = \pi$ de modo a obter as expressões
+$$\begin{array}{rcl}
+\mathscr{F}_C[f'(x)] &=& n F_S(n) + (-1)^n f(\pi ) - f(0), \\[0.3cm]
+\mathscr{F}_C[f''(x)] &=& -n^22 F_C(n) + (-1)^n f'(\pi ) - f'(0), \\[0.3cm]
+\mathscr{F}_S[f'(x)] &=& -n F_C(n), \\[0.3cm]
+\mathscr{F}_S[f''(x)] &=& -n^{2} F_S(n) + n [(-1)^{n+1} f(\pi) + f(0)].
+\end{array}$$
+que é o resultado desejado.
+}
+
+
+Antes de passar para o estudo da transformada de Laplace, façamos uma pequena revisão do que se entende por funções degrau unitário e delta de Dirac. Note que escrevemos a palavra funções com letra distinta, pois, tanto uma como outra, não são funções no sentido clássico da palavra e, sim, são consideradas como distribuições, tópico este que foge ao escopo do presente trabalho. Após este fato estar esclarecido, não vamos mais escrever a palavra função, tanto para degrau unitário, quanto para Dirac, com tipo de letra distinto, admitindo que está subentendido, sempre que não cause dúvida.
+
+
+
+\section{Funções degrau unitário e delta de Dirac}
+
+Após a definição da função degrau unitário (ou função de Heaviside) e da distribuição delta de Dirac, apresentamos uma relação formal entre essas duas relações.
+
+
+\subsection{Função degrau unitário}
+
+A função degrau unitário, ou função de Heaviside, conhecida também pelo nome de função escada, é uma função descontínua que é útil, por exemplo, em processos do tipo ligado/desligado. Existem algumas maneiras distintas de introduzir essa função. Optamos por utilizar a notação $H(\cdot)$ (alguns autores utilizam $\Theta(\cdot)$), defini-la na forma mais usual, visando a conexão com a função delta de Dirac, como vamos explicitar mais a frente.
+
+\definicao{Função de Heaviside}{def:aula04.10}{%Definição 10.
+Seja $a \in \mathbb{R}$. Definimos a função de Heaviside como
+$$
+H(x - a) =
+\left\{\begin{array}{rcl}
+1 &,& \mbox{ se } x > a, \\
+0 &,& \mbox{ se } x < a .
+\end{array}\right.
+$$
+}
+
+Existem autores que optam por formalizar a função de Heaviside de uma outra maneira. Por exemplo, definindo a para $x = a$ de modo que $H(x - a) = 1/2$, a média aritmética, enquanto outros admitem o sinal de igualdade ou para zero (desligado) ou para um (ligado).
+
+
+\subsection{Função delta de Dirac}
+
+A função delta de Dirac não é uma função no sentido clássico da palavra, mas sim um funcional linear, também chamado de distribuição. Recordemos que uma função pode ser entendida como uma lei que associa a um elemento do domínio, um único elemento do contradomínio.
+
+Por outro lado, uma distribuição, ou funcional linear, é uma função cujo domínio é um particular espaço vetorial, enquanto o contradomínio é um conjunto numérico que, neste texto, será os reais $\mathbb{R}$. Começamos com um exemplo a fim de motivar a definição do que atende pelo nome de função delta de Dirac.
+
+\exemplo{exem:aula04.11}{%Exemplo 11.
+\textbf{Força com modulo grande e intervalo de tempo pequeno}. Vamos introduzir o conceito de função delta de Dirac através de um problema corriqueiro, uma raquetada numa bolinha de pingue-pongue. A raquete imprime uma força num intervalo de tempo muito pequeno. Imagine um gráfico, enquanto uma grandeza cresce muito a outra é muito pequena, são inversamente proporcionais, que, num gráfico, representa uma hipérbole equilátera.
+}
+
+\solexemplo{
+Sejam $\epsilon \in \mathbb{R}$ e a função
+$$\delta_\epsilon (x) = 
+\left\{\begin{array}{rcl}
+\dfrac{1}{2\epsilon } &,& \mbox{ se } |x| < \epsilon \\
+0 &,& \mbox{ se } |x| > \epsilon ,
+\end{array}\right.$$
+de onde segue, imediatamente, a igualdade
+$$
+\int_{-\infty}^{\infty} \delta_\epsilon (x) dx
+=
+\int_{-\epsilon }^{\epsilon } 
+\dfrac{1}{2\epsilon } dx
+=
+\dfrac{1}{2\epsilon } (\epsilon + \epsilon ) = 1
+$$
+que representa uma função integrada num intervalo simétrico e normalizada à unidade.
+
+Admitamos, agora, uma função $f(x)$ integrável no intervalo simétrico $(-\epsilon , \epsilon )$. Usando o teorema do valor médio, podemos escrever
+$$
+\int_{-\infty}^{\infty} f(x) \delta_\epsilon (x) dx
+=
+\dfrac{1}{2\epsilon }
+\int_{-\epsilon }^{\epsilon } f(x) dx \simeq f(a\epsilon ),$$
+com $|a| < 1$.
+
+Desta expressão, introduzimos a função delta a partir do seguinte limite
+$$\lim_{\epsilon \to 0} \delta_\epsilon := \delta(x)$$
+que, quando aplicada à função $\delta_\epsilon $ fornece $\delta(x) = 0$, para
+$x \ne 0$ e a integral
+$$\int_{-\infty}^{\infty} \delta(x) dx = 1,$$
+conhecida na literatura como função \textbf{delta de Dirac}.
+}
+
+\definicao{Função delta de Dirac}{def:aula04.11}{%Definição 11.
+Sejam $a \in \mathbb{R}$ e $x \in \mathbb{R}$. Definimos a chamada função delta de Dirac (função delta), denotada por $\delta(x)$, satisfazendo
+$$\begin{array}{rcl}
+\delta(x - a) &=& 0, \mbox{ se } x \ne a \\
+\displaystyle\int_{-\infty}^{\infty} \delta(x - a) dx &=& 1.
+\end{array}$$
+}
+
+Com esta definição para a função delta de Dirac, fica claro que ela não pode ser considerada uma função no estrito senso da palavra. Comparando com o exemplo da raquetada, imaginemos um intervalo de tempo tão pequemo quanto queiramos, digamos $2\epsilon $ (o fator dois é exclusivo devido à normalização imposta à unidade) de
+onde segue a força (raquetada imprimida) igual à $1/(2\epsilon )$.
+
+Ao efetuar a integração, temos uma grandeza chamada \textbf{impulso} e que, devido à normalização, é unitário.
+
+Podemos, então, concluir que num gráfico cartesiano de $x \times \delta(x)$ a área delimitada pela curva é unitária.
+
+Note que as propriedades associadas à função delta de Dirac, dentre elas algumas que vamos ver a seguir, podem ser estudadas através de limites convenientes da função
+$\delta_\epsilon (x)$ esta sim, uma função no sentido usual do cálculo.
+
+\proposicao{Representação da função delta de Dirac}{prop:aula04.06}{%Propriedade 6.
+Uma importante representação da função delta de Dirac é dada em termos de um quociente envolvendo uma função trigonométrica
+$$\delta(x)
+= \lim_{k \to \infty} \left(\dfrac{e^{ikx} - e^{-ikx}}{2\pi xi}\right)
+= \lim_{k\to \infty} \dfrac{\sin(kx)}{\pi x}$$
+que, como pode ser verificado, satisfaz a condição de que a integral de $-\infty$ até $\infty$ é unitária.
+}
+
+\exercicio{exer:aula04.08}{%Do lar 8.
+Mostre que vale o resultado-normalização
+$$\dfrac{1}{\pi} \int_{-\infty}^{\infty} \dfrac{\sin(x)}{x} dx = 1.$$
+}
+
+\proposicao{Propriedade de filtragem}{prop:aula04.07}{%Propriedade 7.
+Seja $a \in \mathbb{R}$. Tomando o limite $\epsilon \to 0$, na expressão que
+fornece o delta, a partir do teorema do valor médio, temos que a função de Dirac goza da propriedade
+$$\int_{-\infty}^{\infty} f(x)\delta(x - a) dx = f(a)$$
+que pode ser interpretada como uma propriedade de filtragem, no sentido de que, de todos os valores possíveis da função $f(x)$, apenas um contribui, só interessa
+a função calculada em $x = a$.
+}
+
+
+\proposicao{Outras Propriedades}{prop:aula04.08}{%Propriedade 8.
+Considere $a \in \mathbb{R}$. Valem as seguinte propriedades
+\begin{description}
+\item (a) $x\delta(x) = 0$,
+\item (b) $\delta(-x) = \delta(x)$, a função delta é par,
+\item (c) $\delta(ax) = \dfrac{1}{a} \delta(x)$, com $a > 0$.
+\end{description}
+}
+
+\proposicao{Função delta como o limite de uma sequência}{prop:aula04.09}{ %Propriedade 9.
+Seja $n = 1, 2, 3, \ldots$. Podemos introduzir a função delta de Dirac a partir de um conveniente limite de uma sequência de funções ordinárias. Dentre elas, mencionamos:
+\begin{description}
+\item (i) $\delta_n(x) = \sqrt{\dfrac{n}{\pi}} e^{-nx^{2}}$,
+\item (ii) $\delta_n(x) = \dfrac{n}{\pi} \dfrac{1}{1 + n^2x^{2}}$,
+\item (iii) $\delta_n(x) = \dfrac{1}{n\pi} \dfrac{\sin^{2}(nx)}{x^{2}}$.
+\end{description}
+
+Note que, a normalização é válida para ambas
+$$\lim_{n\to \infty} \int_{-\infty}^{\infty} \delta_n(x) dx =
+\int_{-\infty}^{\infty} \delta(x) dx = 1.$$
+
+Ainda mais, na sequência do item (i), temos que a função delta de Dirac pode ser vista como sendo o limite de uma sequência de Gaussianas com larguras que vão diminuindo.
+}
+
+
+\proposicao{Função delta e a transformada de Fourier}{prop:aula04.10}{ %Propriedade 10.
+Sejam $t, x \in \mathbb{R}$. Vale a seguinte representação
+$$\begin{array}{rcl}
+\displaystyle
+\lim_{k\to \infty}
+\delta k(t - x)
+&=&
+\displaystyle
+\lim_{k\to \infty}
+\dfrac{\sin[k(t - x)]}{\pi (t - x)} \\
+&=&
+\displaystyle
+\lim_{k\to \infty}
+\int_{-k}^{k}
+e^{i\xi (t-x)}
+\dfrac{d\xi}{2\pi} \\
+&=&
+\dfrac{1}{2\pi}
+\int_{-\infty}^{\infty}
+e^{i\xi (t-x)} d\xi \\
+&=&
+\delta(t - x)
+\end{array}$$
+uma representação integral da função delta de Dirac, que pode ser interpretada como: a transformada de Fourier da unidade é igual a delta de Dirac.
+}
+
+
+\exemplo{exem:aula04.12}{%Exemplo 12.
+\textbf{Relação entre as funções de Heaviside e de Dirac}.
+Seja $a \in \mathbb{R}$. Mostre que vale a seguinte relação
+$$\delta(x - a) = \dfrac{d}{dx}H(x - a).$$
+}
+
+
+\solexemplo{
+Consideremos a integral da função delta de Dirac $\delta(x - a)$, no intervalo $-\infty$ até $\xi$ 
+$$
+\int_{-\infty}^{\xi} 
+\delta(x - a) dx =
+\left\{\begin{array}{rcl}
+0 &,& \mbox{ se } \xi < a, \\
+1 &,& \mbox{ se } \xi > a,
+\end{array}\right.$$
+que, pode ser escrita, em termos da função degrau de Heaviside, na seguinte forma
+$$\int_{-\infty}^{\xi} \delta(x - a) dx = H(x - a).$$
+
+Desta igualdade, utilizando a regra de Leibniz, temos:
+$$\delta(x - a) = \dfrac{d}{dx}H(x - a),$$
+que é a expressão desejada.
+}
+
+Esta igualdade, mais uma vez, assegura que a função delta de Dirac não é uma função no sentido usual do cálculo, visto que o lado direito desta igualdade é o diferencial de uma função descontínua.
+
+Talvez a aplicação mais usual da função unitária de Heaviside seja na obtenção da chamada fórmula de Duhamel. Esta expressão permite obter a solução de uma equação diferencial ordinária, linear e não homogênea, sujeita às condições iniciais homogêneas, o chamado problema de valor inicial, uma vez conhecida a solução desse problema quando o segundo membro, termo de não homogeneidade da equação, é uma função de Heaviside. Vamos apresentar essa aplicação, imediatamente após a introdução da transformada de Laplace, em particular, do chamado produto de convolução de Laplace.
+
+\section{Transformada de Laplace}
+
+    Apresentamos a chamada transformada de Laplace, tendo em mente que o objetivo maior é utilizar a metodologia como uma ferramenta para resolver equações diferenciais ordinárias e parciais.
+
+    Mencionamos, quando discutimos a transformada de Fourier, a metodologia das transformadas integrais, também conhecido como método operacional, converte o problema de partida num outro problema, aparentemente mais simples, chamado problema auxiliar. Resolve-se o problema auxiliar e a partir da transformada de Laplace inversa recupera-se a solução do problema de partida.
+
+    É conveniente ressaltar que o cálculo da transformada de Laplace inversa, em geral, requer o uso das funções analíticas, em particular o uso do teorema dos resíduos.
+
+\definicao{Transformada de Laplace}{def:aula04.12}{%Definição 12.
+Seja a função $f(t)$, definida no intervalo semi-infinito $[0, \infty)$. Define-se a transformada de Laplace de $f(t)$, denotada por $F(s) = \mathscr{L}[f(t)]$, sendo $s$ o parâmetro da transformada, a partir da integral imprópria
+$$F(s) \equiv \mathscr{L}[f(t)] = \int_{0}^{\infty} e^{-st} f(t) dt,$$
+com $\operatorname{Re}(s) > 0$, sempre que a integral exista.
+}
+
+Façamos um breve comentário. Às vezes, a função $f(t)$ é chamada de função objeto e a função $F(s)$ é conhecida como função imagem. Ainda mais, a existência desta integral é garantida para uma classe de funções ditas admissíveis, conforme a Definição \ref{def:aula04.02}.
+
+
+\section{Propriedades}
+
+Vamos apresentar apenas as propriedades que serão necessárias para a resolução das equações diferenciais e dos sistemas lineares. Também nesta seção, como exemplo do cálculo explícito da transformada de Laplace, vamos calcular a transformada de Laplace das funções degrau deslocado e das funções trigonométricas seno e cosseno.
+
+
+\proposicao{Linearidade}{prop:aula04.12}{%Proposição 1.
+Sejam $f(t)$ e $g(t)$ duas funções de ordens exponenciais $\alpha$ e $\beta$, no intervalo $[0, \infty)$, respectivamente. Sejam $A$ e $B$ duas constantes. As combinações lineares
+$$h(t) = A f(t) \pm B g(t)$$
+são admissíveis de ordem exponencial maior ou igual a $\gamma = \max\{\alpha, \beta\}$ e valem as relações
+$$\mathscr{L}[h(t)] = \mathscr{L}[A f(t) \pm B g(t)] = A \mathscr{L}[f(t)] \pm B \mathscr{L}[g(t)].$$
+}
+
+
+\proposicao{Deslocamento de $f(t)$}{prop:aula04.13}{%Proposição 2.
+Se a transformada de Laplace da função $f(t)$ é $F(s)$, então, para qualquer número positivo $a$, a transformada de Laplace da função deslocada de $f(t)$,
+$$f_a(t) \equiv f(t - a) u_0(t - a)$$
+é dada por
+$$\mathscr{L}[f_a(t)] = e^{-as} F(s),$$
+sendo $u_0$ a função degrau (Heaviside) deslocada, definida por
+$$
+u_a(t) \equiv u_0(t - a)
+= \left\{\begin{array}{rl}
+0,& \mbox{ para } t < a, \\
+1,& \mbox{ para } t > a.
+\end{array}\right.$$
+}
+
+
+\proposicao{Deslocamento de $F(s)$}{prop:aula04.14}{%Proposição 3.
+Se a transformada de Laplace da função $f(t)$ é $F(s)$, então, para qualquer $\beta$, a transformada de Laplace de $e^{\beta t} f(t)$ é dada por
+$$\mathscr{L}[e^{\beta t} f(t)] = F(s - \beta).$$
+}
+
+\proposicao{Escala}{prop:aula04.15}{%Proposição 4.
+Se a transformada de Laplace da função $f(t)$ é $F(s)$, então, a transformada de Laplace da função $f(ct)$, para $c$ constante positiva, é
+$$\mathscr{L}[f(ct)] = \dfrac{1}{c}F\left(\dfrac{s}{c}\right).$$
+}
+
+\exemplo{exem:aula04.13}{%Exemplo 13.
+\textbf{Transformada de Laplace da função de Heaviside}.
+Calcular a transformada de Laplace da função degrau unitário e da função degrau unitário deslocada.
+}
+
+\solexemplo{
+A partir da definição da transformada de Laplace, devemos calcular a integral
+$$\mathscr{L}[u_0(t)]
+=
+\int_{0}^{\infty}
+u_0(t) e^{-st} dt
+=
+\int_{0}^{\infty}
+1 \cdot e^{-st} dt
+=
+\dfrac{1}{s},$$
+para $\operatorname{Re}(s) > 0$.
+
+Por outro lado, utilizando a propriedade do deslocamento de $f(t)$, podemos escrever para a transformada de Laplace da função degrau deslocada
+$$
+\mathscr{L}[u_a(t)] \equiv \mathscr{L}[u_0(t - a)]
+= e^{-as} \mathscr{L}[u_0(t)]
+= \dfrac{e^{-as}}{s},$$
+com $\operatorname{Re}(s) > 0$.
+}
+
+\exemplo{exem:aula04.14}{%Exemplo 14.
+Transformada de Laplace da função seno trigonométrico. Calcular a transformada de Laplace para a função $f(t) = \sin(t)$.
+}
+
+\solexemplo{
+Novamente, a partir da definição da transformada de Laplace, devemos calcular a integral
+$$
+\mathscr{L}[\sin(t)] =
+\int_{0}^{\infty}
+\sin(t) e^{-st} dt
+$$
+que, através de duas integrações por partes fornece
+$$\mathscr{L}[\sin(t)] = \dfrac{1}{s^{2} + 1}.$$
+
+Vamos, no entanto, obter o mesmo resultado utilizando a expressão (Euler)
+$$\sin(t) = \dfrac{1}{2i}(e^{it}-e^{-it})$$
+e as propriedades de linearidade e deslocamento,
+$$\begin{array}{rcl}
+\mathscr{L}[\sin(t)]
+&=&
+\dfrac{1}{2i}\left\{\mathscr{L}[e^{it}]-\mathscr{L}[e^{-it}]\right\} \\[0.3cm]
+&=&
+\dfrac{1}{2i}\left\{\mathscr{L}[e^{it} u_0(t)]-\mathscr{L}[e^{-it} u_0(t)]\right\}\\[0.3cm]
+&=&
+\dfrac{1}{2i}\left(\dfrac{1}{s-i}-\dfrac{1}{s+i}\right)
+\\[0.3cm]
+&=&
+\dfrac{1}{s^{2}+1}
+\end{array}$$
+}
+
+Deste resultado e da propriedade de escala, podemos escrever, para $a > 0$, a expressão
+\begin{equation}\label{eq:aula04.16}
+\mathscr{L}[\sin(at)] = \dfrac{a}{s^{2} + a^{2}}.
+\end{equation}
+
+Em analogia ao anterior, com $a > 0$, temos:
+\begin{equation}\label{eq:aula04.17}
+\mathscr{L}[\cos(at)] = \dfrac{s}{s^{2} + a^{2}}.
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\exemplo{exem:aula04.15}{%Exemplo 15.
+Transformada de Laplace da função linear. Calcular a transformada de Laplace da função $f(t) = t$.
+}
+
+\solexemplo{
+A partir da definição da transformada de Laplace, devemos calcular a integral
+$$\mathscr{L}[t] = \int_{0}^{\infty} t \cdot e^{-st}dt$$
+que, novamente, através de uma integração por partes, fornece $\mathscr{L}[t] = 1/s^{2}$. Vamos obter o mesmo resultado simulando uma derivada no parâmetro $s$,
+$$
+\mathscr{L}[t] = -
+\dfrac{d}{ds}
+\int_{0}^{\infty}
+e^{-st} dt = -\dfrac{d}{ds}
+\left(
+\dfrac{e^{-st}}{-s}
+\right)_{0}^{\infty}
+= -
+\dfrac{d}{ds}
+\left(
+\dfrac{1}{s}
+\right)
+=
+\dfrac{1}{s^{2}}.$$
+E, procedendo indutivamente, mostra-se que,
+\begin{equation}\label{eq:aula04.18}
+\mathscr{L}[t^{n}] = \dfrac{n!}{s^{n+1}},
+\end{equation}
+para $n = 0, 1, 2, \ldots$.
+}
+
+Para aplicações da transformada de Laplace na resolução de equações diferenciais de primeira e segunda ordens é importante conhecer a transformada de Laplace das derivadas primeira e segunda. é possível estender este resultado para a ordem n da derivada.
+
+\teorema{Derivada primeira de $f(t)$}{teo:aula06.06}{%Teorema 6..
+Se a função $f(t)$ e sua derivada $f'(t)$ são admissíveis no intervalo $[0,\infty)$, então
+\begin{equation}\label{eq:aula04.19}
+\mathscr{L}[f'(t)] = s\mathscr{L}[f(t)] - f(0)= sF(s) - f(0).
+\end{equation}
+}
+
+\exercicio{exer:aula04.09}{%Do lar 9.
+Mostre esse resultado.
+}
+
+Com as devidas condições impostas para a derivada segunda $f''(t)$, podemos escrever:
+\begin{equation}\label{eq:aula04.20}
+\mathscr{L}[f''(t)] = s^{2}\mathscr{L}[f(t)] - sf(0) - f'(0) = s^{2}F(s) - sf(0) - f'(0).
+\end{equation}
+
+
+A partir destas expressões inferimos sua importância para a resolução de um problema de valor inicial, pois emergem naturalmente o valor da função e de sua derivada calculadas em $t = 0$.
+
+\section{O problema da inversão}
+
+Como já mencionamos, a metodologia das transformadas, em particular a transformada de Laplace, conduz o problema de partida num outro problema auxiliar, em geral, mais simples de ser abordado. Resolve-se este problema auxiliar, também chamado problema transformado e, através da inversão da transformada, recuperasse a solução do problema de partida.
+
+
+A inversão, como também já mencionamos, faz uso do plano complexo. Por outro lado, em particular, os engenheiros fazem uso de tabelas, muitas das funções encontram-se tabeladas. Tentamos conduzir o problema da inversão da transformada de Laplace em outro, numa combinação de resultados conhecidos levando à inversão desejada. Através de manipulações algébricas e usando propriedades anteriormente apresentadas é possível também obter a inversa.
+
+\exemplo{exem:aula04.16}{%Exemplo 16.
+\textbf{Transformada de Laplace inversa}.
+Denotando a transformada de Laplace inversa por $\mathscr{L}^{-1}[F(s)] \equiv f(t)$, calcule a inversa de
+$$F(s) = \dfrac{4}{(s - 1)^{2}(s + 1)}.$$
+}
+
+\solexemplo{
+Começamos por escrever a fração, utilizando frações parciais, na seguinte forma
+$$\dfrac{4}{(s - 1)^{2}(s + 1)}
+=
+\dfrac{A}{s - 1}
++
+\dfrac{B}{(s - 1)^{2}}
++
+\dfrac{C}{s + 1},$$
+onde $A$, $B$ e $C$ são constantes que devem ser determinadas.
+
+Reduzindo ao mesmo denominador podemos escrever, já simplificando
+$$4 = A(s^{2} - 1) + B(s + 1) + C(s - 1)^{2}$$
+que nos leva ao seguinte sistema de equações algébricas
+$$\left\{\begin{array}{rcl}
+A + C &=& 0, \\
+B - 2C &=& 0, \\
+-A + B + C &=& 4,
+\end{array}\right.$$
+com solução dada por $A = -1$, $B = 2$ e $C = 1$, assim
+$$F(s) =
+-
+\dfrac{1}{s - 1}
++
+\dfrac{2}{(s - 1)^{2}}
++
+\dfrac{1}{s + 1}.
+$$
+
+Da linearidade da transformada de Laplace, temos:
+$$
+\begin{array}{rcl}
+f(t)
+&=&
+-\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s - 1}
+\right]
++ 2\mathscr{L}^{-1}
+\left[
+\dfrac{1}{(s - 1)^{2}}
+\right]
++ \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s + 1}
+\right] \\
+&=&
+-e^{t} + 2 \cdot t \cdot e^{t} + e^{-t} = (2t - 1) e^{t} + e^{-t}
+\end{array}$$
+que é o resultado desejado.
+}
+
+\exercicio{exer:aula04.10}{%Do lar 10.
+Mostre os resultados
+$$
+\begin{array}{rcl}
+\mathscr{L}[e^{\mp t}] =
+\dfrac{1}{s \pm  1}
+&\Leftrightarrow&
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s \pm  1}
+\right]
+= e^{\mp t}
+\mathscr{L}[t e^{t}] =
+\dfrac{1}{(s - 1)^{2}} \\
+&\Leftrightarrow&
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{(s - 1)^{2}}
+\right]
+= t e^{t}.
+\end{array}$$
+}
+
+Todos esses resultados são tabelados. Aqui, utilizando as frações parciais, reduzimos o problema de partida numa soma de frações cujas respectivas transformadas de Laplace inversa, são tabeladas e, com isso, não foi necessário utilizar as variáveis complexas.
+
+
+\section{Convolução}
+
+Como na transformada de Fourier, um pergunta cabe aqui: A transformada de Laplace de um produto de funções é igual ao produto das transformadas? Nem sempre, pois isto só é verdade se o produto for o chamado produto de convolução. Esta também é uma maneira conveniente para calcularmos a inversa a partir de resultados conhecidos, bem como na resolução de algumas equações diferenciais e integrais, como vamos ver a seguir.
+
+\definicao{Produto de convolução de Laplace}{def:aula04.13}{%Definição 13.
+Sejam $f(t)$ e $g(t)$ duas funções de ordens exponenciais $\alpha$  e $\beta$, respectivamente, no intervalo $[0,\infty)$. Definimos o produto de convolução (ou apenas, convolução) das funções $f(t)$ e $g(t)$, denotado por $f \star g$, como a função $h(t)$ dada por
+$$h(t) \equiv (f \star g)(t) = \int_{0}^{t} f(t - \tau)g(\tau) d\tau.$$
+}
+
+A ordem exponencial da convolução é, no mínimo, igual a
+$$\gamma = \max\{\alpha, \beta\}.$$
+
+\textbf{Faltung}. Antes de prosseguirmos, vamos ver o que se entende por convolução. A palavra alemã \textit{faltung} significa dobrável e emerge do seguinte fato: uma linha de comprimento $x$ é dobrada no meio tal que os pontos $t$, marcados sobre os dois segmentos $0 < t < \xi$ e $x - \xi < t < x$, conforme Figura 1, distam da origem, respectivamente, $\xi$ e $x - \xi$.
+
+
+Figura 1: Justificativa para a convolução.
+
+
+Note, a partir da definição de convolução, que a troca, mudança de variável, $\xi \to x - \xi$ não altera o produto.
+
+
+\teorema{Transformada de Laplace da convolução}{teo:aula06.07}{%Teorema 7.
+A transformada de Laplace $H(s)$, da convolução $h(t)$, é dada pelo produto das transformadas de Laplace $F(s)$ e $G(s)$ das funções originais $f(t)$ e $g(t)$, respectivamente,
+$$H(s) \equiv \mathscr{L}[(f \star g)(t)] = \mathscr{L}[f(t) \star g(t)] = F(s)G(s).$$
+}
+
+\demteorema{%Prova 4.
+Denotemos por $F(s)$ e $G(s)$ as respectivas transformadas de Laplace das funções $f(t)$ e $g(t)$. Vamos mostrar que
+$$F(s)G(s) =
+\int_{0}^{t}
+f(\tau)g(t - \tau) d\tau =
+\int_{0}^{t}
+f(t - \tau)g(\tau) d\tau.$$
+
+Pela definição da transformada de Laplace, podemos escrever esse produto como o produto de duas transformadas de Laplace,
+
+
+Figura 2: Área de integração no plano $(\xi, \eta)$.
+
+
+$$F(s)G(s) =
+\left\{\int_{0}^{\infty}
+e^{-s\xi}f(\xi) d\xi
+\right\}
+\left\{\int_{0}^{\infty}
+e^{-s\eta} g(\eta) d\eta
+\right\}$$
+sendo $s$ o parâmetro da transformada e $\xi$ e $\eta$ as duas variáveis (mudas) de integração. 
+
+Escrevendo esse produto de integrais como uma integral dupla, temos
+$$F(s)G(s) =
+\iint_{\mathscr{A}} e^{-s(\xi+\eta)} f(\xi) g(\eta) d\xi d\eta,$$
+onde $\mathscr{A}$ é a área de integração no plano $(\xi, \eta)$, conforme Figura 2.
+
+Mudando as variáveis $\xi$ e $\eta$ para $\tau$ e $\tau'$, por meio da transformação
+$\xi = \tau'$ e $\eta = \tau - \tau'$, temos para o Jacobiano
+$$d\xi d\eta =
+\left|
+\dfrac{\partial(\xi, \eta)}{\partial(\tau, \tau')}
+\right|
+d\tau d\tau' = d\tau d\tau'
+$$
+
+Figura 3: Área de integração no plano $(\xi, \eta)$.
+
+de onde segue para o produto
+$$F(s)G(s) =
+\iint_{\mathscr{S}} e^{-s\tau} f(\tau') g(\tau - \tau') d\tau d\tau',$$
+onde a área de integração $\mathscr{S}$ é como na Figura 3.
+
+Justifica-se essa área, pois, visto que $\xi > 0$ implica $\tau' > 0$ e $\eta > 0$ implica $\tau - \tau' > 0$. Diante disso, podemos escrever para o produto F(s)G(s), já rearranjando,
+$$F(s)G(s) =
+\int_{0}^{\infty}
+e^{-s\tau}
+\left\{\int_{0}^{\tau}
+f(\tau')g(\tau - \tau') d\tau'
+\right\}
+d\tau$$
+que, pela definição da transformada de Laplace, permite escrever
+$$F(s)G(s) = \mathscr{L}
+\int_{0}^{\tau}
+f(\tau')g(\tau - \tau') d\tau'$$
+e, com a mudança de variável $\tau - \tau' = \mu$, obtemos a segunda igualdade
+$$F(s)G(s) = \mathscr{L}
+\int_{0}^{\tau}
+f(\tau - \tau')g(\tau') d\tau',$$
+que é o resultado desejado.
+}
+
+Note que este resultado é uma outra maneira de recuperar a função original, bastando para tanto que conheçamos a transformada inversa das funções F(s) e G(s).
+
+\exercicio{exer:aula04.11}{%Do lar 11.
+Mostre que a transformada de Laplace do produto de duas funções $f(t)$ e $g(t)$ é dada por
+$$\mathscr{L}[f(t)g(t)] =
+\dfrac{1}{2\pi i}
+\int_{-i\infty}^{i\infty} F(s - z)G(z) dz$$
+isto é, a transformada de Laplace de um produto é uma convolução ao longo do eixo imaginário.
+}
+
+\exemplo{exem:aula04.17}{%Exemplo 17.
+\textbf{Transformada de Laplace inversa}.
+Determine a transformada de Laplace inversa
+$$f(t) = \mathscr{L}^{-1}
+\left[
+\dfrac{1}{(s^{2} + 1)^{2}}
+\right].$$
+}
+
+\solexemplo{
+Utilizando o resultado da \autoref{eq:aula04.16}, com $a = 1$, temos:
+$$f(t) = \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2} + 1}
+\right]
+= \sin(t).$$
+Utilizando o produto de convolução temos
+$$
+\begin{array}{rcl}
+f(t) &=& \mathscr{L}^{-1}
+\left[
+\dfrac{1}{(s^{2} + 1)^{2}}
+\right] \\
+&=& \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2} + 1}
+\dfrac{1}{s^{2} + 1}
+\right] \\
+&=& \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2} + 1}
+\right]
+\star \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2} + 1}
+\right] \\
+&=&\displaystyle
+\int_{0}^{t}
+[\sin(\tau)][\sin (t - \tau)] d\tau \\[0.5cm]
+&=&
+\dfrac{1}{2}
+[\sin(t) - t \cos(t)],
+\end{array}$$
+que é o resultado desejado.
+}
+
+A seguir, vamos discutir aplicações, através de situações onde a transformada de Laplace se mostra conveniente.
+
+Mais uma vez, vale lembrar, estamos direcionando nossas aplicações às equações diferenciais ordinárias de primeira e segunda ordens, sistemas de equações diferenciais de primeira ordem e equações integrais, todas lineares.
+
+\section{Aplicações}
+
+\subsection{Aplicação 1. Problema de valor inicial.}
+
+Utilize a metodologia da transformada de Laplace para resolver o problema de valor inicial, composto pela equação diferencial ordinária, linear e de primeira ordem
+$$\dfrac{d}{dt} x(t) + ax(t) = f(t), t > 0,$$
+onde a é uma constante positiva e $f(t)$ é uma função conhecida, impondo a condição inicial $x(0) = x_0$, sendo $x_0$ também uma constante.
+
+Começamos com a condição de que as funções $x(t)$ e $f(t)$ sejam funções admissíveis. Multiplicando os dois membros por $e^{-st}$ e integrando de zero até infinito, temos
+$$\int_{0}^{\infty}
+\dfrac{d}{dt}
+x(t) e^{-st}dt
++
+\int_{0}^{\infty} a x(t) e^{-st} dt
+=
+\int_{0}^{\infty}
+f(t) e^{-st}dt.$$
+
+Utilizando a Eq.(6), para a primeira das integrais, no primeiro membro, podemos escrever
+$$s X(s) - x(0) + aX(s) = F(s),$$
+onde introduzimos a notação
+$$
+X(s) =
+\int_{0}^{\infty}
+x(t) e^{-st}dt \mbox{ e }
+F(s) =
+\int_{0}^{\infty}
+f(t) e^{-st}dt.$$
+
+Da condição inicial e resolvendo para $X(s)$, temos uma equação algébrica de primeiro grau com solução imediata. Sem dúvida, esta equação algébrica é mais simples que a equação diferencial de partida, uma equação diferencial ordinária de primeira ordem o que, por si só, já justifica a simplicidade do método das transformadas, assim podemos escrever diretamente
+$$X(s) =
+\dfrac{F(s) + x_{0}}{s + a}.$$
+
+Em resumo, basta determinar a transformada de Laplace inversa. Utilizando o resultado
+$$\mathscr{L}[e^{-at}] =
+\dfrac{1}{s + a}
+\Leftrightarrow \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s + a}
+\right]
+= e^{-at}$$
+podemos escrever
+$$\mathscr{L}^{-1}[X(s)] = x(t) = \mathscr{L}^{-1}
+\left[
+\dfrac{F(s)}{s + a}
+\right]
++ x_{0} e^{-at}.$$
+
+Ora, visto que sabemos qual é a transformada inversa de $F(s)$, podemos utilizar a expressão para o produto de convolução de modo a escrever
+$$\begin{array}{rcl}
+x(t)
+&=&
+\mathscr{L}^{-1}[F(s)] \star \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s + a}
+\right]
++ x_{0} e^{-at} \\
+&=&
+\int_{0}^{t} f(t - \tau) e^{-a\tau} d\tau + x_{0} e^{-at} \\
+&=& \displaystyle
+\int_{0}^{t} f(\tau) e^{-a(t-\tau)} d\tau + x_{0} e^{-at},
+\end{array}$$
+que é a solução do problema de valor inicial. Este resultado garante que se o termo de não homogeneidade da equação diferencial é conhecido, temos convertido o problema inicial a uma simples integração, desde que exista.
+
+\subsection{Aplicação 2. Equação diferencial ordinária linear e de segunda ordem.}
+
+Resolver a equação diferencial ordinária, linear, de segunda ordem e não homogênea
+$$\dfrac{d^{2}}{dt^{2}} x(t) + a \dfrac{d}{dt}
+x(t) + b x(t) = f(t),$$
+sendo $a$ e $b$ constantes e $f(t)$ uma função conhecida.
+
+Note que é uma equação diferencial ordinária análoga aquela que descreve o circuito RLC, com segundo membro diferente de zero, uma equação diferencial ordinária, linear, não homogênea e coeficientes constantes. Multiplicando os dois membros da equação diferencial por $e^{-st}$, integrando de zero até infinito e definindo
+$$X(s) =
+\int_{0}^{\infty}
+x(t) e^{-st}dt \mbox{ e } F(s) =
+\int_{0}^{\infty}
+f(t) e^{-st}dt,
+$$
+obtemos a seguinte equação algébrica
+$$s^{2}X(s)-sx(0)-x'(0)+a[sX(s)-x(0)]+bX(s) = F(s),$$
+com solução dada por
+$$X(s) =
+\dfrac{F(s) + (a + s)x(0) + x'(0)}{s^{2} + as + b}.$$
+
+Dado $f(t)$ obtemos, através da transformada de Laplace $F(s)$. Os valores de $x(0)$ e $x'(0)$ também são conhecidos, condições iniciais. De modo a recuperar a solução do problema de partida basta procedermos com a inversão da transformada de Laplace.
+
+A fim de explicitar os cálculos, discutamos um caso particular. Para tal, vamos considerar $f(t) = 3$, $a = 4$ e $b = 3$, bem como as condições iniciais $x(0) = 0 = x'(0)$, logo, devemos calcular a transformada de Laplace inversa da seguinte função
+$$X(s) =
+\dfrac{3/s}{(s + 1)(s + 3)}
+=
+\dfrac{3}{s(s + 1)(s + 3)}.
+$$
+
+Utilizando frações parciais podemos escrever
+$$\dfrac{3}{s(s + 1)(s + 3)}
+=
+\dfrac{A}{s}
++
+\dfrac{B}{s + 1}
++
+\dfrac{C}{s + 3}
+=
+\dfrac{A (s^{2} + 4s + 3) + B(s^{2} + 3s) + C(s^{2} + s)}{s(s + 1)(s + 3)}
+$$
+de onde segue o sistema de equações algébricas, três por três, nas incógnitas $A$, $B$ e $C$,
+$$\left\{\begin{array}{rcl}
+A + B + C &=& 0, \\
+4A + 3B + C &=& 0, \\
+3A &=& 3,
+\end{array}\right.$$
+com solução $A = 1$, $B = -3/2$ e $C = 1/2$, logo
+$$X(s) =
+\dfrac{1}{s} - \dfrac{3/2}{s + 1}
++
+\dfrac{1/2}{s + 3}.
+$$
+
+Utilizando a linearidade da transformada de Laplace, podemos escrever
+$$x(t) = \mathscr{L}^{-1}[X(s)]
+= \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s}
+\right]
+-
+\dfrac{3}{2}
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s + 1}
+\right]
++
+\dfrac{1}{2}
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s + 3}
+\right]$$
+de onde, utilizando a Eq.(18) e a propriedade de deslocamento, temos
+$$x(t) = 1 - \dfrac{3}{2} e^{-t} + \dfrac{1}{2} e^{-3t}.$$
+que é a solução do problema de valor inicial.
+
+A esta altura já deve estar claro a importância de que tenhamos os coeficientes da equação diferencial ordinária constantes, caso contrário, a equação resultante não será, quando possível utilizar a metodologia, uma equação algébrica, como ainda vamos ver.
+
+\subsection{Aplicação 3. Movimento harmônico simples.}
+
+A equação diferencial ordinária linear, discutida no Exemplo 2, pode ser escrita na forma
+$$m \dfrac{d^{2}}{dt^{2}} x(t) + \mu \dfrac{d}{dt} x(t) + k x(t) = g(t),$$
+onde $m$, $k$ e $\mu$ são constantes e $g(t)$ uma função conhecida.
+
+Se interpretarmos $m=$massa, $k=$constante da mola, $\mu=$ constante de amortecimento e $g(t)=$ força externa, esta equação diferencial descreve o deslocamento (elongação) de uma massa $m$, no tempo $t$, a partir da posição de equilíbrio, sujeita a uma força do tipo Hooke, $-k x(t)$, a uma força de amortecimento, $-\mu \dfrac{d}{dt} x(t)$ e uma força externa, denotada por $g(t)$.
+
+Note a semelhança desta equação diferencial, advinda da Mecânica, com aquela que descreve o circuito RLC, a qual se constitui em seu análogo elétrico.
+
+A fim de resolvermos um problema explícito envolvendo esta equação diferencial ordinária, vamos considerar
+$$\dfrac{d^{2}}{dt^{2}} x(t) + x(t) = t,$$
+isto é, queremos determinar o deslocamento de uma massa unitária, sujeita a uma força do tipo Hooke, também unitária, e uma força externa igual a $t$. Neste caso, não temos a força de amortecimento. Esta equação também é conhecida como a equação diferencial associada ao movimento harmônico simples, aqui para uma frequência $\omega$ unitária com $\omega^{2} = k/m$.
+
+De modo a utilizarmos a técnica da transformada de Laplace, admitamos as condições iniciais $x(0) = 1$, deslocamento inicial e $x'(0) = 0$, velocidade inicial é nula (repouso).
+
+Multiplicando a equação diferencial por $e^{-st}$, integrando de zero até infinito, temos
+$$s^{2}F(s) - sx(0) - x'(0) + F(s) = \dfrac{1}{s^{2}},$$
+onde introduzimos a notação
+$$F(s) = \int_{0}^{\infty} x(t) e^{-st}dt.$$
+
+Impondo as condições iniciais e resolvendo a equação algébrica, obtemos
+$$(1 + s^{2})F(s) =
+\dfrac{1}{s^{2}} + s =
+\dfrac{1 + s^{3}}{s^{2}}$$
+ou ainda, utilizando frações parciais, na seguinte forma
+$$
+F(s) =
+\dfrac{1}{s^{2}}
++
+\dfrac{s}{s^{2} + 1}
+-
+\dfrac{1}{s^{2} + 1}.
+$$
+
+Agora, a fim de obter a solução do problema de valor inicial, devemos proceder com a inversão da transformada.
+
+Utilizando a propriedade de linearidade podemos escrever
+$$x(t) = \mathscr{L}^{-1}[F(s)]
+= \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2}}
+\right]
++ \mathscr{L}^{-1}
+\left[
+\dfrac{s}{s^{2} + 1}
+\right]
+- \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2} + 1}
+\right].$$
+
+A partir das relações Eq.(16) e Eq.(17), obtemos
+$$x(t) = t + \cos(t) - \sin(t)$$
+que é a solução do problema de valor inicial.
+
+Vamos obter o mesmo resultado com o produto de convolução. Escrevendo $F(s)$ na forma
+$$F(s) =
+\dfrac{s}{s^{2} + 1}
++
+\dfrac{1}{s^{2}(s^{2} + 1)}$$
+e procedendo com a inversão, podemos escrever
+$$x(t) = \mathscr{L}^{-1}
+\left[
+\dfrac{s}{s^{2} + 1}
+\right]
++ \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2}}
+\dfrac{1}{s^{2} + 1}
+\right].$$
+
+Utilizando a definição do produto de convolução, obtemos:
+$$\begin{array}{rcl}
+x(t)
+&=&
+\cos(t) + \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2}}
+\right]
+\star \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2} + 1}
+\right] \\
+&=&
+\cos(t) + t \star \sin(t) \\[0.5cm]
+&=&
+\cos(t) + \displaystyle \int_{0}^{t} \tau \sin(t - \tau) d\tau \\[0.5cm]
+&=&
+\cos(t) + \displaystyle\int_{0}^{t} (t - \tau) \sin(\tau) d\tau \\[0.5cm]
+&=&
+\cos(t) + t - \sin(t)
+\end{array}$$
+que é o mesmo resultado anteriormente obtido.
+
+
+
+%% 11 junho 21
+
+\subsection{Aplicação 4. Equação diferencial com coeficientes variáveis.}
+
+Ao utilizarmos a metodologia da transformada de Laplace para resolver um problema de valor inicial com coeficientes variáveis não obtemos uma simples equação algébrica, como vamos ver a seguir. A fim de resolvermos explicitamente um problema de valor inicial, vamos considerar a equação diferencial ordinária homogênea
+$$\dfrac{d^{2}}{dt^{2}} x(t) + t \dfrac{d}{dt} x(t) - x(t) = 0$$
+satisfazendo as condições iniciais $x(0) = 0$ e $x'(0) = 1$.
+
+Multiplicando a equação diferencial por $e^{-st}$ e integrando de zero até infinito temos
+$$\int_{0}^{\infty}
+\dfrac{d^{2}}{dt^{2}} x(t) e^{-st}dt+
+\int_{0}^{\infty}
+t
+\dfrac{d}{dt}
+x(t) e^{-st}dt -
+\int_{0}^{\infty} x(t) e^{-st}dt = 0.$$
+
+Utilizando os resultados do Teorema 6 e simulando uma derivada na segunda integral, podemos escrever a equação precedente na forma
+$$s^{2}F(s)-sx(0)-x'(0)-
+\dfrac{d}{ds}
+\int_{0}^{\infty}
+\dfrac{d}{dt} x(t) e^{-st}dt-F(s) = 0,$$
+onde introduzimos a notação
+$$F(s) =
+\int_{0}^{\infty}
+x(t) e^{-st}dt.$$
+
+Utilizando as condições iniciais e integrando por partes, podemos escrever
+$$s^{2}F(s) - 1 - \dfrac{d}{ds} [sF(s)] - F(s) = 0,$$
+ou ainda, na seguinte forma
+$$s
+\dfrac{d}{ds}
+F(s) + (2 - s^{2})F(s) = -1,$$
+que é uma equação diferencial ordinária linear de primeira ordem não homogênea e com coeficientes variáveis.
+
+Visto que a equação diferencial é uma equação diferencial ordinária linear e de primeira ordem, podemos, também, utilizar o fator integrante, porém vamos resolver, primeiro, a respectiva equação diferencial ordinária e homogênea,
+$$s \dfrac{d}{ds} F_H(s) + (2 - s^{2})F_H(s) = 0$$
+que é uma equação diferencial separável, ou seja,
+$$\dfrac{1}{F_H} dF_H =
+\dfrac{s^{2} - 2}{s}vds$$
+cuja integração fornece
+$$F_H(s) =
+\dfrac{C}{s^{2}} e^{s^{2}/2},$$
+onde $C$ é uma constante de integração.
+
+Utilizando o método de redução de ordem que, neste caso, não é propriamente dito redução de ordem, pois a equação diferencial ordinária resultante, ainda de primeira ordem, é de integração imediata. Temos
+$$F(s) =
+\dfrac{1}{s^{2}} +
+\dfrac{D}{s^{2} e^{s^{2}/2}},$$
+onde $D$ é uma outra constante.
+
+Como estamos interessados em apenas uma solução do problema de valor inicial, podemos tomar $D = 0$, de onde segue
+$$x(t) = \mathscr{L}^{-1}[F(s)] = \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s^{2}}
+\right]
+= t$$
+que é a solução do problema de valor inicial.
+
+Como havíamos mencionado, sendo a equação diferencial ordinária com coeficientes variáveis, após a transformada de Laplace, não obtivemos uma simples equação algébrica e sim uma outra equação diferencial, neste caso, uma equação diferencial ordinária, linear, não homogênea, com coeficientes variáveis porém de primeira ordem, isto é, uma ordem a menos, aparentemente mais simples de ser resolvida. Basta integrar esta equação de primeira ordem e tomar apenas uma solução particular da equação diferencial não homogênea.
+
+\subsection{Aplicação 5. Sistema de equações diferenciais de primeira ordem}
+
+Resolva, utilizando a metodologia da transformada de Laplace, o problema de valor inicial, um sistema de equações diferenciais ordinárias, lineares, de primeira ordem e com coeficientes constantes
+$$\left\{\begin{array}{rcl}
+\dfrac{d}{dt} x(t) &=& 2x(t) + y(t), \\[0.5cm]
+\dfrac{d}{dt} y(t) &=& x(t) + 2y(t),
+\end{array}\right.$$
+satisfazendo as condições $x(0) = 2$ e $y(0) = 0$.
+
+Primeiro, introduzimos a seguinte notação para a transformada de Laplace
+$$F(s) =
+\int_{0}^{\infty}
+x(t) e^{-st}dt
+\mbox{ e }
+G(s) =
+\int_{0}^{\infty}
+y(t) e^{-st}dt.
+$$
+
+Multiplicando as duas equações diferenciais por $e^{-st}$ e integrando de zero até infinito, podemos escrever o seguinte sistema algébrico
+$$\left\{\begin{array}{rcl}
+sF(s) - x(0) &=& 2F(s) + G(s), \\
+sG(s) - y(0) &=& F(s) + 2G(s).
+\end{array}\right.$$
+
+Utilizando as condições iniciais obtemos o sistema
+$$\left\{\begin{array}{rcl}
+(s - 2)F(s) &=& 2 + G(s), \\
+(s - 2)G(s) &=& F(s).
+\end{array}\right.$$
+
+Para resolvê-lo, substituímos a segunda equação na primeira para obter a equação algébrica
+$$(s - 2)^{2}G(s) = 2 + G(s)$$
+ou ainda, na seguinte forma
+$$[(s - 2)^{2} - 1]G(s) = 2,$$
+com solução dada por
+$$
+G(s) =
+\dfrac{2}{(s - 1)(s - 3)}
+=
+-
+\dfrac{1}{s - 1}
++
+\dfrac{1}{s - 3}.
+$$
+
+Voltando na equação algébrica podemos escrever, analogamente, para a função
+$$F(s) =
+\dfrac{1}{s - 1}
++
+\dfrac{1}{s - 3}.$$
+
+Devemos, agora, proceder com a inversão, calculando as respectivas transformadas inversas
+$$\begin{array}{rcl}
+x(t) &\equiv& \mathscr{L}^{-1}[F(s)] = \mathscr{L}^{-1}
+\left[
+\dfrac{1}{s - 1}
+\right]
++
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s - 3}
+\right] \\[0.5cm]
+y(t)
+&\equiv& \mathscr{L}^{-1}[G(s)] =
+-\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s - 1}
+\right]
++
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s - 3}
+\right].
+\end{array}$$
+
+Utilizando o resultado
+$$\mathscr{L}[e^{t}] =
+\dfrac{1}{s - 1}
+\Leftrightarrow
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s - 1}
+\right]
+= e^{t}$$
+podemos escrever, já simplificando
+$$\left\{\begin{array}{rcl}
+x(t) &=& e^{t} + e^{3t}, \\
+y(t) &=& -e^{t} + e^{3t},
+\end{array}\right.$$
+que é a solução do problema de valor inicial.
+
+Em analogia às equações diferenciais ordinárias com coeficientes constantes, se os coeficientes não forem constantes as equações não serão simples equações algébricas.
+
+Antes de apresentarmos a chamada fórmula de Duhamel, vamos recuperar a função delta de Dirac, apenas para reforçar a sua importância, agora com a transformada
+de Laplace.
+
+\subsection{Aplicação 6. Função delta de Dirac}
+
+
+Como já havíamos mencionado na seção relativa ao delta de Dirac, o conceito de função impulso emerge naturalmente, em particular, em problemas onde a intensidade da força atuante (raquetada) é muito grande e o intervalo de tempo de atuação (duração da força) desta força é muito pequeno. Fazem parte deste tipo de problema, por exemplo, uma martelada num prego e o ligar desligar de um interruptor, dentre outros.
+
+Introduzimos a função impulso, denotada por $p(t)$, através da seguinte expressão
+$$p(t) =
+\left\{\begin{array}{rl}
+h,& \mbox{ se } a - \epsilon < t < a + \epsilon, \\
+0,& \mbox{ se } t \le a - \epsilon , t \ge a + \epsilon,
+\end{array}\right.$$
+onde $h$ é grande e positivo, $a > 0$ e $\epsilon$ é uma constante positiva e pequena.
+
+Vamos, então, calcular a transformada de Laplace da função impulso $p(t)$, através da definição. 
+
+Devemos, então, calcular a seguinte integral
+$$\mathscr{L}[p(t)] =
+\int_{0}^{\infty}
+e^{-st}p(t)dt
+=
+\int_{a-\epsilon}^{a+\epsilon}
+h e^{-st}dt
+=
+\dfrac{2h}{s} e^{-as} \sinh(s\epsilon).$$
+
+Escolhendo a normalização $2\epsilon h = 1$, temos para a integral de $p(t)$, o chamado impulso,
+$$
+I(\epsilon ) \equiv \int_{-\infty}^{\infty}
+p(t) dt
+=
+\int_{a-\epsilon}^{a+\epsilon}  
+\dfrac{1}{2\epsilon}
+dt = 1.$$
+
+Assim, no limite quando $\epsilon \to 0$, esta função satisfaz às expressões
+$$\begin{array}{rcl}
+\displaystyle\lim_{\epsilon \to0} p_{\epsilon}(t) &=& 0, \mbox{ se } t \ne a \\
+\displaystyle\lim_{\epsilon \to0} I(\epsilon) &=& 1.
+\end{array}$$
+
+Deste resultado, introduzimos a chamada função delta de Dirac, denotada por $\delta(t)$, como sendo uma função, satisfazendo as igualdades
+$$\begin{array}{rcl}
+\delta(t - a) &=& 0, t \ne a \\[0.3cm]
+\displaystyle\int_{-\infty}^{\infty} \delta(t - a)dt &=& 1.
+\end{array}$$
+
+Agora, definimos a transformada de Laplace da função delta de Dirac $\delta(t)$, como um conveniente limite da transformada de Laplace da função impulso,
+$$\begin{array}{rcl}
+\mathscr{L}[\delta(t - a)]
+&=& \displaystyle\lim_{\epsilon \to0} \mathscr{L}[p_{\epsilon} (t)] \\
+&=& \displaystyle\lim_{\epsilon \to0} e^{-as} \dfrac{\sinh(s\epsilon)}{s\epsilon} \\
+&=& e^{-as}.
+\end{array}$$
+
+Em particular, se $a = 0$, obtemos, diretamente,
+$$\mathscr{L}[\delta(t)] = 1$$
+e daí segue de forma natural a normalização, conforme anteriormente imposta.
+
+Enfim, como mais uma aplicação da metodologia da transformada de Laplace, vamos discutir uma equação integral, onde a incógnita encontra-se no integrando. No caso de termos a função incógnita tanto no integrando, quanto como também uma derivada, a equação recebe o nome de equação \textbf{integrodiferencial}.
+
+\subsection{Aplicação 7. Equação integral via transformada de Laplace}
+
+Sejam $\phi(x)$ e $g(x)$ duas funções conhecidas. Utilize a metodologia da transformada de Laplace a fim de resolver a equação integral, ou ainda, determinar $y(x)$,
+$$
+y(x) = \phi(x) +
+\int_{0}^{x} g(x - \xi) y(\xi) d\xi
+$$
+no particular caso em que $\phi(x) = 1$ e $g(x) = x$.
+
+Tomando a transformada de Laplace de ambos os membros da equação integral, lembrando da propriedade de linearidade da transformada de Laplace e usando a definição da transformada de Laplace do produto de convolução, Definição 7, temos
+$$F(s) = \Psi(s) + G(s) F(s)$$
+a chamada equação auxiliar, sendo $F(s)$, $\Phi(s)$ e $G(s)$ as transformadas de Laplace
+$$\begin{array}{rcl}
+F(s) &=& \displaystyle\int_{0}^{\infty} y(x) e^{-sx} dx \\
+\Phi(s) &=& \displaystyle\int_{0}^{\infty} \phi(x) e^{-sx} dx \\
+G(s) &=& \displaystyle\int_{0}^{\infty} g(x) e^{-sx} dx,
+\end{array}$$
+respectivamente, sendo $s$ o parâmetro das transformadas.
+
+Em nosso caso, são conhecidas as transformadas de Laplace de $\phi(x) = 1$ e $g(x) = x$, dadas, respectivamente, pelas expressões
+$$\Psi(s) = \dfrac{1}{s}
+\mbox{ e }
+G(s) = \dfrac{1}{s^{2}}$$
+que, substituídas na equação auxiliar nos leva a uma equação algébrica com solução dada por
+$$F(s) =
+\dfrac{s}{s^{2} - 1}.$$
+
+Devemos, agora, proceder com a inversão da transformada de Laplace,
+$$y(x) = \mathscr{L}^{-1}[F(s)] = \mathscr{L}^{-1}
+\left(
+\dfrac{s}{s^{2} - 1}
+\right)$$
+que fornece a solução do problema de partida.
+
+Esta é uma transformada de Laplace inversa tabelada, porém, aqui, vamos explicitá-la em duas outras que são identificadas diretamente, através da propriedade de deslocamento,
+com resultado conhecido. Para isso, utilizamos frações parciais, a fim de escrever a fração como a soma de duas outras,
+$$
+\dfrac{s}{s^{2} - 1}
+=
+\dfrac{1/2}{s - 1}
++
+\dfrac{1/2}{s + 1}.
+$$
+
+A partir da linearidade da transformada de Laplace, podemos escrever
+$$y(x) = \mathscr{L}^{-1}
+\left(
+\dfrac{1/2}{s - 1}
+\right)
++ \mathscr{L}^{-1}
+\left(
+\dfrac{1/2}{s + 1}
+\right)$$
+que, utilizando a propriedade de deslocamento da transformada de Laplace, permite escrever
+$$y(x) =
+\dfrac{1}{2} e^{x} +
+\dfrac{1}{2} e^{-x}$$
+ou ainda, utilizando a fórmula de Euler, também válida para as funções hiperbólicas, temos
+$$y(x) = \cosh(x).$$
+
+Como já havíamos acenado, vamos concluir o capítulo das transformadas, apresentando o que atende pelo nome de fórmula de Duhamel, expressão esta que mostra uma particular aplicação da transformada de Laplace para resolver uma equação diferencial ordinária, linear e não homogênea através do produto de convolução de Laplace e a função de Heaviside.
+
+Vamos introduzir a fórmula de Duhamel através de uma aplicação específica, uma equação diferencial ordinária, linear, de segunda ordem com coeficientes constantes, o caso geral que engloba o circuito RLC e o oscilador harmônico. Vamos dividir o problema em três etapas distintas a fim de concluir com a fórmula de Duhamel.
+
+\subsection{Aplicação 8. Fórmula de Duhamel}
+
+(i) Encontre a solução do problema de valor inicial, composto pela equação diferencial ordinária, linear, de segunda ordem, não homogênea e com os coeficientes $a$ e
+$b$ constantes,
+\begin{equation}\label{eq:aula04.21}
+\dfrac{d^{2}}{dt^{2}} x(t) + a
+\dfrac{d}{dt}
+x(t) + b x(t) = f(t),
+\end{equation}
+com $t > 0$ e satisfazendo as condições iniciais
+$$x(0) = 0 =
+\dfrac{d}{dt}
+x(t)\Bigg|_{t=0}$$
+utilizando a metodologia da transformada de Laplace.
+
+Multiplicando os dois membros da Eq.(21) por $e^{-st}$ com a parte real de $s$ positiva, integrando de zero até infinito e usando as condições iniciais, encontramos uma equação algébrica com solução dada por
+$$\mathscr{L}[x(t)] =
+\dfrac{F(s)}{s^{2} + a s + b}
+$$
+que é a solução do problema auxiliar (problema transformado) com a seguinte notação
+$$\begin{array}{rcl}
+\mathscr{L}[x(t)]
+&=&
+\int_{0}^{\infty}
+e^{-st}x(t) dt \\
+F(s)
+&=& \mathscr{L}[f(t)] =
+\displaystyle\int_{0}^{\infty}
+e^{-st}f(t) dt.
+\end{array}$$
+
+O processo de inversão fornece a solução do problema de valor inicial, problema de partida.
+
+(ii) Escreva a solução do problema auxiliar na forma
+$$\mathscr{L}[x(t)] = s \mathscr{H}(s) F(s),$$
+onde, por $\mathscr{H}(s)$, denotamos a transformada de Laplace da função de Heaviside.
+
+Primeiro, introduzimos a notação $Z(s) = s^{2} + a s + b$, de modo que tenhamos
+$$\mathscr{L}[x(t)] = \dfrac{F(s)}{Z(s)}.$$
+
+Denotemos por $y(t)$ a solução do mesmo problema de partida, onde, agora, o termo fonte, termo de não homogeneidade da equação diferencial, é dado por uma função de Heaviside. Visto que a transformada de Laplace da função de Heaviside é conhecida,
+$$\mathscr{H}(s) = \dfrac{1}{s}$$
+podemos escrever a equação precedente na forma
+$$\mathscr{L}[y(t)] =
+\dfrac{\mathscr{H}(s)}{Z(s)}
+=
+\dfrac{1}{sZ(s)}.$$
+
+Eliminando $Z(s)$ e já simplificando, obtemos:
+\begin{equation}\label{eq:aula04.22}
+\mathscr{L}[x(t)] = s \mathscr{L}[y(t)]F(s),
+\end{equation}
+que é o resultado desejado.
+
+Note que esta equação relaciona a transformada de Laplace da solução do problema de partida com a transformada de Laplace da solução do problema onde o termo de não homogeneidade é uma função de Heaviside, que não depende do termo fonte.
+
+(iii) A partir da solução do problema auxiliar e utilizando a transformada de Laplace do produto de convolução, podemos escrever para a solução do problema de partida, o problema de valor inicial apresentado na Eq.(21) satisfazendo as condições iniciais, logo
+$$x(t) =
+\dfrac{d}{dt}
+\int_{0}^{t}
+f(\tau)y(t - \tau) d\tau.$$
+
+Utilizando a fórmula de Leibniz para derivar a integral, a precedente pode ser escrita na forma
+$$x(t) =
+\int_{0}^{t}
+f(\tau)y'(t - \tau) d\tau + y(0)f(t)$$
+ou ainda, utilizando uma propriedade do produto de convolução, na seguinte forma
+$$x(t) =
+\int_{0}^{t}
+f'(t - \tau)y(\tau) d\tau + f(0)y(t).$$
+
+Como é um problema de valor inicial, devemos impor a condição inicial, de onde obtemos
+$$x(t) =
+\int_{0}^{t}
+f(\tau)y'(t - \tau) d\tau + y(0)f(t)
+=
+\int_{0}^{t}
+f'(t - \tau) y(\tau) d\tau + x(0),$$
+conhecida pelo nome de fórmula de Duhamel.
+
+Esta fórmula permite obter a solução de um problema de valor inicial, problema linear e não homogêneo, a partir da solução do mesmo problema, porém com o termo de não homogeneidade dado por uma função de Heaviside, ou ainda a função degrau unitário.
+
+\subsection{Aplicação 9. Transformadas de Laplace direta e inversa}
+
+
+Calcular a transformada de Laplace de $f(t) = t^{n}$, com $n = 0, 1, 2, \ldots$, denotada por $\mathscr{L}[f(t)]$. Recuperar, a partir da transformada inversa, a função. Devemos mostrar o resultado, conforme Eq.(18),
+$$\mathscr{L}[t^{n}] =
+\dfrac{n!}{s^{n+1}}.$$
+
+A partir da definição da transformada de Laplace temos
+$$\mathscr{L}[t^{n}] =
+\int_{0}^{\infty}
+t^{n} e^{-st} dt.$$
+
+Simulando uma derivada na variável $s$, parâmetro da transformada, podemos escrever
+$$\mathscr{L}[t^{n}] =
+\dfrac{\partial^n}{\partial s^{n}}
+\int_{0}^{\infty}
+(-1)^n e^{-st} dt = (-1)^n \dfrac{\partial^n}{\partial s^{n}}
+\int_{0}^{\infty}
+e^{-st} dt.$$
+
+Integrando a integral remanescente, obtemos
+$$\mathscr{L}[t^{n}] = (-1)^n \dfrac{\partial^n}{\partial s^{n}}
+\dfrac{e^{-st}}{-s}
+\Bigg|_{0}^{\infty}
+= (-1)^n \dfrac{\partial^n}{\partial s^{n}}
+\left(
+\dfrac{1}{s}
+\right).$$
+
+Calculando as $n$ derivadas, rearranjando e simplificando, podemos escrever
+$$\mathscr{L}[t^{n}] = \dfrac{n!}{s^{n+1}},$$
+com $n = 0, 1, 2, \ldots$, que é o resultado desejado, conforme Eq.(18). Esse resultado pode ser estendido para um parâmetro $\mu$, tal que $\mu \ne -1, -2, -3, \ldots$, com o uso da função gama, podemos escrever
+\begin{equation}\label{eq:aula04.23}
+\mathscr{L}[t^{\mu}] =
+\dfrac{\Gamma(\mu + 1)}{s^{\mu+1}},
+\end{equation}
+sendo $\Gamma(\cdot)$ a clássica função gama ou função de Euler de segunda espécie. No particular caso em que $\mu = n$, com $n = 0, 1, 2, \ldots$, recuperamos o caso inteiro, conforme Eq.(18), pois $\Gamma(n + 1) = n!$.
+
+A partir da Eq.(23), calculamos a transformada inversa de ambos os membros, temos
+$$
+\mathscr{L}^{-1} (\mathscr{L}[t^{\mu}]) = \mathscr{L}^{-1}
+\left[\dfrac{\Gamma(\mu + 1)}{s^{\mu+1}}\right]
+$$
+de onde segue, para a transformada de Laplace inversa
+$$
+\Gamma(\mu + 1) \mathscr{L}^{-1} \left[s^{\mu+1}\right]
+= t^{\mu}
+$$
+ou ainda, na seguinte forma
+\begin{equation}\label{eq:aula04.24}
+\mathscr{L}^{-1} \left[
+s^{\mu+1}\right]
+=
+t^{\mu}
+\Gamma(\mu + 1)
+\end{equation}
+
+As Eq.(23) e Eq.(24) são as transformadas de Laplace, direta e inversa da função potência, respectivamente, válidas para $\mu \ne -1, -2, -3, \ldots$, os polos da função gama.
+
+\subsection{Aplicação 10. Equação integral e o produto de convolução}
+
+Utilizar a metodologia da transformada de Laplace para resolver a equação integral
+$$x(t) = t +
+\int_{0}^{t}
+x(\xi) \sin(t - \xi) d\xi.$$
+
+Esta é uma equação integral, a variável dependente x(t), encontra-se no integrando. Ainda mais, esta integral tem no integrando uma forma similar ao produto de convolução de Laplace. Então, tomando a transformada de Laplace de ambos os membros da equação integral e utilizando a definição do produto de convolução, obtemos
+$$F(s) = \mathscr{L}[t] + F(s)\mathscr{L}[\sin(t)],$$
+onde $F(s) = \mathscr{L}[x(t)]$ e $s$ o parâmetro da transformada de Laplace. A partir das Eq.(16) e Eq.(23), temos uma equação algébrica para $F(s)$ com solução dada por
+$$F(s) =
+\dfrac{1 + s^{2}}{s^{4}}
+=
+\dfrac{1}{s^{2}}
++
+\dfrac{1}{s^{4}}.$$
+Devemos, agora, proceder com o processo de inversão.
+
+Tomando a transformada de Laplace inversa de ambos os lados da precedente, utilizando a propriedade de linearidade da transformada de Laplace inversa e utilizando
+a Eq.(24), obtemos:
+$$
+\mathscr{L}^{-1}[F(s)] = \mathscr{L}
+\left[
+\dfrac{1}{s^{2}}
+\right]
++ \mathscr{L}
+\left[
+\dfrac{1}{s^{4}}
+\right]$$
+ou ainda, na seguinte forma,
+$$x(t) = t +
+\dfrac{t^{3}}{3!}
+=
+t +
+\dfrac{t^{3}}{6}.$$
+que é o resultado desejado, solução da equação integral.
+
+\subsection{Aplicação 11. Convolução e a transformada de Laplace inversa}
+
+Seja $a^{2} > 0$. Calcule a transformada de Laplace inversa
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right].$$
+
+Utilizando a linearidade da transformada de Laplace inversa e rearranjando convenientemente, podemos escrever:
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right]
+=
+\mathscr{L}^{-1}
+\left[
+\dfrac{s}{s^{2} + a^{2}}
+\cdot
+\dfrac{s}{s^{2} + a^{2}}
+\right]
+- \mathscr{L}^{-1}
+\left[
+\dfrac{a}{s^{2} + a^{2}}
+\cdot
+\dfrac{a}{s^{2} + a^{2}}
+\right].$$
+
+A partir do produto de convolução, a expressão anterior pode ser escrita na forma
+$$\begin{array}{rl}
+&\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right] \\[0.5cm]
+=& \mathscr{L}^{-1}
+\left[
+\dfrac{s}{s^{2} + a^{2}}
+\right]
+\star
+\mathscr{L}^{-1}
+\left[
+\dfrac{s}{s^{2} + a^{2}}
+\right]
+- \mathscr{L}^{-1}
+\left[
+\dfrac{a}{s^{2} + a^{2}}
+\right]
+\star
+\mathscr{L}^{-1}
+\left[
+\dfrac{a}{s^{2} + a^{2}}
+\right].
+\end{array}$$
+
+Visto que são conhecidos os resultados
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s}{s^{2} + a^{2}}
+\right]
+= \cos(at) \mbox{ e } \mathscr{L}^{-1}
+\left[
+\dfrac{a}{s^{2} + a^{2}}
+\right]
+= \sin(at).$$
+e expressando o produto de convolução em termos da integral, através de sua definição, obtemos
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right]
+=
+\int_{0}^{t}
+\cos(a\tau) \cos(at - a\tau) d\tau -
+\int_{0}^{t}
+\sin(a\tau) \sin(at - a\tau) d\tau.
+$$
+
+Devido a linearidade da integral, podemos escrever as duas integrais numa só, logo
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right]
+=
+\int_{0}^{t}
+[\cos(a\tau) \cos(at - a\tau) - \sin(a\tau) \sin(at - a\tau)] d\tau$$
+que, a partir da relação trigonométrica envolvendo o cosseno da soma de dois arcos, fornece
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right]
+=
+\int_{0}^{t}
+\cos[a\tau + (at - a\tau)] d\tau.$$
+
+Por fim, da expressão anterior, simplificando e integrando, obtemos o resultado desejado
+$$\mathscr{L}^{-1}
+\left[
+\dfrac{s^{2} - a^{2}}{(s^{2} + a^{2})^{2}}
+\right]
+= t \cos(at).$$
+
+\subsection{Aplicação 12. Transformada de Laplace inversa e uma soma infinita}
+
+Seja $a^{2}$ uma constante positiva. Utilize o resultado
+\begin{equation}\label{eq:aula04.25}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{k}}{k^{2} + a^{2}}
+=
+\dfrac{\pi /2a}{\sinh(\pi a)}
+-
+\dfrac{1}{2a^{2}}
+\end{equation}
+para mostrar que é válida a relação
+$$
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s \sinh(s)}
+\right]
+= t +
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\sin(n\pi t).$$
+
+Para evitarmos o uso das variáveis complexas, vamos calcular a transformada de Laplace da expressão à direita, isto é, vamos mostrar que vale o resultado
+$$\mathscr{L}
+\left[
+t +
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\sin(n\pi t)
+\right]
+=
+\dfrac{1}{s \sinh(s)}.
+$$
+Utilizando a linearidade da transformada de Laplace e a Eq.(23), podemos escrever
+$$\mathscr{L}
+\left[
+t +
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\sin(n\pi t)
+\right]
+=
+\dfrac{1}{s^{2}}
++
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\mathscr{L}[\sin(n\pi t)].$$
+Visto que a transformada de Laplace da função seno é conhecida e já rearranjando, temos
+$$
+\mathscr{L}
+\left[
+t +
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\sin(n\pi t)
+\right]
+=
+\dfrac{1}{s^{2}}
++
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{s^{2} + n^{2}}.
+$$
+Substituindo o resultado dado pela Eq.(25) na expressão precedente, obtemos
+$$
+\mathscr{L}
+\left[
+t +
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\sin(n\pi t)
+\right]
+=
+\dfrac{1}{s \sinh(s)},$$
+e, tomando a inversa de ambos os lados, temos
+$$
+\mathscr{L}^{-1}
+\left[
+\dfrac{1}{s \sinh(s)}
+\right]
+= t +
+\dfrac{2}{\pi}
+\sum_{k=1}^{\infty}
+\dfrac{(-1)^{n}}{n}
+\sin(n\pi t).
+$$
+
+\section{Transformada de Mellin}
+
+Em analogia às transformadas de Fourier e Laplace, vamos introduzir as transformadas de Mellin. Visto que a transformada de Mellin, em geral, não é muito explorada em disciplinas de graduação ou mesmo pós-graduação, vamos deixar um número maior de exercícios para os estudantes se exercitarem.
+
+Justificamos, mais uma vez, a importância desta transformada, pois desempenha papel importante no cálculo fracionário, em particular onde emergem naturalmente as funções de Fox. Lembremos que esta transformada está associada às integrais de Mellin-Barnes, cujo integrando é dada em termos de um quociente de funções gama e o contorno de integração exige o plano complexo.
+
+Por fim, devido a extensão do tema, permaneceremos no básico das transformadas de Mellin, naquilo que necessitamos para discutir as equações diferenciais fracionárias.
+
+\definicao{}{def:aula04.14}{%Definição 14.
+Seja $f(x)$ uma função localmente integrável [absolutamente integrável em todos subintervalos fechados de $(0,\infty)$] no intervalo $(0,\infty)$. A transformada de Mellin de $f(x)$, denotada por $\mathscr{M}[f(x); s]$, sendo $s$ o parâmetro da transformada, é definida por
+$$\mathscr{M}[f(x); s] \equiv F(s) :=
+\int_{0}^{\infty}
+x^{s-1}f(x) dx,$$
+desde que a integral convirja.
+}
+
+Antes de apresentarmos algumas propriedades, vamos obter a relação entre a transformada de Mellin e a transformada de Laplace bilateral.
+
+Seja $s$ o parâmetro da transformada. Considere a transformada de Laplace bilateral
+$$\mathscr{L}[f(t); s] \equiv F(s) :=
+\int_{-\infty}^{\infty}
+e^{-st}g(t) dt$$
+que converge absolutamente e é holomorfa (``analítica'') na faixa $a < \operatorname{Re}(s) < b$, com $a, b \in \mathbb{R}$ e $a < b$, tal que
+$$g(t) =
+\left\{\begin{array}{rl}
+\mathscr{O}(e^{(a+\epsilon)t}),& \mbox{ quando } t \to \infty \\
+\mathscr{O}(e^{(b-\epsilon)t}),& \mbox{ quando } t \to -\infty,
+\end{array}\right.$$
+para todo $\epsilon$ positivo e pequeno.
+
+Introduzindo a mudança de variável $t = -\ln(x)$ na expressão para a transformada de Laplace bilateral e definindo
+$f(x) = g(-\ln(x))$, obtemos
+$$\mathscr{L}[g(-\ln(x)); s] =
+\int_{0}^{\infty}
+x^{s-1}f(x) dx = \mathscr{M}[f(x); s].$$
+
+Com um procedimento inteiramente análogo à transformada de Laplace, vamos obter a expressão para transformada de Mellin inversa.
+
+A transformada de Laplace inversa é dada por
+$$g(t) =
+\dfrac{1}{2\pi i}
+\int_{c-i\infty}^{c+i\infty} 
+e^{st} F(s) ds,\quad F(s) = \mathscr{L}[g(t); s],$$
+com $a < c < b$, de onde segue para a transformada de Mellin inversa
+$$f(x) =
+\dfrac{1}{2\pi i}
+\int_{c-i\infty}^{c+i\infty}
+x-sF(s) ds,\quad F(s) = \mathscr{M}[f(x); s],$$
+válida para todos os pontos $x \ge 0$, onde $f(x)$ é contínua.
+
+
+
+\section{A transformada de Mellin e a transformada de Fourier}
+
+Uma outra maneira de introduzir a transformada de Mellin, em analogia à transformada de Laplace, vamos utilizar a transformada de Fourier, com uma conveniente mudança de variável. Ainda mais, como já introduzimos as respectivas transformadas de Fourier e Laplace inversas, vamos considerar um paralelo entre a transformada de Mellin e a transformada de Mellin inversa. Por fim, admitamos que a função $f(x)$ satisfaça condições que resultem na convergência da integral.
+
+Recuperemos as transformadas de Fourier, direta e inversa.
+
+Seja uma função $g(\omega)$ que admite a transformada de Fourier
+$$F[g(\omega)] = G(k) =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{\infty}
+e^{-i\omega k} g(\omega) d\omega$$
+cuja respectiva transformada inversa é dada por
+$$
+\mathscr{F}^{-1} [G(k)] = f(x) =
+\dfrac{1}{\sqrt{2\pi}}
+Z +\infty \infty
+e^{i\omega k} G(k) dk.$$
+
+A partir dessas duas expressões, vamos introduzir a mudança de variável $e^\omega = x$, o que implica $\omega = \ln(x)$, e definido
+$ik = c-s$, $c$ uma constante real e $s$, com $\operatorname{Re}(s) > 0$, o parâmetro associado à transformada de Mellin.
+
+Assim, com as novas variáveis podemos escrever para o par de transformada de Fourier
+$$
+\mathscr{F}[g(\ln(x))] =
+G(is - c) =
+\dfrac{1}{\sqrt{2\pi}}
+\int_{0}^{\infty}
+x^{s-c-1} g(\ln(x)) dx$$
+e
+$$
+\mathscr{F}^{-1}[G(is-c)] = g(\ln(x)) =
+\dfrac{1}{\sqrt{2\pi}} 
+\int_{c-i\infty}^{c+i\infty} 
+x^{c-s} G(is-ic) ds.$$
+
+Primeiro, redefinimos as funções de modo que tenhamos
+$$
+\dfrac{1}{\sqrt{2\pi}} 
+g(\ln(x)) = x^c f(x) \mbox{ e } G(is - ic) = G(s)$$
+que, substituídas na duas expressões anteriores, permitem escrever, respectivamente
+$$
+\mathscr{F}[g(\ln(x))] = F(s) =
+\int_{0}^{\infty}
+x^{s-1}f(x) dx$$
+e
+$$
+\mathscr{F}^{-1}[F(s)] = f(x) =
+\dfrac{1}{2\pi i}
+\int_{c-i\infty}^{c+i\infty} 
+x^{-s}F(s) ds.$$
+
+\definicao{Transformada de Mellin}{def:aula04.15}{%Definição 15.
+Sejam $f(x)$ uma função real de variável real, definida no intervalo aberto $(0,\infty)$ e $s \in \mathbb{C}$. Definimos a transformada de Mellin de $f(x)$ por meio da integral
+$$\mathscr{M}[f(x)] = F(s) =
+\int_{0}^{\infty}
+x^{s-1}f(x) dx,$$
+sendo $s$ o parâmetro da transformada.
+}
+
+
+\definicao{Transformada de Mellin Inversa}{def:aula04.16}{%Definição 16.
+Sejam $s \in \mathbb{C}$ e $c$ uma constante real na região de convergência, assegurando que $f(x)$ seja contínua. Definimos a transformada de Mellin inversa, através da integral de contorno no plano complexo
+$$\mathscr{M}^{-1}[F(s)] = f(x) =
+\dfrac{1}{2\pi i}
+\int_{c-i\infty}^{c+i\infty} 
+x^{-s} F(s) ds,$$
+integral esta que recupera a função f(x).
+}
+
+\exemplo{exem:aula04.18}{%Exemplo 18.
+Admita que a função $f(x)$ satisfaça as condições
+$$\left\{\begin{array}{rl}
+\displaystyle\lim_{x\to0} x^{s-1}f(x) = 0,& \mbox{ se } \operatorname{Re}(s) > a + 1, \\
+\displaystyle\lim_{x\to\infty} x^{s-1}f(x) = 0,& \mbox{ se } \operatorname{Re}(s) < b + 1.
+\end{array}\right.$$
+Mostre que $\mathscr{M}[f'(x); s] = -(s - 1) F(s - 1)$, com $a < \operatorname{Re}(s - 1) < b$.
+}
+
+\solexemplo{
+Partindo da definição da transformada de Mellin com parâmetro $s$, usando integração por partes e impondo as condições, temos
+$$\begin{array}{rcl}
+\mathscr{M}[f'(x); s] &=&
+\displaystyle\int_{0}^{\infty}
+x^{s-1}f'(x) dx \\[0.3cm]
+&=&
+\left[
+x^{s-1}f(x)
+\right]_{0}^{\infty}
+- (s - 1)
+\displaystyle\int_{0}^{\infty}
+x^{s-2} f(x) dx \\[0.3cm]
+&=& -(s - 1)F(s - 1),
+\end{array}$$
+com $a < \operatorname{Re}(s - 1) < b$.
+}
+
+Em analogia às transformadas de Fourier e Laplace, vamos enunciar propriedades da transformada de Mellin, em particular, justificar a importância da forma da transformada de Mellin de uma derivada, bastante útil na resolução de equações diferenciais envolvendo o operador de Laplace, em coordenadas cilíndricas.
+
+\proposicao{Escala}{prop:aula04.16}{%Proposição 5. Escala.
+Sejam $a > 0$ e a transformada de Mellin de $f(x)$, dada por $\mathscr{M}[f(x)] = F(s)$. Vale a propriedade
+$$M[f(ax)] =
+\dfrac{F(s)}{a^s}.$$
+}
+
+\proposicao{Deslocamento}{prop:aula04.17}{%Proposição 6.
+Sejam $a \in \mathbb{R}$ e $\mathscr{M}[f(x)] = F(s)$ denotando a transformada de Mellin da função $f(x)$. Vale a propriedade
+$$M[x^a f(x)] = F(s + a).$$
+}
+
+
+\proposicao{Potência de $x$}{prop:aula04.18}{%Proposição 7.
+Sejam $a \ne 0$ e $\mathbb{M}[f(x)] = F(s)$ denotando a transformada de Mellin da função $f(x)$. Vale a propriedade
+$$
+\mathscr{M}[f(x^a)] =
+\dfrac{1}{a} F
+\left(
+\dfrac{s}{a}
+\right).
+$$
+}
+
+\proposicao{Transformada de Mellin da derivada}{prop:aula04.19}{%Proposição 8.
+Seja $\mathscr{M}[f(x)] = F(s)$ a transformada de Mellin da função $f(x)$. Valendo os limites
+$$\lim_{x\to0}
+[x^{s-1} f(x)] \to 0 \mbox{ e } \lim_{x\to\infty} [x^{s-1} f(x)] \to 0$$
+temos a propriedade
+$$\mathscr{M}[f'(x)] = -(s - 1)F(s - 1).$$
+}
+
+Com a validade estendida para as derivadas, termos que ficam fora da integral por partes, podemos obter a expressão para a derivada de ordem $k$
+$$\mathscr{M}[f^{(k)}(x)] = (-1)^{k} \gamma{\Gamma(s)}{\Gamma(s - k)}
+F(s - k)$$
+que, no particular caso em que $k = 2$, útil em problemas que envolvendo a derivada de ordem dois, pode ser escrita na forma
+$$\mathscr{M}[f''(x)] = (s - 1)(s - 2)F(s - 2).$$
+
+\proposicao{Transformada de Mellin da função $x^k f^{(k)}(x)$}{prop:aula04.20}{%Proposição 9.
+Seja $\mathscr{M}[f(x)] = F(s)$ a transformada de Mellin da função $f(x)$. Valendo os limites
+$$\lim_{x\to0} [x^s f(x)] \to 0 \mbox{ e } \lim_{x\to\infty} [x^s f(x)] \to 0$$
+estendida para as funções, termos que ficam fora da integral por partes, temos a expressão para o produto de $x^k$ pela derivada de $f(x)$ de ordem $k$
+$$\mathscr{M}[xkf(k)(x)] = (-1)^{k} \dfrac{\Gamma(s + k)}{\Gamma(s)}
+F(s).$$
+}
+
+\proposicao{Transformada de Mellin da função
+$\left(x \dfrac{d}{dx}\right)^k f(x)$}{prop:aula04.21}{%Proposição 10. .
+Se $\mathscr{M}[f(x)] = F(s)$ é a transformada de Mellin da função $f(x)$, então
+$$\mathscr{M}\left[\left(x
+\dfrac{d}{dx}\right)^k f(x)
+\right]
+= (-1)^k s^k F(s),$$
+com $k = 0, 1, 2, \ldots$.
+}
+
+\proposicao{Convolução}{prop:aula04.22}{%Proposição 11.
+Sejam $\mathscr{M}[f(x)] = F(p)$ e $\mathscr{M}[g(x)] = G(p)$ as transformadas de Mellin das funções $f(x)$ e $g(x)$, respectivamente, ambas com parâmetro $p$. Denotando por $\star$ o produto de convolução de Mellin, temos
+$$\mathscr{M}[f(x) \star g(x)] = \mathscr{M}
+\left[
+\int_{0}^{\infty}
+f(\xi)
+g
+\left(
+\dfrac{x}{\xi}
+\right)
+\dfrac{d\xi}{\xi}
+\right]
+= F(p) G(p).
+$$
+}
+
+\exercicio{exer:aula04.12}{%Do lar 12.
+Seja $a > 0$. Mostre que
+$$\mathscr{M}[f(ax); s] = a^{-s}F(s).$$
+}
+
+\exercicio{exer:aula04.13}{%Do lar 13.
+Seja $a > 0$. Mostre que
+$$\mathscr{M}[f(xa); s] =
+\dfrac{1}{a}
+F\left(\dfrac{s}{a}\right).$$
+}
+
+\exercicio{exer:aula04.14}{%Do lar 14.
+Mostre que
+$$\mathscr{M}[f''(x); s] =
+\dfrac{\Gamma(s)}{\Gamma(s - 2)} F(s - 2),$$
+para $a < \operatorname{Re}(s - 2) < b$.
+}
+
+
+\exercicio{exer:aula04.15}{%Do lar 15.
+Mostre que $\mathscr{M}[xf'(x); s] = -sF(s)$.
+}
+
+\exercicio{exer:aula04.16}{%Do lar 16.
+Mostre que
+$$\mathscr{M}
+\left[\left(
+x
+\dfrac{d}{dx}
+\right)^{2}
+f(x); s\right]
+= s^{2}F(s).$$
+}
+
+
+\exercicio{exer:aula04.17}{%Do lar 17.
+Seja $x \in \mathbb{R}$. Mostre que $\mathscr{M}[e^{-x}; s] = \Gamma(s)$.
+}
+
+
+\exercicio{exer:aula04.18}{%Do lar 18.
+Seja $J_{\nu}(\cdot)$ uma função de Bessel de primeira espécie e de ordem $\nu$. Mostre que
+$$\mathscr{M}[x^{-\nu} J_{\nu}(x); s] = 2^{s-\nu-1} \dfrac{\Gamma(s/2)}{\Gamma(1 + \nu - s/2)},$$
+para $0 < \operatorname{Re}(s) < \operatorname{Re}(\nu) + \dfrac{3}{2}$.
+}
+
+\exercicio{exer:aula04.19}{%Do lar 19.
+Mostre que
+$$\mathscr{M}
+\left[
+\dfrac{1}{1+x}; s
+\right]
+=
+\dfrac{\pi}{\sin(\pi s)},$$
+com $|\arg(x)| < \pi$.
+}
+
+
+\exercicio{exer:aula04.20}{%Do lar 20.
+Mostre que
+$$\mathscr{M}
+\left[
+\dfrac{1}{1+x}; s
+\right]
+= \pi  \cot(\pi s),$$
+com $0 < \operatorname{Re}(s) < 1$, de onde segue para a respectiva transformada de Mellin inversa
+$$
+\dfrac{1}{2\pi i}
+\int_{c-i\infty}^{c+i\infty} 
+\dfrac{\pi}{\tan(\pi x}
+x^{-s} ds =
+\dfrac{1}{1 - x},$$
+com $0 < c < 1$ e $x > 0$.
+}
+
+
+\exercicio{exer:aula04.21}{%Do lar 21.
+Seja $c > 0$. Mostre que
+$$
+\dfrac{1}{2\pi i}
+\int_{c-i\infty}^{c+i\infty} 
+e^{st}
+\dfrac{ds}{s}
+=
+\left\{\begin{array}{rl}
+0,& \mbox{ se } t < 0, \\
+\dfrac{1}{2},& \mbox{ se } t = 0, \\
+1,& \mbox{ se } t > 0.
+\end{array}\right.$$
+}
+
+Ver \cite{paris2001mellin}.
+
+
+\exemplo{exem:aula04.19}{%Exemplo 19.
+Seja $x \in \mathbb{R}$. Calcule a transformada de Mellin da função
+$$f(x) = \dfrac{1}{e^{x} - 1}.$$
+}
+
+
+\solexemplo{
+Devemos calcular a seguinte integral
+$$
+\mathscr{M}[f(x)] =
+\int_{0}^{\infty}
+\dfrac{x^{s-1}}{e^{x} - 1}
+dx =
+\int_{0}^{\infty}
+\dfrac{e^{-x}}{1 - e^{-x}}
+x^{s-1} dx.$$
+
+Utilizando o resultado da série geométrica
+$$
+\sum_{k=1}^{\infty}
+e^{-kx} =
+\dfrac{e^{-x}}{1 - e^{-x}},$$
+podemos escrever
+$$\mathscr{M}[f(x)] =
+\int_{0}^{\infty}
+\sum_{k=1}^{\infty}
+e^{-kx} x^{s-1} dx =
+\sum_{k=1}^{\infty}
+\int_{0}^{\infty}
+e^{-kx} x^{s-1} dx.$$
+
+Efetuando uma mudança de variável, rearranjando e usando a definição da função gama obtemos
+$$\mathscr{M}[f(x)] = \Gamma(s)
+\sum_{k=1}^{\infty}
+\dfrac{1}{k^s}.$$
+
+Visto que a série resultante é a clássica \textbf{função zeta de Riemann}, podemos escrever para a transformada de Mellin
+$$\mathscr{M}[f(x)] = \Gamma(s)\zeta(s),$$
+que é o resultado desejado.
+}
+
+\exercicio{exer:aula04.22}{%Do lar 22.
+Seja $n \in \mathbb{N}$. Mostre que vale o resultado
+$$\mathscr{M}[(1 + x)-n] =
+\dfrac{\Gamma(s)\Gamma(n - s)}{\Gamma(n)}$$
+que generaliza o resultado obtido no Exercício \autoref{exer:aula04.19}, no caso em que $n = 1$.
+}
+
+\exemplo{exem:aula04.20}{%Exemplo 20.
+Seja $a \in \mathbb{R}$. Calcule a transformada de Mellin de $f(x) = \sin(ax)$.
+}
+
+\solexemplo{
+Sem perda de generalidade, seja $a > 0$. Calcular
+$$\mathscr{M}[\sin(ax)] =
+\int_{0}^{\infty}
+\sin(ax) x^{s-1} dx,$$
+sendo $s$ o parâmetro da transformada.
+
+Vamos utilizar o plano complexo para calcular esta integral, a saber: seja
+$z = u + iv$, com $u, v \in \mathbb{R}$ e vamos calcular a integral
+$$
+\Omega =
+\oint_{\Gamma}
+e^{-az} z^{s-1} dz,$$
+onde $\Gamma$ é um contorno no plano complexo.
+
+Começamos por escolher um contorno conveniente. Seja, então, o contorno, denotado por $\Gamma$ (não confundir com a função gama), conforme a Figura 4, orientado no sentido anti-horário, composto por um arco de circunferência de raio $\epsilon > 0$ e um quadrado de lado $R > 0$.
+
+Ao tomarmos $\epsilon \to 0$ e $R \to \infty$, obtemos exatamente o intervalo de integração da transformada de Mellin. Note que a função $f(z) = e^{-az} z^{s-1}$ é analítica na região $\Gamma$ o que acarreta, através do teorema dos resíduos,
+$$\oint_{\Gamma} e^{-az} z^{s-1} dz=0.$$
+
+Figura 4: Contorno para o Exemplo 20.
+
+Percorrendo o contorno de integração podemos escrever a soma (contribuições) de integrais
+$$\begin{array}{rl}
+ & \displaystyle\int_{\epsilon}^{R} e^{-au} u^{s-1} du \\[0.3cm]
++& i
+\displaystyle\int_{0}^{R} e^{-a(R+iv)} (R + iv)^{s-1} dv \\[0.3cm]
++&
+\displaystyle\int_{R}^{0} e^{-a(u+iR)} (u + iR)^{s-1} du \\[0.3cm]
++& i
+\displaystyle\int_{R}^{\epsilon}
+e^{-iav} (iv)^{s-1} dv \\[0.3cm]
++&
+\displaystyle\int_{\frac{\pi}{2}}^{0}
+e^{-a\epsilon e^{i\theta}} \left(\epsilon e^{i\theta}\right)^{s-1} i\epsilon e^{i\theta} d\theta  = 0.
+\end{array}$$
+
+Vamos calcular essas integrais, separadamente, já tomando os limites $\epsilon \to 0$ e $R \to \infty$. Visto que $\operatorname{Re}(s) > 0$ a integral no arco vai a zero,
+$$
+\int_{0}^{\frac{\pi}{2}}
+\left|
+e^{-a\epsilon e^{i\theta}} (\epsilon e^{i\theta})^{s-1} i \epsilon e^{i\theta} 
+\right|
+d\theta  =
+\int_{0}^{\frac{\pi}{2}}
+\left|
+e^{-a\epsilon e^{i\theta}} \epsilon e^{i\theta} s \epsilon^s
+\right| d\theta
+= \mathscr{O}(e^\epsilon) \to 0$$
+
+Em analogia ao cálculo do limite anterior, no limite $R \to \infty$, a integral vai a zero
+$$
+\int_{0}^{R}
+\left|
+e^{-a(R+iv)} (R + iv)^{s-1}
+\right|
+dv = \mathscr{O}(e^{-aR} R^{\operatorname{Re}(s)}) \to 0$$
+ainda mais, a integral
+$$
+\int_{R}^{0}
+\left|
+e^{-a(u+iR)} (u + iR)^{s-1}
+\right|
+du =
+\mathscr{O}
+\left[
+R^{\operatorname{Re}(s-1)}
+\int_{R}^{0}
+e^{-au} du
+\right]
+\to 0$$
+também vai a zero, porém emerge a imposição de que devemos ter $\operatorname{Re}(s) < 1$, pois a integral remanescente não vai a zero. Voltando com esses resultados na soma das integrais, podemos escrever
+$$
+\int_{0}^{\infty}
+e^{-au} u^{s-1} du - i
+\int_{0}^{\infty}
+e^{-iav} (iv)^{s-1} dv = 0$$
+de onde segue a igualdade
+$$
+\int_{0}^{\infty}
+e^{-au} u^{s-1} du = i^s
+\int_{0}^{\infty}
+e^{-iav} v^{s-1} dv.$$
+
+Rearranjando a igualdade precedente, obtemos
+$$\int_{0}^{\infty}
+e^{-iav} v^{s-1} dv = i^{-s}
+\int_{0}^{\infty}
+e^{-au} u^{s-1} du.$$
+
+A integral no segundo membro, a partir da mudança de variável $au = \xi$ nos leva à expressão
+$$i^{-s}
+\int_{0}^{\infty}
+e^{-\xi}
+\left(
+\dfrac{\xi}{a}
+\right)^{s-1} \dfrac{d\xi}{a}
+=
+\dfrac{i^{-s}}{a^s}
+\int_{0}^{\infty}
+e^{-\xi} \xi^{s-1} d\xi$$
+que, finalmente, permite escrever
+$$\int_{0}^{\infty}
+e^{-iav} v^{s-1} dv =
+\dfrac{1}{(ia)^s} \Gamma(s) =
+\dfrac{1}{a^s} e^{-i \frac{\pi}{2}s} \Gamma(s),$$
+ou ainda, considerando $i \to -i$ fornece
+$$\int_{0}^{\infty}
+e^{iav} v^{s-1} dv =
+\dfrac{1}{a^s} e^{-i \frac{\pi}{2}s} \Gamma(s).$$
+
+Com o resultado das duas últimas integrais, subtraindo a segunda da primeira, temos
+$$\int_{0}^{\infty}
+\left(e^{iav} - e^{-iav}\right)
+v^{s-1} dv =
+\dfrac{1}{a^s}
+\left(
+e^{i \frac{\pi}{2}s}
+-
+e^{-i \frac{\pi}{2}s}
+\right)
+\Gamma(s),$$
+ou ainda, usando a relação $e^{i\theta} - e^{-i\theta} = 2i \sin(\theta)$, obtemos
+$$\int_{0}^{\infty}
+\sin(av) v^{s-1} dv =
+\dfrac{1}{a^{s}}
+\sin\left(\dfrac{\pi}{2}s\right)
+\Gamma(s)$$
+que é o resultado desejado.
+}
+
+É importante notar que, se somássemos, no lugar de subtrair, as duas expressões e usando a relação envolvendo o cosseno, podemos escrever
+$$
+\int_{0}^{\infty}
+\cos(av) v^{s-1} dv =
+\dfrac{1}{a^s}
+\cos\left(\dfrac{\pi}{2} s\right)
+\Gamma(s).$$
+
+Utilizando a definição da transformada de Mellin, as integrais de Mellin-Barnes e uma representação integral para a função hipergeométrica, vamos calcular uma integral no plano complexo que nada mais é que uma outra representação integral para a função hipergeométrica.
+
+\exemplo{exem:aula04.21}{%Exemplo 21.
+Aqui, começamos com o cálculo da transformada de Mellin, denotada por $\mathscr{M}$, da clássica função hipergeométrica ${}_2F_1(a, b; c;-x)$, isto é
+$$\Omega \equiv \mathscr{M}[{}_2F_1(a, b; c;-x)] =
+\int_{0}^{\infty}
+x^{s-1}
+{}_2F_1(a, b; c;-x) dx.$$
+}
+
+\solexemplo{
+Introduzindo a representação integral para a função hipergeométrica e trocando as ordens de integração, podemos escrever
+$$
+\Omega =
+\dfrac{\Gamma(c)}{\Gamma(b)\Gamma(c - b)}
+\int_{0}^{1}
+t^{b-1} (1-t)^{c-b-1}
+\int_{0}^{\infty}
+\dfrac{x^{s-1}}{(1 + xt)^a} dx dt.
+$$
+
+Para calcular a integral na variável $x$, introduzimos a mudança de variável $xt = \xi$, de onde obtemos, apenas para a integral em $x$
+$$
+\int_{0}^{\infty}
+x^{s-1}
+(1 + xt)^a dx = t^{-s}
+\int_{0}^{\infty}
+\dfrac{\xi^{s-1}}{(1 + \xi)^a} d\xi.$$
+
+A fim de calcular a integral na variável $\xi$, vamos introduzir uma outra mudança de variável $\eta$, dada por
+$\eta = \xi/(1 + \xi)$, de onde segue para a integral,
+$$t^{-s}
+\int_{0}^{\infty} \dfrac{\xi^{s-1}}{(1 + \xi)^a} d\xi
+= t^{-s}
+\int_{0}^{1}
+\eta^{s-1}(1 - \eta)^{-s+a-1} d\eta.$$
+
+A integral remanescente nada mais é que uma função beta, (função de Euler de primeira espécie), logo
+$$\int_{0}^{\infty}
+\dfrac{x^{s-1}}{(1 + xt)^a} dx = t^{-s} B(s, a - s) = t^{-s} \dfrac{\Gamma(s)\Gamma(a - s)}{\Gamma(a)}$$
+onde, na última passagem, para simplificar, utilizamos a relação entre as funções gama e beta.
+
+Voltando na expressão para $\Omega$ podemos escrever
+$$\Omega =
+\dfrac{\Gamma(c)}{\Gamma(b)\Gamma(c - b)}
+\dfrac{\Gamma(s)\Gamma(a - s)}{\Gamma(a)}
+\int_{0}^{1}
+t^{b-s-1} (1 - t)^{c-b-1} dt$$
+que, também, é uma outra função beta. Procedendo como no anterior e expressando o resultado em termos de funções gama, obtemos, já simplificando
+$$
+\Omega =
+\dfrac{\Gamma(c)}{\Gamma(a)\Gamma(b)}
+\dfrac{\Gamma(s)\Gamma(a - s)}{\Gamma(b - s)}{\Gamma(c - s)}.$$
+
+Voltando com a transformada inversa de Mellin, obtemos a integral de Mellin-Barnes
+\begin{equation}\label{eq:aula04.26}
+\dfrac{\Gamma(a)\Gamma(b)}{\Gamma(c)} {}_2F_1(a, b; c; z) =
+\dfrac{1}{2\pi i}
+\int_{-i\infty}^{i\infty}
+\dfrac{\Gamma(s)\Gamma(a - s)\Gamma(b - s)}{\Gamma(c - s)}
+(-z)^{-s} ds
+\end{equation}
+que é uma representação integral - Mellin-Barnes - para a clássica função hipergeométrica.
+
+A fim de mostrar, a partir dessa representação integral, o processo inverso, partindo da representação integral e obter a função hipergeométrica, procedemos
+como no caso de uma função de Mittag-Leffler com três parâmetros.
+
+Explicitamos apenas os passos, para depois escrever essa função como um caso particular da função $G$ de Meijer. Ainda mais, apenas para lembrar, também, podemos escrevê-la em termos de uma função $H$ de Fox, porém, como já mencionamos, a função $G$ de Meijer é um caso particular da função $H$ de Fox, logo, escrevemos apenas em termos da função de Meijer.
+
+Voltemos à integral dada pela \autoref{eq:aula04.26} e esbocemos os passos, em analogia à função de Mittag-Leffler com três parâmetros. Primeiro o contorno, onde admitimos $\arg(-z) < \pi$  e separando os polos das funções $\Gamma(a-s)$ e $\Gamma(b-s)$ daqueles da função $\Gamma(s)$, bem como considerando $(-z)^{-s}$, com seu valor principal. Visto que os polos de $\Gamma(s)$ são tais que $-s = k = 0, 1, 2, \ldots$, devemos calcular o limite
+$$
+\sum_{k=0}^{\infty}
+\lim_{s\to-k}
+\left\{
+(s + k)
+\left[
+\Gamma(s)
+\dfrac{\Gamma(-s + a)\Gamma(-s + b)}{\Gamma(-s + c)}
+(-z)^{-s}
+\right]\right\},
+$$
+que pode ser escrito na forma
+$$\lim_{s\to-k}
+(k + s)\Gamma(s) =
+\dfrac{(-1)^{k}}{k!},$$
+de onde segue o resultado para a integral
+$$
+\dfrac{\Gamma(a)\Gamma(b)}{\Gamma(c)}
+{}_2F_1(a, b; c; z),
+$$
+que é o resultado desejado.
+}
+
+\exercicio{exer:aula04.23}{%Do lar 23.
+Utilize o resultado do Exemplo 21 para obter uma representação integral no plano complexo, similar à \autoref{eq:aula04.26} - Mellin-Barnes - para a função hipergeométrica confluente.
+}
+
+\section{Um particular núcleo}
+
+Ao considerarmos as transformadas integrais, Fourier, Laplace e Mellin, notamos que a forma das três apresenta a mesma estrutura, ou ainda, sob certas condições, é possível determinar uma solução da equação integral
+\begin{equation}\label{eq:aula04.27}
+J(\alpha) =
+\int_{0}^{\infty}
+f(x) K(\alpha, x) dx,
+\end{equation}
+na seguinte forma (recupera a função)
+\begin{equation}\label{eq:aula04.28}
+f(x) =
+\int_{a}^{b} J(\alpha) H(\alpha, x) d\alpha.
+\end{equation}
+
+Uma expressão como a \autoref{eq:aula04.28}, relacionando a função $f(x)$ e a sua transformada integral, dada pela \autoref{eq:aula04.27}, é conhecido pelo nome de \textbf{teorema de inversão}.
+
+No particular caso em que a solução que recupera a função \autoref{eq:aula04.28}, é do tipo
+\begin{equation}\label{eq:aula04.29}
+f(x) =
+\int_{a}^{b} J(\alpha) K(\alpha, x) d\alpha,
+\end{equation}
+ou seja, a relação entre a função e a sua transformada é simétrica, a função $K(\alpha , x)$ é conhecida pelo nome de \textbf{núcleo de Fourier}. Uma relação interessante emerge naturalmente no caso em que o núcleo é da forma $K(\alpha x)$ de onde segue o teorema relacionando o núcleo de Fourier com a transformada de Mellin.
+
+\teorema{}{teo:aula06.08}{%Teorema 8.
+Uma condição para que a função $K(\alpha x)$ (núcleo) seja um núcleo de Fourier é que a sua transformada de Mellin, denotada por $\mathbf{K}(s)$, da função $K(x)$ satisfaça a equação funcional
+$$\mathbf{K}(s) \mathbf{K}(1 - s) = 1.$$
+}
+
+\demteorema{%Prova 5.
+Começamos multiplicando a \autoref{eq:aula04.27} por $\alpha^{s-1}$ e integramos em relação a $\alpha$ de zero até infinito, de modo que tenhamos
+$$\int_{0}^{\infty}
+J(\alpha) \alpha^{s-1} d\alpha  =
+\int_{0}^{\infty}
+\alpha^{s-1} d\alpha 
+\int_{0}^{\infty}
+f(x)K(\alpha x) dx$$
+que, permutando a ordem de integração (justificada pelo teorema de Fubini) permite escrever
+$$\int_{0}^{\infty}
+J(\alpha)\alpha^{s-1} d\alpha  =
+\int_{0}^{\infty}
+f(x) dx
+\int_{0}^{\infty}
+K(\alpha x)\alpha^{s-1} d\alpha.$$
+
+Introduzindo a mudança de variável $\alpha x = \xi$ na integral em $\alpha$, podemos escrever
+$$\int_{0}^{\infty}
+K(\alpha x)\alpha^{s-1} d\alpha  = x^{-s}
+\int_{0}^{\infty}
+K(\xi)\xi^{s-1} d\xi$$
+e, a partir da definição da transformada de Mellin, na seguinte forma
+$$\int_{0}^{\infty}
+K(\alpha x) \alpha^{s-1} d\alpha  = x^{-s} \mathbf{K}(s).$$
+
+Assim, podemos escrever a igualdade
+$$\int_{0}^{\infty}
+J(\alpha)\alpha^{s-1} d\alpha  = K(s)
+\int_{0}^{\infty}
+f(x) x^{-s} dx.$$
+Introduzindo a notação
+$$J(s) =
+\int_{0}^{\infty}
+J(\alpha)\alpha^{s-1} d\alpha  e F(s) =
+\int_{0}^{\infty}
+f(x)x^{s-1} dx$$
+ou seja, $J(s)$ e $F(s)$ são, respectivamente, a transformada de Mellin de $J(\alpha)$ e $f(x)$, de onde segue a equação funcional
+\begin{equation}\label{eq:aula04.30}
+J(s) = \mathbf{K}(s)F(1 - s).
+\end{equation}
+
+Por outro lado, multiplicando os dois membros da \autoref{eq:aula04.30} por $x^{s-1}$ e integrando de zero até infinito, podemos
+escrever
+$$\int_{0}^{\infty}
+f(x)x^{s-1} dx =
+\int_{0}^{\infty}
+x^{s-1} dx
+\int_{0}^{\infty}
+J(\alpha)K(\alpha x) d\alpha$$
+e, procedendo como anteriormente, permutamos a ordem de integração e introduzimos a mudança de variável, de onde segue
+$$\int_{0}^{\infty}
+f(x)x^{s-1} dx =
+\int_{0}^{\infty}
+J(\alpha) \alpha^{-s} d\alpha 
+\int_{0}^{\infty}
+K(\xi)\xi^{s-1} d\xi$$
+o que permite escrever a equação funcional
+$$F(s) = J(1 - s)\mathbf{K}(s).$$
+
+Na expressão anterior, introduzimos $s \to s - 1$, logo
+\begin{equation}\label{eq:aula04.31}
+F(1 - s) = J(s)\mathbf{K}(1 - s).
+\end{equation}
+
+Comparando as \autoref{eq:aula04.30} e \autoref{eq:aula04.31}, podemos eliminar o quociente $F(1 - s)/J(s)$, de onde segue que a transformada de Mellin da função $K(x)$ satisfaz a equação funcional
+$$\mathbf{K}(s) \mathbf{K}(1 - s) = 1,$$
+que é o resultado desejado.
+}
+
+
+\exercicio{exer:aula04.24}{%Do lar 24.
+Sejam $A$ uma constante e $K(x) = A \cos(x)$.
+
+\begin{description}
+\item (a) Calcule a transformada de Mellin, denotada por $\mathbf{K}(s)$;
+\item (b) Mostre que $\mathbf{K}(s)\mathbf{K}(1 - s) = 1$ e determine $A$;
+\item (c) obtenha a equação integral e a sua solução.
+\end{description}
+}
+
+\exercicio{exer:aula04.25}{%Do lar 25.
+Análogo ao Exercício \ref{exer:aula04.24} para a função $K(x) = B \sin(x)$, com $B$ uma constante.
+}
+
+\exercicio{exer:aula04.26}{%Do lar 26.
+Compare o resultado obtido na letra (c) dos exercícios \ref{exer:aula04.24} e \ref{exer:aula04.25} com as expressões dadas nas Eq.(12), Eq.(13), Eq.(14) e Eq.(15), os pares de transformadas (direta e inversa) seno e cosseno de Fourier.
+}
+
+%%18 junho 21

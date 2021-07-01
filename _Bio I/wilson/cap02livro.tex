@@ -1,0 +1,2302 @@
+
+\chapter{Introdução}
+
+\begin{definition}[Biomatemática]
+A Biomatemática é compreendida como a aplicação de modelos matemáticos para a resolução e compreensão de fenômenos biológicos.
+\end{definition}
+
+\section{Modelos Matemáticos}
+
+Os \textit{Modelos Matemáticos} surgem com o objetivo de buscar a interação entre a teoria matemática e outras ciências. De acordo com a história da matemática, a matemática surge da necessidade de um processo de organização e controle. Na Babilônia por volta de 2000 a.c., através escavações arqueológicas, foram encontrados tabletes cuneiformes que mostram uma aritmética utilizada para o cálculo de comprimentos, áreas, volumes, pesos, estoques de mercadoria, etc.
+
+Nesses tabletes encontraram registrados símbolos e regras bem definidas, que utilizavam para resolver problemas reais. A resolução destes problemas propiciava a motivação e estrutura para a construção de uma teoria matemática, além da sua aplicação.
+
+Dentro deste contexto tem se mostrado através dos tempos que a matemática tem se tornado uma ferramenta importante para o desenvolvimento de uma sociedade, contribuindo para a solução de várias situações problemas. NEWMANN (apud Bassanezi, Ferreira - 1988) "Eu penso que seria uma aproximação relativamente boa da realidade (que é demasiadamente complexa para permitir qualquer coisa melhor do que uma aproximação), dizer que as ideias matemáticas tem a sua origem em situações empíricas".
+
+Historicamente ocorreram o desenvolvimento de vários campos da matemática, em nossa situação, estaremos construindo modelos matemáticos de situações problema que pressupõe a existência de um dicionário que interpreta símbolos e operações de uma teoria matemática de acordo com a linguagem utilizada para a descrição do problema estudado, transpondo o problema para a matemática, sendo estudado com toda teoria matemática já desenvolvida e através desta teoria objetiva-se encontrar resultados que visam solucionar o problema original, em alguns modelos pode ocorrer de não existir uma teoria adequada para analisar o problema, cabe então ao matemático, desenvolver um novo campo da matemática.
+
+A matemática aplicada assume uma função importante no desenvolvimento dessa teoria, pois cabe a ela estruturar modelos e atacá-lo com uma teoria matemática já desenvolvida, almejando resultados que visam solucioná-lo.
+
+Com isto o objetivo da matemática aplicada passa a ser a de abstrair a essência de uma situação problema e formalizá-la em um contexto abstrato onde podemos analisar e desenvolver estratégia encontrando solução para o problema original. 
+
+
+\chapter{Equações de Diferença Lineares}
+
+\section{Equações de Diferença Lineares}
+
+\begin{definition}
+Equações de diferenças lineares são equações de recorrência. Uma equação geral de diferença de ordem \(n\), tem a seguinte forma:
+\begin{equation}\label{eq:equacaofegaldiferencaondemn}
+y_{t+1} - y_{t} = f(y_{t}, y_{t-1}, y_{t-2}, \ldots, y_{t-n}),
+\end{equation}
+onde \(f: D \subset  \mathbb{R}^n \to \mathbb{R}\).
+\end{definition}
+
+\subsection{Equações de Diferença Autônomas}
+
+\begin{definition}
+Equações de diferenças autônomas são equações em que a função \(f\) não depende de \(t\), mas depende apenas dos estágios. 
+
+\begin{equation}\label{eq:equacoesdiferençasautonomas1}
+y_{t+1} - y_{t} = f(y_{t}, y_{t-1}, y_{t-2}, \ldots, y_{t-n}) \\ 
+\end{equation}
+ou
+\begin{equation}\label{eq:equacoesdiferençasautonomas2}
+y_{t+1} = g(y_{t}, y_{t-1}, y_{t-2}, \ldots, y_{t-n})
+\end{equation}
+onde \(f\) é linear nas variáveis \(y_{t}, y_{t-1}, \ldots, y_{t-n}\),
+\end{definition}
+isto é, se (2) puder ser escrito na forma \(g(t) = y_{t+1}+a_ty_{t}+a_{t-1}y_{t-1}+\ldots+a_{t-n}y_{t-n}\), temos uma equação de diferença linear e não homogênea. A equação de diferença linear será homogênea se \(g(t)=0\), caso contrário diz-se equação de diferença linear não homogênea. 
+
+\begin{example}[Economia]
+Suponha que um capital \(c_{0}\) é aplicado a uma taxa \(i\). Qual é o montante após \(t\) período, se o regime for: 
+
+\begin{description}
+\item a) de juros simples 
+\item b) de juros compostos
+\end{description}
+\end{example}
+
+\textbf{Solução}:
+
+\begin{description}
+\item a) \(c_{t+1} - c_{t} = ic_{0}\) é uma equação não homogênea. 
+\item b) \(c_{t+1} - c_{t} = ic_{t}\) é uma equação homogênea, pois \(c_{t+1}-(1+i)c_{t}=0\). 
+\end{description}
+
+
+
+
+Solução geral para a equação homogênea:
+
+Seja $c_{t} = k\lambda^{t}$. Substituindo no item (b), teremos:
+$$\begin{array}{rcl}
+c_{t+1}-(1+i)c_{t} = 0
+&\Rightarrow&  k\lambda^{t}+1-(1+i)k\lambda^{t} = 0 \\
+&\Rightarrow& \lambda_{k}^{t}[\lambda-(1+i)] = 0
+\Rightarrow
+\left\{\begin{array}{rcl}
+\lambda^{t} k &=& 0 \\
+\lambda-(1+i) &=& 0
+\end{array}\right.
+\end{array}$$
+
+Para $\lambda^{t} k = 0 \Rightarrow  \lambda = 0$, temos uma solução trivial.
+
+Para $\lambda-(1+i)=0 \Rightarrow  \lambda = 1+i$, e substituindo em $c_{t} = k\lambda^{t}$, temos: $c_{t} = k(1 + i)t$ e se $t=0 \Rightarrow c_{0} = k(1+i)^{0} = k \Rightarrow  c_{t} = c_{0} (1+i)^{t}$.
+
+Portanto, a solução $c_{t} = k \overline{\lambda}^{t}$, onde $\overline{\lambda}$ é a solução da equação $\lambda - (1 + i)=0$.
+
+A solução do item (b) também pode ser calculada por recorrência: 
+$$\begin{array}{rcrcl}
+ & & c_{t+1} &=& (1 + i)c_{t} \\
+t &=& 0 \Rightarrow  c_1 &=& (1 + i)c_0 \\
+t &=& 1 \Rightarrow  c_2 &=& (1+ i)^2c_0 \\
+t &=& 2 \Rightarrow  c_3 &=& \ldots (1+i)^3c_0 \\
+&\vdots& && \\
+t &=& n \Rightarrow  c_n &=& (1+i)^nc_0
+\end{array}$$
+
+Para solução do item (a) $c_{t+1} - c_{t} = ic_0$, se $ic_0 = 0$, então $c_{t+1} - c_{t} = 0 \Rightarrow  \lambda - 1=0 \Rightarrow  \lambda = 1$.
+
+Note que $c_{t}^{h} = k \cdot 1^{t} = k$ é solução da equação homogênea.
+
+ 
+
+Supondo que $t = 0 \Rightarrow  k = c_0$, é fácil de ver que $c_{t}^{p} = (ic_{0})t$ é uma solução particular.
+
+A solução geral é:
+$$c_{t} = c_{t}^{r}+c_{t}^{p}= k = (ic_0)t = c_0(1+i+t).$$
+
+\begin{center}
+\begin{pspicture*}(-1,-1)(6,5)
+\psaxes[Dx=10,Dy=10,linecolor=red]{->}(0,0)(-1,-1)(5,5)
+\psplot[algebraic=true]{0}{3}{1.9^x}
+\psplot[algebraic=true]{0}{3}{0.9*x+1}
+\uput[r](2,2.8){Juros simples}
+\uput[dr](2.5,4.9){Juros compostos}
+\uput[dr](5,0){$t$}
+\end{pspicture*}
+\end{center}
+
+
+\section{Equações de Diferenças Lineares Homogêneas de Ordem $k$}
+
+Dada uma equação de diferença linear:
+\begin{equation}\label{eq:diferencalinear}
+y_{t+k} + \alpha_{t+k-1}y_{t+k-1} + \alpha_{t+k-2}y_{t+k-2} + \ldots + \alpha_{t+1}y_{t+1} + \alpha_{t}y_{t} = 0
+\end{equation}
+
+Seja $y_{t} = C\lambda^{t}$ uma solução de \eqref{eq:diferencalinear} e substituindo $y_{t}$, temos:
+$$\begin{array}{rcl}
+& & C\lambda^{t+k} + \alpha_{t+k-1}C\lambda^{t+k-1} + \alpha_{t+k-2}C\lambda^{t+k-2} + \ldots + \alpha_{t+1}C\lambda^{t+1} + \alpha_{t}C\lambda^{t} = 0 \\
+&\Rightarrow& C\lambda^{t}(\lambda^{k}+\alpha_{t+k-1}\lambda^{k-1}+\ldots+\alpha_{t+1}\lambda+\alpha_{t})=0 \\
+&\Rightarrow&
+\left\{
+\begin{array}{rcl}
+C\lambda^{t} = 0 \\
+\lambda^{k} + \alpha_{t+k-1}\lambda^{k-1} + \ldots + \alpha_{t+1}\lambda + \alpha_{t} = 0
+\end{array} \right.
+\end{array}$$
+
+
+Dessa equação tiramos que:
+$$\left\{
+\begin{array}{rcl}
+C\lambda^{t} &=& 0 \Rightarrow  \lambda = 0 \\
+p_k(\lambda)&=&0
+\end{array}\right.$$
+
+Portanto: $\lambda^{t}$ é uma solução de \eqref{eq:diferencalinear} se, e somente se, $\lambda$ é uma solução de $p_{k}(\lambda)$ e $p_{k}(\lambda)$ é chamado de \textbf{polinômio característico}.
+
+\begin{theorem}
+O conjunto solução da equação \eqref{eq:diferencalinear} é um espaço de dimensão k.
+\end{theorem}
+
+\textbf{Demonstração}: Sejam $y_{t}$ e $x_{t} \in \mathbb{R}^k$ e solução da equação \eqref{eq:diferencalinear} e $\beta_{i} \in \mathbb{R}$, tal que, 
+$$\begin{array}{rcl}
+y_{t+k} + \alpha_{t+k-1}y_{t+k-1} + \alpha_{t+k-2}y_{t+k-2} + \ldots + \alpha_{t+1}y_{t+1} + \alpha_{t}y_{t} &=& 0 \\
+x_{t+k} + \alpha_{t+k-1}x_{t+k-1} + \alpha_{t+k-2}x_{t+k-2} + \ldots + \alpha_{t+1}x_{t+1} + \alpha_{t}x_{t} &=& 0
+\end{array}$$
+então, para $(y_{t} + \beta_{t}x_{t})$, teremos que:
+
+$$\begin{array}{ll}
+ & (y_{t+k} + \beta_{t+k}x_{t+k}) +\alpha_{t+k-1}(y_{t+k-1} + \beta_{t+k-1}x_{t+k-1}) +\alpha_{t+k-2}(y_{t+k-2} + \beta_{t+k-2}x_{t+k-2}) +\ldots \\
+ & + \alpha_{t+1}(y_{t+1} + \beta_{t}+1x_{t+1})t +1+ \alpha_{t}(y_{t} + \beta_{t}x_{t}) = \\
+=& y_{t+k}+\beta_{t+k}x_{t+k}+\alpha_{t+k-1}y_{t+k-1}+\alpha_{t+k-1}\beta_{t+k-1}x_{t+k-1}+\alpha_{t+k-2}y_{t+k-2}+\alpha_{t+k-2}\beta_{t+k-2}x_{t+k-2} \\
+ & + \ldots + \alpha_{t+1}y_{t+1} + \alpha_{t+1}\beta_{t}+1x_{t+1} + \alpha_{t}y_{t} + \alpha_{t}\beta_{t}x_{t} = \\
+=& (y_{t+k} + \alpha_{t+k-1}y_{t+k-1} + \alpha_{t+k-2}y_{t+k-2} + \ldots + \alpha_{t+1}y_{t+1} + \alpha_{t}y_{t}) \\
+ & + (\beta_{t+k}x_{t+k} + \alpha_{t+k-1}\beta_{t+k-1}x_{t+k-1} + \alpha_{t+k-2}\beta_{t+k-2}x_{t+k-2} + \ldots + \alpha_{t+1}\beta_{t}+1x_{t+1} + \alpha_{t}\beta_{t}x_{t}) = \\
+=& 0+0=0.
+\end{array}$$
+
+Logo, $y_{t} + \beta_{t}x_{t}$ é solução da equação \eqref{eq:diferencalinear}.
+
+Se $y_{t} = 0$, então $y_{t}$ também é solução da equação \eqref{eq:diferencalinear}, portanto o espaço solução da equação \eqref{eq:diferencalinear} é um espaço vetorial de dimensão $k$.
+
+
+\begin{corollary}
+Se o polinômio $p_{k}(\lambda)$ só tiver raízes $\lambda_{i}$ simples, como são $k$ raízes, então $\lambda_{1}^{t},\lambda_{2}^{t}, \ldots, \lambda_{k}^{t}$ formam uma base do conjunto solução.
+\end{corollary}
+
+
+\begin{proposition}
+Se $\alpha$ for uma raiz de $p_{k}(\lambda)$ com multiplicidade $m$ então $\alpha_{t}, t\alpha_{t}, t^2\alpha_{t}, \ldots, t^{m-1} \lambda^{t}$ são solução linearmente independente.
+\end{proposition}
+
+Assim, a solução geral da equação \eqref{eq:diferencalinear} tem a forma:
+$$
+y_{t} = c_{1}^{1} \lambda^{t} + c_{2}^{1} t \lambda^{t} + \ldots + cm(i)tm1-1\lambda_{1}^{t} + c12\lambda_{2}^{t} + \ldots + cm2tm2-1\lambda_{2}^{t}c1n\lambda_{1}^{t} + \ldots + cmntmn-1\lambda^{t}n,$$
+em que $m_1 + m_2 + \ldots + m_n = k$.
+
+
+\begin{example}
+$y_{t+1} = ay_{t} \Leftrightarrow y_{t-1} - ay_{t} = 0 \Rightarrow  p(\lambda) = \lambda - a \Rightarrow  \lambda = a$, onde a solução é $y_{t} = ca^t; c > 0$.
+
+Figura 2: Solução 
+\end{example}
+
+
+\subsection{Equilíbrio de uma Equação de Diferença}
+
+\begin{definition}
+Dizemos que há equilíbrio quando a geração atual é igual a geração seguinte, isto é, $$y_{t+1} = y_{t}, \forall\ t.$$
+Neste caso, teremos,
+$$ay_{t} = y_{t} \Rightarrow  \left\{\begin{array}{rcl} y_{t} &=& 0, \forall\ t \\ a &=& 1
+\end{array}\right.
+$$
+\end{definition}
+
+
+\section{Equações de Diferença de Segunda Ordem}
+
+
+
+\begin{definition}
+Equações de diferença de segunda ordem são equações que dependem de duas gerações anteriores, ou seja, de equações
+
+\begin{equation}\label{eq:eqdiferencasegundaordem1}
+y_{t+2} + by_{t+1} + cy_{t} = 0
+\end{equation}
+ou
+\begin{equation}\label{eq:eqdiferencasegundaordem2}
+y_{t} + by_{t-1} + cy_{t-2} = 0.
+\end{equation}
+
+(Fórmulas gerais de uma equação de segunda ordem) 
+\end{definition}
+
+Suponha que $y_{t} = k\lambda^{t}$ seja uma solução geral para a equação \eqref{eq:eqdiferencasegundaordem1}. Segue que:
+$$p_2(\lambda) = \lambda^{2} + b\lambda + c = 0.$$
+
+\subsection{Tipos de Soluções para Equações de Segunda Ordem}
+
+
+\begin{itemize}
+\item se $\lambda_{1} = \lambda_{2}$ são reais, a solução de $p_2(\lambda)$ é dada pela forma
+$$y_{t} = c_1\lambda_{1}^{t} + c_2\lambda_{2}^{t}$$ 
+\item se $\lambda_{1} = \lambda_{2} = \alpha$ é real, a solução de $p_2(\lambda)$ é dada por
+$$y_{t} = c_1\alpha^{t} + c_2t\alpha^{t}r$$ 
+\item se $\lambda_1 \ne \lambda_2$ são complexas, teremos $\lambda_{1} = a+bi$ e $\lambda_{2} = a-bi$ (a solução complexa vem sempre em par conjugado). 
+\end{itemize}
+
+No caso de soluções complexas, podemos transformá-las na forma trigonométrica,
+$$y_{t} = C_1(a + bi)^{t} + C_2 (a - bi)^{t},$$
+onde $(a + bi)^{t} = r^{t} (\cos(t\theta) + i\sin(t\theta))$, com $r = \sqrt{a^2+b^2}$ e $\theta = \arctan\left(\dfrac{b}{a}\right)$, para $a \ne 0$ e $\theta = \dfrac{\pi}{2}$, para $a=0$.
+
+Portanto, teremos que 
+$$y_{t} = (A\cos(t\theta) + i B\sin(t\theta)),$$
+onde $A = C_1 + C_2$ e $B = C_1 - C_2$.
+
+\begin{exercise}
+Resolva as seguintes equações: 
+
+\begin{description}
+\item a) $y_{t+2} - 5y_{t+1} + 6y_{t} = 0$
+\item b)
+$\left\{\begin{array}{rcl}
+x_{t+1} - 5x_{t} + 4x_{t-1} &=& 0 \\
+x_1 &=& 9 \\
+x_2 &=& 23
+\end{array}\right.$
+\item c)
+$\left\{\begin{array}{rcl}
+x_{t} - 4x_{t-1} + 4x_{t-2} &=& 0 \\
+x_0 &=& 9 \\
+x_1 &=& 2 
+\end{array}\right.$
+\item d) 
+$\left\{\begin{array}{rcl}
+x_{t+2} + x_{t} &=& 0 \\
+x_0 = x_1 &=& 4
+\end{array}\right.$
+
+\end{description}
+\end{exercise}
+
+
+
+\textbf{Solução}:
+
+a) Seja $y_{t} = \lambda^{t}$. Substituindo na equação, encontramos
+$$\lambda^{2}-5\lambda +6=0.$$
+
+Obtemos um polinômio do segundo grau e usando a fórmula de Baskara: 
+$$\lambda_{1,2} = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a} \Rightarrow \lambda_{1} = 2, \lambda_{2} = 3.$$
+
+Como $\lambda_{1} \ne \lambda_{2}$, então a solução é da forma:
+$$y_{t} = C_1\lambda_{1}^{t} + C_2\lambda_{2}^{t} = C_1 \cdot 2^{t} + C_2 \cdot 3^{t}.$$
+
+b) Da mesma forma, obtemos
+$$\lambda^{2} - 5\lambda +4=0 \Rightarrow  \lambda_{1} = 1 \mbox{ e } \lambda_{2} = 4 (\lambda_{1} \ne \lambda_{2}).$$
+Dessa forma,
+$$x_{t} = C_1\lambda_{1}^{t} + C_2\lambda_{2}^{t} x_{t} = C_1 + C_2 4^{t}.$$ 
+
+Para $x_1 = 9$ e $x_2 = 23$, temos o seguinte sistema:
+$$\left\{\begin{array}{rcl}
+9 &=& C_1 + 4C_2 \\
+23 &=& C_1 + 16C_2
+\end{array}\right.$$
+
+Resolvendo o sistema acima, encontramos:
+$$C_1 = \dfrac{13}{3}, C_2 = \dfrac{7}{6}.$$
+Então, temos: $x_{t} = \dfrac{13}{3} + \dfrac{7}{6} 4^{t}$.
+
+
+\begin{figure}[!h]\centering
+\psset{yunit=0.333}
+\begin{pspicture*}(-1,-1)(5,15)
+\psaxes[Dx=10,Dy=20,linecolor=red]{->}(0,0)(-1,-1)(5,15)
+\psplot{0}{3}{7 6 div 4 x exp mul 13 3 div add}
+%\uput[r](2,2.8){Juros simples}
+%\uput[dr](2.5,4.9){Juros compostos}
+\uput[dr](5,0){$t$}
+\end{pspicture*}
+\caption{Representação gráfica da equação solução}
+\end{figure}
+
+
+ 
+Os outros ``itens'' podem ser resolvidos da mesma maneira.
+
+
+\section{Exemplos de Modelos Biológicos com Equações de Diferença Lineares}
+
+\begin{example}[Insetos (Leah, ano 1988).]
+Insetos geralmente tem mais que um estágio no seu ciclo de vida. Um ciclo completo pode levar semanas, meses ou mesmo anos. No entanto é costume usar uma única geração como unidade básica de tempo quando tentamos escrever um modelo para o crescimento da população de insetos. Os vários estágios do seu ciclo de vida podem ser representados por escrever várias equações de diferença. 
+
+Por exemplo, consideremos a reprodução do \textit{choupo gall afídio}. As fêmeas afídios adultas produzem \textit{galls}. Todos os progênios de afídios simples estão contidas em um \textit{gall}. Uma fração destas emergirão e sobreviverão até a fase adulta. Geralmente a capacidade de produzir descendência e a probabilidade de sobreviver para a fase adulta depende das condições de seu meio ambiente, na qualidade da sua alimentação e do tamanho da população. Vamos ignorar esses efeitos momentâneos e fazer o um estudo ingênuo no qual os parâmetros são constantes.
+
+\begin{description}
+\item $a_t$ - insetos adultos na geração $t$ (fêmeas)
+\item $p_t$ - número de descendentes em $t$
+\item $r$ - fração de fêmeas
+\item $p_{t+1} = f a_t$
+\item $a_{t+1} = r(1-m)f a_t$
+\end{description}
+\end{example}
+
+\begin{remark}
+Para fazer o controle da população estuda-se o parâmetro a diminuição ou crescimento da população.
+\end{remark}
+
+\begin{example}[Sequência de Fibonacci]
+Quantos coelhos haverá em um ano, começando com um casal adulto e casal adulto e um casal jovem, se em cada més cada adulto gerou um novo casal, o qual se torna adulto após dois meses. 
+
+$a_t$ é o número de casais adultos na geração $t$.
+\end{example}
+
+
+\begin{table}[!h]\centering
+\begin{tabular}{|c|c|c|c|} \hline
+Mês & casais adultos & casais jovens & total de casais \\ \hline
+1 & 1 & 1 & 2 \\ \hline
+2 & 1 & 2 & 3 \\ \hline
+3 & 2 & 3 & 5 \\ \hline
+4 & 3 & 5 & 8 \\ \hline
+\vdots & \vdots & \vdots & \vdots \\ \hline
+\end{tabular}
+\end{table}
+onde $a_0 = 1$, $a_1 = 1$, $a_2 = 2 \ldots a_{t+2} = a_{t+1} + a{t}$. Temos, então, uma equação de diferença de segunda ordem:
+\begin{equation}\label{eq:eqexemplofibonacci}
+a_{t+2}-a_{t+1} + a_{t} = 0.
+\end{equation}
+
+Se $a_t = k\lambda^{t}$, for uma solução da equação, então: $p(\lambda) = \lambda_{2} - \lambda - 1$ se $p(\lambda)=0 \Rightarrow  \lambda_{2} - \lambda - 1=0$. Usando a formula de Baskara para resolver a equação de segundo grau, temos: $\Delta = b^2 - 4ac = 1 - 4 \cdot 1 \cdot (-1) = 5$ e substituindo obteremos:
+$$\lambda_{1,2} = \dfrac{-b \pm \sqrt{\Delta}}{2a} 
+\Rightarrow \lambda_{1,2} = \dfrac{1 \pm 2\sqrt{5}}{2}.$$
+
+A solução geral da equação \eqref{eq:eqexemplofibonacci} é:
+$$a_t = A \left(\dfrac{1-\sqrt{5}}{2}\right)^t + B \left(\dfrac{1+\sqrt{5}}{2}\right)^t$$
+
+Para $t = 0$, temos $A + B = 1$.
+
+Para $t = 1$, temos $A \left(\dfrac{1-\sqrt{5}}{2}\right) + B \left(\dfrac{1+\sqrt{5}}{2}\right)$.
+
+Resolvendo o sistema, teremos:
+$$B = \dfrac{\sqrt{5}-1}{2\sqrt{5}} \mbox{ e } A = \dfrac{\sqrt{5}+1}{2\sqrt{5}}$$
+Então: $a_t = \dfrac{1}{\sqrt{5}} \left[\left(\dfrac{\sqrt{5}-1}{2}\right)^{t+1} + \left(\dfrac{\sqrt{5}+1}{2}\right)^{t+1}\right]$
+
+\begin{example}[Modelo de propagação anual de plantas sazonais (Leah, ano 1988).]
+Determinadas plantas produzem sementes no final do verão, quando então morrem. Parte das sementes sobrevivem no inverno e algumas germinam dando origem a uma nova geração de plantas. A fração que germina depende da idade da semente que sobrevive no máximo dois invernos. 
+
+Figura 4: Reprodução anual de plantas a cada verão 
+
+onde:
+
+\begin{itemize}
+\item $\gamma$ é o número de sementes por plantas.
+\item $\sigma$ é a fração de sementes que sobrevivem a cada inverno.
+\item $\alpha$ é a fração de sementes que germinam no primeiro ano.
+\item $\beta$ é a fração de sementes que germinam no segundo ano.
+\item $P_t$ é o número de plantas no período $t$.
+\end{itemize}
+$$\begin{array}{rcl}
+& & P_t = \alpha \sigma \gamma P_{t-1} + \beta (1-\alpha) \sigma \gamma P_{t-2} \\
+&\Rightarrow&
+P_t - \alpha \sigma \gamma P_{t-1} - \beta\sigma (1-\alpha) \sigma \gamma P_{t-2} = 0
+\end{array}$$
+onde:
+$$\alpha \sigma \gamma  = b \mbox{ e } \beta \sigma (1-\alpha) \sigma \gamma  = c,$$
+e teremos:
+\begin{equation}\label{eq:plantas}
+P_t - bP_{t-1} - cP_{t-2} = 0.
+\end{equation}
+
+Seja $P_t = c\lambda^{t}$ a solução da equação \eqref{eq:plantas}, e substituindo encontramos a equação na forma (5), ou seja:
+$$\begin{array}{rcl}
+& & P_t-bP_{t-1}-cP_{t-2} = c\lambda^{t}-bc\lambda^{t}-1-cc\lambda^{t}-2 = c \lambda^{t}-2 (\lambda_{2}-b\lambda-c) = 0 \\
+&\Rightarrow&  \left\{ c\lambda^{t}-2 = 0 \right.,
+\end{array}$$
+ou seja, $\lambda^{2} - b\lambda - c =0$.
+
+E a solução geral da = equação 0, onde (7), conforme  2.3.1 será e dada $\lambda_{2}$ por:
+
+\begin{itemize}
+\item Se $\lambda_{1} = \lambda_{2}$, então $P_t = c_1 \lambda_{1}^{t} + c_2\lambda_{2}^{t}$, neste sentido se $\lambda_{1} \ge 1$ e $\lambda_{2} \ge 1$, a população de plantas cresce e se $|\lambda_{1}| < 1$ e $|\lambda_{2}| < 1$ a população decresce;
+\item Se $\lambda_{1} = \lambda_{2} = \alpha$; então $p_t = c_1\alpha_{t} + c_2 t\alpha_{t}$. Se $\alpha \ge 1$ a população cresce e se $\alpha < |1|$ a população decresce.
+\item Se $\Delta = b^2 + 4c < 0$, então $\lambda_{1}$ e $\lambda_{2}$ são complexos e conjugados. 
+\end{itemize}
+
+\end{example}
+
+
+\chapter{Sistema de Equações de Diferenças Lineares}
+
+O problema anual de reprodução de plantas leva a um sistema de equações de diferenças de primeira ordem ou equivalentes a equações de diferenças de segunda ordem. 
+
+Para entender tais equações vamos momentaneamente voltar a nossa atenção para o sistema na forma: 
+\begin{eqnarray}
+\label{eq:SEDL1}
+x_{t+1} &=& a_{11}x_{t} + a_{12}y_{t} \\
+\label{eq:SEDL2}
+y_{t+1} &=& a_{21}x_{t} + a_{22}y_{t},
+\end{eqnarray}
+onde $a_{ij}$ são constantes.
+
+O sistema de equações de diferença \eqref{eq:SEDL1} pode ser escrito na seguinte forma matricial: 
+\begin{equation}\label{eq:SEDL}
+\left(\begin{array}{c} y_{t+1} \\ y_{t+1} \end{array}\right)
+=
+\left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22} \end{array}\right)
+\left(\begin{array}{c} x_{t} \\ y_{t} \end{array}\right)
+\end{equation}
+
+A solução do sistema faremos por meio de equações de diferenças de segunda ordem. Considerando a geração seguinte e da primeira equação do sistema \eqref{eq:SEDL}, temos: 
+$$x_{t+2} = a_{11}x_{t+1} + a_{12}y_{t+1}.$$
+
+Utilizando $y_{t+1}$ da segunda equação e substituindo na equação anterior, teremos: 
+$$\begin{array}{rcl}
+x_{t+2}
+&=& a_{11}x_{t+1} + a_{12}a_{21}x_{t} + a_{12}a_{22}y_{t} x_{t+2} \\
+&=& a_{11}x_{t+1} + a_{12}a_{21}x_{t} + a_{22}(x_{t+1} - a_{11}x_{t}) x_{t+2} \\
+&=& a_{11}x_{t+1} + a_{12}a_{21}x_{t} + a_{22}x_{t+1} - a_{22}a_{11}x_{t} x_{t+2} \\
+&=& (a_{11} + a_{22})x_{t+1} - (a_{11}a_{22} - a_{12}a_{21})x_{t} 
+\end{array}$$
+
+Segue que
+$$\begin{array}{rcl}
+0 &=& x_{t+2} - (a_{11} + a_{22})x_{t+1} + (a_{11}a_{22} - a_{12}a_{21})x_{t} \\
+0 &=& x_{t+2} - \operatorname{tr}(M)x_{t+1} + \det(M) x_{t}
+\end{array}$$
+onde,
+$$M = \left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22} \end{array}\right)$$
+outra forma de resolver o sistema é através do seguinte teorema:
+
+\begin{theorem}
+Se $\lambda$ for um autovalor de $M$ associada ao autovetor $v = (v_1\ v_2)^T$, então $x_{t} = v \lambda^{t} = (v_1 \ v_2)^T \lambda_{1}^{t}$ e $y_{t} = u \lambda^{t} = (u_1 \ u_2)^T \lambda_{2}^{t}$ é uma solução do sistema \eqref{eq:SEDL}.
+\end{theorem}
+
+Seja $\lambda$ autovalor de $M$ e $v = (v_1\ v_2)^T$, autovetor associado a $\lambda$. Então, temos que: 
+$$M v = \lambda v \Leftrightarrow \left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22} \end{array}\right) \left(\begin{array}{c} v_1 \\ v_2 \end{array}\right) = \lambda \left(\begin{array}{c} v_1 \\ v_2 \end{array}\right).$$
+
+Desse sistema, temos que:
+\begin{equation}\label{eq:polinomiocaracteristicoM}
+p(\lambda) = \lambda_{2} - \operatorname{tr}(M) \lambda + \det(M)
+\end{equation}
+como $\lambda$ é autovalor de $M$, temos que se $p(\lambda)=0 \Rightarrow \lambda_{2} - \operatorname{tr} (M) \lambda + \det(M) = 0$ e comparando (9) e (10), temos que $x_{t+2} = \lambda$ é solução do sistema \eqref{eq:SEDL}.
+
+Portanto, a solução do sistema \eqref{eq:SEDL} é dado por:
+$$(x_{t} \ y_{t})^T = c_1 (v_1\ v_2)^T \lambda_{1}^{t} + c_2 (u_1 \ u_2)^T \lambda_{2}^{t}.$$
+
+
+
+\begin{proposition}
+O conjunto solução do sistema \eqref{eq:SEDL} é um espaço vetorial de dimensão $2$. 
+\end{proposition}
+
+\begin{proposition}
+Se $\lambda_{1} = \lambda_{2}$ forem autovetores associados a $v$ e $u$, então $v$ e $u$ são linearmente independentes.
+\end{proposition}
+
+\textbf{Demonstração}: Suponha que $u$ e $v$ sejam vetores linearmente dependentes, isto é, $v = \alpha u$, com $\alpha \in \mathbb{R}$. Logo, temos: $\lambda_{1}v = Mv = M(\alpha u) = \alpha M u = \alpha \lambda_{2} u = \lambda_{2} \alpha u = \lambda_{2} v$. Portanto, podemos ver que $\lambda_{1} v = \lambda_{2} v \Rightarrow  \lambda_{1} v - \lambda_{2}v = (\lambda_{1} - \lambda_{2})v = 0$. Como $v$ é um autovetor, então $v = 0$, e $\lambda_{1} - \lambda_{2} = 0 \Rightarrow  \lambda_{1} = \lambda_{2}$, mas por hipótese temos que $\lambda_{1} = \lambda_{2}$. Portanto, $v$ e $u$ são vetores linearmente independentes. 
+
+\begin{remark}
+Podemos ter autovalores iguais, isto é, $\lambda = \lambda_{1} = \lambda_{2}$, neste caso é fácil verificar que $t\lambda^{t}$ é também solução do sistema \eqref{eq:SEDL}, que tem como solução geral $x_{t} = C_1\lambda^{t} + C_2t\lambda^{t}$.
+\end{remark}
+
+
+\begin{example}
+Resolver os seguintes sistemas de equações de diferença: 
+
+a) $\left\{\begin{array}{rcl} x_{t+1} &=& x_{t} + y_{t} \\ y_{t+1} &=& x_{t} + 2y_{t} \end{array}\right.$
+
+b) $\left\{\begin{array}{rcl} x_{t+1} &=& x_{t} - y_{t} \\ y_{t+1} &=& x_{t} + 3y_{t} \end{array}\right.$
+\end{example}
+
+
+\textbf{Solução}:
+$$
+\begin{array}{rcl}
+x_{t+1} &=& 2x_{t+1} + y_{t+1} \\
+x_{t+2} &=& 2x_{t+1} + x_{t} + 2y_{t} \\
+x_{t+2} &=& 2x_{t+1} + x_{t} + 2x_{t+1} - 4x_{t} \\
+x_{t+2} &=& 4x_{t+1} - 3x_{t} x_{t+2} - 4x_{t+1} + 3x_{t} = 0
+\end{array}$$
+
+Seja $x_{t} = \lambda^{t}$, então $\lambda_{2} - 4\lambda +3=0 \Rightarrow \lambda_{1} = 1$ e $\lambda_{2} = 3$.
+
+Usando a matriz $M = ( 2 1 1 2 )$, para achar a solução, determinamos os seus autovalores e encontraremos a mesma equação ou mesmo polinômio caraterístico
+$$p(\lambda) = \lambda_{2} -4\lambda+3.$$
+
+Para $\lambda_{1} = 1$, temos: 
+$$
+(M - \lambda I) v = 0 \Leftrightarrow
+\left(\begin{array}{cc} 1 & 1 \\ 1 & 1\end{array}\right)
+\left(\begin{array}{c} v_1 \\ v_2 \end{array}\right)
+=
+\left(\begin{array}{cc} 0 \\ 0 \end{array}\right)
+\Rightarrow
+\left\{\begin{array}{rcl} v_1 + v_2 &=& 0 \\ v_1 + v_2 &=& 0  \end{array}\right. \Rightarrow  v_1 = -v_2.
+$$
+
+Assumindo $v_2 = 1$, então
+$V =
+\left(\begin{array}{r} -v_2 \\ v_2 \end{array}\right)
+=
+\left(\begin{array}{r} -1 \\ 1 \end{array}\right)
+$.
+
+Para $$\lambda_{2} = 3 (M - \lambda I)v = 0 \Leftrightarrow
+\left(\begin{array}{cc} -1 & 1 \\ 1 & -1\end{array}\right)
+\left(\begin{array}{c} u_1 \\ u_2 \end{array}\right)
+=
+\left(\begin{array}{c} 0 \\ 0 \end{array}\right)
+\Rightarrow
+\left\{\begin{array}{rcl} -u_1 + u_2 &=& 0 \\ u_1 - u_2 &=& 0  \end{array}\right. \Rightarrow  u_1 = u_2.
+$$
+
+Assumindo $u_2 = 1$, então 
+$$U =
+\left(\begin{array}{r} u_1 \\ u_1 \end{array}\right)
+=
+\left(\begin{array}{r} 1 \\ 1 \end{array}\right).
+$$
+
+A solução geral do sistema é dada por:
+$$
+\left(\begin{array}{c} x_t \\ y_t \end{array}\right)
+=
+C_1 \left(\begin{array}{c} -1 \\ 1 \end{array}\right)
++
+C_2 \left(\begin{array}{c}  1 \\ 1 \end{array}\right) 3^t
+$$
+
+Note que quando $t$ aumenta, a solução irá crescer, isto é, $x_{t}$ ou $y_{t}$ aumentará. 
+
+
+
+b) Para resolver este sistema, começaremos pelo cálculo dos autovalores da matriz $M$:
+$$p(\lambda) = \det(M - \lambda I) = 0 \Rightarrow
+\det
+\left(\begin{array}{cc}
+1-\lambda & -1 \\
+1 & 3-\lambda \end{array}\right)
+= (1-\lambda) (3-\lambda)+1 = 0.
+$$
+
+Logo, temos os autovalores de $M$ são raízes da equação
+$$\lambda^{2} - 4\lambda +4=0 \Rightarrow  \lambda_{1} = \lambda_{2} = 2.$$
+Como $\lambda_{1} = \lambda_{2} = 2$, temos que:
+$$(M - \lambda I) v = 0 \Leftrightarrow
+\left(\begin{array}{cc} -1 & -1 \\ 1 & 1 \end{array}\right)
+\left(\begin{array}{c} v_1 \\ v_2 \end{array}\right)
+= 
+\left(\begin{array}{c} 0 \\ 0 \end{array}\right)
+\Rightarrow  
+\left\{\begin{array}{rcl} -v_1 - v_2 &=& 0 \\ v_1 - v_2 &=& 0 \end{array}\right. \Rightarrow  v_1 = -v_2.
+$$
+
+Assumindo $v_1 = 1$, temos:
+$$V =
+\left(\begin{array}{r} v_1 \\ -v_1 \end{array}\right)
+=
+\left(\begin{array}{r} 1 \\ -1 \end{array}\right).
+$$
+
+
+A solução geral do sistema será:
+$$
+\left(\begin{array}{c} x_t \\ y_t \end{array}\right)
+=
+C_1 \left(\begin{array}{r} 1 \\ -1 \end{array}\right) 2^t
++
+C_2 \left(\begin{array}{c}  t+1 \\ -t-3 \end{array}\right) 2^t
+$$
+
+Quando $t$ aumenta, $x_{t}$ aumenta enquanto $y_{t}$ diminui, isto é aumenta negativamente.
+
+
+\section{Autovalores Complexos}
+
+O polinômio característico \eqref{eq:polinomiocaracteristicoM} pode apresentar autovalores complexos, quando $\Delta < 0$, ou seja, $\beta^2 < 4\gamma$, ocorrendo portanto, um par conjugado
+$$\lambda_{1} = a + bi \mbox{ e } \lambda_{2} = a - bi.$$
+
+Como os autovalores são complexos, uma solução é dada por:
+$$
+\left(\begin{array}{c} x_t \\ y_t \end{array}\right)
+= 
+\left(\begin{array}{c} x_t^1 \\ y_t^1 \end{array}\right)
++ 
+\left(\begin{array}{c} x_t^2 \\ y_t^2 \end{array}\right)i.
+$$
+
+Porém, temos que se $\left(\begin{array}{c} x_t \\ y_t \end{array}\right)$ é uma solução, então $\left(\begin{array}{c} x_t^1 \\ y_t^1 \end{array}\right)$
+e $\left(\begin{array}{c} x_t^2 \\ y_t^2 \end{array}\right)$ também são soluções, 
+pois temos que
+$$
+\left(\begin{array}{c} x_{t+1} \\ y_{t+1} \end{array}\right)
+= M 
+\left(\begin{array}{c} x_t \\ y_t \end{array}\right)
+= M 
+\left(\begin{array}{c} x_t^1 \\ y_t^1 \end{array}\right)
++ 
+M \left(\begin{array}{c} x_t^2 \\ y_t^2 \end{array}\right)i
+$$
+
+Segue que
+$$\begin{array}{rcl}
+\left(\begin{array}{c} x_{t+1}^1 \\ y_{t+1}^1 \end{array}\right)
++ 
+\left(\begin{array}{c} x_{t+1}^2 \\ y_{t+1}^2 \end{array}\right)i
+&=&
+\left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22} \end{array}\right)
+\left(\begin{array}{c} x_{t}^1 \\ y_{t}^1 \end{array}\right)
++
+\left(\begin{array}{cc} a_{11} & a_{12} \\ a_{21} & a_{22} \end{array}\right)
+\left(\begin{array}{c} x_{t}^2 \\ y_{t}^2 \end{array}\right)i \\
+&=&
+\left(\begin{array}{c} a_{11}x_{t}^1 + a_{12}y_{t}^1 \\ a_{21}x_{t}^1 + a_{22}y_{t}^1 \end{array}\right)
++
+\left(\begin{array}{c} a_{11}x_{t}^2 + a_{12}y_{t}^2 \\ a_{21}x_{t}^2 + a_{22}y_{t}^2 \end{array}\right)i
+\end{array}$$
+
+Portanto, se $x_{t} = x_{t}^{1} + x_{t}^{2}i$ for solução, então $x_{t}^{1}$ e $x_{t}^{2}$ também são soluções e são reais.
+
+\section{Raízes Complexas}
+
+Sejam $\lambda_{1} = \alpha  + \beta {i}$ e $\lambda_{1} = \alpha - \beta {i}$ autovalores complexos. A solução geral é dada por: 
+\begin{equation}\label{eq:SEComplexas}
+\left(\begin{array}{c} x_{t} \\ y_{t} \end{array}\right)
+=
+C_1
+\left(\begin{array}{c} v_{11} \\ v_{21} \end{array}\right)
+(\alpha + \beta {i})^t
++
+C_2
+\left(\begin{array}{c} v_{12} \\ v_{22} \end{array}\right)
+(\alpha - \beta {i})^t
+\end{equation}
+
+
+Como: 
+$$(\alpha \pm \beta {i})^t = |r|^t [\cos(t\theta) \pm i\sin(t\theta)].$$
+
+Substituindo na equação \eqref{eq:SEComplexas}, teremos: 
+$$\begin{array}{rcl}
+\left(\begin{array}{c} x_{t} \\ y_{t} \end{array}\right)
+&=& C_1 
+\left(\begin{array}{c} v_{11} \\ v_{21} \end{array}\right)
+|r|^t (\cos(t\theta) + i\sin(t\theta)
++ C_2 
+\left(\begin{array}{c} v_{12} \\ v_{22} \end{array}\right)
+|r|^t (\cos(t\theta) - i\sin(t\theta) \\
+&=& |r|^t \left[\begin{array}{c}
+(C_1v_{11} + C_2v_{12}) \cos(t\theta) + (C_1v_{11} - C_2v_{12}) i \sin(t\theta) \\
+(C_1v_{21} + C_2v_{22}) \cos(t\theta) + (C_1v_{21} - C_2v_{22})i\sin(t\theta) 
+\end{array}\right]
+\end{array}$$
+
+Tomando
+$$\begin{array}{rcl}
+A &=& (C_1v_{11} + C_2v_{12}) \\
+B &=& (C_1v_{11} - C_2v_{12}) \\
+C &=& (C_1v_{21} + C_2v_{22}) \\
+D &=& (C_1v_{21} - C_2v_{22}).
+\end{array}$$
+
+Temos,
+$$\begin{array}{rcl}
+\left(\begin{array}{c} x_{t} \\ y_{t} \end{array}\right)
+&=& |r|^t \left[\begin{array}{c}
+A \cos(t\theta) + C i \sin(t\theta) \\
+B \cos(t\theta) + D i \sin(t\theta) 
+\end{array}\right] \\
+&=& |r|^t \left[
+\left(\begin{array}{c} A \\ B \end{array}\right) \cos(t\theta)
++
+\left(\begin{array}{c} C \\ D \end{array}\right) i\sin(t\theta)
+\right] \\
+&=& |r|^t \left[
+E_1 \cos(t\theta)
++
+E_2 i\sin(t\theta)
+\right]
+\end{array}$$
+
+
+
+\begin{example}
+Resolva o sistema:
+$\left\{\begin{array}{rcl}
+x_{t+1} &=& x_{t} + 2y_{t} \\
+y_{t+1} &=& -2x_{t} + y_{t}
+\end{array}\right.$
+\end{example}
+
+\textbf{Solução}: Temos que
+$$
+p(\lambda)
+= \det(M - \lambda I)
+= \left|\begin{array}{cc} 1-\lambda & 2 \\ -2 & 1-\lambda \end{array}\right| 
+= (1-\lambda)^2 +4 = 0.$$
+Segue que $1-\lambda = \pm 2i \Rightarrow  \lambda = 1 \pm 2i$.
+
+
+Para $\lambda = 1-2i$, o autovetor $v$ associado é obtido da seguinte maneira: 
+$$
+(M-\lambda I) v = 0 \Rightarrow  
+\left(\begin{array}{cc} 2i & 2 \\ -2 & 2i \end{array}\right)
+\left(\begin{array}{c} v_1 \\ v_2 \end{array}\right)
+= 
+\left(\begin{array}{c} 0 \\ 0 \end{array}\right)
+\Rightarrow  
+\left\{
+\begin{array}{rcl}
+2iv_1 + 2v_2 &=& 0 \\
+-2v_1 + 2iv_2 &=& 0 
+\end{array}\right.
+\Leftrightarrow  
+\left\{
+\begin{array}{rcl}
+iv_1 &=& -v_2 \\
+v_1 &=& iv_2
+\end{array}\right.
+$$
+
+Multiplicada a segunda equação por $i$, temos:
+$$\left\{
+\begin{array}{rcl}
+iv_1 &=& -v_2 \\
+iv_1 &=& -v_2
+\end{array}\right.
+\Rightarrow
+v = 
+\left(\begin{array}{c} v_1 \\ v_2 \end{array}\right)
+= 
+\left(\begin{array}{c} v_1 \\ -iv_1 \end{array}\right)
+= 
+\left(\begin{array}{c} 1 \\ -i \end{array}\right) v_1
+$$
+
+
+
+
+Para $\lambda = 1+2i$, o autovetor $u$ associado é obtido da seguinte maneira: 
+$$
+(M-\lambda I) u = 0 \Rightarrow  
+\left(\begin{array}{cc} -2i & 2 \\ -2 & -2i \end{array}\right)
+\left(\begin{array}{c} u_1 \\ u_2 \end{array}\right)
+= 
+\left(\begin{array}{c} 0 \\ 0 \end{array}\right)
+\Rightarrow  
+\left\{
+\begin{array}{rcl}
+-2iu_1 + 2u_2 &=& 0 \\
+-2u_1 + 2iu_2 &=& 0 
+\end{array}\right.
+\Leftrightarrow  
+\left\{
+\begin{array}{rcl}
+iu_1 &=& u_2 \\
+u_1 &=& -iu_2
+\end{array}\right.
+$$
+
+Multiplicada a segunda equação por $i$, temos:
+$$\left\{
+\begin{array}{rcl}
+iu_1 &=& u_2 \\
+iu_1 &=& -u_2
+\end{array}\right.
+\Rightarrow
+u = 
+\left(\begin{array}{c} u_1 \\ u_2 \end{array}\right)
+= 
+\left(\begin{array}{c} u_1 \\ iu_1 \end{array}\right)
+= 
+\left(\begin{array}{c} 1 \\ -i \end{array}\right) u_1
+$$
+
+Como $r = \sqrt{1^2+2^2} = \sqrt{5}$ e $\theta = \arctan\left(\dfrac{2}{1}\right)$, a solução geral é dada por:
+
+$$
+\left(\begin{array}{c} x_{t} \\ y_{t} \end{array}\right)
+= \sqrt{5}^t
+\left[
+C_1
+\left(\begin{array}{c} \cos(t\theta) \\ -\sin(t\theta) \end{array}\right) 
++
+iC_2
+\left(\begin{array}{c} \sin(t\theta) \\ \cos(t\theta) \end{array}\right)
+\right]
+$$
+
+
+
+
+
+
+
+
+\section{Comportamento Qualitativo das Soluções para a Equação Linear de Diferença}
+
+As equações de diferenças lineares são caraterizadas pelas seguintes propriedades. 
+\begin{enumerate}
+\item Uma equação de diferença tem a seguinte forma: 
+$a0xn + a1xn-1 + ··· + amxn-m$
+\item A ordem da equação é o número de gerações prévias que influenciam diretamente o valor de $x$ numa dada geração. 
+\item Quando $a0,a1 ··· ,am$ são constantes e $bn = 0$, o problema é um coeficiente constante da equação de diferença linear homogênea; o método estabelecido neste capítulo pode ser usado para resolver tais equações. As soluções são compostas por combinações lineares de expressões básicas da forma: 
+\begin{equation} Xn = C\lambda n\end{equation} (12) 
+\item Os valores de $\lambda$ que aparece em (12) são obtidos por determinar as raízes do polinômio caraterístico $P(\lambda) = a0\lambda m + a1\lambda m-1 + ··· + am$. 
+\item O número de soluções básicas (distintas) é determinada pela ordem da equação caraterística. Por exemplo uma equação de primeira ordem tem uma solução básica, a equação de ordem $2$ tem duas soluções básicas em geral a equação de $m$-ésima ordem pode ter $m$ soluções básicas. 
+\item A solução geral é uma superposição linear de $m$ soluções básicas da equação (que vem de todos os valores de $\lambda$ que são distintos). 
+\item Para o valor real de $\lambda$ o comportamento qualitativo de uma solução básica de ((1),(2)) depende se $\lambda$ cai numa das quatro possibilidades. 
+$\lambda \ge 1, \lambda \le -1, 0 < \lambda < 1$ e $-1 <\lambda< 0$.
+\end{enumerate}
+
+
+Uma solução básica é caraterizada pela seguintes classificações: 
+\begin{enumerate}
+\item Para $\lambda > 1$, $\lambda n$ Cresce quando $n$ aumenta, assim $Xn = C\lambda n$ cresce sem limite. 
+\item Para $0 <\lambda< 1$, $\lambda n$ decresce para zero quando n aumenta, assim $Xn = C\lambda n$ decresce para zero. 
+\item $-1 <\lambda< 0$, $\lambda n$ oscila entre o valor positivo e negativo, porém $Xn = C \lambda n$ decresce para zero. 
+\item $\lambda < -1$, $\lambda n$ oscila como no item c) mas com diminuição de magnitude. 
+
+No caso em que $\lambda = 1$, $\lambda = 0$ ou $\lambda = -1$ que são pontos marginais da demarcação entre o domínio do comportamento, corresponde respetivamente para a (1) solução estática, onde $x = C$, (2) $x = 0$ e (3) uma oscilação entre o valor de $x = C$ e $x = -C$. 
+\end{enumerate}
+
+As figuras abaixo representam o comportamento de $Xn = C\lambda n$ nos quarto casos
+
+a 
+b 
+d 
+d 
+c 
+c 
+c 
+
+\chapter{Equações de Diferença Não Lineares}
+
+\end{document}
+
+\section{Equações de Diferença Não Lineares}
+
+Nesta seção, desenvolveremos a equação de diferença não linear de primeira ordem na forma 
+\begin{equation}
+y_{n+1} = f(y_n) %(13)
+\end{equation}
+onde $f: I \subset \mathbb{R} \to \mathbb{R}$ é o valor de $y$ na $n$-ésima iteração e $f$ é uma função dependente das combinações não lineares de $y_n$.
+
+Dado um valor inicial $y_0$, então
+$$\{y_0,f(y_0),f^{2}(y _{0}), \ldots, f_{n}(y_{0})\}$$
+as sequências de iterações sobre a função $f$, é a solução ou órbitas de $y_0$, isto é, $y_{n} = f_{n}(y_{0})$ é a solução de (13).
+
+O estudos deste tipo de equação (13) se faz qualitativamente encontrando um ponto de equilíbrio, isto é, definindo um ponto fixo $y$ tal que $f(y) = y$, então 
+$y_{n+1} = y_{n} = y$.
+
+A estabilidade do ponto de equilíbrio de uma equação de diferença não linear pode ser definida do seguinte modo: 
+
+\begin{definition}
+Seja $y$ um ponto de equilíbrio para (13), então $y$ é dito estável se, 
+$$\forall\ \epsilon > 0,\exists\ \delta  > 0,|y_0 - y| < \delta \Leftrightarrow |f_{n}(y_0) - y| < \epsilon.$$ $y$ é dito instável se não é estável. $y$ é assintoticamente estável se for estável e existe $\gamma  > 0$ tal que 
+$$|y_0 - y| < \gamma  \Rightarrow  \lim_{n \to \infty} f_{n}(y_0) \to \overline{y}.$$
+\end{definition}
+
+\begin{teorema}[Critério de estabilidade]
+Seja $f$ de classe $C_1$ e $y$ ponto de equilíbrio, então, $f$ é:
+
+\begin{itemize}
+\item assintoticamente estável se $\left|\dfrac{df(\overline{y})}{dy}\right| < 1$ e é
+\item assintoticamente instável se $\left|\dfrac{df(\overline{y})}{dy}\right| > 1$.
+\end{itemize}
+\end{teorema}
+
+\textbf{Prova}: Se $y$ é um ponto de equilíbrio de (13) se, e somente se, 
+\begin{equation}
+y_{n+1} = g(y_{n}),
+\end{equation}
+onde $g(y) = f(\overline{y}) + y)-f(\overline{y}) = f(\overline{y} + y) - \overline{y}$.
+
+Portanto, as propriedades de estabilidade para $\overline{y}$ são as mesmas que para o ponto origem $(0,0)$ então para (14) temos que $g(y) = f(\overline{y} +y)$, logo $g(0) = f(y)$, supondo que zero é um equilíbrio e fazendo a expansão através da série de Taylor obtemos que 
+$$g(y_{n}) + g(0) + g (0)y_{n} + O((y_{n})^2),$$
+então o sistema (14) é linearizado $y_{n}+1 = g(0)y_{n}$, portanto a solução é 
+$$y_{n}+1 = C_1(\lambda)^n$$
+onde $\lambda = g(0)$. Se $|g(0)|< 1$, o equilíbrio nulo é assintoticamente estável, e instável se $|g(0)|> 1$. A solução $y_{n}$ da equação (13) pode ser constituída por um número finito de valores, isto é,
+$$\begin{array}{rcl}
+y_n^\ast &=& y_{n+T}, T = 0, 1, 2, \ldots \\
+y_{n+j}^\ast &=& y_n^\ast, j = 1, 2, \ldots, T-1
+\end{array}$$
+tal solução é chamada ciclo limite ou ciclo de período $T$. 
+
+O ponto de equilíbrio $\overline{y}$ pode ser encontrado fazendo a interseção da bissetriz com $f(y)$. Isto significa que $y_{n} = \overline{y}$ e, portanto, satisfaz $\overline{y} = f(\overline{y})$. Usando o diagrama de Lamery, podemos garantir a existência do ponto de equilíbrio de acordo com o gráfico seguinte.
+
+Figura 5: Lamery 
+
+\section{Modelo Logístico de Diferença}
+
+Quando os recursos são limitados, o crescimento da população num intervalo do tempo unitário é reduzido de uma quantidade proporcional ao quadrado da população existente no início do intervalo. De fato, se existe uma competição entre elementos de uma mesma especie, o termo de inibição do crescimento populacional é proporcional ao produto destes elementos. 
+
+Na forma de recorrência, para tal modelo é dado por: 
+$$y_{t+1} = y_{t}(r-dy_{t})$$
+
+Seja $x_{t} = \dfrac{d}{r} y_{t}$. Substituindo na equação, temos que:
+\begin{equation}
+x_{t+1} = rx_{t}(1 - x_{t}) (15) 
+\end{equation}
+o termo $K = \dfrac{d}{r}$ é a capacidade do suporte no ambiente da população. 
+
+
+Análise de estabilidade. 
+
+Seja $\overline{x}$ o ponto de equilíbrio para (15) pela definição do ponto de equilíbrio, temos que $\overline{x} = f(\overline{x})$, então
+$$\overline{x} = r \overline{x}(1-\overline{x}).$$
+Logo, os pontos de equilíbrio são $\overline{x}_0 = 0$ e $\overline{x}_2 = 1-\dfrac{1}{r}$.
+
+Suponhamos que $r > 1$, então o ponto fixo $\overline{x} \in (0,1)$ e $f'(x_0) = r$ e $f(x_1) = 2-r$ pelo critério de estabilidade o ponto de equilíbrio $\overline{x}_0$, se $r < 1$, então o ponto é estável e se $r = 1$ o critério não decide se o ponto é instável ou não.
+
+Se $1 < r < 4$ dada uma condição inicial $x_0 \in (0, 1)$, então $f(x_0) \in (0, 1)$, portanto, $|f(x_1)| < 1 \Leftrightarrow 1 < r < 3$. Logo, $x_1$ é assintoticamente estável e se $r > 3$, $x_1$ é instável.
+
+Se $r=3$ existe um ponto de bifurcação (6), isto é, o valor do parâmetro muda de estado ou de equilíbrio.
+
+Se $1 < r < 2$, $x_1$ é assintoticamente estável monotonicamente.
+
+Se $2 < r < 3$, $x_1$ é assintoticamente estável oscilante.
+
+Se $3 < r < \sqrt{6}$, $x_1$ possui duas órbitas de período $2$, para achar os pontos fixos de $f^{2}(x)$, ou seja,
+$$f^{2}(x) = x$, então $f(f(x)) = x \Leftrightarrow r^2x^2-r(r+1)x+r+1=0.$$
+
+Portanto, $x_{3,4} = \dfrac{r+1}{2r} \pm \dfrac{\sqrt{(r-3)(r+1)}}{2r}$.
+
+Para analisar a estabilidade dos pontos x3,x4, devemos aplicar o critério de estabilidade em $f^2$, ou seja, $|f^{2}'(x_i)| <  1$ ou $|f^{2}'(x_i)| > 1$, para $i  = 3, 4$, isto é, $|(f_{2}(xi)) | = |(f(f(x3))) | = |f f(x3) = x4$, então $|f(x4)f(x3)| < 1$ tal $(f(x que 3))f 3 (x<r< 3)| como 1 + √as 6 
+órbitas são de período 2, temos que 
+
+Figura 6: bifurcação 
+
+No modelo de população (inibido) a função $f$ deve ser decrescente a partir de um valor de população. Esse valor está relacionado com a capacidade do suporte do ambiente. 
+
+23 
+
+Seja a equação 
+Nt+1 = Nte\gamma (1-Nk ), (16)
+onde f(N) = Nte\gamma (1-Nk ) então a função é decrescente a partir do valor N = de equilíbrio estão definidos em N = 0 e N = k 
+k\gamma  e os pontos 
+4.3 - Sistema de equações de Diferença Não Lineares 
+Seja o sistema de n equações de diferença não lineares dada na forma 
+x_{t+1} = F(x_{t}) onde F : D \subset  n -→ , consideremos primeiro um sistema de duas equações de diferença, isto é, n = 2, então o sistema é 
+{ x_{t+1} = f(x_{t},y_{t}) y_{t+1} = g(x_{t},y_{t}) com f,g : D \subset  2 -→ . Os pontos de equilíbrio ou pontos fixos estão definidos por f(x,y) = x e g(x,y) = y 
+Agora analisaremos a estabilidade local destes pontos de equilíbrio, isto é, dado um valor (x_{t},y_{t}) próximo ao ponto (x,y). Portanto, teremos x_{t} = x + x t e y_{t} = y + y t e desenvolvendo encontraremos, 
+x t+1 = x_{t+1} - x = f(x_{t}) - x = f(x + x t) - x y t+1 = y_{t+1} - y = g(y_{t}) - y = g(y + y t) - y Fazendo expansão pela série de Taylor de f_{n}a vizinhança deste ponto, temos que; 
+• f(x + x t,y + y t) = f(x,y) + fx(x,y)x t + fy(x,y)y t + O(x t 2,y t 2) 
+• g(x + x t,y + y t) = g(x,y) + gx(x,y)x t + gy(x,y)y t + O(x t 2,y t 2) 
+O novo sistema linearizado é 
+{ x t+1 = a_{11}x t + a_{12}y t y t+1 = a_{21}x t + a_{22}y t (17) Podemos escrever este sistema na forma matricial do tipo X t+1 = AX t, onde 
+A = 
+[ fx(x,y) fy(x,y) gx(x,y) gy(x,y) 
+] 
+e X t = 
+( x ty t 
+) 
+A matriz A é chamada Jacobiana do sistema. Para analisar a estabilidade do sistema linearizado obtemos o polinômio característico, fazendo 
+p(\lambda) = det(A - \lambdaI)=0 
+24 
+Então teremos que \lambda_{2} - \beta + \gamma  = 0, com \beta = traA = fx + gy e \gamma  = detA = fxgy - gxfy Por último determinamos as raízes desta equação (os autovalores), são em magnitude menores que a unidade. 
+O seguinte critério é suficiente e necessário para o estabilidade do sistema. Portanto, como critério de estabilidade, podemos dizer que (x,y) é estável se e somente se 
+2 > 1 + \gamma  > |\beta| (18) 
+Prova: Seja \gamma  um ponto estável, isto é, \gamma  < 1 e temos que: P(\lambda) = \lambda_{2} - \beta\lambda + \gamma  = 0 \Rightarrow  \lambda_{1},2 = \beta2 \pm √como |\beta| < 2 \Rightarrow  |\beta|2 < 1 
+(-\beta)2 2 - 4\gamma  
+, 
+1 - |\beta|2 > 
+√(-\beta)2 - 4\gamma  
+2 \Rightarrow  
+(√(-\beta)2 - 4\gamma  
+2 (1 - |\beta|2 
+)2 
+\Rightarrow  1 - |\beta| + |\beta2| 
+4 > \beta4 2- Portanto, 4\gamma 4 \Rightarrow  1 - |\beta| > -\gamma  \Rightarrow  \gamma  > |\beta| - 1 
+encontramos que \gamma  < 1 e \gamma  > |\beta| - 1 \Rightarrow  1 >\gamma > |\beta| - 1 ou seja: 
+2 > \gamma  + 1 > |\beta| 
+25 )2 
+> 
+
+\chapter{Aplicação de Equações de Diferença Não Linear}
+
+5.1 - Sistemas não Lineares 
+Sejam as funções f,g : D \subset  2 → e o sistema 
+S = 
+{ x_{t+1} = f(x_{t},y_{t}) 
+y_{t+1} = g(x_{t},y_{t}) (19) 
+
+Vamos realizar um estudo qualitativo de (S), seu equilíbrio e sua estabilidade. 
+
+Dizemos que (x,y) é ponto de equilíbrio do sistema (19) se e somente se: 
+S = 
+{ x = f(x,y) 
+y = g(x,y). 
+E a estabilidade do sistema (19) do ponto (x,y)é dado por: f(x + x ,y + y ) = f(x,y) + fx(x,y)x + fy(x,y)y + R1(x,y). g(x + x ,y + y ) = g(x,y) + gx(x,y)x + gy(x,y)y + R2(x,y). 
+Portanto o sistema (19) pode ser escrito como: 
+S = 
+{ x_{t+1} = f(x_{t},y_{t}) 
+y_{t+1} = g(x_{t},y_{t}). ou 
+S = 
+{ x t+1 = a_{11}x t - a_{12}y t y t+1 = a_{21}x t - a_{22}y t. Também sobre a forma matricial seria 
+S = 
+( x t+1 y t+1 
+) 
+= 
+( a_{11} a_{12} a_{21} a_{22} 
+)( x_{t}y_{t} 
+). 
+Para analisarmos a estabilidade deste sistema basta encontrar os autovalores da matriz A o qual poderemos verificar o comportamento do sistema, conforme o critério de estabilidade (18). 
+Exemplo 8 INTERAÇÕES ENTRE DUAS ESPÉCIES: SISTEMA HOSPEDEIRO - PARASITA. 
+Modelos de equação de diferença discreta aplica-se mais facilmente a grupos, como popu- lações de insetos onde existe uma divisão natural de tempo entre as gerações discretas. Nesta seção, analisaremos um modelo particular de duas espécies que tem recebido uma atenção con- siderada para os biólogos, tanto nas áreas experimentais como nas áreas teóricas, que é o sistema hospedeiro - parasita. 
+26 
+Encontrado quase exclusivamente no mundo dos insetos, na qual o sistemas de duas espécies têm várias características distintas. Essa espécie têm um número de fases no seu ciclo de vida que inclui as fases de ovos, Larvas, Pupa e adultos. Uma delas é chamada de parasita, explora a segunda da seguinte forma: Uma fêmea adulta parasita estuda o hospedeiro na qual a oviposita (depositar seus ovos). Em alguns casos, os ovos são anexados à superfície ex_{t}erior do hospedeiro durante seu estágio de pupa ou larva. Em outros casos, os ovos são injetados no corpo (na carne) do hospedeiro. As larvas do parasita se desenvolve e cresce à custa do seu hospedeiro, consumindo-o e eventualmente acaba matando. Os ciclos de vida das duas espécies, mostrado na figura abaixo, são, portanto, intimamente interligadas. 
+Figura 7: hospedeiro-parasita 
+Um modelo simples para este sistema tem o seguinte conjunto de restrições: 
+1. Hospedeiros que foram parasitados darão origem à próxima geração de parasitas; 
+2. Hospedeiros que não foram parasitados darão origem à sua própria prole; 
+3. A fração dos hospedeiros que são parasitados depende da taxa de encontro das duas espécies em geral, esta fração pode depender da densidade de uma ou de ambas as espécies. 
+Enquanto outros efeitos provocam mortalidade encontrada em todo o sistema natural, é instrutivo considerar apenas este conjunto mínimo de primeiros encontros e examinar as suas conseqüências. Estamos, portanto, definindo o seguinte: 
+Nt = quantidade de hospedeiros na geração t; 
+Pt = quantidade de parasitas na geração t; 
+f = f(Nt,Pt) = fração dos hospedeiros não parasitados; 
+\lambda = taxa reprodução do hospedeiro; 
+27 
+c = número médio de ovos depositados por um parasita em um único hospedeiro. Esses três pressupostos conduz a: Nt+1 = número de hospedeiros na anterior geração x fração não parasitados x taxa reprodutiva(\lambda). Pt+1 = número de hospedeiros parasitados na anterior geração X fecundidade de parasitóides (c).Observando que 1 - f é a fração de hospedeiros que são parasitados, obtemos: 
+S = 
+{ Nt+1 = \lambdaNtf(Nt,Pt) 
+Pt+1 = cNt(1 - f(Nt,Pt)) (20) Essas equações esboçam um quadro geral do modelo hospedeiro-parasita. Para prosseguir, é necessário especificar em termos de f(Nt,Pt) e como ela depende das duas populações. Na próxima seção examinaremos uma determinada forma sugerida pelo Nicholson E Bailey (1935). 
+5.1.1 - O Modelo de Nicholson-Bailey 
+A.J. Nicholson foi um dos primeiros biólogos a sugerir o sitema hospedeiro-parasita que poderia ser entendida utilizando um modelo teórico, embora apenas com a ajuda do físico V.A. Bailey que seus argumentos foram desenvolvidos com o rigor matemático. 
+Nicholson e Bailey estruturaram mais duas hipóteses sobre o número de encontros e a taxa de parasitismo de um hospedeiro: 
+• 4. Encontros ocorrem aleatoriamente. O número médio de encontros Ne dos hospedeiros com os parasitas é, portanto, proporcional ao produto da sua densidade. 
+Ne = aNtPt, 
+onde a é uma constante, que representa a busca da eficiência dos parasitas. 
+• 5. Apenas o primeiro encontro entre o hospedeiro e o parasita é levado em conta. 
+A distribuição de Poisson é a que descreve a probabilidade de ocorrência de eventos discretos, aleatoriamente (como o encontro entre um predador e suas presas). A probabilidade de que um certo número de eventos irá ocorrer em algum intervalo de tempo (como o tempo de vida do hospedeiro) é dado pelos sucessivos termos nesta distribuição. Por exemplo, a probabilidade de r eventos é 
+Pr = e-uμr 
+r! Onde μ é o número médio de eventos de um determinado intervalo de tempo. No caso de encontros entre hospedeiro-parasita, o número médio de encontros por hospedeiro por unidade de tempo é 
+μ = NeNt = aPt 
+28 
+Assim, por exemplo, a probabilidade de exatamente dois encontros seria dada por 
+P2 = e-aPt(-aP2! 
+t)2 
+A probabilidade de um parasita escapar é a mesma que a probabilidade de zero encontros durante o acolhimento da vida, ou seja p(0). Assim, 
+f(Nt,Pt) = p(0) = e-aPt(-aP0! t)0 
+= e-aPt 
+Portanto, substituíndo no sistema (20) teremos 
+S = 
+{ Nt+1 = \lambdaNte-aPt 
+Pt+1 = cNt(1 - e-aPt) 
+Vamos agora analisar esse modelo, os passos incluem: 
+• 1. Encontrar os coeficientes da matriz Jacobiana (para o sistema linearizado); 
+• 2. Analisar a estabilidade do sistema. 
+Modelo Nicholson-Bailey: Equilíbrio e Estabilidade Seja 
+F(Nt,Pt) = \lambdaNte-aPt G(Nt,Pt) = cNt(l - e-aPt). 
+Ao estudar os estágios estáveis, obtemos a solução triviais P = N = 0, para outro ponto de equilíbrio, pelo ponto fixo, teremos que, 
+{ F(Nt,Pt) = Nt 
+G(Nt,Pt) = Pt ⇔ 
+{ \lambdae-aPt = 1 
+cNt(1 - e-aPt) = Pt. Desenvolvendo \lambdae-aP t = 1 este sistema \Rightarrow  e-aP t = 1\lambda encontramos: \Rightarrow  -aP t = ln 
+(1\lambda) 
+\Rightarrow  -aP t = -ln(\lambda) \Rightarrow  P t = 
+(ln(\lambda) 
+a 
+) 
+ecNt 
+(1 - 1) 
+\lambda= P t \Rightarrow  cNt 
+(1 - \lambda_{1}) 
+= 
+(ln(\lambda) 
+a 
+) 
+\Rightarrow  Nt = 
+( \lambdaln(\lambda) 
+ac(\lambda - 1)). 
+Nt = 
+( \lambdaln(\lambda) 
+ac(\lambda - 1)). 
+P t = 
+(ln(\lambda) 
+a 
+). 
+Portanto temos dois ponto de equilíbrio P1 = (0,0) e P2 = (N,P), para analisarmos a estabilidade desses pontos, devemos encontrar o traço e o determinante da matriz Jaco- biana, que são encontradas através das derivadas parciais das funções F(Nt,Pt) = \lambdaNte-aPt e G(Nt,Pt) = cNt(1 - e-aPt), onde teremos: 
+29 
+1. ∂N ∂F= \lambdae-aP 
+2. ∂F∂P = -a\lambdaNe-aP 
+3. ∂G∂N = c(1 - e-aP) 
+4. ∂G∂P = acNe-aP. 
+Para o primeiro ∂N∂F(0,0) = \lambda , ponto ∂F∂P (0,0) P1 = (0,0), = 0 encontraremos: ∂N∂G(0,0) = 0 , ∂G∂P (0,0) = 0 
+A matriz Jacobiana é, 
+J1 = 
+[ \lambda 0 0 0 
+] 
+(21) 
+desta matriz temos que: 
+det(J1) = \gamma 1 = 0 e tr(J1) = \beta1 = \lambda 
+Portanto temos que P1 é estável ⇔ |\lambda| \le 1, mas \lambda < 1 \Rightarrow  P < 0. Para o segundo ponto ∂N∂F(N,P)=1 , ∂F∂P P(N,P) 2(N,P), = encontraremos: -aN ∂N∂G(N,P) = c 
+(1 - \lambda_{1}) 
+, ∂G∂P (N,P) = caN\lambda 
+A matriz Jacobiana é, 
+J2 = 
+ 1 -aN 
+c 
+(1 - \lambda_{1}) caN\lambda 
+ (22) 
+desta matriz temos que: 
+det(J2) = \gamma 2 = caN\lambda - (-aN)(c 
+(1 - \lambda_{1})) 
+(23) 
+e 
+tr(J2) = \beta2 =1+ caN\lambda . (24) 
+30 
+Podemos \gamma 2 = caN\lambda desenvolver - (-aN)(a c 
+equação 23 para verificar a estabilidade, \gamma 2 será: (1 - \lambda_{1})) 
+\gamma 2 = 
+ca( \lambdaln(\lambda) 
+ac(\lambda - 1)) 
+\lambda - 
+(-a( \lambdaln(\lambda) 
+ac(\lambda - 1))) (c 
+(1 - \lambda_{1})) \gamma 2 = \lambda ln(\lambda) 
+- 1 + 
+( \lambdaln(\lambda) 
+(\lambda - 1))(\lambda - 1 
+\lambda 
+) 
+\gamma 2 = \lambda ln(\lambda) 
+- 1 + ln(\lambda) \gamma 2 = ln(\lambda)+(\lambda \lambda - - 1 
+1)ln(\lambda) 
+\gamma 2 = ln(\lambda)+(\lambdaln(\lambda) \lambda - 1 
+- ln(\lambda) 
+\gamma 2 = \lambdaln(\lambda) \lambda - 1 
+e \beta2 temos, \beta2 =1+ caN\lambda 
+\beta2 =1+ 
+ca( \lambdaln(\lambda) 
+ac(\lambda - 1)) 
+\beta2 =1+ \lambda ln(\lambda) - 1 
+\lambda 
+Vamos mostrar que \lambda - 1 - \lambdaln(\lambda) < 0 
+\gamma 2 > 1, para isto precisamos mostrar que \lambdaln(\lambda) 
+\lambda - 1 > 1, ou seja H(\lambda) = Observe ainda que H(1) = 1-1-1ln(1) = 0 e que H (\lambda)=1-ln(\lambda)-\lambda(1\lambda) 
+= -ln(\lambda) < 0, 
+para \lambda \ge 1, portanto a função H(\lambda) é decrescente e H(\lambda) < 0 para \lambda \ge 1, mas por \gamma 2 e \beta2 \lambda = 1, então \lambda > 1. 
+Pelo critério de estabilidade 18, temos que 2 > 1+\gamma  > |\beta|, mas \lambda \ge 1, logo o ponto P2 não é estável. 
+Portanto, os pontos de equilíbrios (N,P) não são estáveis. 
+31 
+
+\chapter{Modelos Contínuos}
+
+6.1 - Modelos Contínuos 
+
+OS modelos contínuos são problemas matemáticos no qual estaremos dando um tratamento diferencial, portanto são problemas escritos sob a forma de equações diferenciais. Uma equação diferencial linear de primeira ordem é apresentada na forma 
+dxdt = f(x) (25) 
+Exemplo 9 Modelo Populacional. 
+Seja x(t) o tamanho de uma população, então, a taxa de crescimento é proporcional ao tamanho na população em pela equação x(t) = x0e\gamma t e um o ponto tempo de t equilíbrio portanto é dxdt em = x \gamma x = 0 
+onde \gamma  > 0 e sua solução é dada 
+6.2 - Modelos Matemáticos com Equações Diferenciais 
+Os primeros modelos matemáticos que apareceram envolvendo equações diferenciais ordinar- ias foram: 
+• Decaimento radioativo 
+• Dinâmica de populacional 
+• Resfriamento térmico 
+• Difusão através de uma menbrana 
+6.2.1 - Decaimento Radioativo 
+Uma substância radiotiva desintegra-se proporcionalmente da sua quantidade presente. Seja N(t) a quantidade da substância, então dN(t) 
+dt = -μN, μ > 0 e 1N 
+dN(t) variação especifica. O estudo da unidade é importante para o parâmetro dt μ. 
+= -μ é a taxa de 
+Analise dimensional [N] = P \Rightarrow População [t] [dN= T \Rightarrow Tempo dt 
+] 
+= PT 
+[μ] = P 
+1PT = T -1 ou 
+[1μ] 
+= T 
+A vida média de uma substância é dada pela razão μ 1e seja 
+32 
+Figura 8: meia vida 
+Meia vida (T1/2): O tempo necessário para que a radiação de uma amostra se reduza a metade N02 é dada por: 
+N(t) = N0exp(-μt) N02 = N0e-μT1/2 de onde tiramos que -ln(2) = -μT1/2 \Rightarrow  T1/2 = ln(2) 
+μ 
+33 
+dN(t) 1dt = -μN N 
+dN(t) ∫ tdt = -μ 0 dNN = ∫ t0 -μdt 
+Com isto pode definir que 
+lnN(t) 
+N0 = -μt ⇔ t = -1μ lnN(t) 
+N0 e 
+lnN(t) 
+N0 = -μt \Rightarrow  N(t) = N0exp(-μt) assim como, 
+∫ 0N0 t(N)dN = -∫ 0N0 t(N)dNdt = -μN0 
+∫ 0N0 te-μtdt 1N0 
+∫ 0N0 t(N)dN = μ∫ 0N0 te-μtdt = μ 1\Rightarrow  1N0 
+∫ 0N0 tdN = μ 1que representa a taxa de vida Interpretação geometrica para média o parâmetro da substância. 
+μ = T 1
+Figura 9: meia vida 
+Exercício 2 Nas ecavações arqueológicas da cidade de Nipur (Antiga Babilónia) foi encontrada uma viga carbonizada com uma atividade de 4,09 dpm/g. Usando para o carvão recente de 6,7 dpm/g. Calcule quando se de tal incêndio na antiga cidade. 
+Solução Usando t12 = 5,730 anos para c14 temos: \lambda = 0,12 × 10-3 anos m(t)=4,09 dpm/g m0 = 6,7 dpm/g \lambda = 0,000121 m(t) = m0e-\lambda^{t} substituíndo, teremos: 4,09 = 6,7 × e-0,000121t 4,06 
+6,7 = e-1,21·10-4t 
+ln 
+(4,06 
+6,7 
+) 
+= -1.21 · 10-4t 
+ln (0,606) = 0,000121 · t \Rightarrow  t ∼= 4139,5 anos 
+Exercício 3 Távola Redonda 
+A enorme mesa redonda presa as paredes do castelo de wincherster - e que é mostrada aos crédulos turistas como sendo famosa "Távola redonda"do rei Artur - apresentou em 1977 uma atividade de 6,08 dpm/g. Sabendo que a atividade da madeira viva da região é de 6,68 dpm/g, verifique se esta mesa serviu de fato para os cotovelos do Rei e dos seus ledáiros cavaleiros Lancelot, Galahad, Gwain, Percival etc. Do pouco que se sabe dessa famosa confraria, uma coisa é certa: viveram no século V. 
+Solução: 
+34 
+Usando t12 = 5,730anos para c14 temos: \lambda = 0,12 × 10-3 anos m(t)=6,08 dpm/g m0 = 6,68 dpm/g \lambda = 0,000121 m(t) = m0e-\lambda^{t} substituíndo, teremos: 6,08 = 6,68 × e1,21·10-4t 6,08 6,68 = e1,21·10-4t 
+ln 
+(4,06 
+6,7 
+) 
+= -1.21 · 10-4t 
+ln (0,6910176) = -0,000121 · t \Rightarrow  t ∼= 777,8 anos 
+Exercício 4 Um indivíduo é encontrado morto em seu escritório pele sua secretária que liga imediatamente para a polícia. Quando a polícia chega, duas horas depois da chamada, examina o cadáver. Uma hora depois o detetive prende a secretária, porquê? 
+Solução A temperetura do escretório era de 20oc. Quando a polícia chegou, mediu o defunto, achando 35oc. Uma hora depois mediu novamente, 34,2oc. Supondo que a temperatura normal de uma pessoa viva seja constante e igual a 36,5oc, temos: 
+T(0) = 36,5 T(t∗) = 35 t∗ tempo decorrido desde o instante da morte T(t∗ + 1) = 34 é a temperatura da vítima mais uma hora depois que a polícia chegou. A questão de resfriamento para esse caso é: 
+Equação do resfriamento do corpo 
+T(t)=(T0 - Ta)e-\lambda^{t} + Ta T(t) { = (36,5 - 20)e-\lambda^{t} + 20 35 = 16,5e-\lambda^{t}∗ + 20 34,2 =16,5e-\lambda(t∗+1) + 20  
+15 16,5 14,2 16,5 = e-\lambda^{t}∗ 
+= 16,5e-\lambda(t∗+1) 
+Resolvendo o sistema, temos: donde \lambda = 0,05481 
+15 14,2 = e1-\lambda \Rightarrow  e\lambda = 1 × 0,056338 
+Portanto, t∗ = 
+-ln( 15 
+16,5) Podemos concluir que \lambda o assassinato = 1,73898h 
+ocorreu "exatamente" 1 hora e 44minutos e 20 segundos antes da polícia chegar. Quando a secretária chegou seu chefe ainda estava vivo. 
+35 
+Quais seriam as medidas corretas obtidas pelo logista para termos uma melhor aproximação da realidade? t 6 - = ∞ \lambda_{1}ln 
+= 6 horas 
+(100 (20 - 36,5) 
+20 
+) 
+Ou seja \lambda = 1,36 \Rightarrow  t∗ = 1,7389, fazemos T(t∗) = 16,5e-1,36·1,7389 + 20 ≈ 21,55oc T(t∗ + 1) = 16,5e-1,36+2,7389 + 2 ≈ 20,39oc Suponha que o indivíduo assassinado estivesse com febre quando morreu, ainda possível descobrir o instante da sua morte? 
+Solução Supondo: T(0) = 36,5 T(t∗) = 38t∗ tempo decorrido desde o instante da morte T(t∗ + 1) = 37,2 é a temperatura da vítima mais 1 hora depois que a polícia chegou. T(t) { = (36,5 - 20)e-\lambda^{t} + 20 38 = 16,5e-\lambda^{t}∗ + 20 34,2 = 16,5e-\lambda(t∗+1) + 20  
+18 16,5 14,2 { 1,09 16,5 = e-\lambda^{t}∗ 
+= 16,5e-\lambda(t∗+1) 
+= e-\lambda^{t}∗ 0,86 = 16,5e-\lambda(t∗+1) ⇐\Rightarrow  1,09 0,86 \Rightarrow  1,26744186 = e-\lambda^{t}∗ · e\lambda^{t}∗e\lambda 
+= e\lambda \lambda \Rightarrow  \Rightarrow  = 1,16744186 16,5 0,087011376 
+18 0,2370006 = e-\lambda^{t}∗ = \Rightarrow  = 0,2370006 36,71ln 16,5 18 
+= -\lambda^{t}∗ 
+Método de Separação de Variáveis Seja dydt = g(y)h(t), desejamos: 1. Achar as soluções constantes: g(y)=0 
+2. Achar as soluções não constantes: g(y) = 0 Temos dydt = g(y)h(t) ⇔ ∫ g(y) dy 
+= ∫ h(t)dt 
+ou seja \Rightarrow  G(y) = H(t) + Constante 
+36 
+Exemplo 10 Para a equação dNdt = -μN + K, onde g(N) = -μN + K e h(t)=1,\forall\ t \ge 0. 
+1. soluções constantes: g(N)=0 ⇔ -μN + K = 0 \Rightarrow  N = Kμ ,\forall\ t \ge 0 
+2. soluções não constantes: g(y) = 0 
+dN K - μN = dt \Rightarrow  ∫ dN 
+K - μN = ∫ dt \Rightarrow  ln(K-μN) = -μt-μC ⇔ K-μN = e-μtC \Rightarrow  \Rightarrow  N(t) = Kμ + Aμe-μt Se N(0) = N0 \Rightarrow  N(t) = 1μ(K - (K - μN0)e-μt) 
+6.2.2 - Dinâmica Populacional 
+Seja P(t) o tamanho da população de um país num instante t. Num intervalo de tempo \Deltat, a Lei de Malthus (1789) pressupõe que os nascimentos e as mortes são proporcionais ao tamanho da população e ao tamanho do intervalo. 
+Seja: N = \gamma P(t)\Deltat número de nascimentos; M = μP(t)\Deltatnúmero de mortes; 
+\gamma  é o coeficiente de natalidade; μ o de mortalidade; 1μ é o tempo meia-vida de um individuo pertenecente a esta população; \gamma μ é o número meio de nascimentos sobre o tempo de vida de um individuo. Assim, \DeltaP = P(t + \Deltat) - P(t) 
+\DeltaP = \gamma P(t)\Deltat - μP(t)\Deltat \DeltaP = (\gamma  - μ)P(t)\Deltat \DeltaP\Deltat = (\gamma  - μ)P(t) Fazendo com que \Deltat → 0, obtemos, da equação de diferença, a equação diferencial dPdt = (\gamma  - μ)P(t) que nos diz que a taxa de variação de uma população é proporcional a população em cada instante. 
+A solução desta é dada pela equaçãoP(t) = P0e(\gamma -μ)t 
+P(0) = P0 De onde obtemos os seguintes resultados: 
+37 
+\gamma <μ 
+Se consideramos que os recursos da população são limitados, o crescimento da população num intervalo de tempo é reduzido de uma quantidade proporcional ao quadrado da população existente no início do intervalo. De fato, se existe uma competição entre elementos de uma mesma espécie, o termo de inibição do crescimento populacional é proporcional ao produto destes elementos. Então a equação de Malthus modificada é a equação logística, 
+dPdt = (\lambda - aP(t))P(t) Introduzido pela primeira vez por Verhulst (1838) e estudada por Pearl e L. J. Redd (1920). Pode-se escrever a equação da seguinte forma: 
+dPdt = \gamma P(t)(1 - P(t) 
+K 
+) 
+Os parâmetros \gamma  representa a taxa per = capita \lambda, K e K = > \lambdaa 0 com onde \gamma  K > é 0 a é dito taxa de capacidade do crescimento intrinsico por que 
+suporte da população. Desenvolvendo P(K 1 - P) = K 
+1o ( processo P 1+ K - 1 
+de P 
+separação de variáveis teremos, e observando que ): 
+∫ dP 
+P(K - P) = \gamma K 
+∫ dt ∫ 1KP dP + ∫ K(K 1 
+- P)dP = \gamma K 
+∫ dt K1lnP - K1K1lnln(K ∣∣∣∣ - P) = P 
+K\gamma t + C 
+K - P 
+∣∣∣∣ = K\gamma t + C onde C é uma constante de integração. Se o tamanho da população em o tempo t = 0 é P0, então a equação fica 
+38 
+1. Se \gamma  = μ, então a população não varia. 
+2. Se \gamma >μ, então a população cresce exponencialmente com o tempo. 
+3. Se \gamma <μ, então a população diminui e tende à ex_{t}inção à medida que t cresce. 
+\gamma  = μ 
+\gamma >μ 
+P(t) = KP0 
+P0 + (K - P0)e-\gamma t A solução é valida no sentido biológico para 0 < P0 < K, e o tamanho da população Pt → K quando t → ∞. 
+6.2.3 - Resfriamento de um Corpo - Propagação de Calor 
+Um corpo que não possui internamente nenhuma fonte de calor, quando deixado em um meio ambiente na temperatura T, tende áquela do meio que o cerca Ta. Assim, se a temperatura T <Ta, este corpo se aquecerá e, caso contrário, se resfriará. 
+A temperatura do corpo, considerada uniforme, será pois uma função do tempo T = T(t). Verifica-se experimentalmente que quanto maior for o valor |T -Ta| mais rápida será a variação de T(t). 
+Isto é evidenciado de forma precisa pela chamada Lei de resfriamento enunciada por I. New- ton: A taxa de variação da temperatura de um corpo é proporcional à diferença entre sua temperatura e a do meio ambiente. 
+Então colocando em termos matemáticos temos que 
+dTdt = μ(Ta - T) = f(T) 
+onde μ > 0 pois se T <Ta então dTdt > 0 e se T >Ta, dTdt < 0. 
+Observe que T = Ta é solução da equação f(T)=0 e significa que se a temperatura do corpo for igual à temperatura ambiente, então ela não variará. 
+A solução geral da equação diferencial é dada por: 
+T(t) = Ta + Ce-μt 
+Usando T(0) = T0, obtemos a equação T(t)=(T0 - Ta)e-μt + Ta Neste modelo matemático, a temperatura do corpo só atinge a temperatura Ta no limite em que t → +∞; entretanto, na realidade, a temperatura ambiente é atingida num tempo finito. 
+resfriamento1 
+resfriamento2 
+39 
+No exemplo, podemos chamar de t∞ o tempo necessário para que T atinja 0,99 de Ta. Em termos numéricos, isto significa que se o erro relativo de 0,01 ou menos, podemos considerar T(t) como sendo praticamente Ta. Assim, 
+\pm 10099 
+Ta = (T0 - Ta)e-μt∞ + Ta 
+e-μt∞ = 
+∣∣∣∣ Ta 100(Ta - T0)∣∣∣∣ 
+-μt∞ = ln 
+∣∣∣∣ Ta 100(Ta - T0)∣∣∣∣ t∞ = μ1ln 
+∣∣∣∣100(Ta - T0) Ta 
+∣∣∣∣ 
+6.3 - Equilíbrio e Estabilidade 
+
+\begin{definition}
+x é um ponto de equilíbrio para (25) se f(x)=0. 
+\end{definition}
+
+Exemplo 11 Se uma população inicial x0 = x então a solução da equação diferencial é dada por x(t) = x \forall\ t. 
+6.3.1 - Análise de Estabilidade dos Pontos de Equilíbrio. 
+Um equilíbrio x de (25) é dito estável se para todo \epsilon > 0, existe \delta  > 0 tal que, para todo |x0 - x| < \delta , a solução, x(t,x0) obedece |x(t,x0) - x| < \epsilon\forall\ t \ge t0, caso contrário, x é chamado de instável. 
+x é assintoticamente estável se for estável e limt→∝ |x(t,x0) - x| = 0 se |x0 - x| < \gamma  
+Para determinar se um ponto de equilíbrio é estável ou não, podemos usar o seguinte teorema. 
+Teorema 4 Suponhamos que f \in C_1 e x é um ponto de equilíbrio de (25). Então x é assimtot- icamente estável se f(x) < 0 e instável se f(x) > 0 . 
+Seja y Considere = x dxdt - x = e y f(x) = x ⇔ onde dydt x é constante. 
+= f(x + y) ≡ f(x) + f(x)y = f(x)y \Rightarrow  dyy = f(x)dt, temos que o equilíbrio de f(x) = x ⇔ equilíbrio de f(x +y)=0 \Rightarrow  equilíbrio de f(x)y portanto dyequilíbrio dt = f(x)y \Rightarrow  y(t) = Aef(x)t como de f(x + y) é também de f dy(x)y dt = dxdt = f(x) se fizermos x = y + x temos que o 
+Observação (25) em torno 3 de dxdt x. 
+= f(x) \Rightarrow  dxdt = f(x)x esta segunda equação é chamada de linearização de 
+40 
+Exemplo 12 Seja a equação de Verhulstdydt = ay(K - y) 
+os pontos de equilíbrio são y = 0 ou y = K \Rightarrow  f(y) = aKy -ay2, onde a e K são positivos, logo temos que: 
+f(y) = aK - 2ay = 0 e f(0) = aK > 0 \Rightarrow  y = 0 portanto o ponto é instável e para f(K) = aK - 2aK = -aK < 0 \Rightarrow  y = K é assimtóticamente estável. 
+A Equação de Gompertz dada por 
+dydt = -ay 
+(ln Ky) com a > 0 e y>K, os pontos de equilíbrio da equação são y = 0 ou y = K, então temos que: 
+f(y) = -ay 
+(ln Ky) f(y) = -a(ln Ky) 
+- ay Ky 
+1K f(y) = -a(ln Ky) 
+- a temos que, para y = K então f(y) = f(K) = -a(lnKK) 
+- a = -a < 0 portanto, f(y) = -aConsideramos (ln Ky) 
+- a logo f as seguintes (K) = -a é estável. 
+taxas de crescimento específio para os modelos dados por: Mathus 1y 
+figura 1 
+Verhulst 1y 
+dydt = \gamma  
+figura 2 
+Gompertz 1y 
+dydt = a(K - y) 
+dydt = -a(ln Ky) 
+figura 3 
+figura 1 
+figura figura 2 
+3 
+41 
+6.3.1 - Crescimento Específico ou Lei da Alometria 
+Nem todas as partes do corpo de um inivíduo têm em cada instante um desenvolvimento proporcional. A cabeça de uma criança cresce mais lentamente que seu corpo. O rápido cresci- mento dos pés de um adolescente, comparado com o resto de seu corpo, causa muitas vezes alguns transtornos. A alometria estuda estes diferentes padrões de crescimento. O tamanho de um orgão pode ser a medida do seu volume, peso, comprimento ou área lateral. 
+Sejam x = x(t) e y = y(t) os tamanhos de órgãos ou partes do corpo distintos de um mesmo individuo, num instante t. 
+A Lei da Alometria establece que, no mesmo indivíduo, os crescimentos específicos de seus órgãos são proporcionais. Logo o modelo matmático é: 
+1x 
+dxdt = \alpha y 
+1dydt Separando as variáveis e integrando, obtemos 
+lnx = \alpha lny + lnC 
+com C > 0 ou x = Cy\alpha  
+Exemplo 13 Crescimento de peixes 
+O peso de um peixe cresce proporcionalmente à sua área A(t) e descrece proporcionalmente ao próprio peso. Seja P(t) o peso do peixe em um tempo t, então a equação metemática é: 
+dPdt = \alpha A(t) - \betaP(t) onde \alpha  e \beta são as taxa de anabolismo e cotabolismo, respectivamente. Equação de Vor Bertalanffy 
+1AdAdt = C P 
+1dPdt e o integrando, valor de C ∼= obtemos 23 logo a A(t) equação = K(P(t))diferencial C e portanto não linear dPdt é: 
+= a(P(t))C - \betaP(t), onde a = \alpha K 
+dPdt = a(P(t))23 - \betaP(t) 
+e portanto os pontos o ponto de equilíbrio é assimtóticamente são P1 = 0 ou estável. 
+P2 = (\betaa)3 e f(P) = 23aP 
+-13 -\beta \Rightarrow  f(P2) = -13\beta < 0 
+42 
+
+\chapter{Sistemas de Equações Diferenciais Lineares}
+
+7.1 - Sistemas de Equações Diferenciais Lineares Bidimensionais 
+
+Consideremos o seguinte sistema de equações diferencial 
+x (t) = a_{11}x + a_{12}y y (t) = a_{21}x + a_{22}y (26) 
+ou em forma matricial X = AX (26) onde X = 
+( xy 
+) 
+e A = 
+( a_{11} a_{12} a_{21} a_{22} 
+). 
+Suponhamos que X(t) = V e\lambda^{t} \Rightarrow  X(t) = 
+( v1e\lambda^{t} v2e\lambda^{t} 
+), com \lambda \in , V é um vetor de entradas 
+independente do tempo, seja uma solução para o sistema (26), então temos que: 
+X (t) = 
+( \lambdav1e\lambda^{t} \lambdav2e\lambda^{t} 
+) 
+= AV e\lambda^{t}, 
+para que X = AX, basta que AV = \lambdaV portanto se \lambda for autovalor correspondente ao autovetor V de A, então X(t) = V e\lambda^{t} é solução de (26). 
+Pelo teorema de existência temos que a dimenção do espaço solução do sistema (26) é 2. 
+Teorema 5 As soluções de (26) são linearmente independente. 
+Seja X1 e X2 soluções do sistema (X1 = V1e\lambda_{1}t), temos que: 
+• Se \lambda_{1} = \lambda_{2} 
+Mostraremos que X1 = V1e\lambda_{1}t e X2 = V2e\lambda_{2}t são linearmentes independentes, então por redução ao absurdo suponhamos que são linearmente dependente, então 
+X1 = \alpha X2 \Rightarrow  X1 = \alpha V2e\lambda_{2}t \Rightarrow  V1e\lambda_{1}t = \alpha V2e\lambda_{2}t o fato de que V1 = \alpha V2 contradiz a hipótese de que autovalores diferentes tem autovetores são linearmente independentes, portanto X1 e X2 são linearmente independentes e a solução do sistema (26) é a combinação linear de suas soluções. AV1 = \lambda_{1}V1 e AV2 = \lambda_{2}V2 
+portanto se \lambda_{1} = \lambda_{2}, então a solução geral de (26) é 
+X(t) = K1X1 + K2X2 = K1V1e\lambda_{1}t + K2V2e\lambda_{2}t 
+• se \lambda = \lambda_{1} = \lambda_{2} 
+Vamos mostrar que uma solução para (26) é dada por X(t)=(U + V t)e\lambda^{t}. Derivando em função de t temos: 
+X (t) = V e\lambda^{t} + \lambda(U + V t)e\lambda^{t} 
+AX = e\lambda^{t}AU + te\lambda^{t}AV AX = e\lambda^{t}AU + \lambdaV te\lambda^{t} 
+43 
+então U deve satisfazer AU = V + \lambdaAU ⇔ (A - \lambdaI)U = V portanto X1(t) = V1e\lambda_{1}t e X2(t)=(U +V t)e\lambda^{t} onde (A-\lambdaI)V = 0, (A-\lambdaI)U = V então X1(t) e X2(t) são linearmente independentes. 
+Logo a solução geral de (26) é dada por 
+X(t) = K1V e\lambda^{t} + K2(U + V t)e\lambda^{t} 
+• se \lambda_{1} = \lambda_{2} com \lambda_{1} = \alpha  + \beta_{i} e \lambda_{2} = \alpha  - \beta_{i} 
+Então a solução de (26) fica na forma 
+X(t) = K1V1e(\alpha +\beta_{i})t + K2V2e(\alpha -\beta_{i})t X(t) = K1(A + Bi)e(\alpha +\beta_{i})t + K2(A - Bi)e(\alpha -\beta_{i})t Onde A e B são dois vetores constantes, então a solução geral de valor real pode ser expressa usando a identidade e(\alpha +\beta_{i})t = e\alpha_{t}(cos\beta_{t} + isen\beta_{t}) então definimos que 
+U W = = e\alpha_{t}(Acos\beta_{t} + Bsen\beta_{t}) 
+e\alpha_{t}(Asen\beta_{t} - Bcos\beta_{t}) \Rightarrow  X(t) = K1U(t) + K2W(t) 
+Exemplo 14 Difusão através de uma membrana submersa em um líquido. 
+Lei de Fick O Fluxo através de uma membrana de uma célula é proporcional a diferença de concentração entre seu ex_{t}erior e seu interior. 
+Modelo: dcdcdt dt [ 1 1 -a = = a(ca(ca 
+2 2 - - cc1) 1) = = -ac-ac1 1 + + acac2 2 a -a 
+] 
+p(\lambda) = det(A - \lambdaI) = 
+[ -a - \lambda a 
+a -a - \lambda 
+] 
+\Rightarrow  (-a - \lambda)2 - a2 a2 + 2a\lambda + \lambda_{2} - a2 = 0 \lambda(\lambda + 2a) \lambda = 0 Ou\lambda = -2a 
+•\lambda =0\Rightarrow  
+[ -a a 
+a -a 
+][ v1v2 
+] 
+= 
+[ 00 
+] 
+\Rightarrow  
+{ -av1 + av2 = 0 av1 - av2 = 0 
+\Rightarrow  v1 = v2 -→ v1 
+[ 11 
+] 
+•\lambda = -2a \Rightarrow  
+[ a a a a 
+][ v1v2 
+] 
+= 
+[ 00 
+] 
+\Rightarrow  
+{ av1 + av2 = 0 av1 + av2 = 0 
+\Rightarrow  v1 = v2 -→ v1 
+[ 1-1 
+] 
+Então a solução é dada por: 
+X(t) = 
+[ k1k2 
+] 
++ k2e-2at [ 1-1 
+] 
+44 
+Caso complexo: \lambda_{1} = \lambda_{2} \lambda_{1} = \alpha  + \beta_{i} e \lambda_{2} = \alpha  - \beta_{i} 
+•\lambda_{1} = \alpha  + \beta_{i}, temos; 
+X(t) = K1 
+[ v11 
+[ ]v21 
+e(\alpha +\beta_{i})t + K2 
+v12 v22 
+]e(\alpha -\beta_{i})t 
+Sendo: v11 = a + bi v21 = c + di v21 = e + f i v22 = g + hi donde temos X(t) = K1 
+[ x1(t) y1(t) 
+] 
++ K2 
+[ x2y2 
+]i 
+Se K1 
+[ x1(t) y1(t) 
+] 
++ K2 
+[ x2y2 
+]i é solução, então 
+K1 
+[ x1(t) y1(t) 
+] 
+e K2 
+[ x2y2 
+] 
+também são soluções reais. 
+Exemplo { x 15 : Resolve o sistema = x + 2y 
+y = -2x + y Solução: 
+A = 
+[ 1 2 -2 1 
+] 
+\Rightarrow  p(\lambda) = det(A - \lambdaI) = 
+[ 1 - \lambda 2 
+-2 1 - \lambda 
+] 
+= (1 - \lambda)2 +4=0 
+Então, os autovalores são: \lambda_{1} =1+2i e \lambda_{1} = 1 - 2i Para [ -2i \lambda_{1} =1+2i, 2 
+temos: -2 -2i 
+][ v1v2 
+] 
+= 
+[ 00 
+] 
+⇐\Rightarrow  
+{ -2iv1 + 2v2 = 0 -2v1 - 2iv2 = 0 
+\Rightarrow  V1 = 
+[ 1i 
+] 
+Para [ -2i \lambda_{2} = 2 
+1 - 2i, temos: -2 2i ][ v1v2 
+] 
+= 
+[ 00 
+] 
+⇐\Rightarrow  
+{ 2iv1 + 2v2 = 0 
+-2v1 + 2iv2 = 0 
+\Rightarrow  V2 = 
+[ 1-i 
+] 
+A solução do sistema é dada por: 
+X(t) = k1 
+[ 1i 
+]e(1+2i)t + k2 
+[ 1-i 
+]e(1-2i)t 
+Onde (1 + 2i)t = et(cos2t + isen2t) (1 - 2i)t = et(cos2t - isen2t) Então 
+45 
+[ [ cos2t + isen2t 
+icos2t - sen2t 
+]et + k2 
+cos2t - isen2t -icos2t - sen2t ]X(t) = k1 
+et 
+= k1 
+[ cos2t 
+-sen2t 
+][ et + k2 
+][ sen2t cos2t cos2t -sen2t 
+]([ et + 
+k1 
+sen2t cos2t 
+et + k2 
+]et)i 
+k1 
+[ cos2t 
+-sen2t 
+]et + k2 
+[ sen2t cos2t 
+]et; k1,k2 \in R 
+Para o sistema linear (26), definimos o vetor X = 0 como ponto de equilíbrio, então a estabilidade de X = 0 é tal que, X → 0 quando t → ∞ ⇔ limt→∞ X(t) → 0, portanto teremos: 
+1. Se \lambda_{1} = \lambda_{2} e positivos, então X(t) →∞. 
+2. Se \lambda_{1} < 0 < \lambda_{2}, então X(t) →∞. 
+3. Se \lambda_{1} < 0 e \lambda_{2} < 0, então X(t) → 0, X = 0 é assimtoticamente estável. 
+4. Se \lambda_{1},2 = \alpha  \pm \beta_{i}, temos: 
+(a) Se \alpha  = 0 \Rightarrow  X(t) = r, r constante, então não converge. 
+(b) Se \alpha  > 0 \Rightarrow  X(t) →∞. 
+(c) Se \alpha  < 0 \Rightarrow  X(t) → 0. 
+para o item 1) e 2) dizemos que o equilíbrio X = 0 é instável. Apresentamos os diferentes tipos de órbitas (soluções) do sistema (26), temos: 
+1) i \lambda_{1} > 0 e \lambda_{2} > 0, o ponto crítico  ̄x é um nódulo e o ponto é instável; 
+ii \lambda_{1} < 0 e \lambda_{2} < 0, o ponto crítico  ̄x é um nódulo e o ponto é estável; 
+2) \lambda_{1} < 0 e \lambda_{2} > 0, o ponto crítico  ̄x é um ponto de sela e o ponto é instável; 
+3) i \lambda_{1} = \lambda_{2} > 0, o ponto crítico  ̄x é um nódulo e o ponto é instável; 
+ii \lambda_{1} = \lambda_{2} < 0, o ponto crítico  ̄x é um nódulo e o ponto é estável; 
+4) \lambda_{1} = \alpha  + \beta_{i}, com \alpha  = 0 o ponto crítico  ̄x é um centro e o ponto é instável, mas não é 
+assintoticamente estável; 
+5) i \lambda_{1} = \alpha  + \beta_{i}, com \alpha  > 0, o ponto crítico  ̄x é uma espiral e o ponto é instável; 
+ii \lambda_{1} = \alpha  + \beta_{i}, com \alpha  < 0, o ponto crítico  ̄x é uma espiral e o ponto é estável; 
+46 
+item 5 - espiral 
+Para o sistema (26),o polinômio característico é dado por 
+p(\lambda) = \lambda_{2} - b\lambda + c 
+onde b =traço(A) e c = det(A), então os autovalores são dados por 
+\lambda_{1},2 = b \pm √\Delta 
+2 Se \Delta = b2 - 4c \ge 0 temos autovalores reais; 
+• Se c > 0, então √\Delta < |b|, logo b \pm √\Delta, têm mesmo sinal de b ou seja \lambda_{1} e \lambda_{2} tem o mesmo sinal de b. 
+• Se c < 0, então √\Delta \ge |b|, logo \lambda_{1} e \lambda_{2} têm sinais contrários. Se \Delta = b2 - 4c < 0,\lambda_{1},2 = b \pm i√-\Delta 
+2 , temos 
+1. Se b > 0 e c > 0 é um nó instável 
+2. c < 0 é ponto de sela 
+3. b < 0 e c > 0 um nó estável 
+4. b2 < 4c e b > 0 espiral instável 
+5. b2 < 4c e b = 0 centro neutro 
+6. b2 < 4c e b < 0 espiral estável 
+47 
+item 1 - nódulo 
+item 4 - centro 
+item2 - sela 
+item3 - nódulo 
+Figura 10: gráfico do sistema 26 
+7.2 - Sistema de Equações Lineares n Dimensional 
+Seja um polinômio característico de coeficientes reais, 
+p(\lambda) = \lambda^{k} + a1\lambda^{k-1} + a2\lambda^{k}-2 + \ldots + ak (27) 
+Críterio 1 de Routh-Hurwistz 
+Então o polinômio P(\lambda) será estável se e somente se todos os determinantes menores prin- cipais da matriz, Hk,k = 1, \ldots, n, forem positivos, onde 
+H1 = (a1) 
+H2 = 
+( a1 1 a3 a2 
+) 
+H3 = 
+ a1 1 0 a3 a2 a1 a5 a4 a3 
+ 
+Hj = 
+ 
+a1 a3 a5 : 1 0 0 \ldots 0 a2 a4 : a1 1 \ldots a3 a2 \ldots : : ; 0 0 : 
+ a2j-1 a2j-2 \ldots \ldots \ldots aj 
+48 
+
+\ldots \ldots \ldots 
+Hk = 
+ 
+ 
+ 
+a1 1 0 0 \ldots 0 a3 a2 a1 1 \ldots 0 a5 a4 a3 a2 \ldots 0 : : : : ; : 0 0 0 \ldots \ldots ak 
+a1 1 0 0 \ldots 0 a3 a2 a1 1 \ldots 0 a5 a4 a3 a2 \ldots 0 : : : : ; : 0 0 0 \ldots \ldots ak 
+a1 1 0 0 \ldots 0 a3 a2 a1 1 \ldots 0 a5 a4 a3 a2 \ldots 0 : : : : ; : 0 0 0 \ldots \ldots ak 
+
+O equilíbrio será estável, se e somente se, det(Hj) > 0, j = 1,2, \ldots, k. 
+Exemplo 16 Para k = 2, temos que p(\lambda) = \lambda_{2} + a1\lambda + a2 
+H1 = (a1) \Rightarrow  det(H1) > 0 ⇔ a1 > 0 
+
+H2 = 
+( a1 1 a3 a2 
+) 
+\Rightarrow  det(H2) > 0 ⇔ a1a2 > 0 como a1 > 0 logo a2 > 0 
+\Rightarrow  det(H2) > 0 ⇔ a1a2 > 0 como a1 > 0 logo a2 > 0 
+. 
+
+Portanto, se a1 > 0 e a2 > 0 os pontos de equilíbrio são estáveis. Para k = 3 
+p(\lambda) = \lambda3 + a1\lambda_{2} + a2\lambda + a3 H1 = (a1) \Rightarrow  det(H1) > 0 ⇔ a1 > 0 
+
+H2 = 
+( a1 1 a3 a2 
+) 
+\Rightarrow  det(H2) > 0 ⇔ a1a2 > 0 como a1 > 0 logo a2 > 0 
+\Rightarrow  det(H2) > 0 ⇔ a1a2 > 0 como a1 > 0 logo a2 > 0 
+. 
+H3 = 
+ a1 1 0 a3 a2 a1 0 0 a3 
+ pretendemos verificar se det(H3) > 0 e det(H3) = a1a2a3 - a23 > 0, 
+ pretendemos verificar se det(H3) > 0 e det(H3) = a1a2a3 - a23 > 0, 
+ pretendemos verificar se det(H3) > 0 e det(H3) = a1a2a3 - a23 > 0, 
+
+dos dados anteriores temos que a1 > 0 e a2 > 0, portanto para que det(H3) > 0 basta a3 > 0 e a1a2 > a3. 
+Portanto, se a1 > 0, a2 > 0, a3 > 0 e a1a2 > a3 os pontos de equilíbrio serão estáveis. 
+Críterio 2 de Lyapunov 
+Seja 
+x = f(x) (28) 
+com x \in n onde f : I \subset  n → n e seja x um ponto de equilíbrio, V uma função tal que V : U \subset  n → de classe C_1 e U uma vizinhança de x, tal que 
+1. V (x)=0 e V (x) > 0, x = x 
+2. V (x) \le 0 em x = x então x é estável 
+3. V (x) < 0 em x = x então x é assintoticamente estável. (existe uma V inteiramente em 
+U é global a estabilidade). 
+49 
+para o ítem (3) V (x) = ∇V (x) • f(x) 
+7.3 - Sistemas Autônomos (quase-linear) 
+Seja o sistema de equações deferenciales ordinárias 
+ 
+dxdydt dt = F(x,y) = G(x,y) 
+(29) 
+Onde F e G são funções não lineares. Suponhamos que x e y são soluções de equilíbrio, isto é, 
+F(x,y) = G(x,y)=0 
+Então consideremos soluções próximas ao equilíbrio, fazendo expansão em série de Taylor na vizinhaça de (x,y), temos 
+F(x,y) G(x,y) = = F(x,y) G(x,y) + + ∂∂x ∂∂xF(x,y)(x G(x,y)(x - - x) x) + + ∂∂y ∂∂y F(x,y)(y G(x,y)(y - - y) y) + + R1(x,y) R2(x,y) 
+onde R1 lim(x,y)→(x,y) e R2 são termos de segunda ordem e superiores, respectivamente. Tal que 
+√(x - Rx)1(x,y) 2 + (y - y)2 = lim(x,y)→(x,y) √(x - Rx)2(x,y) 2 + (y - y)2 = 0 O sistema abaixo é a linearização de (29) em torno de (x,y). 
+ 
+dudvdt dt = = ∂∂x∂∂xF(x,y)u G(x,y)u + + ∂∂y ∂∂y F(x,y)v G(x,y)v 
+(30) 
+onde u = x - x e v = y - y. 
+Teorema 6 da linearização de Lyapunov-Poincaré. Suponha que F e G seja continuamente diferenciáveis em uma vizinhança de (x,y) então, 
+1. Se (x,y) for assintoticamente estável para (30), ele será também para (29). 
+2. Se a parte real do autovalor \lambda > 0 para algum \lambda de (30), então (x,y) será estável para 
+(29). 
+3. Se a parte real do autovalor \lambda > 0\forall\  autovalor de (30), então (x,y) é repulsor e X(t) 
+solução de (29),\exists\ t0,X(t) /\in V,t \ge t0, onde V é vizinhança de (x,y) 
+50 
+Exemplo 17 Seja o sistema:  
+dxdydt dt = 3x2 - 6y = -x + y = F(x,y) = G(x,y) 
+Os pontos de equilíbrio são: P1 = (0,0) e P2 = (2,2) e J = 
+) 
+O polinômio característico associado a J no ponto P1 é dado P(\lambda) = \lambda_{2} - \lambda - 6=0 e seus autovalores são \lambda_{1} = 3 e \lambda_{2} = -2 
+Análise do ponto P1 para \lambda_{1} = 3, como o sistema é não linear podemos escrevê-lo na forma (30), isto é, 
+ 
+dudvdt dt = 6xu - 6v 
+= -u + v 
+onde u = x - x e v = y - y. Achando o autovetor associado a \lambda_{1} temos 
+V1 = 
+( -21 
+) 
+e para \lambda_{2} = -2, temos 
+V2 = 
+( 31 
+) 
+segundo o teorema acima A análisea do ponto P2 é análogo, temos que então para \lambda\lambda_{1},2 1 = é repulsor 13 \pm 2 √145 
+e \lambda_{2} portanto é atrator. 
+\lambda_{1} < 0 < \lambda_{2} 
+Figura 11: sela1 
+51 
+( 6x -6 
+-1 1 
+
+\chapter{Modelos em Biomatemáticas}
+
+8.1 - Modelos em Biomatemáticas 
+
+8.1.1 - Modelos de Competição entre duas Espécies. 
+
+A interação entre duas espécies A e B se processa de maneira que cada espécie afeta nega- tivamente a outra na luta pela sobrevivência (espaço, alimentação, etc). Como os recursos são limitados, o modelo de crescimento logístico é o mais indicado para cada espécie, na ausência da outra.  
+dxdydt dt = ax - bx2 = cy - dy2 
+onde x e y são as populações das espécies A e B, respectivamente. Se incluirmos o efeito da competição, a interação será modelada, supondo que a variação de crescimento de cada espécie seja reduzida por um fator proporcional à população da outra espécie. Assim, as equações das populações são:  
+dxdydt dt = ax - bx2 - \alpha xy = cy - dy2 - \betaxy 
+O sistema de equações diferenciais acima não tem necessariamente uma solução analítica, por isso, neste caso específico, um estudo qualitativo das soluções é imprescindível. 
+Os pontos de equilíbrio para o sistema são dados pelas soluções do sistema 
+{ x(a - bx - \alpha y) = 0 y(c - dy - \betax) = 0 
+Obtemos 4 pontos de equilíbrio assim, 
+• P1 = (0,0) 
+• P2 = (ba,0) 
+• P3 = (0, d c) 
+• P4 = (x4,y4)=(bd ad - - \alpha \betac\alpha  
+, bd cb - - \alpha \betaa\beta 
+) se bd - \alpha \beta = 0 
+Para o ponto P4 com bd - \alpha \beta = 0, temos que; Se bd - \alpha \beta > 0 então, 
+x4 > 0 ⇔ ad - \alpha c > 0 ⇔ \alpha  a> d cy4 > 0 ⇔ cb - \betaa > 0 ⇔ c\beta > b a52 
+Se bd - \alpha \beta < 0 então, 
+x4 > 0 ⇔ ad - \alpha c < 0 ⇔ \alpha  a< d cy4 > 0 ⇔ cb - \betaa < 0 ⇔ c\beta < b aA matriz Jacobiana associada ao sistemas é: 
+J = 
+( a - 2bx - \alpha y -\alpha x 
+-\betay c - 2dy - \betax 
+) 
+Para o ponto P1 temos 
+J(P1) = 
+( a 0 0 c 
+) 
+com autovalores \lambda_{1} = a > 0 e \lambda_{2} = c > 0 portanto P1 é um ponto repulsor. 
+Para o ponto P2 temos que 
+J(P2) = 
+ a -\beta- \alpha d cd c0 -c 
+ 
+Os autovalores associados a J(P2) são \lambda_{1} = \lambda_{2} = -c < 0 então P2 é um ponto estável. 
+ad - \alpha c 
+d < 0 se ad - \alpha c < 0 ⇔ \alpha  a< cd e 
+Figura 12: equilibrio 
+Se \lambda_{1} = Para P3 temos ad - d \alpha c 
+que 
+> 0 se a\alpha  > d ce \lambda_{2} = -c < 0 então P2 é ponto de sela. 
+J(P3) = 
+ -a 0 c -\alpha - \betab ab a 
+53 
+Figura 13: equilíbrio 3 
+Os autovalores associados a J(P3) são \lambda_{1} = -a < 0 e \lambda_{2} = c - \betaab < 0 ⇔ cb - \betaa 
+b ⇔ cb < \betaa então P3 é um ponto assintoticamente estável. 
+Se \lambda_{2} > 0 ⇔ c\beta > ab,então P3 é ponto de sela. 
+Figura 14: equilíbrio 2 
+Para P4 = (x4,y4) temos que 
+J(P4) = 
+( -bx4 -\alpha xc -\betayc -dyc 
+) 
+O polinômio caracteristico é 
+P(\lambda) = det(J(P4) - \lambdaI) = \lambda_{2} + (bx4 + dy4)\lambda + bdx4y4 - \alpha \betax4y4 Então os autovalores associados são 
+\lambda_{1},2 = -(bx4 + dy4) \pm √\Delta 
+2 onde \Delta=(bx4 + dy4)2 - 4x4y4(bd - \alpha \beta) > 0.54 
+Figura 15: equilibrio 4 
+8.1.2 - Modelo Presa-Predador 
+a) Lotka - Volterra 
+O modelo de presa-predador de Lotka-Volterra é um modelo de importância histórica na modelagem matemática de sistemas ecológicos, o modelo surgiu em meados da década de 20 quando Umberto D ́Ancona, biológo marinho italiano, desenvolveu uma análise estatística com dados sobre peixes vendidos nos mercados de Trieste, Fiume e Veneza entre 1910 e 1923. A pesca havia sido suspensa em parte do Mar Adriático durante a Primeira Guerra Mundial, de 1914 a 1918, e Umberto D ́Ancona mostrou que houve aumento da freqüência relativa de certas espécies e redução da freqüência relativa de outras espécies. 
+Os dados mostravam que a freqüência de predadores, como tubarões, aumentara durante os anos de guerra e posteriormente diminuira com o aumento da pesca. A abundância relativa das presas, por outro lado, seguira um padrão inverso. Umberto D ́Ancona estava noivo de Luisa Volterra, uma ecologista, filha de Vito Volterra, um famoso matemático. D ́Ancona 
+55 
+• Se bd -\alpha \beta > 0 ⇔ a\alpha  > cd e c\beta > ab, então \lambda_{1} < 0 e \lambda_{2} < 0, logo o ponto P4 = (x4,y4) é um nó assintoticamente estável. 
+• Se bd - \alpha \beta < 0, então \lambda_{1} < 0 e \lambda_{2} > 0 
+propôs, então, a questão a Vito Volterra, que escreveu um par simples de equações diferenciais para descrever o sistema. Se definirmos x(t) como o número (ou densidade) de presas e y(t) e número (ou densidade) de predadores, o sistema proposto por Vito Volterra apresenta a seguinte formulação: 
+ 
+dxdydt dt = ax - \alpha xy = F(x,y) = -by + \betaxy = G(x,y) 
+(31) 
+onde a, b, \alpha  e \beta são constantes positivas. Como nos explica Kot, o termo ax(t) implica que as presas crescerão de modo exponencial na ausência de predadores. Por sua vez, o segundo termo da primeira equação, -\alpha x(t)y(t), está relacionado à redução das presas por ação dos predadores. Na segunda equação, o termo \betax(t)y(t) indica que a perda de presas leva à produção de novos predadores, e -by(t) indica que a população de predadores decai exponencialmente na ausência de presas. 
+Achamos os pontos de equilíbrio para analisar o sistema (31), fazendo, F(x,y) = 0 e 
+G(x,y)=0, então temos P1 = (0,0) e P2 = 
+(\betab, \alpha a), linearizando (31), 
+J(P) = 
+( a - \alpha y -\alpha x 
+\betay -b + \betax 
+) 
+e obtemos os seguintes resultados; 
+Para o ponto P1 Para o ponto P2 os os autovalores autovalores \lambda\lambda_{1} 1,2 = = a \pme √\lambdaabi 2 = é -b um é ponto um ponto centro de estável. 
+sela. 
+De fato, tomando 
+dydx = y(-b x(a - + \alpha y) 
+\betax) é separável. As curvas soluções desta equação é dada implicitamente por aln(y) - \alpha y = -bln(x) + \betax + ln(K) onde K > 0 é uma constante de integração. 
+Nessa equação, nem x, nem y podem ser explicitados em termos de funções elementares. As órbitas representadas por ela podem ser traçadas através do método gráfico de Volterra. 
+Seja { z z uma variável auxiliar, z = = aln(y) - \alpha y 
+-bln(cx) + \betax , onde c = 
+( 1K)1/b Fazendo um esboço de z como função de x e y, separadamente, temos que dy dz= y a- \alpha ; dzdy = 0 ⇔ y = \alpha a. Ainda, d2z 
+dy 2 = - y a2 < 0 e Portanto, para y = \alpha a, z atinge seu valor máximo z = a(ln 
+(a\alpha ) 
+)- 1. Analogamente, z atinge seu valor mínimo z = b(1 - ln(cb\beta 
+)) 
+quando x = \betab. Desta forma, a população x deve variar entre un valor mínimo x1 e um valor máximo x2, soluções de 
+a(ln 
+(a\alpha ) 
+) - 1= bln(cx) + \betax 
+56 
+O mesmo acontece com a variação da população y que está compreendida entre as duas soluções de 
+b 
+(1 - ln 
+(cb\beta 
+)) 
+= aln(y) - \alpha y 
+Os valores limitantes de ambas as populações são dependentes de seus estágios iniciais, pois dependem da constante arbitrária c. 
+As trajetórias no plano xy são fechadas em torno 
+(\betab, \alpha a). O ponto P2 é estável, mas não é assintoticamente estável. 
+Qual deve ser o número médio de presas e de predadores em um determinado período T? Para responder esta pregunta, consideremos o sistema (31) escrito na forma 
+1x 
+dxdt = a - \alpha y 1y 
+dydt = -b + \betax Integrando ambas as equações no intervalo 0 até T, onde T é o período da solução em questão, então ∫ T0 ln(xx 1dx obtemos 0 T) ln(T) - ln(0) 0 aT a\alpha  = = = = = = ∫ ataT aT \alpha 10 T∫ 0 T(a 0 - - T- ydt 
+- \alpha \alpha \alpha ∫ ∫ \alpha y)dt ∫ 0 0 TT0 Tydt ydt 
+ydt 
+T 
+∫ 0 Ty(t)dt Y = 1T 
+∫ 0 Ty(t)dt onde Y é o número médio de individuos de predadores (y) ao longo de um período de tempo t. por Analogamente X = Como 1∫ TT 
+vimos 0 x(t)dt nos para resultados, = o \betabnúmero . médio de presas ao longo de um período temos que os valores médios das populações de seus estados iniciais e são exatamente iguais a seus valores estacionários existe uma diminuição da quantidade de presas em um ecossistema não de tempo aadianta \alpha  e x \betabe , t é dado y independem isto é, quando aumentarmos a quantidade de predadores, pois somente aumentaria a magnitude da oscilação do ciclo. Os valores médios continuariam os mesmos. 
+b) Presa - Predador com perturbação das populações médias 
+Se considerarmos uma retirada uniforme de elementos das duas populações, que interagem segundo o modelo presa - predador, cada população será diminuída a uma taxa proporcional a 
+57 
+esta população. De fato, denotando por \epsilon a constante de proporcionalidade de retirada, temos o seguinte sistema 
+dxdt = ax - \alpha xy - \epsilonx = x(a - \epsilon) - \alpha xy dydt = -by + \betaxy - \epsilony = -(b + \epsilon) + \betaxy A diferença entre o sistema (31) e este sistema é que o ponto de equilíbrio P2 é dado por 
+P2 = 
+(a - \alpha  \epsilon 
+, b + \beta 
+\epsilon 
+), assim, o valor médio para predadores diminui, enquanto aumenta o valor 
+médio das presas. 
+c) Modelo de Kolmogorov 
+A.N. Kolmogorov (1903- ) generaliza o sistema de Lotka - Volterra, abolindo completamente as formas explícitas das características das espécies e das relações funcionais de suas interações e usando hipótesis qualitativas. O modelo geral é dado por 
+dxdydt dt = A(x)x - V (x)y 
+= B(x)y 
+(32) 
+Onde A, V e B são funções consideradas essencialmente de características biológicas: 
+• A(x) é descrescente; A(0) > 0 > A(∞). Estas restrições podem ser interpretadas como: na ausência do predador (y = 0), o coeficiente de natalidade da presa diminui com o aumento da população (população inihibida), indo de valores positivos para negativos; isto significa que a população das presas assume características de uma competição para recursos limitados. Assim, esta população é estabilizada num nível dado por A(x)=0(y = 0). 
+• B(x) é crescente com x; B(0) < 0 < B(∞). A taxa de crescimento da população dos predadores vai de valores negativos (com a falta de alimentos) a valores positivos. 
+• V (x) > 0 para x > 0 e V (0) = 0 V (x) é a resposta funcional dos predadores à densidade da população de presas. Os tipos mais freqüentes para a função V (x) em sistemas do tipo presa - predador clásico são dados nas figuras abaixo. 
+58 
+c)vertebrados 
+O sistema (32) tem dois ou três pontos de equilíbrio no primeiro quadrante: (0,0), (x,0) onde x satisfaz A(x)=0, e o ponto (xe,ye) determinado pelas equações. 
+{ A(xe)xe - V (xe)ye = 0 B(xe) = 0 para xe < x, isto é, A(xe) > 0. 
+Linearizando o sitema (32) podemos estudar o comportamento das trajetórias na vizinhança da cada ponto de equilíbrio, para isto, basta considerar u = x -xe∗,v = y -ye∗, onde xe ∗y y e ∗são as coordenadas destes pontos. 
+No ponto (0,0) temos o sistema linearizado 
+ 
+dudvdt dt = A(0)u = B(0)v 
+As raízes do polinômio característico associado a a este sistema são \lambda_{1} = A(0) e \lambda_{2} = B(0), ambas reais e de sinais diferentes e, portanto, a origem será um ponto de sela (instável). Os eixos x e y são as separatrizes. No ponto (x,0), temos 
+ 
+dudvdt dt = dxA(x)xu - V (x)v 
+= B(x)v 
+As raízes de polinômio característico são \lambda_{1} = sela).dAdt (x) < 0 e x > 0; \lambda_{2} < 0, se x<xe (nó estável), dAdt (x)x enquanto e \lambda_{2} = B(x). Se \lambda_{1} < 0, pois que \lambda_{2} > 0, se x>xe (ponto de 
+No ponto (xe,ye) temos 
+59 
+a) invertebrados e alguns peixes 
+b) moluscos 
+[-dV dx (xe) 
+ye + dxA(xe)xe + A(xe)]u dvdt = 
+[dBdx (xe)ye]u Tomemos O polinômio \alpha  = característico dVdx (xe)ye - desse dAdx - A(xe) sistema e é dado \beta = V por (xe)\lambda_{2} dBdx + (x\alpha \lambda e)y+ e. 
+\beta = 0. Como \beta > 0, então o ponto (xe,ye) será um foco, se \alpha 2 < 4\beta, ou um nó, se \alpha 2 > 4\beta, logo a estabilidade é determinada pelo sinal de \alpha , isto é, para \alpha  > 0 será estável e para \alpha  < 0, instável. 
+Portanto, na figura abaixo teremos: 
+a) xe > x; 
+b) xe < x;\alpha  > 0 e \alpha 2 < 4\beta; 
+c) xe < x;\alpha  > 0 e \alpha 2 > 4\beta. 
+c)(xe,ye) Nó estável 
+No caso em que xe < x, a separatriz que se origina em (x,0) pode ficar girando em torno do ponto (xe,ye), dando origem a um ciclo limite.60 
+a) (x,0) Nó estável 
+ 
+dudt = 
+b) (xe,ye) Foco estável 
+Figura 16: xe < x; ciclo limite 
+d) Holling - Taner 
+O modelo de Holling - Taner é definido pelo sistema:  
+dxdydt (1 - Kxdt = = \gamma x sy 
+(1 - hyx 
+) 
+) 
+- D mxy + x 8.2 - Modelos Epidemíológicos 
+a) Modelo Kermack-Mckendrick tipo SIR 
+O modelo Kermack-McKendrick foi proposto para explicar o rápido aumento e queda no número de pacientes infectados observados em epidemias tais como a peste (Londres 1665-1666, Bombaim 1906) e a cólera (Londres 1865). Neste modelo, considerou-se que uma população total N que se separou em três classes: susceptíveis S, os que foram removidos devido à imu- nidade R, e aqueles que no momento estavam infectados ou contagiosos I. Estas quantidades estão Com dRdSdt dt dt dIrelacionadas as = = = condições -\betaSI -\betaSI υI 
+pelas equações diferenciais abaixo. - υI 
+iniciais I(0) = I0,R(0) = R0 e S(0) = S0 O modelo supõe que: 
+61 
+1. A população está fixa, de modo que ninguém entra, sai, ou morre. 
+2. O período de incubação é zero. 
+3. O período da infecção coincide com o da doença clínica. 
+Seja a população N(t) constante no tempo, isto é, S + I + R,\forall\ t \ge 0 e É um sistema não υ 1linear é o tempo mas, uma médio vez com que que as duas cada primeiras individuo dSdt + dt dI+ dRdt = 0, então N = 
+υ fica em I. equações só dependem de S e I, podemos reduzí-las a uma única equação, 
+dS dI 
+= \betaSI -\betaSI - υI 
+= -1 + \betaS υ(33) cuja solução é dada por 
+I = -S + \betaυlnS + K Usando as condições iniciais, obtemos o valor da constante K. 
+K = N - υ\betalnS0 Assim, 
+I = N - S + υ\betaln 
+( SS0) Da equação (33), vemos que \betaS υAnalogamente, I é decrescente, quando Observemos que I → -∞ quando > S S → 1, > 0, ou υ\betae . 
+seja, como se I0 S > < 0, υ\betaexiste , então a função I é crescente. pelo menos un valor de S para e, I o qual I = 0. Seja S Se I = 0 não há infectados cresce dt dIQuando Observemos < 0 se se St 0 S cresce, > < que υ\beta υ\beta e quanto o decresce ponto = S∞ e portanto, este valor. 
+livre da doença temos que dSdt maior (S, se I) Sfor 0 se < a move variação υ\beta. 
+ao longo da trajetória, com de remoção relativamente < 0, dt dIS sempre à variação > 0 se S > \beta υdecrescendo, 
+de infecção, mais rapidamente a epidemia cessará (Ver figura(17)). 
+62 
+Figura 17: Trajetória no plano-SI(modelo SIR) 
+Supondo que a doença não tenha cura e que uma pessoa contaminada morra, então é importante saber o valor de R em cada instante no tempo, para o sistema tipo SIR tomemos a primeira e terceira equações, podemos escrevê-las de maneira reduzida como uma só equação 
+dSdt = -\betaυS Resolvendo para S, obtemos 
+S = S0e-\betaυ R e como N é constante substituimos I na terceira equação, vem 
+dRdt = \beta(N - R - S) Ou 
+
+dRdt = \beta 
+N - R - S0e-\betaυ R 
+
+Esta equação não pode ser resolvida explicitamente, mas supondo que R seja suficientemente pequeno, podemos escrever 
+
+dRdt = \beta 
+[N - S0 + 
+(\betaυS0 - 1)R - \beta2υ2S2 0 
+(\betaυS0 - 1)R - \beta2υ2S2 0 
+R2] 
+R2] 
+R2] 
+
+Podemos resolver tal equação separando variáveis e fazendo a integração por frações parcias. Se consideramos 
+63 
+[(\betaυS0 - 1)2 
++ 2\betaυ22S0(N - S0)]12 e 
+θ = tgh-1(\betaυS0 - 1) 
+a então 
+R(t) = υ2 
+\beta2S0 
+[\betaυS0 - 1 + atgh 
+(aυt2 - θ)] A variação das pessoas isoladas dRdt é dada por 
+dRdt = υ3a2 
+2\beta2S0sech2 (aυt2 - θ) para t = aυ 2θentão dRdt = 0 o qual é o ponto máximo. 
+Figura 18: Curva epidêmica 
+a) Modelo tipo SIRS 
+Consideremos que a população de removidos R perdem imunidade, isto é, eles voltam a ser suscetíveis S, então o sistema que modela o fenômeno é 
+ 
+dSdt dIdRdt dt = -\betaSI + \gamma I = \betaSI - υI 
+= υI - \gamma R 
+64 
+a = 
+A de removidos O população sistema R é não e é \gamma  1constante linear, é o tempo então e o em não parâmetro que têm um solução individuo \gamma  indica análitica a fica fração em podemos R. 
+de indivíduos fazer um que estudo saem qualitativo, da classe 
+achando os pontos de equilíbrio livre e na presença da doença, trivial e não trivial, respectiva- mente. 
+Fazendo dSdt = dt dI= dRdt = 0 obtemos 
+-\betaSI + \gamma I = 0 ⇔ \betaSI = \gamma I = υI 
+\betaSI - υI = 0 ⇔ I = 0ouS = υ\beta υI - \gamma R = 0 ⇔ υI = R \gamma \Rightarrow  R2 = R\gamma I2 e como N = S +I +R os pontos de equilíbrio livre da doença é p1 = (N,0,0), e na presença 
+da doença é dado por P2 = 
+(υ\beta,\gamma N υ - + S\gamma  2 
+, υI\gamma  
+2) 
+Se 
+I2 > 0 \Rightarrow  \gamma N υ - + S2 
+\gamma  > 0 \Rightarrow  N - S2 > 0 ⇔ N > υ\beta ⇔ N\betaυ > 1 infectado seja, O o termo número durante \beta\gamma  1de é o novos a período fração casos infeccioso da de população infecção dele e que causados R0 se = Ninfecta \betaυ por é o um com numero único o contacto com um indivíduo de infeções secundárias, ou infectado numa população de suscetiveis, este número é chamada taxa reproductiva intrísica na infecção, se R0 > 1, então têm doença (endêmica) e se R0 < 1, não têm doença (não endêmica). 
+Seja R = N - S - I, reduzindo o sistema de três dimensões para duas dimensões o sistema fica na forma 
+ 
+dSdt dIdt = -\betaSI + \gamma (N - S - I) = F(S, I) = \betaSI - υI = G(S, I) 
+Se fazemos F(S, I)=0 e G(S, I)=0 obtemos os pontos de equilíbrio como no caso anterior, então; 
+Se I(\betaS - υ)=0 \Rightarrow  I = 0 ou S = υ\beta 
+e de \gamma N - \gamma S - \gamma I = \betaSI \Rightarrow  \gamma  
+(N - υ\beta) \gamma  + υ . Portanto, o ponto de equilíbrio no plano SI livre da doença é P1 = (N,0) e o ponto em 
+presença da doença é P2 = 
+(N - υ\beta) 
+= (\gamma  + υ)I ⇔ I = 
+\gamma  
+(\betaυ, \gamma (N υ + - \gamma  
+υ) 
+) 
+65 
+Fazendo um estudo qualitativo para analisar a estabilidade dos pontos de equilíbrio temos, que a matriz de linearização Jacobiana para o sistema é dada por: 
+J(P) = 
+( -(\beta_{i} + \gamma ) -(\betaS + \gamma ) 
+\beta_{i} \betaS - υ 
+) 
+obtemos que: b = -(\beta_{i} + \gamma ) + \betaS - υ e c = -(\beta_{i} + \gamma )(\betaS - υ) + \beta_{i}(\betaS + \gamma ) onde b =traço(J(P)) e c = det(J(P)) 
+Para P1 = (N,0), temos que; b = \betaN - (\gamma  + υ) e c = -\gamma (\betaN - υ) 
+• Se c < 0 ⇔ \betaN - υ > 0 ⇔ \betaN > υ o ponto é sela. 
+1. Se \betaNυ > 1, então é instavel. 2. Se \betaNυ < 1, 
+Se Se c > 0 b > 0 ⇔ ⇔ \gamma  \betaNυ \betaN 
++ < 1 \Rightarrow  υ > 1 
+b > 0 
+P1 = (N,0) é estável. 
+Observação 4 A estabilidade do ponto P1 não implica que exista P2. 
+Para o ponto P2 = 
+(υ\beta, \gamma (N υ - + υ/\beta) 
+\gamma  
+) 
+c = -(\beta_{i}2 + \gamma ) e b = \beta_{i}2(υ + \gamma ), então P2 é estável. 
+66 
+Figura 19: Diagrama tipo SIRS 
+Se \delta  = 0, então é um modelo Se \delta  = \gamma  = 0, então é um Se υ = 0, então é um modelo modelo tipo tipo tipo SIRS SIS \Rightarrow  SIR \Rightarrow  \sigma  \sigma  \Rightarrow  = = \sigma  \gamma  \gamma  = + \beta + \beta υ \betaυ υ = \Rightarrow  \Rightarrow  \beta\delta  RR\Rightarrow  0 0 = = RN0 N = \betaυ \delta  N+ \beta \beta\delta  υ 
+Em cada modelo, R0 é a realção entre os ou dIdt < 0 (R0 < 1) 
+dt dI= \betaSI - υI > 0 \Rightarrow  \betaS - υ > 0 \Rightarrow  R0: taxa reproductiva intrisica da doença, \betaSυ parámetros do modelo que indica dt dI> 0 (R0 > 1) 
+> 1 
+p: fracção que vai ser imunizada e 1 - p fracção não inmunizada e N(1-p) população de doentes e R 0 = (1-p)R0 é a fracção após a vacinação, isto é,R 0 Nos < 1 \Rightarrow  (1 - p)R0 modelos clássicos < 1 \Rightarrow  p de epidemiológia, > 1 - 1R0 quando o equilíbrio não trivial existir (do ponto de vista biológico) então o equilíbrio trivial é instável, isto é, R0 > 1 
+Suponhamos um modelo epidemiológico cujo polinômio característico é dado por: 
+p(\lambda) = \lambdan + a1\lambdan-1 + a2\lambdan-2 + \ldots + an 
+Teorema 7 O ponto de equilíbrio trivial P0 = (N,0,0,0, \ldots,0) é localmente assintoticamente estável se an > 0, é instável se an < 0. 
+c) Modelo tipo SIS 
+Seja o modelo epidemiológico tipo SIS representado no sistema  
+dSdt dIdt = -\alpha SI + \beta_{i} 
+= \alpha SI - \beta_{i} 
+onde S(t) + I(t) + N constante. 
+O sistema anterior, apesar de ser não linear, pode ser facilmente resolvido se usarmos a condição S(t) = N - I(t), substituíndo o valor de S na segunda equação do sistema, temos uma única equação diferencial. 
+67 
+Seja 
+[(N - \alpha \beta) 
+- I] 
+com I(0) = I0 > 0, que pode ser resolvida ao separarmos as variáveis, obtendo 
+I(t) = \alpha N - \beta 
+\alpha  + 
+[(\alpha N - \beta) I10 ]- \alpha e-(\alpha N-\beta)t 
+para I = 0 e I num I(t) Se Se Se nível fazemos I S → = = constante 0 N \alpha  \beta\Rightarrow  - \Rightarrow  N dSdt \alpha  \beta_{i} Se estamos com = N - quando na população. 
+= 0 e = S, todas = N - uma \beta\alpha  
+t → ∞, e conseqüentemente \alpha  \betaquantidade dt dIe = as neste 0, pessoas obtemos caso S > são dNdt \alpha  \betaque sadias. 
+= e I(t) → \alpha \beta, isto é, doença mantém-se I = 0 ou S = \beta\alpha  e, portanto, não há epidemia. 
+-dSdt = 0. I = 0, o ponto (S, I) sobre a reta S = N - I 
+tende ao valor 
+(\alpha \beta,N - \alpha \beta), então dIdt > 0 e dSdt < 0. Se S < \alpha \beta, como dSdt > 0 e dIdt < 0, 
+então o ponto (S, I) ainda se aproxima de 
+(\alpha \beta,N - \alpha \beta) 
+sobra a reta S = N - I. 
+Neste caso, dizemos que o ponto 
+(\alpha \beta,N - \alpha \beta) 
+é assintoticamente estável, pois as soluções 
+não constante se aproximam deste ponto. (ver figura 20) 
+Figura 20: Modelo SIS com população N constante 
+O ponto (S, I)=(N,0) também é de equilíbrio, mas instável. Se I = 0, a doença se propaga, isto é, as soluções não constante se afastam deste ponto. 
+68 
+dIdt = \alpha (N - I)I - \beta_{i} = \alpha I 
+A maior d2I dt2 = 0 velocidade \Rightarrow  d2I 
+dt2 da epidemia é obtida quando dt dIatinge seu ponto máximo, isto é, quando 
+= \alpha (N - \alpha \beta) 
+- 2\alpha I = 0 \Rightarrow  I∗ = 12 
+(N - \alpha \beta) 
+ou seja, quando I é o ponto 
+médio entre os dois pontos de equilíbrio, I = 0 e I = 
+(N - \alpha \beta), conforme vemos na figura (21). 
+Figura 21: Propagação da doença 
+A dSddt dt2análise S 
+2 = = -\alpha (N -\alpha (N para - - a S)S S) população - + (\beta \beta(N - \alpha S)=2\alpha S - de S)=(N pessoas - sadias - S)(\beta (\alpha N é - + análoga \alpha S), \beta)=0, 0 < se S S\le ∗ = N 
+12 
+(N + \beta2) Se S < \alpha  \beta\Rightarrow  dSdt > 0 e d2S 
+dt2 < 0, como indica a figura (22). 
+69 
+Figura 22: S = N e S = \alpha  \betasão as soluções constantes para S 
+Consideremos agora a população N variável. Vamos supor inicialmente que todos os bebês nascem sadios, com taxa de natalidade \gamma  igual à taxa de mortalidade da população. Obtemos o seguiente sistema 
+ 
+dSdt dI= \alpha SI - \beta_{i} - dt \gamma I 
+= -\alpha SI + \beta_{i} + \gamma N - \gamma S 
+Temos que, N = S + I constante, apesar da população ter elementos renovados. O sistema anterior se reduz à equação 
+dt dI= \alpha I 
+(N - \beta + \alpha  \gamma  
+- I) 
+(34) 
+ou então a dSdt = -\alpha (N - S)(S - \beta + \alpha  
+\gamma  
+) 
+(35) 
+Observemos que -dSdt = dtdI. Os pontos de equilíbrio da equação S = N e S = \beta + \alpha  
+\gamma  
+(34) são I = 0 e I = N - \beta + \alpha  \gamma  
+e da equação (35) 
+70 
+
+\chapter{Equações Diferenciais Parciais}
+
+9.1 - Populações Distribuídas no Espaço 
+
+Para se estudar o movimento de partículas no tempo e no espaço utilizam-se "Leis de Conservação". 
+
+9.1.1 - Leis de Conservação 
+Consideremos um fluxo em um "tubo"de campo \Deltax: 
+Figura 23: fluxo 
+• c(x + t) = concentração de partículas no tubo e no instante t; 
+• J(x,t) = fluxo de partículas (x,t): número de partículas que atravessam uma área unitária em x por unidade de tempo. 
+• \sigma (x,t) =densidade da fonte (ou sumidouro) por unidade de volume. 
+Admitindo que haja um balanço, temos: ∂∂t(c(x,t))A\Deltax = J(x,z)\Deltax - J(x + \Deltax,t)A \pm \sigma (x,t)A\Deltax 
+Se A\Deltax for constante no tempo: ∂∂tc(x,t) = J(x,z) - J(x + \Deltax,t) \pm \sigma (x,t) 
+Ax → 0, 
+∂c∂t = -∂J∂x (x,t) + \sigma (x,t) (36) 
+71 
+É a equação da continuidade Se J : Rn → Rn A equação (36) fica: 
+∂c∂t = -∇ · J(x,t) \pm \sigma (x,t) ∇ · J é o divergente de J 
+∇ · J = 
+( ∂∂x1, ∂x∂2,\ldots, ∂x∂n) 
+· (J1,J2,\ldots,Jn) = ∂J1 
+∂x1 + ∂J∂x2 2 
+\ldots + ∂J∂xn n 
+9.1.2 - Convencção, Difusão e Atração (ou Repulsão) 
+Escolhendo-se termos específicos para o fluxo J(x,t), obtemos as equações que representam cada um dos conceitos acima. 
+Conveção: Partículas passam a ter velocidade igual ao fluxo. J(x,t) = cv(x,t) em (36), teremos: ∂x ∂c∂t ∂J(x,t) = - ∂x ∂= ∂x∂(c(x,t),v(x,t) em (36). 
+(c(x,t),v(x,t)) \pm \sigma (x,t) 
+∂c∂t = -∇ · (c v) \pm \sigma  
+Difusão: Movimento de partículas devido a concentração. J = J = Nota: -D-DO V ∂c∂x  ̄fluxo C unidimensional 
+vetorial 
+das particulas vão em direção contrária ao gradiente. ∂c∂t (x,t) = -∂ 
+(-D∂c∂x) 
+\pm \sigma (x,t) 
+Se D for constante com x, (s) fica assim: 
+∂c∂t (x,t) = D∂∂x2c 
+2 + \sigma (x,t) 
+Vetorial: 
+∂c∂t (x,t) = D∇2c + \sigma  (37) ∇2c é o Laplaciano de c : ∇2 = ∇·∇ 
+Atração: Suponhamos que ψ é uma função que representa uma atração. Aqui as partículas movimentam-se no sentido ∇ψ 
+72 
+J = \alpha c∇ψ ou J = \alpha c∂ψ∂x 
+∂c∂t (x,t) = - ∂x 
+∂(c ∂ψ∂x 
+) 
+\pm \sigma (x,t) 
+Comentário para a equação de Difusão ∂c∂f = D∂x∂2t 
+2, \sigma  ≡ 0 
+A unidade D é (dist)2 tempo 
+Qual será o tempo  ̄t médio  ̄t  ̄t = =? dD 2∼= 10-5cm2/s 
+sed ∼= 1metro 
+ para  ̄t = 10difundir 9s ∼= 30anos 
+uma distância d? D = d2t 
+9.1.3 - Soluções Fundamentais e Método de Separação de Variáveis Para as EDP 
+Estaremos tratando de equação do tipo: 
+∂c∂t = D∂∂x2c 2 
+} 
+difusão 
+Soluções fundamentais coincidem com operador de funções. L = D ∂x∂2 2 
+L = D∂∂x2f_{2} 
+f é uma autofunção se \exists\ \lambda \in , então Lf = \lambdaf 
+Exemplos f 1(x) = e\pmde √\lambdax 
+autofunções 
+lambda \ge 0 
+L(f1x) = L = D∂∂x2f2 1 
+f 1(x) = \pm√\lambdae\pm√\lambdax 
+f 1 (x) = \lambda\pm√\lambdax = \lambdaf1(x) 
+\Rightarrow  Lf1 = D(\lambdaf1(x)) = D\lambdaf1(x) 
+73 
+L(c) = D∂∂x2c 
+2 = ∂c∂t 
+Exemplos 
+1) f1(x) = e\pm√\lambdax \lambda \ge 0 2) f1(x) = sen(\pm√\lambdax) 3) f1(x) = cos(\pm√\lambdax) 
+A família c(x,t) = ekt L(c) = ∂c∂t L(c) = ∂c∂t = ektD\lambdasen(\pm√\lambdax) L(c) = ∂c∂t = kekt\lambdasen(\pm√\lambdax) 
+Se c = k e= ktsen(\pmD\lambda então: 
+√\lambdax) é solução c(0,t)=0 \Rightarrow  ekt = 0 \forall\ t 
+(L, t)=0 \Rightarrow  ektsen(\pm√\lambdaL)=0 
+\pm√\lambdaL = nπ 
+\lambda = 
+(nπL 
+)2 ; n = 0,1,··· 
+9.1.4 - Método de Separação de Variáveis 
+Com este método investiga-se se há soluções dessa forma: c(x,t) Observação: = cT(x,t)+ ̄c(x) 
+∂x∂ ̄c 
+2 Pois ∂ ̄c∂t = 0 (pois depende de t) Onde cT(x,t) = S(x)T(t) 
+∂cT ∂c∂t 2I ∂x2 = S(x)T = T(t)S (t) 
+(x) 
+ \Rightarrow  s(x)T (t) = DS (x)T(t) → sopondo s(x) = 0 e T(t) = 0 
+T T(t) (t) 
+= DS S(x) (x) 
+= k 
+T(t)eS(x) não dependem de x, porque são iguais, então é constante. 
+74 
+{ T T(t) (t) 
+= k \Rightarrow  T (t) = kT(t) → T(t) = Aekt 
+DS S(x) (x) 
+√ = k \Rightarrow  S - DkS(x)=0 → \lambda_{2} - D k= 0 \lambda = \pmkD 
+S(x) = Be 
+Dkx + ce- Dx kSe c(0,t) = c(L, t) ≡ 0 
+c(0,t) = Aekt(B + C)+ ̄c(0) = 0 
+c(L, t) = Aekt(Be√ DkL + Ce-√ D kL) 
+T(t)S(0) = T(t)S(L)=0 Se T(t) ≡ 0 → S(x) = Bsen√-kD x e k < 0 
+S(L)=0 → - D k= 
+(nπL 
+)2 
+As Ondas viajantes são possíveis soluções de Equações Diferenciais Parciais com o mesmo perfil para todo t. 
+Figura 24: ondas viajantes 
+75 
+9.1.5 - Equações de Fisher 
+∂u∂t = D∂∂x2u 
+2 + \gamma u (38) 
+Vamos investigar se a equação (36) tem onda viajante. u(x,t) é solução de (36) onda viajante se u(x,t) = v(x - ct),v : R → R Observação: Para uma onda viajante, o que ocorre em x1 (espaço) na data t1 coincide com o que ocorreu em x0 no tempo t0 pois c é a velocidade da onda. 
+x0 + c(t1 - t0) Supondo que a solução é onda viajante 
+u(t1,x1) = v(x1 - c_{t+1}) = v(x0 + c(t1c0) - c_{t+1}) = v(t0,x0) = u(x0,t0) Vamos ∂u∂t = ∂x ∂achar (v(x v - que ct)) é = a onda v (x - viajante: ct) ∂x∂(x - ct) = v (x - ct) 
+∂2u ∂x = (v (x - ct)) 
+-cv (x - x_{t}) = v (x - ct) + rv(x - ct)(1 - v(x - ct)) 
+⇔ v + cv + rv(1 - v)=0. É v uma = dvds equação s = x diferencial - c_{t} 
+ordinária, onde r é a taxa de nascimento da população. 
+Vamos { v(p → verificar 1 que para c \ge 2√r, s é solução do tipo ondas viajantes: \Rightarrow  s → -∞ 
+v(s) → 0 \Rightarrow  s → +∞ 
+Seja w = v \Rightarrow  w = v { w = v = f1(r,w) 
+w = v = -cw - r(1 - v) = f2(v,w) 
+9.1.6 - Equilíbrio 
+Significa \Rightarrow  
+{ f1(r,w) = 0 f2(r,w) = 0 Temos como pontos de equilíbrio P1(0,0) e P1(1,0) 
+Analisando a estabilidade de P1 e de P2. 
+76 
+] 
+Em P1(0,0), temos 
+J(v,w) = 
+[ 0 1 
+-r -c 
+] 
+\Rightarrow  \lambda_{2} + c\lambda + r = 0 
+-c Em \pm 
+P2(1,0), √c2 2 - 4r 
+temos 
+< 0 se c \ge 2√r 
+J(v,w) = 
+[ 0 1 
+r -c 
+] 
+\Rightarrow  \lambda_{2} + c\lambda - r = 0 
+-c \pm 
+√c2 2 - 4r 
+< 0 se c \ge 2√r 
+• Se \lambda > 0 temos um ponto de sela; 
+• Se \lambda < 0 temos, 
+(J(1,0) - \lambdaI)( vw 
+) 
+= 
+[ 00 
+] 
+\Rightarrow  w = \lambdav 
+J(v,w) = 
+Figura 25: fischer 
+77 
+[ 0 1 
+-r + 2rv -c 
+
+\chapter{Modelos Matemáticos de Epidemiologia com Distribuição Espacial e Etári}
+
+Os modelos matemáticos para epidemias (propagação de doenças) levando em conta a distribuição espacial, são muito mais complexos e menos estudados do que aqueles com apenas o tempo variando. Intuitivamente, não podia ser diferente já que "soluções"μ para tais modelos devem depender de dois números: x que nos dá uma "posição"espacial, e do tempo t. Modelos onde julgamos que sua dinâmica está envolvido apenas no tempo, tem "soluções"μ dependendo apenas de t. Mais precisamente fenômenos biológicos (físicos) para os quais a distribuição espacial é relevante (não homogêneos). São modelos escritos matematicamente através de equações diferenciais parciais ao passo que os homogêneos por equações diferenciais ordinárias, cuja teoria é também mais conhecida. 
+O caso da distribuição etária é ainda pior que o de distribuição espacial. Neste caso existem poucos modelos de biomatemática que levam em conta a distribuição etária. O modelo aqui, mais difundido é devido a Mckendrick-Vou Fourter, para o qual são levados em conta as mortalidades para diversas faixas etárias bem como o fluxo entre as diversas idades. 
+Apesar de toda dificuldade, a utilidade de tais modelos é óbvia, já que tenta prever, por exemplo, a evolução de doenças no tempo e no espaço. 
+10.1.1 - Um Modelo Geral 
+Consideremos uma versão simples de um modelo de epidemia na qual assumimos que a solução consiste somente de infectados I(x,t) e suscetíveis S(x,t). Modelamos a dispersão espacial de I e S por difusão com mesmo coeficiente de difusão D. Como nos modelos clássicos, consideremos que a transição de S para I é proporcional ao número de encontros entre suscetíveis e infectados, isto é, rSI onde r > 0 é constante e mede a eficiência da doença. A classe dos infectados possui uma taxa a de mortalidade devido a infecção. Assim temos: 
+ 
+∂S∂t ∂I∂t = -rIS + D∇2S 
+= rIS - aI + D∇2I 
+(39) 
+Vamos ilustrar o sistema (39) com um modelo simples de dispersão da raiva entre raposas na europa. 
+A raiva é difundida em todo mundo e epidemias são comuns. A raposa vermelha representa 70 por cento dos caso registrados no oeste da europa. Apesar de muitos animais estarem envolvidos, será feita a hipótese razoável de que as raposas são responsáveis pela dinâmica da dispersão da raiva. Será assumido também que a dispersão se dá devido à migração de raposas infectadas uma vez que as sadias reconhecem seus territórios e portanto têm baixa dispersão, contrariamente as infectadas perdem seu senso territorial. Com estas hipóteses e dimensionalizando (39), obtemos: 
+78 
+ 
+∂S∂t ∂I∂t = -IS 
+= IS - \lambdaI + ∂x∂2I 2 
+(40) 
+O parâmetro \lambda 1é a taxa de reprodutividade basal que mede o número médio de infecções secundárias causadas por um único infectado em contato com a população sadia pois tempo médio que um infectados na população tem interpretação dada indivíduo fica devido a acima. Embora infectado antes de uma elemento infectado não consigamos uma morrer. é solução r 1a. Assim, Finalmente geral a fração de R0 = para o sistema indivíduos 1\lambda 1a é o = (40). r Sa 0Vamos investigar a existência de solução do tipo onda viajante. 
+10.1.2 - Soluções Tipo Ondas Viajantes 
+São soluções com mesmo perfil para cada t fixo. Mais percisamente, s,i : R → R é uma solução de (40) do tipo onda viajante se (s,t) = s(z), I(x,t) = i(z) onde z = x - ct. Onde c > 0 indica a velocidade da onda. Assim c_{t} é o espaço percorrido pela onda no tempo t. 
+Assim podemos dizer que se i (ou s) é onda viajante, então o que ocorre em x1 na data t1 coincide com o que ocorre com x0 na data t0 pois x1 = x0 + c(t - t0) I(x1,t1) = i(x1 - c_{t+1}) = i(x0 + c(t1 - t0) - c_{t+1}) = i(x0 - t0) Agora supondo que (s,i) é solução do tipo onda viajante e -cI O , ∂xsitema ∂2I 
+2 
+(40) passa a ser um sistema de equações diferenciais vendo = I(x0,tque 0). 
+∂S∂t ordinárias. 
+= -cS , ∂t ∂I= 
+{ cS = is 
+i + ci + ((s - \lambda)i = 0 (41) 
+Vamos procurar ondas viajantes supondo que longe do foco todas sejam sadias (S(∞) = 1,i(∞) = 0), que a doença desapareça um dia r (-∞ = 0) 
+Fazendo a primeira equação de (41) na segunda temos i Integrando, temos 
++ ci + cs (s s - \lambda) 
+= 0 
+i + ci + cs - \lambdacln(s) = k Como s → 1, se z → +∞ então k = c. Em seguida fazendo z → -∞, i = 0, temos a equação \sigma  - \lambdaln(\sigma )=1 para os sobreviventes ou \sigma \sigma  ln(\sigma ) - 1 
+\sigma  = = \lambda 
+s(-∞): 
+\lambda é crescente com o \sigma , ou seja quanto maior for o \lambda, maior o de \sigma . Como \lambda = rSa0, \lambda pode ser visto como uma medida de mortalidade. Assim quanto mais severa a doença (maior \lambda), mais sobreviventes teremos depois da epidemia. 
+Nota: Para ver que \lambda cresce com \sigma , 0 <\sigma < 1, calculemos: 
+79 
+\lambda = ln(5) + 1\sigma  - 1 
+(ln(\sigma ))2 > 0 ⇔ ln(\sigma ) + 1\sigma  f(\sigma ) > 1 se \sigma  = 1 \Rightarrow  ln(\sigma ) + 1\sigma  por outro lado, f(\sigma ) = 1\sigma  - 1\sigma 2 < 0 
+Se \sigma  < 1: f é decrescente e f(1) = 1, logo f(\sigma ) < 1 
+Que é o que queríamos. Admitindo então as soluções do tipo onda viajante as hipóteses acima (S(∞)=1,S (-∞) = 0eI(∞) = I(-∞)=0 poderíamos ter as seguintes soluções: 
+Figura 26: tipo onda 
+A onda epidémica I é do tipo "pulso". Verifica-se que estas soluções apresentam alguma semelhança com os dados experimentais apenas no período em há epidemia. No entanto se no sistema (41) for acrescentado em termos de crescimento logístico para os suscetíveis, verifica-se existir uma boa semelhança entre a solução encontrada e os dados experimentais. 
+Vamos fazer aqui um comentário a respeito da epidemiologia etária baseada na equação geral de Mckendrick-Vou Fourter. 
+∂ρ∂t + ∂ρ∂x = -\lambda(x,t)ρ(x,t) (42) onde ρ é a densidade populacional com idade x no período t e \lambda((x,t) é a taxa da mortalidade. Em muitas doenças a idade cronológica é fator importante para que um indivíduo torne-se infectado (doente). Por exemplo doenças infantis: Cataporra, caxumba, sarampo, etc. Assim com infectados I(x,t) com idade x em t temos: 
+∂ρ∂t + ∂ρ∂x = -\lambda(x,t)I(x,t) (43) 
+80 

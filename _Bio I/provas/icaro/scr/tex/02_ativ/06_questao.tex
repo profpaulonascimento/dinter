@@ -1,0 +1,64 @@
+% Questão 06 ------------------------------------------------------------------
+\question
+Mortalidade por Predação Periférica e Efeito de Rebanho Egoista.
+ 
+\begin{quote}
+Dois ``amigos'' em um campo de cerrado e uma onça esfomeada. 
+Um deles, para e toma seu tempo para amarrar bem o calçado. 
+O outro, apressado, lhe repreende: ``Vamos correr logo que a onça é mais rápida 
+do que nós!''. 
+O Amigo (da onça): ``Eu não preciso correr mais do que a onça, eu preciso correr 
+mais do que você!''.
+Ditado caboclo: ``Mingau quente, se come pelas beiradas''.
+\end{quote}
+
+Considere uma população distribuída uniformemente em uma região delimitada no
+plano descrita por uma função diferenciável $ N(t) $ cuja mortalidade é causada 
+unicamente por uma predação ``periférica'' da forma $ p(N) = -\mu \sqrt{N} $, 
+caracterizada matematicamente segundo a Metodologia Newtoniana pela equação 
+diferencial: $ \frac{\dd N}{\dd t} = -\mu\sqrt{N}$. 
+(
+  A justificativa da função de mortalidade na forma $ p(N) = -\mu \sqrt{N} $ 
+  para predação ``periférica'' se deve ao fato de que um grupo uniformemente 
+  distribuído em uma região delimitada do plano é predado apenas na fronteira, 
+  cuja extensão tem medida da ordem da dimensão linear da região, enquanto que a 
+  área, que é proporcional à população, é da ordem do quadrado da medida linear 
+  e, portanto, a fronteira é da ordem de $ N^{\frac{1}{2}} $ . 
+  O formato da região pode ser considerado aproximadamente um disco~(2D) ou uma 
+  esfera~(3D) porque estas são as formas que apresentam menor extensão de 
+  fronteira para um mesmo conteúdo populacional --- Por exemplo, sapos na beira 
+  da lagoa diante da ameaça de cobras, ou rebanho de ovelhas diante de lobos.
+)
+
+\paragraph{Definição.}
+ Diz-se que uma Dinâmica de mortalidade apresenta o 
+ \textit{Efeito de Rebanho Egoista}
+ \footnote
+ {
+  Termo introduzido por W.~Hamilton no antológico artigo: 
+  \textit{The Selfish Herd}, J.Theor.Biol 1970
+ }
+ quando a mortalidade especifica (\textit{per capita} 
+ $ \frac{1}{N}\frac{\dd{N}}{\dd t} = f(N) $) \textbf{diminui} com o aumento do 
+ tamanho do grupo, em outros termos, um individuo se sente particularmente mais
+ ``protegido'' em um grupo maior; por isso ele se junta aos vencedores\ldots
+ 
+ \begin{parts}
+  \part Argumente como o conceito de ``Efeito Rebanho Egoista'' pode ser 
+   interpretado em termos do Tempo Médio de Sobrevivencia.
+  \part Mostre que não há ``Efeito Rebanho Egoista'' em uma população cuja 
+   mortalidade é unicamente Malthusiana.
+  \part Descreva uma Dinâmica Adimensional de mortalidade por predação 
+   periférica para um grupo populacional que ocupa uma região delimitada do 
+   espaço físico \textbf{tridimensional} (Por exemplo, um cardume de Sardinhas e 
+   Baleias) e verifique se esta dinâmica apresenta um ``Efeito Rebanho Egoista'' 
+   e é dizimada em tempo finito.
+  \part Considere uma população com predação per capita tipo 
+   \textit{Holling II:} $ p(N) = \frac{A}{B + N} $. 
+   Adimensionalize a equação e verifique se ocorre um ``Efeito Rebanho'' nesta 
+   dinâmica.
+  \part Discuta o comportamento individual das presas em termos de uma proteção 
+   por agrupamento com base na percepção de cardinalidade segundo a ``Lei de 
+   Weber-Fechner''.
+ \end{parts}
+%------------------------------------------------------------------------------

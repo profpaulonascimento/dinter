@@ -1,0 +1,63 @@
+%% main_rtai_artigo.tex, based on abtex2-modelo-artigo.tex, v-1.9.6 laurocesar
+%% Copyright 2012-2016 by abnTeX2 group at http://www.abntex.net.br/ 
+
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
+% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
+% periódica científica impressa - Apresentação
+% ------------------------------------------------------------------------
+
+
+
+\documentclass[
+% -- opções da classe memoir --
+article,			% indica que é um artigo acadêmico
+11pt,				% tamanho da fonte
+oneside,			% para impressão apenas no recto. Oposto a twoside
+a4paper,			% tamanho do papel
+% -- opções da classe abntex2 --
+%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+% -- opções do pacote babel --
+%twocolumn,  % texto em duas colunas
+english,			% idioma adicional para hifenização
+brazil,				% o último idioma é o principal do documento
+sumario=tradicional
+]{abntex2}
+
+
+\usepackage{sty/conf}
+
+
+
+
+
+\title{ELEMENTOS DE MATEMÁTICA APLICADA: PRINCÍPIOS, MÉTODOS E FINS}
+
+\author{Wilson Castro Ferreira Jr}
+
+
+
+\begin{document}
+\begin{sansmath}
+\helveticafamily
+\def\normalfont{\helveticafamily}
+
+
+
+%\pretextual
+%\maketitle
+
+%\tableofcontents
+%\listailustracoes
+%\listatabelas
+
+
+
+\input{bio/lista}
+
+
+\end{sansmath}
+\end{document}

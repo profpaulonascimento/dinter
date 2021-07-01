@@ -1,0 +1,44 @@
+% Questão 05 ------------------------------------------------------------------
+\question
+Tempo Médio (Aritmético) de Sobrevivência de uma População.
+\paragraph{Definição.}
+  Dado um Modelo populacional especificamente de mortalidade $ N(t) $ tal que 
+  $ \frac{\dd N}{\dd t} < 0 $ e $ \lim_{t \to \infty} N(t) = 0 $, diz-se que o 
+  valor (finito ou infinito) da integral
+  \[
+   \frac{1}{N_0} \int_{0}^{\infty} -t\frac{\dd N}{\dd t}\, \dd{t}
+  \]
+  é denominado Tempo Médio (Aritmético) de Sobrevivência da População.
+  
+  \begin{parts}
+   \part \textbf{Argumente} sobre a motivação para que a expressão
+    \[
+     \frac{1}{N_0} \int_{0}^{\infty} -t\frac{\dd N}{\dd t}\, \dd{t} =
+     \frac{1}{N_0} \int_{0}^{N_0} t\,\dd{N},
+    \] 
+    que se refere a uma dinâmica $ N(t) $ decrescente de uma (Grande) população 
+    (sem natalidade e migração) inicialmente com $ N(0) = N_0 $ indivíduos, 
+    possa \textbf{ser interpretada} como o tempo médio (aritmético) de 
+    sobrevivência desta população.
+   \part \textbf{Calcule} o Tempo Médio (Aritmético) de sobrevivência de uma 
+    população Malthusiana (isto é, descrita segundo o Modelo Newtoniano
+    $ \frac{1}{N} \frac{\dd N}{\dd t} = -\mu $, $ N(0) = N_0 $ e mostre que este 
+    valor \textbf{independe} de $ N_0 $. 
+    \textbf{Discuta} o significado biológico deste resultado.
+   \part Calcule o tempo médio (aritmético) de sobrevivência de uma população 
+    cuja dinâmica de Mortalidade é descrita por uma função quase-polinomial
+    $ \displaystyle N(t) = q(t)e^{-\mu t} $, onde 
+    $ \displaystyle q(t) = N_0 + \sum_{k = 1}^{m} a_k t^{k}$ é um polinômio e 
+    $ \mu > 0 $.
+    {
+     \scriptsize
+     (
+     \textbf{Sugestão:}
+     Calcule explicitamente as integrais 
+     $ \displaystyle I(n) = \int_{0}^{\infty} t^{n}e^{-\mu t}\,\dd{t} $ 
+     recursivamente em $ n $ e utilizando integrações por partes
+     )
+    }
+   \part O mesmo para $ \displaystyle N(t) = \frac{N_0}{t + 1} $.
+  \end{parts}
+%------------------------------------------------------------------------------

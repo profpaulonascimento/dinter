@@ -1,0 +1,44 @@
+% Questão 02 ------------------------------------------------------------------
+\question
+Escala Logarítmica na Aproximação Assintótica: \textit{Princípio Sensorial 
+(``Lei") de Weber-Fechner~(sec.19)}.
+\begin{parts}
+  \part Descreva o \textit{Princípio Sensorial (``Lei") de Weber-Fechner} para a 
+   percepção visual, auditiva, táctil, olfativa e de cardinalidade.
+  \part Argumente com base no \textit{Princípio de Weber-Fechner} sobre a 
+   conveniência cognitiva da escala logarítmica para variáveis com ``grandes" 
+   valores.
+  \part Aplique a escala logarítmica para o registro numérico da população do 
+   exemplo citado no item 1~(f) acima e caracterize os períodos de tempo em que 
+   o comportamento é linear (Malthusiano).
+  \part Mostre que, para duas sequencias de números positivos, 
+   $\{\, a_k \to \infty \,\}$ e $\{\, b_k \to \infty \,\}$, então valem as 
+   seguintes implicações para a aproximação assintótica em escala logarítmica:
+   \[
+    \log{a_k} - \log{b_k} \to 0 
+    \Leftrightarrow 
+    \log{\frac{a_k}{b_k}} \to 0
+    \Leftrightarrow 
+    \frac{a_k}{b_k} \to 1
+   \]
+  \part Mostre que a aproximação assintótica na escala logarítmica não implica 
+   necessariamente na aproximação assintótica em escala normal (isto é,
+   $ a_k - b_k \to 0 $) , mas vale a implicação inversa. 
+   {
+    \scriptsize 
+    (
+    \textbf{Sugestão:} 
+    Analise a igualdade $ a_k - b_k = a_k\left(1 - \frac{a_k}{b_k}\right)$ e 
+    observe que $ a_k - b_k \to 0 \Leftrightarrow \frac{a_k}{b_k} 
+    \text{ se aproxima de } 1 \text{ com erro de } o\left(\frac{1}{a_k}\right)$, 
+    isto é, de ``ordem menor do que $\frac{1}{a_k}$''.
+    Assim, para sequencias que convergem para $ \infty $ é mais interessante 
+    analisar a aproximação assintótica logarítmica, pois ela é mais abrangente e 
+    tem um fundo cognitivo. 
+    Além disso, para dois ``trens em alta velocidade uma aproximação na escala 
+    simples é extremamente perigosa''!
+   )
+  }
+\end{parts}
+%------------------------------------------------------------------------------
+

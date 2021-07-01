@@ -1,0 +1,735 @@
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+%\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+%\usepackage[utf8]{inputenc}	% Codificação do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de símbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage[hypcap=false]{caption,subcaption} % Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{tikz}               % para inclusão de figuras complexas e desenho do layout da página
+%\setstocksize{9in}{4in}
+
+
+
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsgen}
+\usepackage{amsmath}
+%\usepackage{yhmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{yfonts}
+\usepackage[scr=rsfs]{mathalpha}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+\usepackage{pst-all}
+\usepackage{pst-3dplot}
+%\usepackage{pst-eucl}
+\usepackage{pst-solides3d}
+%\usepackage{pst-eqdf}
+\usepackage{pst-func}
+%\usepackage{pst-grad}
+%\usepackage{pst-coil}
+%\usepackage{pst-vue3d}
+%\usepackage{xkeyval}
+%\usepackage{pst-poly} % From pstricks/contrib/pst-poly
+\usepackage{pst-node}
+\usepackage{pst-plot}
+%\usepackage{pst-tree}
+%\usepackage{pst-grad}
+%\usepackage{pst-coil}
+%\usepackage{pst-text}
+%\usepackage{pst-3d}
+%\usepackage{pst-eps}
+%\usepackage[tiling]{pst-fill}
+%\usepackage{color}
+\usepackage{colortbl}
+\usepackage{epsfig}
+\usepackage{sansmath}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{multido}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{wasysym}
+%\usepackage{emerald}
+%\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{leading}
+\usepackage{xcolor}
+\usepackage{lscape}
+%\usepackage{pgf,tikz}
+%\usepackage{mathrsfs}
+%\usetikzlibrary{arrows}
+
+\usepackage{calc} % From LaTeX distribution
+\usepackage[nomessages]{fp}% http://ctan.org/pkg/fp
+\usepackage{ifthen}
+\usepackage{pdfpages}
+\usepackage[most]{tcolorbox}
+
+
+\newcommand{\ca}[2][f]{
+\FPeval{\result}{clip(#2)}
+\ifthenelse{\equal{#1}{t}}{$#2= \result$}{\result}
+}
+
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf,abnt-etal-cite=2]{abntex2cite} % Citações padrão ABNT
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+\ifcase #1 %
+Nenhuma citação no texto.%
+\or
+Citado na página #2.%
+\else
+Citado #1 vezes nas páginas #2.%
+\fi}%
+% ---
+% ---
+% Configurações de aparência do PDF final
+
+
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+%pagebackref=true,
+pdftitle={\@title}, 
+pdfauthor={\@author},
+pdfsubject={Revista Eletrônica de Ciências Exatas e Tecnológicas},
+pdfcreator={LaTeX with abnTeX2},
+pdfkeywords={Ciências Exatas}{Tecnologias}{Revista Eletrônica}{ensino}{artigo científico}, 
+colorlinks=true,   		% false: boxed links; true: colored links
+linkcolor=blue,  	% color of internal links
+citecolor=blue,		% color of links to bibliography
+filecolor=magenta,  		% color of file links
+urlcolor=blue,
+bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+\setlength{\columnsep}{5mm}
+\setlrmarginsandblock{2.0cm}{2.0cm}{*}
+\setulmarginsandblock{2cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% ---
+% Altera a unidade de medida padrão para 1mm
+\setlength{\unitlength}{1mm}
+% ---
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.27cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.5cm}  % tente também \onelineskip
+
+% Espaçamento simples
+%\SingleSpacing
+
+% Espaçamento um e meio
+\OnehalfSpacing
+
+% Espaçamento da citação
+\setlength{\ABNTEXcitacaorecuo}{1.8cm}
+
+
+% OLHAR ISSO
+\usepackage{parskip}
+%\usepackage{vmargin}
+%\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\graphicspath{{figs/}}
+
+
+
+\newcommand\logorecet[2]{
+\rotatebox{#1}{\scalebox{#2}{
+\psset{unit=1.6cm,Beta=15,Alpha=60}
+\begin{pspicture}(0,0)(\textwidth,0.1\textheight)
+\pstThreeDCoor[xMax=2.5,yMax=2.5,zMax=2.5,drawing=false]
+\pstThreeDBox[linecolor=orange,linewidth=2pt](0,0,0)(1,0,0)(0,1,0)(0,0,1)
+%\pstThreeDBox[linecolor=blue,linewidth=2pt,linestyle=dashed](0.1,0.1,0.1)(1.1,0.1,0.1)(0.1,1.1,0.1)(0.1,0.1,1.1)
+\uput[dr](0.9,1.05){\resizebox{7cm}{!}{\textcolor{blue}{R$\Sigma$C$\Sigma$}\textcolor{orange}{T}}}
+\uput[r](0.9,-0.15){\resizebox{7cm}{0.4cm}{\textcolor{blue}{Revista Eletrônica de Ciências Exatas e Tecnológicas}}}
+\pstThreeDLine[linecolor=white,linewidth=2pt](0,0,0)(1,0,0)
+\pstThreeDLine[linecolor=orange,linestyle=dashed,linewidth=2pt](0,0,0)(1,0,0)
+
+\pstThreeDLine[linecolor=white,linewidth=2pt](0,0,0)(0,1,0)
+\pstThreeDLine[linecolor=orange,linestyle=dashed,linewidth=2pt](0,0,0)(0,1,0)
+
+\pstThreeDLine[linecolor=white,linewidth=2pt](0,0,0)(0,0,1)
+\pstThreeDLine[linecolor=orange,linestyle=dashed,linewidth=2pt](0,0,0)(0,0,1)
+\end{pspicture}
+}}}
+
+\newcommand\designpageodd{
+\pspolygon[linestyle=none,fillstyle=gradient,gradbegin=orange!15,gradend=orange!5](1.0,-28.5)(3.0,-28.5)(3.0,1.25)(1.0,1.25)
+\rput(1.5,-20.7){\logorecet{90}{0.6}}
+}
+% Cabeçalho e rodapés personalizados
+\makepagestyle{recet}
+%\makeheadrule{recet}{\textwidth}{\normalrulethickness} %linha
+\makefootrule{recet}{\textwidth}{\normalrulethickness}{\footruleskip}
+
+%%cabeçalhos
+\makeevenhead{recet} %%pagina par
+{%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north west,inner sep=0pt] at (current page.north west)
+%{\includegraphics[]{img/recet_vertical_vinheta}};
+%\end{tikzpicture}
+}
+{}
+{}
+
+\makeoddhead{recet} %%pagina ímpar ou com oneside
+{}
+{}
+{%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north east,inner sep=0pt] at (current page.north east)
+%{\includegraphics[]{img/recet_vertical_vinheta}};
+%\end{tikzpicture}
+\designpageodd
+}
+%\makeheadrule{recet}{\textwidth}{\normalrulethickness} %linha
+
+%% rodapé
+\makeevenfoot{recet}
+{\sffamily \small \thepage} %%pagina par
+{}
+{\sffamily \small \imprimirtitulo}
+
+\makeoddfoot{recet} %%pagina ímpar ou com oneside
+{\sffamily \small \imprimirautor}
+{}
+{\sffamily \small \thepage}
+
+
+\makepagestyle{recet-pre}
+%%cabeçalhos
+\makeevenhead{recet-pre} %%pagina par
+{%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north west,inner sep=0pt] at (current page.north west)
+%{\includegraphics[]{img/recet_vertical_vinheta}};
+%\end{tikzpicture}
+}
+{}
+{}
+
+\makeoddhead{recet-pre} %%pagina ímpar ou com oneside
+{}
+{}
+{%\begin{tikzpicture}[remember picture,overlay]
+%\node[anchor=north east,inner sep=0pt] at (current page.north east)
+%{\includegraphics[]{img/recet_vertical_vinheta}};
+%\end{tikzpicture}
+}
+
+%% rodapé
+\makeevenfoot{recet-pre}
+{\sffamily \small \thepage} %%pagina par
+{}
+{\sffamily \small \imprimirtitulo}
+
+\makeoddfoot{recet-pre} %%pagina ímpar ou com oneside
+{\sffamily \small \imprimirautor}
+{}
+{\sffamily \small \thepage}
+
+\aliaspagestyle{title}{recet}
+
+%----------------------------------------------------------------------
+%% Substitui os comandos \pretextual, \textual e \postextual
+%----------------------------------------------------------------------
+\let\oldpretextual\pretextual
+\renewcommand{\pretextual}{%
+\oldpretextual%
+\pagestyle{recet-pre}%
+}
+
+\let\oldtextual\textual
+\renewcommand{\textual}{%
+\oldtextual%
+\pagestyle{recet}%
+}
+
+
+\let\oldpostextual\postextual
+\renewcommand{\postextual}{%
+\oldpostextual%
+\pagestyle{recet}%
+}
+
+
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+\renewcommand{\maketitlehookb}{}
+}{}
+
+
+
+
+
+
+
+
+
+
+%       NOVAS DEFINIÇÕES
+
+\def\bibname{Referências}% Bibliográficas}
+\def\appendixname{Apêndice}
+\def\indexname{Índice Remissivo}
+%\renewcommand\contentsname{Índice}
+
+\def\A{{\mathcal{A}}}
+\def\B{{\mathcal{B}}}
+\def\I{{\mathcal{I}}}
+\def\O{{\mathcal{O}}}
+\def\L{{\mathcal{L}}}
+\def\F{{\mathcal{F}}}
+%\def\M{{\mathcal{M}}}
+\def\U{{\mathcal{U}}}
+\def\V{{\mathcal{V}}}
+\def\mP{{\mathcal{P}}}
+
+%\def\I{{\mathbb{I}}}
+\def\J{{\mathbb{J}}}
+\def\K{{\mathbb{K}}}
+\def\M{{\mathbb{M}}}
+\def\X{{\mathbb{X}}}
+\def\Y{{\mathbb{Y}}}
+
+\def\K{\mathbb{K}}
+\def\gap{\mathbb{L}}
+\def\N{\mathbb{N}}
+\def\Z{{\mathbb{Z}}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{{\mathbb{C}}}
+
+\def\a{{\alpha}}
+\def\b{{\beta}}
+\def\ss{{\beta}}
+\def\g{{\gamma}}
+\def\G{{\Gamma}}
+\def\t{{\theta}}
+\def\lb{{\lambda}}
+\def\n{\mathrm{n}}
+\def\particao{\mathrm{Part}}
+\def\partes{\mathcal{P}}
+\def\mdc{\mathrm{mdc}}
+\def\ep{\varepsilon}
+\def\vf{\varphi}
+\def\w{\omega}
+\def\bacia{\mbox{\it {\large \ss}}}
+\def\Mm{\R^{m \times m}}
+\def\M2{\R^{2 \times 2}}
+
+
+\renewcommand{\dfrac}{\displaystyle \frac}
+\newcommand{\dsum}{\displaystyle \sum}
+\newcommand{\dprod}{\displaystyle \prod}
+\newcommand{\dlim}{\displaystyle \lim}
+\newcommand{\dliminf}{\displaystyle \liminf}
+\newcommand{\dlimsup}{\displaystyle \limsup}
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\diint}{\displaystyle \iint\limits}
+\newcommand{\diiint}{\displaystyle \iiint\limits}
+\newcommand{\doint}{\displaystyle \oint}
+\newcommand{\doiint}{\displaystyle \oiint}
+\newcommand{\dcup}{\displaystyle \cup}
+\newcommand{\dcap}{\displaystyle \cap}
+\newcommand{\dbigcup}{\displaystyle \bigcup}
+\newcommand{\dbigcap}{\displaystyle \bigcap}
+\newcommand{\rad}{\mbox{rad}}
+\newcommand{\dist}{\mathrm dist}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\graf}{\operatorname{Graf}}
+\newcommand{\rot}{\operatorname{rot}}
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\divergente}{\operatorname{div}}
+\newcommand{\df}{\operatorname{d}\!f}
+\newcommand{\dF}{\operatorname{d}\!F}
+\newcommand{\dg}{\operatorname{d}\!g}
+\renewcommand{\dh}{\operatorname{d}\!h}
+\newcommand{\dx}{\operatorname{d}\!x}
+\newcommand{\dy}{\operatorname{d}\!y}
+\newcommand{\dz}{\operatorname{d}\!z}
+\newcommand{\dt}{\operatorname{d}\!t}
+\newcommand{\ds}{\operatorname{d}\!s}
+\newcommand{\dS}{\operatorname{d}\!S}
+\newcommand{\du}{\operatorname{d}\!u}
+\newcommand{\dw}{\operatorname{d}\!w}
+\newcommand{\dv}{\operatorname{d}\!v}
+\newcommand{\dA}{\operatorname{d}\!A}
+\newcommand{\dr}{\operatorname{d}\!r}
+\newcommand{\dV}{\operatorname{d}\!V}
+\newcommand{\dtheta}{\operatorname{d}\!\theta}
+\newcommand{\dphi}{\operatorname{d}\!\phi}
+\newcommand{\drho}{\operatorname{d}\!\rho}
+\newcommand{\interior}[1]{\operatorname{int}(#1)}
+\newcommand{\exterior}[1]{\operatorname{ext}(#1)}
+\newcommand{\sgn}{\operatorname{sgn}}
+\renewcommand{\sin}{\operatorname{sen}}
+\renewcommand{\cos}{\operatorname{cos}}
+\renewcommand{\tan}{\operatorname{tan}}
+\renewcommand{\cot}{\operatorname{cot}}
+\renewcommand{\sec}{\operatorname{sec}}
+\renewcommand{\csc}{\operatorname{csc}}
+\renewcommand{\arcsin}{\operatorname{asen}}
+\renewcommand{\arccos}{\operatorname{acos}}
+\renewcommand{\arctan}{\operatorname{atan}}
+\newcommand{\arccot}{\operatorname{acot}}
+\newcommand{\arcsec}{\operatorname{asec}}
+\newcommand{\arccsc}{\operatorname{acsc}}
+\renewcommand{\sinh}{\operatorname{senh}}
+\renewcommand{\cosh}{\operatorname{cosh}}
+\renewcommand{\tanh}{\operatorname{tanh}}
+\newcommand{\cotanh}{\operatorname{coth}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\csch}{\operatorname{csch}}
+\renewcommand{\ln}{\operatorname{ln}}
+\newcommand{\Ln}{\operatorname{Ln}}
+\newcommand{\vet}{\overrightarrow}
+\newcommand{\ivet}{\overrightarrow{\imath}}
+\renewcommand{\vec}{\overrightarrow}
+\newcommand{\jvet}{\overrightarrow{\jmath}}
+\newcommand{\kvet}{\overrightarrow{\kappa}}
+%\def\proof{\normalfont \textbf{Prova:} \:}
+\newcommand{\erf}{\operatorname{erf}}
+\newcommand{\erfc}{\operatorname{erfc}}
+
+
+\newcommand{\solve}{\normalfont \textbf{Solução:} \:}
+\newcommand{\caixa}{\normalfont \hfill $\Box$}
+\newcommand{\Caixa}{\rightline{\shadowbox{$\blacksquare$}}}
+\def\qed{\vbox{\hbox to \textwidth{\hbox{} \rightline{\slshape q.e.d.} \hfil}}}
+\newcommand{\im}{\normalfont{\mathrm{Im}}}
+\newcommand{\dom}{\normalfont{\mathrm{Dom}}}
+\newcommand{\cd}{\normalfont{\mathrm{CD}}}
+\newcommand{\quest}{\noindent\textbf{EP}}
+
+
+
+\def\addt{
+\addtocounter{part}{1}
+\addtocounter{chapter}{1}
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{questao}{0}
+\setcounter{q}{0}
+\setcounter{definition}{0}
+\setcounter{exemplo}{0}
+\thispagestyle{fancy}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\theoremstyle{definition}
+%\newtheorem{questao}{\hspace{-0.1in}}[part]
+\newtheorem{etapa}{Etapa}
+\newtheorem{q}{}%[chapter]
+%\newtheorem{algoritmo}{\color{Gray}{\sf Algoritmo}}[chapter]
+\newtheorem{axioma}{Axioma}
+\newtheorem{problema}{Problema}
+%\newtheorem{nota}{Nota}{\normalfont \em}
+%\setcounter{nota}{0}%
+%\renewcommand\thenota{\arabic{nota}}
+\newtheorem{art}{Art}{\normalfont \em}
+\setcounter{art}{0}%
+\renewcommand\theart{\arabic{art}
+\newtheorem{definicao}{Definição}%[chapter]
+%\newtheorem{teorema}[definicao]{Teorema}
+\newtheorem{corolario}[definicao]{Corolário}%\theoremstyle{break}
+\newtheorem{lema}[definicao]{Lema}
+}
+
+
+
+
+\newcommand\solucaodois[1]{
+\begin{tcolorbox}[colback=blue!5,%gray background
+                  colframe=black,% black frame colour
+                  width=\textwidth,% Use 5cm total width,
+                  arc=3mm, auto outer arc,
+                 ]
+{\color{darkblue} \textbf{Solução}:
+
+#1}
+\end{tcolorbox}
+}
+
+\newcommand\solucao[1]{
+{\color{blue} \textbf{Solução}: #1}}
+
+
+
+
+
+\newtheorem{observation}{Observação}[chapter]
+\newtheorem{remark}{Observação}[chapter]
+\newtheorem{questao}{Questão}
+
+
+
+\newtheorem{exercise}{\color{blue!75!green}{Exercício}}
+\newcommand{\exercicio}[2]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=blue!75!green]
+\begin{exercise}
+\label{#1}
+\color{blue!75!green}{#2}
+\end{exercise}
+\end{tcolorbox}
+}
+
+\newcommand{\solexercicio}[1]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=blue!75!green,coltext=blue!75!green]
+$\blacktriangleright$~\textbf{Solução}:~#1
+\hfill $\blacktriangleleft$
+\end{tcolorbox}
+}
+
+
+\newtheorem{example}{\color{red!75!black}{Exemplo}}
+\newcommand{\exemplo}[2]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=red!75!black,coltext=red!75!black]
+\begin{example}
+\label{#1}
+#2
+\end{example}
+\end{tcolorbox}
+}
+
+\newcommand{\solexemplo}[1]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=red!75!black,coltext=red!75!black]
+$\blacktriangleright$~\textbf{Solução}:~#1
+\hfill $\blacktriangleleft$
+\end{tcolorbox}
+}
+
+
+
+\newtheorem{definition}{Definição}
+\newcommand{\definicao}[3]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=red!5!white,colframe=red!75!black]
+\begin{definition}[#1]
+\label{#2}
+#3
+\end{definition}
+\end{tcolorbox}
+}
+
+
+
+\newtheorem{lemma}{Lema}
+\newcommand{\lema}[3]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=yellow!5!white,colframe=yellow!75!black]
+\begin{lemma}[#1]
+\label{#2}
+#3
+\end{lemma}
+\end{tcolorbox}
+}
+
+\newcommand{\demlema}[1]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=yellow!75!black]
+\textbf{Demonstração}:~#1
+\hfill $\blacksquare$
+\end{tcolorbox}
+}
+
+
+
+
+\newtheorem{corollary}{Corolário}
+\newcommand{\corolario}[3]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=orange!5!white,colframe=orange!75!black]
+\begin{corollary}[#1]
+\label{#2}
+#3
+\end{corollary}
+\end{tcolorbox}
+}
+
+\newcommand{\demcorolario}[1]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=orange!75!black]
+\textbf{Demonstração}:~#1
+\hfill $\blacksquare$
+\end{tcolorbox}
+}
+
+
+\newtheorem{proposition}{Proposi\c{c}\~{a}o}
+\newcommand{\proposicao}[3]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=blue!5!white,colframe=blue!75!black]
+\begin{proposition}[#1]
+\label{#2}
+#3
+\end{proposition}
+\end{tcolorbox}
+}
+
+\newcommand{\demproposicao}[1]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=blue!75!black]
+\textbf{Demonstração}:~#1
+\hfill $\blacksquare$
+\end{tcolorbox}
+}
+
+
+\newtheorem{theorem}{Teorema}
+\newcommand{\teorema}[3]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=green!5!white,colframe=green!75!black]
+\begin{theorem}[#1]
+\label{#2}
+#3
+\end{theorem}
+\end{tcolorbox}
+}
+
+\newcommand{\demteorema}[1]{
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=2mm,colback=white!5!white,colframe=green!75!black]
+\textbf{Demonstração}:~#1
+\hfill $\blacksquare$
+\end{tcolorbox}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\textregistered
+
+%\texttrademark
+
+\newcommand\comentario[1]{
+{\scriptsize \color{red!50} #1 \[\]\\[-1.5cm]}
+}
+
+
+\def\copyrightedum{\scriptsize
+\vfill
+
+\noindent
+\textcopyright{2020} by RECET. Este é um artigo de acesso livre, distribuído sob os termos e condições da licença \href{https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt_BR}{Creative Commons} (CC BY).
+}
+
+
+%<p><a title="legal code" href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" target="_blank" rel="noopener"><img style="border-width: 0;" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" alt="Creative Commons License" /></a><br />As publicações da RECET estão licenciadas pela <a href="" rel="license">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+
+
+%% TIMES FONT
+\newcommand\timesfamily{\fontfamily{ptm} \selectfont}
+\DeclareTextFontCommand{\texttimes}{\timesfamily}
+
+%% PALATINO FONT
+\newcommand\palatinofamily{\fontfamily{ppl} \selectfont}
+\DeclareTextFontCommand{\textpalatino}{\palatinofamily}
+
+%%%%%% Sem Serifa (Sans Serif)
+% HELVÉTICA font
+\newcommand\helveticafamily{\fontfamily{phv} \selectfont}
+\DeclareTextFontCommand{\texthelvetica}{\helveticafamily}
+
+%% Avante Garde font
+\newcommand\avantefamily{\fontfamily{pag} \selectfont}
+\DeclareTextFontCommand{\textavante}{\avantefamily}
+%
+%
+%% CONCRETE ROMAN
+\newcommand\concretefamily{\fontfamily{ccr} \selectfont}
+\DeclareTextFontCommand{\textconcrete}{\concretefamily}
+%
+%% NEW CENTURY SCHOOL BOOK
+\newcommand\newcenturyfamily{\fontfamily{pnc} \selectfont}
+\DeclareTextFontCommand{\textnewcentury}{\newcenturyfamily}
+%
+%% BOOKMAN
+\newcommand\bookmanfamily{\fontfamily{pbk} \selectfont}
+\DeclareTextFontCommand{\textbookman}{\bookmanfamily}
+%
+%
+%
+%%%%%%%%%%%% Mono Espaçado (type writer)
+%% Courier font
+\newcommand\courierfamily{\fontfamily{pcr} \selectfont}
+\DeclareTextFontCommand{\textcourier}{\courierfamily}
+%
+%%%%%%%%%%%% Manuscrito
+%% Chancery
+\newcommand\chanceryfamily{\fontfamily{prm} \selectfont}
+\DeclareTextFontCommand{\textchancery}{\chanceryfamily}
+%%% \noindent \scalebox{5}{\rmfamily Zaft Chancery}
+%
+%
+%%%%%%%%%%%% Manuscrito
+%% Chancery
+\newcommand\calligrafamily{\fontfamily{pcg} \selectfont}
+\DeclareTextFontCommand{\textcalligra}{\rmfamily}
+%%% \noindent \scalebox{5}{\rmfamily Zaft Chancery}
+%
+% yinitial fonts.
+\newcommand\yinitfamily{\usefont{U}{yinit}{m}{n}}
+\DeclareTextFontCommand{\textyinit}{\yinitfamily}
+
+\def\normalfont{\helveticafamily}
+
+
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Res}{Res}

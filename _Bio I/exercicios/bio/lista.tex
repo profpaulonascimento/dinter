@@ -1,0 +1,696 @@
+\section*{Lista 02}
+
+
+\begin{exercise}
+Determinar se está registrado em alguma biografia ou em algum relato de Galileo uma frase equivalente à citação acima.
+\end{exercise}
+
+
+\begin{exercise}
+Leia o artigo de \href{https://www.pnas.org/content/pnas/117/42/25963.full.pdf}{P. Buhlmann} (mencionado acima) e a resenha de \href{https://www.ams.org/journals/notices/201907/rnoti-p1093.pdf}{L. Goldberg} sobre o livro de Pearl-Mackenzie e faça sua resenha de 20 linhas sobre o tema. 
+\end{exercise}
+
+{\color{red}
+%\input{bio/ex02bullman}
+%\input{bio/ex02goldberg}
+}
+
+
+\begin{exercise}
+Se, no início do primeiro mês, dispomos de um coelho imaturo, quantos coelhos teremos em 12 meses?
+\end{exercise}
+
+{\color{red} \textbf{Solução} (Paulo Henrique):
+\[\begin{array}{c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+t & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ \hline
+M & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 & 55 & 89 & 144 \\ \hline
+N & 1 & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 & 55 & 89 \\ \hline
+\mbox{Total} & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 & 55 & 89 & 144 & 233
+\end{array}\]
+onde \(t\) é o tempo em meses, \(M\) representa a quantidade de coelhos maduros, \(N\), de coelhos novos. Claramente, a linha de totais é uma sequência de Fibonacci e é definida pela fórmula recursiva:
+\[F(n+2)=F(n+1)+F(n),\]
+com \(n \ge 1\)  e \(F(1) = F(2) = 1.\)
+}
+
+
+\begin{exercise}
+Represente a população descrita ``biologicamente'' por Fibonacci, agora por intermédio de um grafo (``árvore'').
+\end{exercise}
+
+
+
+\begin{exercise}
+Verifique as três afirmações acima, i.e., sobre a veracidade
+\begin{enumerate}
+\item da Recursão como representativa do Fenômeno;
+\item da Fórmula para representar a População e;
+\item do comportamento assintótico exponencial/geométrico da Fórmula.
+\end{enumerate}
+\end{exercise}
+
+\url{http://www.ime.unicamp.br/~apmat/um-problema-de-fibonacci/#:~:text=Em%201202%2C%20um%20matem%C3%A1tico%20italiano,nascem%20no%20in%C3%ADcio%20do%20ano.&text=Depois%20de%20dois%20meses%20de,ocorrem%20mortes%20durante%20o%20ano.}
+
+{\color{red}
+\textbf{Solução}: 
+1. (Paulo Henrique)
+
+Utilizando a fórmula recursiva
+\[N(k+2) = N(k+1) + N(k),\]
+encontramos a tabela a seguir:
+\[\begin{array}{|c|c|c|c|} \hline
+k & N(k+1) & N(k) & N(k+2) \\ \hline
+0 & 2 & 1 & 3 \\ \hline
+1 & 3 & 2 & 5 \\ \hline
+2 & 5 & 3 & 8 \\ \hline
+3 & 8 & 5 & 13 \\ \hline
+4 & 13 & 8 & 21 \\ \hline
+5 & 21 & 13 & 34 \\ \hline
+6 & 34 & 21 & 55 \\ \hline
+7 & 55 & 34 & 89 \\ \hline
+8 & 89 & 55 & 144 \\ \hline
+9 & 144 & 89 & 233 \\ \hline
+10 & 233 & 144 & 377 \\ \hline
+11 & 377 & 233 & 610 \\ \hline
+12 & 610 & 377 & 987 \\ \hline
+\end{array}\]
+que verifica o obtido no exercício anterior.
+
+2. (Laís Buzo)
+
+Verifiquemos que a função $N(k)$ pode ser representada pela Fórmula Elementar. De fato, tomemos para $n\geq 1$,
+		$$N(n+1)=N(n-1)+N(n).$$
+		Consideremos a sequência de Fibonacci $w(n)$ que seja uma sequência geométrica com $w(1)=1$ e com razão $\lambda \neq 0$, logo
+		$$w(n)=\lambda^{n-1}.$$
+		Temos então que,
+		$$w(n+1)=w(n-1)+w(n)\rightarrow\lambda^{n}=\lambda^{n-2}+\lambda^{n-1}$$
+		que pode ser reduzida a
+		$$\lambda^2-\lambda-1=0$$
+		cujas raízes são da forma
+		$$\lambda_1=\frac{1}{2}(1+\sqrt{5})$$
+		e
+		$$\lambda_2=\frac{1}{2}(1-\sqrt{5}).$$
+		Construindo $v(n)$ e $w(n)$ tal que $v(n)=\lambda_1^{n-1}$ e $w(n)=\lambda_2^{n-1}$. Como $N(n)$ é uma combinação linear de $v(n)$ e $w(n)$ temos que, para $c_1$ e $c_2$,
+		$$N(n)=c_1\frac{1}{2}(1+\sqrt{5})^{(n-1)}+c_2\frac{1}{2}(1-\sqrt{5})^{(n-1)}.$$
+
+
+3.
+
+}
+
+\begin{exercise}
+Mostre que a função \(N(k)\) pode ser representada por intermédio de uma quinta forma, isto é, como solução de uma equação de diferenças finitas da forma \(P(E) \varphi = 0\) ou \(Q(\Delta) \varphi = 0\) onde \(P, Q\) são polinômios e \(E\) é um operador de deslocamento e \(\Delta\) um operador de diferença, ambos aplicáveis no conjunto de funções discretas \(\mathcal{F} = \{\varphi: \mathbb{N} \to \mathbb{R}\}\). (Consulte Bassanezi-Ferreira (1988) a respeito).
+\end{exercise}
+
+{\color{red}
+\textbf{Solução}: (Laís Buzo)
+
+Primeiramente, definimos o operador $E$ (deslocamento, ou \textit{shift}) por $Ef(n)=f(n+1)$, e o operador $\Delta$ (operador de diferença à frente) por $\Delta f(n)=f(n+1)-f(n)=(E-I)f(n)$.
+
+		Considere o problema de combinatória onde utilizaremos dígitos binários. Seja $f(n)$ a quantidade de sinais não confluentes (não tem 1's adjacentes) onde $n$ é a quantidade de dígitos. Logo,
+		$$f(n)=f(n-1)+f(n-2).$$
+		As condições iniciais são: $f(0)=1$, $f(1)=2$ (pois temos $(0;1)$) e $f(2)=3$ (pois $((0,0);(0,1);(1,0))$. Portanto temos o problema de valor inicial:\\
+		$\begin{cases}
+			P(E)f=0\\
+			If=(f(0),f(1)=(1,2))
+		\end{cases}$
+		
+		$P(\lambda)=\lambda^2-\lambda-1=(\lambda-\lambda_1)(\lambda-\lambda_2)$ com $P(E)=E^2-E-I=(E-\lambda_1)(E-\lambda_2)$, logo $\lambda_{1,2}=\frac{1\pm \sqrt{5}}{2}$.
+		Para calcular $N(P(E))$ devemos determinar $N(P(E-\lambda_1))$ e $N(P(E-\lambda_2))$ em $V(\mathbb{Z},\mathbb{C})$.
+		$$(E-\lambda_1)\nu=0 \iff E\nu=\lambda \nu \iff \nu_{k+1}=\lambda_1\nu_k \iff \nu_k=C_1\lambda_1^k$$
+		$$(E-\lambda_2)\omega=0 \iff \omega_k=C_2\lambda_2^k$$
+		Portanto a solução geral é 
+		$$f_k=C_1\frac{1}{2}(1-\sqrt{5})^{k}+C_2\frac{1}{2}(1+\sqrt{5})^{k}.$$
+	(Ref.: BASSANEZZI, FERREIRA)
+
+}
+
+
+\begin{exercise}
+Avalie o número de sacas de 20kg de trigo e o número de caminhões que seriam necessários para transportar esta quantidade de trigo. Compare esta quantidade com a produção mundial anual deste cereal. (Ref. Maharajan, Weinstein).
+\end{exercise}
+
+{
+\def\atrigo{0.30}%cm
+\def\btrigo{0.25}%cm
+\def\ctrigo{0.24}%cm
+
+\url{https://www.embrapa.br/documents/1355008/0/Folder+cultivares+Trigo/9d0598ad-d738-4113-bb73-1ea85c95a127}
+
+\color{red}
+\textbf{Solução}: (Paulo Henrique)
+
+Considere que:
+
+(a) grãos de trigo se aproximem do formato de um elipsoide de equação
+\[\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1\]
+e que, em média, temos os valores de \(a = \atrigo\ cm\), \(b = \btrigo\ cm\) e \(c = \ctrigo\ cm\).
+
+Portanto, o volume médio de um grão de trigo é dado por:
+\[V = \dfrac{4}{3}\pi abc = \ca{4/3*3.14*\atrigo*\btrigo*\ctrigo*10^{-6}}\ m^3\]
+\def\vtrigo{.000000075359999999} % volume (m^3) de um grão de trigo
+\def\dtrigo{770} % densidade (kg/m^3) de um grão de trigo - 770 não é o valor correto!
+
+(b) a densidade média de um grão de trigo é próxima da densidade de um grão de soja \(\varrho = 770\ kg/m^3\) \href{https://ainfo.cnptia.embrapa.br/digital/bitstream/item/161751/1/246.pdf}{(BENASSI, 2017. p. 247)}. % Aqui não encontrei a densidade de um grão de trigo!
+
+Portanto, a massa de um grão de trigo é
+\[M = \ca{\vtrigo*\dtrigo}\ kg\]
+\def\mtrigo{0.00005802719999923}
+
+(c) a quantidade \(N\) de grãos de trigo que deveria ser paga ao servo hindu é:
+\[N = 1+2+4+\ldots+2^{63},\]
+ou seja, a soma dos \(n = 64\) termos de uma progressão geométrica de razão \(q = 2\). Dessa forma:
+\[
+N
+= a_1 \dfrac{q^n-1}{q-1}
+= 2^{64}-1 \approx 1,84\ \cdot 10^{19}
+%= \ca{2^{64}-1}
+\]
+
+\def\ntrigo{18446744073709600000}
+(d) a quantidade \(S\) de sacos de \(20\ kg\) é:
+\[S = \dfrac{M \cdot N}{20} = \ca{\mtrigo/20*\ntrigo}\]
+\def\strigo{535206453849.878854091621804}
+
+\def\kcaminhao{500}
+(e) um caminhão consiga transportar \(\kcaminhao\ kg\) de mercadoria. Então, seria necessário:
+\[C = S/500 = \ca{\strigo/\kcaminhao}\]
+caminhões para transportar todo o trigo.
+}
+
+
+
+
+\begin{exercise}
+Variações sobre o tema de Fibonacci.
+\end{exercise}
+
+{\color{red}
+\textbf{Resposta}: (Paulo Henrique)
+
+A sequência de Fibonacci (Leonardo de Pisa (1175-1240)) apresenta vários fatos curiosos:
+
+(a) através do quociente de um número com o seu antecessor, obtém-se uma sequência cujos termos tendem a constante 1,6180339887... (número áureo);
+
+(b) foi utilizada por Da Vinci, que chamou a sequência de Divina Proporção, para fazer desenhos perfeitos;
+
+(c) A partir dessa sequência, pode ser construído um retângulo, que é chamado de Retângulo de Ouro e ao desenhar um arco dentro desse retângulo, obtemos, por sua vez, a Espiral de Fibonacci;
+
+(d) Pode ser encontrada em alguns elementos da natureza como:
+nas folhas das cabeças das alfaces;
+na couve-flor,
+nas camadas das cebolas;
+nos padrões de saliências dos ananases;
+nas sementes das pinhas (oito irradiando no sentido horário e 13 no anti-horário);
+na concha de Nautilus;
+na folha de uma Bromélia;
+na cauda de um camaleão;
+nas presas de marfim de um elefante se crescessem infinitamente;
+nas sementes de um girassol (Neste caso são dois conjuntos de espirais, 21 no sentido horário e 34 no sentido anti-horário).
+
+
+(e) Na espirradeira ou na cevadilha, mostra os números da sucessão de Fibonacci nos seus pontos de crescimento. Quando tem um novo rebento, leva dois meses a crescer até que as ramificações fiquem suficientemente fortes. Se a planta ramifica todos os meses, depois disso, no ponto de ramificação, obtemos ramificações que correspondem aos números de Fibonacci.
+
+(f) no número de abelhas em cada geração da árvore genealógica de um zângão. Um zângão tem apenas um dos pais (pois provém de um ovo não fertilizado), ao passo que a fêmea exige ambos os pais (pois provem de um ovo fertilizado).
+}
+
+
+\begin{exercise}
+Consideremos uma população de organismos que se reproduzem individualmente. Suponhamos, como Fibonacci, que o tempo é medido discretamente e registrado em períodos uniformes, de tal forma que os indivíduos desta população tornam-se reprodutíveis após uma unidade de tempo e que, após esta maturação, cada um deles, enquanto vivo, produz \(\nu\) novos indivíduos em cada unidade de tempo. Suponhamos também que a cada unidade de tempo uma fração \(\mu\) de indivíduos desta população perece. (Este modelo de reprodução e de mortalidade é dito proporcional já que são diretamente proporcionais ao tempo).
+
+\begin{enumerate}
+\item Mostre que se \(\varphi: \mathbb{N} \to \mathbb{C},\ \varphi(k)\) representa o número de indivíduos desta população no instante \(k\), então a população acima descrita lhe induz a seguinte restrição (Equação Recursiva de segunda Ordem) \(P(E) \varphi = 0\), onde \(P(z) = a_0 + a_1 z + a_2 z^2\) é uma polinômio algébrico de segundo grau, isto é, \(a_0f(k) + a_1f(k+1) + a_2 f(k+2) = 0\). (Sugestão: Segundo Fibonacci, a população no instante \((k+2)\) é constituída da população sobrevivente do ano passado, mais os novos integrantes nascidos no período anterior, que são filhos de quem já estava presente na população dois períodos atrás e não morreu.)
+\item Mostre, portanto, que a recursão é de ordem \(2\) e completamente determinada quando são conhecidos \(F(0)\) e \(F(1)\).
+\item Obtenha condições nos parâmetros \(\mu\) e \(\nu\) para que a população apresente um crescimento exponencial
+\item Obtenha condições nos parâmetros \(\mu\) e \(\nu\) para que a população apresente uma extinção em decrescimento exponencial.
+\item Obtenha condições nos parâmetros \(\mu\) e \(\nu\) para que a população apresente uma oscilação e crescimento exponencial
+\item Mostre que descrevendo esta população pela função \(\Phi: \mathbb{N} \to \mathbb{C}^2\), \(\Phi_1(k) =\) ``População de Férteis no instante \(k\)'', \(\Phi_2(k) =\) ``População de Imaturos no instante \(k\)'' o argumento de Fibonacci pode ser representado na forma recursiva de primeira ordem:
+\[\Phi(k+1) = A \Phi(k),\] onde \(A\) é uma matriz \(2 \times 2\).
+\item \textbf{Método de Fourier - Transformação}: Obtenha uma matriz \(P\) invertível tal que \(P^{-1}A P = D\) é diagonal, \(D = \operatorname{diag}\{\lambda_1, \lambda_2\}\). Obtenha a função \(\Phi(k) = P \operatorname{diag}\{\lambda_1^k, \lambda_2^k\} P^{-1}\).
+\item \textbf{Método de Fourier - Espectral}: Se \(A v_j = \lambda_j v_j\) (onde \(v_j\) é autovetor e \(\lambda_j\) é autovalor), mostre que \(\Phi^{(j)}(k) = (\lambda_j)^{k} v_j\) são soluções da recorrência vetorial. Mostre como obter a solução da equação com condição inicial \(\Phi(0)\) dada.
+\item* \textbf{Método das Funções Geradoras}: Represente os valores da função discreta \(\varphi(k)\) como coeficientes da expansão de uma função analítica \(f\), isto é, \(f(z) = \displaystyle \sum_{k=0}^{\infty} \varphi(k) z^k\), obtenha uma equação funcional para \(f\) com base nas propriedades de \(\varphi\) e obtenha uma representação elementar para a função \(f(z)\). Com base nesta sintetização dos valores da função discreta em uma ``Função Geradora'', mostre como recuperar os valores de seus coeficientes utilizando a Análise Complexa.
+\item Generalize o Modelo de Fibonacci considerando fertilidade variável, \(\nu_j =\) ``Numero de descendentes produzidos por indivíduo com idade \(j\) em uma unidade de tempo'' e também mortalidade variável, \(\mu_j =\) ``Fração de indivíduos de uma população de idade \(j\) que falecem em uma unidade de tempo''.
+\end{enumerate}
+\end{exercise}
+
+
+
+\begin{exercise}
+Verifique, historicamente, se Euler utilizou ideias semelhantes em algum contexto de sua volumosa Opera Omnia. (Ref. Biografias de Euler, R. Graham \& D. Knuth).
+\end{exercise}
+
+\begin{exercise}
+Consulte uma referencia \textit{Baliza} sobre o Método de Quadrados Mínimos, sua origem e generalizações e faça um resenha de 20 linhas a respeito. (A generalização das ideias da
+representação linear de Gauss para funções de variáveis vetoriais com o ajuste de hiperplanos a uma nuvem de pontos \(P^k = x_1^{(k)}, \ldots, x_n^{(k)} \in \mathbb{R}^n\) é um dos Métodos contemporâneos mais importantes na busca de uma representação funcional para Tabelas de dados discretos multivariados e se constitui em um instrumento computacional
+indispensável na computação científica contemporânea (G. Strang - Introduction to Linear Algebra, Wellesley, J. N. Kutz -...).
+\end{exercise}
+
+
+
+\begin{exercise}
+Mostre que duas funções assintoticamente equivalentes no infinito não implica necessariamente que a diferença entre elas tende a zero, e que pode até mesmo se tornar ilimitada.
+
+Mostre que essa equivalência é uma aproximação no sentido relativo (ou seja, um erro da ordem de 1km na distância entre a Terra e a Lua não é ``a mesma coisa'' que o mesmo erro na distância entre a Unicamp e Campinas).
+\end{exercise}
+
+\begin{exercise}
+Mostre, na verdade, que duas funções são assintoticamente equivalentes no infinito se na escala logarítmica os seus valores se aproximam.
+\end{exercise}
+
+\begin{exercise}
+Em particular, mostre que se \(f(k) \sim e^{\gamma k}\), para \(k \sim \), então há uma ``aproximação linear na escala logarítmica da função f'' no infinito, ou seja,
+\[\displaystyle\lim_{k \to \infty} \{\ln(f(k)) - (\ln(A)+\gamma k)\} = 0.\]
+\end{exercise}
+
+\begin{exercise}\(\ast\)
+Analise uma tabela de números primos (v. Abramowitz \& Stegun) e repita o argumento de Gauss.
+\end{exercise}
+
+\begin{exercise}[Fórmula de Stirling]*
+Verifique, experimentalmente, utilizando as Tabelas de Abramowitz \& Stegun que a importante Função Gama de Euler \(\Gamma: \mathbb{N} \to \mathbb{C}\), definida recursivamente por \(\Gamma(k+1) = (k+1) \Gamma(k),\ \Gamma(1) = 1\) é assintoticamente equivalente à função elementar (transcendental) \(g(k) = \sqrt{2\pi} k^{k+\frac{1}{2}} e^{-k}\) logaritmizando as duas variáveis, \(u = \ln(\Gamma(k))\) e \(v = \ln(k)\) e comparando os pontos com o gráfico de {\color{red} ?????}
+
+\textbf{Observação}: Ao contrário da Função de Fibonacci e tal como a função densidade de números primos de Gauss, a função Gama não é representável por funções Elementares em todo o seu domínio, mas é assintoticamente equivalente a uma Função Elementar, um importantíssimo resultado que é fundamental para a Análise Combinatória (Flajolet \& Sedgewick), Teoria de Computação (Graham \& Knuth), Teoria de Probabilidade (Gnedenko), Física Estatística (van Kampen) e etc. Nenhum estudante sério de Matemática (Aplicada ou não) pode desconhecer este resultado que será abordado com maiores detalhes no capítulo sobre Métodos Assintóticos).
+\end{exercise}
+
+\begin{exercise}
+Dada uma ``grande'' Tabela de dados \(P^{(k)} = (x_{1}^{(k)}, x_{2}^{(k)})\) representada cartesianamente na forma de uma ``nuvem de pontos'' no plano imagine uma forma de representá-la sinteticamente (e aproximadamente) da melhor maneira possível com apenas \textbf{duas} informações numéricas independentes (dois parâmetros reais). Convença-se de que esta questão pode ser geometricamente resolvida, obtendo-se uma reta \(r(a, b)\) (\(r = \{(x, y); y = ax+b\}\)) que minimiza a soma dos quadrados das distâncias entre \(P^{(k)}\) e \(r\) medidas das seguintes maneiras:
+\begin{description}
+\item (a) \(d(P^{(k)}, r) = \min\{(x_{1}^{(k)}, y), r\}\) (distância vertical) e
+\item (b) \(d\ast(P^{(k)}, r) = \min\{P^{(k)}, (x, y) \in r\}\) (distância ortogonal).
+\end{description}
+
+Resolva matematicamente este problema.
+\end{exercise}
+
+\begin{exercise}
+Mostre que a População produzida por um Modelo de Fibonacci \(F(k)\) é assintoticamente exponencial e determine esta função exponencial \(A e^{\gamma k}\).
+\end{exercise}
+
+\begin{exercise}
+Consulte a Linearização assintótica de inúmeros dados biológicos, físicos e geométricos apresentados em G. West e, particularmente, a de Suzana Herculano-Houzel, fazendo uma resenha a respeito desta última..
+\end{exercise}
+
+\begin{exercise}
+Obtenha uma tabela de censo demográfico do Brasil em sua época de maior crescimento populacional (excetuando imigração) e utilize o Método de Linearização para determinar um modelo proporcional de população de Euler para a sua representação.
+\end{exercise}
+
+\begin{exercise}
+Faça o mesmo para o início de crescimento de mortalidade pela COVID-19 em 2020 no Brasil e alguns países da Europa e EUA.
+\end{exercise}
+
+
+
+\begin{exercise}
+Discuta as afirmações acima e apresentando argumentos que as justifiquem.
+\end{exercise}
+
+
+
+
+No exemplo a seguir, veremos como Christiaan Huygens, um matemático de enorme habilidade do século XVII ao examinar as tabelas de mortalidade de Graunt e Neumann, foi incapaz de identificar a função que as representaria por desconhecer a função exponencial, cujo estudo foi levado a efeito somente em anos mais tarde por Euler. (Euler-Introductio in Analysin Inifinitorum, 1748 (trad. Introduction to Analysis of the Infinite - Springer). Entretanto, não escapou à Huygens a propriedade geométrica fundamental que caracteriza esta função e mais tarde foi utilizada pelo próprio Euler para representar analiticamente a curva de mortalidade.
+
+\begin{exercise}
+Comentar a frase acima.
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Mostre que a regra de Huygens, aplicada a funções diferenciáveis positivas, determina unicamente a função exponencial.
+\end{exercise}
+
+
+
+
+
+\begin{exercise}
+Considere uma população Malthusiana que inicia sua história com \(P_0 = P(0)\) indivíduos (vivos!) ``colonizadores'' submetida a uma taxa específica de mortalidade \(\mu\) e de natalidade \(\nu\). Determine o número total de nascimentos \(N(t)\) e o de óbitos \(M(t)\) durante o período \([0,t]\) nesta população.
+\end{exercise}
+
+\begin{exercise}
+Mostre que a subpopulação de sobreviventes dentre os indivíduos colonizadores \(P_0\) no instante \(t\) é \(e^{-\mu t} = P(0)\) e que, em geral, os sobreviventes no futuro \(t+T\) da população \(P(t)\) existente no instante \(t\) é \(e^{-\mu T} P(t)\), e que os não sobreviventes são \((1-e^{-\mu T}) P(t)\).
+\end{exercise}
+
+
+
+
+\begin{exercise}
+
+\begin{description}
+\item (a) Realize as seguintes experiências REAIS: \(N\sim 20\) lançamentos sucessivos de uma moeda seguidos da anotação do resultado em uma Tabela concreta (computador ou papel) onde constam o número de experimentos, \(1 \le n \le N\), o tempo \(T(n)\) necessário para executá-los, o número de caras e o de coroas até a referida etapa \(n\), e obtenha uma representação linear (aproximada \(T(n) = \alpha n\)) entre estas variáveis. Extrapole o resultado para avaliar o tempo necessário para executar \(10^{23}\) experimentos. Compare com a idade da Terra, que segundo alguns físicos contemporâneos é da ordem de \(\simeq 6 \cdot 10^{9}\) anos (H. Fritzsch). (Sugestão: Método de Mínimos Quadrados de Gauss explicado).
+
+{\color{red}
+\textbf{Solução}: (Paulo Henrique)
+
+Seja
+
+\(N^t = \left[\begin{array}{cccc} n_1 & n_2 & \ldots & n_N \end{array}\right]^t\) (Pontos de entrada)
+
+\(T^t = \left[\begin{array}{cccc} t_1 & t_2 & \ldots & t_N\end{array}\right]^t\) (Pontos de saída)
+
+Queremos obter um \(Z \sim T\). Se \(Z\) é linear, temos:
+\begin{eqnarray*}
+Z
+= \theta_1 N + \theta_2
+= \left[\begin{array}{c} n_1\theta_1+\theta_2 \\ n_2\theta_1+\theta_2 \\ \vdots \\ n_N\theta_1+\theta_2 \end{array}\right]
+= \underbrace{\left[\begin{array}{cc} n_1 & 1 \\ n_2 & 1 \\ \vdots \\ n_N & 1 \end{array}\right]}_{\overline{N}}
+\underbrace{\left[\begin{array}{c} \theta_1 \\ \theta_2 \end{array}\right]}_{\Theta}
+\end{eqnarray*}
+
+Vamos minimizar a função
+\[E(\Theta)
+= (T-Z)^2
+= (T-\overline{N}\Theta)^2
+\]
+e, para tal, determinemos:
+\[
+\dfrac{\partial E}{\partial \Theta}
+= \dfrac{\partial E}{\partial Z}\ \dfrac{\partial Z}{\partial \Theta}.
+\]
+
+Mas
+\[
+\dfrac{\partial E}{\partial Z}
+= \dfrac{\partial}{\partial Z} (T-Z)^2 = -2 \underbrace{(T-Z)}_{N \times 1}
+\]
+e
+\[
+\dfrac{\partial E}{\partial \Theta}
+= \dfrac{\partial}{\partial \Theta} (\overline{N}\Theta) =  \underbrace{\overline{N}^t}_{2 \times N}.
+\]
+
+Segue que
+\[0
+= \dfrac{\partial E}{\partial \Theta}
+= -2 \overline{N}^t (T-Z)
+= -2 \overline{N}^t (T-\overline{N}\Theta),
+\]
+ou seja,
+\[
+\overline{N}^t T = \overline{N}^t \overline{N} \Theta
+\]
+implicando em
+\[
+\Theta = (\overline{N}^t\ \overline{N})^{-1} \overline{N}^t T.
+\]
+(ver \href{https://www.youtube.com/watch?v=txnrFZG7Ugs&ab_channel=LeonardoOlivi}{Youtube})
+
+
+Os valores de \(\theta_1\) e \(\theta_2\), após algumas contas, são dados por:
+\[\begin{array}{rcl}
+\theta_1 &=& \dfrac{\displaystyle\sum_{i=1}^{N} n_i \sum_{i=1}^{N} t_i - N \sum_{i=1}^{N} n_i\ t_i}{\displaystyle\left(\sum_{i=1}^{N} n_i\right)^2 - N \sum_{i=1}^{N} n_i^2} \\
+\theta_2 &=& \dfrac{\displaystyle\sum_{i=1}^{N} t_i - \theta_1 \sum_{i=1}^{N} n_i}{N}
+\end{array}
+\]
+
+Os experimentos executados, bem como alguns valores necessários para a obtenção dos coeficientes da reta de regressão são apresentados na tabela a seguir e foram obtidos utilizando uma planilha eletrônica (Excel):
+\[\scriptsize
+\begin{array}{c|c|c|c|c|c|c|c|c}
+n & 1 & f(n) & t_n & T(n) & K & C & n^2 & n\ t \\ \hline
+1 & 1 & 0 & 24 & 24 & 1 & 0 & 1 & 24 \\ \hline
+2 & 1 & 1 & 36 & 60 & 1 & 1 & 4 & 120 \\ \hline
+3 & 1 & 1 & 27 & 87 & 1 & 2 & 9 & 261 \\ \hline
+4 & 1 & 1 & 17 & 104 & 1 & 3 & 16 & 416 \\ \hline
+5 & 1 & 0 & 44 & 148 & 2 & 3 & 25 & 740 \\ \hline
+6 & 1 & 0 & 24 & 172 & 3 & 3 & 36 & 1032 \\ \hline
+7 & 1 & 1 & 35 & 207 & 3 & 4 & 49 & 1449 \\ \hline
+8 & 1 & 0 & 15 & 222 & 4 & 4 & 64 & 1776 \\ \hline
+9 & 1 & 1 & 49 & 271 & 4 & 5 & 81 & 2439 \\ \hline
+10 & 1 & 0 & 24 & 295 & 5 & 5 & 100 & 2950 \\ \hline
+11 & 1 & 1 & 21 & 316 & 5 & 6 & 121 & 3476 \\ \hline
+12 & 1 & 1 & 17 & 333 & 5 & 7 & 144 & 3996 \\ \hline
+13 & 1 & 0 & 39 & 372 & 6 & 7 & 169 & 4836 \\ \hline
+14 & 1 & 1 & 19 & 391 & 6 & 8 & 196 & 5474 \\ \hline
+15 & 1 & 1 & 42 & 433 & 6 & 9 & 225 & 6495 \\ \hline
+16 & 1 & 1 & 32 & 465 & 6 & 10 & 256 & 7440 \\ \hline
+17 & 1 & 1 & 24 & 489 & 6 & 11 & 289 & 8313 \\ \hline
+18 & 1 & 0 & 23 & 512 & 7 & 11 & 324 & 9216 \\ \hline
+19 & 1 & 1 & 16 & 528 & 7 & 12 & 361 & 10032 \\ \hline
+20 & 1 & 0 & 27 & 555 & 8 & 12 & 400 & 11100 \\ \hline
+21 & 1 & 0 & 33 & 588 & 9 & 12 & 441 & 12348 \\ \hline
+22 & 1 & 0 & 22 & 610 & 10 & 12 & 484 & 13420 \\ \hline
+23 & 1 & 1 & 24 & 634 & 10 & 13 & 529 & 14582 \\ \hline
+24 & 1 & 0 & 18 & 652 & 11 & 13 & 576 & 15648 \\ \hline
+25 & 1 & 0 & 30 & 682 & 12 & 13 & 625 & 17050
+\end{array}
+\]
+onde
+\begin{description}
+\item \(K\) representa o n\textordmasculine\ de caras obtidas até o \(n\)-ésimo lançamento;
+\item \(C\) representa o n\textordmasculine\ de coroas obtidas até o \(n\)-ésimo lançamento.
+\end{description}
+
+Os valores obtidos a seguir, também com o auxílio do Excel, são utilizados para determinar os valores dos coeficientes da reta de regressão:
+\[
+\begin{array}{c|c}
+S_n & 325 \\ \hline
+S_T & 9150 \\ \hline
+S_{nT} & 154633 \\ \hline
+S_{n^2} & 5525 \\ \hline
+N & 25
+\end{array}
+\]
+e, os coeficientes a determinar, são:
+\[
+\begin{array}{c|c}
+\theta_1 & 27,44846154 \\ \hline
+\theta_2 & 9,17
+\end{array}
+\]
+
+Para \(n = 10^{23}\), obtemos: \(T_n = 2,74485 \cdot 10^{24}\) segundos, ou seja, \(8,70385 \cdot 10^{16}\) anos. Comparando com a idade da Terra, temos que \(T_n\) é, aproximadamente, \(14.506.416\) vezes maior.
+}
+
+
+\item (b) No exercício anterior, você fez poucos lançamentos e não se cansou muito, o que resultou em uma reta bem representativa do resultado. Agora repita, sem descansar ou diversificar a atenção durante o experimento, \(100\) lançamentos sucessivos e verifique que a curva é ascendente. Interprete o resultado com relação ao exercício anterior. Utilize a escala logarítmica e argumente se a curva é assintoticamente exponencial ou polinomial. (Esta questão visa determinar o seu comportamento e é representativo de muitas experiências em Biologia. Este exercício pode ser feito em grupos em que apenas duas pessoas realizam a experiência para efeito de comparação).
+
+\item (c) Antes de se cansar, é possível que ocorra intermediariamente um ``aprendizado'' que tornará o procedimento mais rápido. Mas este aprendizado é saturado em pouco tempo. Em uma etapa posterior, ``vence o cansaço'' e o tempo necessário para cumprir a tarefa começa a se alongar. Analise estas fases do procedimento em termos da Tabela anotada e de um re-escalonamento logarítmico.
+
+\item (d) Suponha que você tenha vida quase-eterna. Utilizando o resultado anterior (com cansaço) calcule o tempo necessário para realizar os \(10^{23}\) experimentos, mas observe que o ``índice de cansaço", que pode ser medido pela curvatura do gráfico deve ser variável, ou seja, o cansaço é cumulativo, como sabemos). Supondo (especulativamente) que sua atenção seja exponencialmente decrescente, analise a questão acima.
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+Aproveite a sua tabela e obtenha uma representação assintótica da função \(p_k: \mathbb{N} \to \mathbb{N}\), definida como, \(p_k(n) = p\), onde \(p\) representa o número de vezes que em \(n\) experiências produziu \(k\) sucessivos''. ``Logaritmize'' esta Tabela e conclua que ela sugere um comportamento assintótico da função \(p_k(n)\) exponencial e analise como variam os coeficientes exponenciais em dependência de \(k\) (Se crescem ou decrescem).
+\end{exercise}
+
+\begin{exercise}
+Registre (mentalmente) o resultado de cada sequência de \(n\) experimentos na forma de um ``sinal'' (ou ``palavra'') de comprimento \(n\) constituído de \(0's\) e \(1's\), onde \(0\) corresponde a coroa e \(1\) corresponde a cara da moeda. Seja, então, \(F_2(n) = f\), onde \(f\) é o número de possíveis ``sinais'' de comprimento \(n\) que não tem \(0's\) sucessivos''. Mostre que esta função satisfaz à recursão \(F(n+2) = F(n+1) + F(n)\) com dados iniciais \(F(1) = 2\), \(F(2) = 3\). Calcule uma Tabela para esta Função e mostre via linearização logarítmica que ela tem comportamento assintótico exponencial \(Ae^{\gamma n}\) e, aproximadamente, o seu coeficiente \(\gamma\).
+\end{exercise}
+
+
+\section*{Lista 03}
+
+\begin{exercise}
+Leia o \href{https://www.hendrix.edu/uploadedFiles/Admission/GarrettHardinArticle.pdf}{artigo} de Garret Hardin  e algumas referências posteriores sobre o tema ``\textit{Tragedy of Commons}''. Consulte o texto de Simon Levin e visite a página deste importante autor. Consulte também o artigo de Luwig - Walter e Holling no primeiro número da revista (online - acesso livre) Ecology and Society de 1997. Faça um resumo comentado de aproximadamente 20 linhas sobre o tema.
+\end{exercise}
+
+
+\begin{exercise}
+Considere \(n\) populações com tamanhos \(N_k\) que subsistem com a exploração peculiar de um portfólio de recursos com taxas de consumo basal distintas. Adapte o argumento acima para obter um sistema de \(n\) equações diferenciais para as funções \(N_k(t)\) que represente este Modelo de Malthus-Verhulst com Saturação. (Sistemas deste tipo tem sido empregados por Martin Nowak para a descrição de competições e evolução de populações. Ref: M. Nowak - Evolutionary Dynamics, Harvard UP 2010).
+\end{exercise}
+
+\begin{exercise}
+Obtenha uma solução explícita em termos de funções elementares para a equação diferencial de Riccatti \(\dfrac{du}{dt} = au + bu^2\) dividindo por \(u^2\) e escrevendo uma equação linear para \(v = \frac{1}{u}\) que pode ser resolvida explicitamente.
+\end{exercise}
+
+\begin{exercise}
+Escreva o Modelo de Malthus-Verhulst na forma adimensional e explique o resultado. 
+\end{exercise}
+
+\begin{exercise}
+Considere um conjunto de indivíduos \(P_0\) ``fundadores'' de uma população no instante \(t=0\) cuja dinâmica é regida por um Modelo de Malthus-Verhulst. Considere que para a dinâmica da população resultante o termo \(-\alpha N\) designa a mortalidade per capita da população. Determine o tempo médio de sobrevivência da população fundadora desta dinâmica. (\textbf{Sugestão}: Considere a subpopulação \(P(t)\) dos ``fundadores'', \(P(0) = P_0\) e verifique que \(\frac{dP}{dt} = -\alpha NP\). Refaça o argumento utilizado para determinar o tempo médio de sobrevivência do Modelo de Malthus para esta subpopulação, mas observe que para isto será necessário dispor da função \(N(t)\) que estabelece a população total - deles e de seus descendentes - em que eles ``vivem'').
+\end{exercise}
+
+\begin{exercise}
+\begin{description}
+\item (a) Faça um esboço geométrico para a dinâmica da equação que descreve o Modelo de Malthus-Verhulst interpretando \(N(t)\) como uma trajetória que se move com velocidade \(\frac{dN}{dt}\) sobre a reta coordenada horizontal (chamada reta de fase) segundo um campo de velocidades pré-estabelecido sobre a reta (chamada espaço de fase). Este campo de velocidades é determinado pelo gráfico cartesiano da função \[F(N) = r_0\left(1-\dfrac{N}{K}\right)N\]
+representado acima da reta de fase e a velocidade do ponto ocupando a posição \(N\) é dada pelo valor de \(F(N)\): Para a direita se positivo e para a esquerda se for negativo com intensidades respectivas. Observe que há duas posições estacionárias (isto é, posições onde a velocidade é nula) e que uma delas (a origem) é repulsiva (isto é, as velocidades em posições próximas tendem a afastar as trajetórias da origem, dita instável) e a outra (\(N = k\)) é atrativa (i.e., as velocidades em posições próximas tendem a dirigir as trajetórias de volta à posição estacionária original, dita estável).
+\item (b) Com base nesta dinâmica na reta de fase faça um esboço dos gráficos cartesiano das curvas \(N(t) ( (t, N(t)) )\) observando que o formato da curva depende do ponto de partida \(N(0) = 0\). Determine quais delas são ``logísticas'' isto é, tem forma de ``S'' enquanto que as outras tem forma de ``C''. Se uma população com esta dinâmica inicia com \(N(0) = N_0 < K\) determine o tempo \(t(N)\) que ela leva para atingir os valores \(N > N_0\). Mostre que ela leva um tempo infinito para atingir \(N = K\) e, portanto, jamais atingirá um valor \(N > K\). Explique!
+\item Analise uma dinâmica na reta determinada por um campo de velocidades da forma \[\dfrac{dn}{dt} = \cos(n) \sqrt[4]{1-\cos(n)},\]
+determine as posições estacionárias atrativas e repulsivas e mostre que o tempo de percurso até a origem de uma trajetória que se inicia em seu campo de atração é finito.
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+\begin{description}
+\item (a) Mostre que a dinâmica ``Caricatura de Malthus''
+\[\dfrac{dN}{dt} =  F(N),\]
+onde o gráfico cartesiano da função \[F(N)\] consiste de uma reta \(y = r_0 N\) para \(0 le N \le K\) e outra reta \(y =-\lambda N + (r_0 + \lambda) K\), para \(N \ge K\), também produz uma dinâmica de saturação como o Modelo de Malthus, mas é linear por pedaços, o que pode ser uma vantagem na hora de obter uma solução explicita, mesmo que por pedaços. Analise esta questão. (Ideia inventada por Joseph B. Keller e seu aluno John Rinzel para analisar ondas em sistemas neurais na década de 1970).
+\item (b) Analise o modelo ainda mais caricatural em que \(F(N) = a > 0\), para \(N < K\) e \(F(N) = b < 0\), para \(N > K\) e \(F(K) = 0\). Mostre que este modelo exibe um efeito de saturação e, portanto, é da classe de Malthus-Verhulst, mas que não é mais parcimonioso do que o modelo quadrático comparando o número de parâmetros necessários para defini-los adimensionalmente.
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+Considere uma população cuja mortalidade se dá na forma (não Malthusiana) chamada dinâmica de Monod-Holling II:
+\[\dfrac{dN}{dt} = -\mu \dfrac{N}{A+N}, N(0) = N_0.\]
+(Segundo o bioquímico Jacques L. Monod (1910-1976) e o ecólogo Crawford S. Holling (1920-2019)). Mostre que o tempo de vida média dos indivíduos desta população depende do valor inicial \(N_0\) o que significa uma interferência mútua entre eles. Observe que a taxa de mortalidade per capita deste modelo, \(\frac{1}{N} \frac{dN}{dt}\) é decrescente com a densidade populacional, ao contrário do modelo Malthusiano. O que se pode concluir deste fato que, neste caso, a interação entre seus indivíduos, é (em suma) prejudicial.
+\end{exercise}
+
+ 
+ 
+
+\begin{exercise}
+Analise a questão de sobrevivência de duas populações que utilizam um único Recurso Comum. Se uma das populações burlar consistentemente um ``acordo"de compartilhamento, analise os cenários que levam à extinção populacional de ambas.
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Considere a seguinte modificação natural do Modelo de Fibonacci: A população é constituída de ``casais'' (o que pode ser interpretado como o número de fêmeas da população supondo-se que haja um equilíbrio entre as populações dos dois sexos regulamentado de alguma forma pela biologia reprodutiva da espécie). Considere que em cada período entre dois ``censos'', \(k\) e \(k + 1\), a reprodução obedeça a uma taxa \(\alpha\), isto é, se \(M\) for o número de casais maduro no censo \(k\) então eles produzirão \(\alpha M(k)\) casais no censo \(k + 1\). Suponha também que ocorra uma mortalidade que será a uma taxa de \(\mu_1\) para os imaturos e \(\mu_2\) para os casais maduros. Por exemplo, se \(M(k)\) for o número de casais maduros no censo \(k\), então, a proporção destes que sobreviverão para o próximo censo \(k + 1\) será de \((1 - \mu_2)\). 
+\begin{description}
+\item (a) Escreva, argumentando, um Modelo recursivo para esta população
+\item (b) Escreva a solução desta recursão em termos de funções elementares. (Sugestão: Estude a seção no texto Bassanezi-Ferreira 1988 - relativo a equações de recursão e o Método Operacional para resolve-las explicitamente)
+\item (c) Analise a possibilidade de crescimento exponencial desta população, ou de extinção (isto é, de \(\displaystyle\lim_{k \to \infty} P(k) = 0)\).
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+Modelo de Plantas anuais. Considere uma espécie de plantas que a cada ano \(k\) tem \(P(k)\) exemplares durante a primavera. Estas plantas produzirão durante o verão seguinte \(s P(k)\) sementes que serão lançadas ao solo durante o outono, quando as plantas secarão. Estas sementes lançadas hibernarão durante o inverno e apenas uma fração \(f_1\) delas sobreviverá e destas apenas uma fração \(g_1\) germinará produzindo plantas na próxima primavera no ano \(k + 1\). (Neste caso, as sementes que não germinaram morrem).
+
+\begin{description}
+\item (a) Escreva um modelo para a dinâmica da população P(k) destas plantas na primavera do ano \(k\).
+\item (b) Generalize o Modelo para sementes que tem a capacidade de hibernar dois invernos seguidos (com mortalidades específicas para o primeiro e segundo inverno) para germinarem apenas no segundo ano seguinte (com taxa especifica). Neste caso, dentre as sementes que não germinaram no primeiro inverno, algumas morrem e outras hibernarão no próximo inverno.
+\item (c) Escreva um modelo com muitas hibernações.
+\textbf{Observação}: A hibernação alongada (isto é, a não germinação de todas as sementes na primeira primavera seguinte) é uma ``estratégia'' de sobrevivência para épocas de estiagem que certamente ocorrerão durante alguns anos e que poderiam levar à extinção da espécie que não ``guardasse'' sementes para o próximo ano.
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+Considere diversos ``graus de maturidade'' de uma população de ``casais'' generalizando o Modelo de Fibonacci onde \(P(k)\) é esta população. Neste caso considere, digamos \(100\) ``faixas etárias'' de maturação cada uma com duração de um ano e com taxas (``frações'') específicas de mortalidade e reprodutibilidade.
+
+\item (a) Escreva um Modelo recursivo para a dinâmica desta População que, a proposito é semelhante ao Modelo de Euler de 1760.
+\item (b) Escreva a solução elementar desta recursão em termos de funções elementares.(Considere, ``ingenuamente'', que a obtenção de raízes de polinômios seja uma tarefa elementar e simples!).
+\item (c) Convencido/a de que a obtenção dos valores de raízes de polinômios de grau superior não é tarefa simples, reduza suas ambições e Analise teoricamente apenas a possibilidade de explosão populacional e de extinção em termos matemáticos com a informação da localização destas raízes com relação ao disco unitário no plano complexo. (Consulte Bassanezi-Ferreira a respeito e o Método de Mikhailov).
+\item (d) É historicamente interessante registrar que, embora o artigo de Euler tenha sido publicado nos Anais da Academia de Ciências de Berlim e precedido à publicação do livro de Malthus por 40 anos, o seu impacto foi quase nulo, tanto que o próprio Darwin, somente faz referência rápida a este trabalho em um ligeiro comentário na pg. 428 da 5a. edição do ``\textit{Origin of Species}''. Darwin revisou infatigavelmente o seu famoso texto inúmeras vezes desde sua publicação inicial em 1859 até a sexta edição de 1876 e não sendo muito afeito à Matemática (isto, por palavras dele próprio!- [autobiografia]) é possível que a referência ao artigo de Euler tenha sido resultado de alguma de suas muitas correspondências, alguma delas, talvez originárias de matemáticos. Esta é uma boa questão histórica para ser resolvida analisando o enorme arquivo de correspondência de Darwin. (Darwin[...]). Verifique a correção desta afirmação histórica com subsídios a favor ou contra ela.
+\item (e) É de se ressaltar que àquela época o conceito (pelo menos implícito) de Modelo Matemático que descreve hipóteses e conclusões em linguagem matemática era já bem conhecido como consequência das bem sucedidas e inúmeras aplicações do Cálculo de Newton e Leibniz, notadamente à Mecânica (Celeste ou Terrestre), em cuja arte Leonhard Euler foi um mestre insuperável. Assim, não seria por falta de bons exemplos a imitar que Malthus deixou de formular um Modelo mais preciso para a sua teoria. De qualquer forma, desde o princípio do século XIX o crescimento geométrico, ou exponencial, de uma população tornou-se sinônimo de um processo ``Malthusiano''.
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Considere uma População (não homogênea segundo a dinâmica Malthusiana), com \(N(t)\) indivíduos no instante \(t\) constituída de subpopulações homogêneas, \(N_k(t)\), \(N(t) = \sum_{k} N_k(t)\), cujas dinâmicas são descritas pelos Modelos Malthusianos:
+\[\dfrac{dN_k}{dt} = -\mu_k N_k.\]
+Mostre que o tempo de vida médio da população total é
+\[\tau = \sum \tau_k = \sum \dfrac{N_k(0)}{N(0)}\dfrac{1}{\mu_k}.\]
+Conclua que uma ``homogeneização'' (este é o termo técnico utilizado para designar estes procedimentos) da população total segundo o Modelo Malthusiano deve utilizar a constante de Malthus
+\[\mu_{eff} = \left(\dfrac{N_k(0)}{N(0)}\dfrac{1}{\mu_k}\right)^{-1}\]
+obtida pela \textbf{média harmônica} das constantes das subpopulações. O modelo Malthusiano
+\[\dfrac{dN_{eff}}{dt} = -\mu_{eff} N_{eff},\]
+é chamado ``Modelo Efetivo''.
+\end{exercise}
+
+\begin{exercise}
+Analise a aproximação das soluções do modelo efetivo com respeito à sua solução exata:
+\[N(t) = \sum N_k(0) e^{-\mu_k t}\]
+e as condições para que seja uma boa aproximação. 
+\end{exercise}
+
+\begin{exercise}\(\ast\)
+Considere uma população contínua que seja distribuída continuamente segundo uma característica \(x\) na forma \(N(t, x)\), onde o ``Número de indivíduos com característica \(x_1 \le x \le x_2\) no instante \(t\)'' é dado por:
+\[\int_{x_1}^{x_2} N(t, x)  dx\]
+e suponha que a mortalidade Malthusiana varie na forma \(\mu(\epsilon x)\) lentamente (isto é, \(\left|\dfrac{d\mu(s)}{ds}\right| \approx 1\) e \(0 < \epsilon \ll 1\) (bem pequeno). Obtenha o Modelo Efetivo para esta população.
+\end{exercise}
+
+
+
+\begin{exercise}
+\begin{description}
+\item (a) Descreva as Matrizes \(M\) e \(\overline{M}\) para sistemas de reações autocatalíticas, respectivamente, dos casos finito e infinito. 
+\item (b) Considere um processo de decaimento radioativo de uma amostra de Carbono 14. O \(C_{14}\) é um isótopo instável com um excesso de dois nêutrons no núcleo com relação ao Carbono 12, \(C_{12}\), que tem seis prótons e seis nêutrons e que é nuclearmente muito mais estável e mais comum. Apesar desta diferença nuclear, eles são quimicamente idênticos e, portanto, são utilizados sem distinção em processos bioquímicos de organismos vivos. O elemento carbono é um dos constituintes fundamentais no metabolismo dos organismos, junto com hidrogênio, oxigênio, fósforo, e outros. O \(C_{14}\) da biosfera (Terra e sua atmosfera), é produzido a uma taxa que pode ser considerada constante como resultado do bombardeio de raios cósmicos sobre os átomos de nitrogênio abundantes na alta atmosfera. Uma amostra típica de \(C_{14}\), um mol, \((14g)\), contém uma população em torno de \(10^{25}\) átomos. O processo de decaimento de um átomo \(C_{14}\) consiste em transmutar-se espontaneamente, ``sem essa nem aquela'', de volta ao átomo de nitrogênio, ou seja, de maneira totalmente ``aleatória'', o que significa ser imprevisível determinar (prática e mesmo teoricamente) quando isto ocorrerá com um átomo individual. Entretanto, observa-se que em uma grande população deles o processo coletivo se dá tal de acordo com o Modelo de Rutherford, ou seja, Malthusianamente: Se \(C(t)\) for a população de Carbono 14 no instante \(t\), então,
+\[\dfrac{dC}{dt} = -\mu C,\]
+onde \(k\) é a constante de decaimento.
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+Em Físico-Química a tradição histórica ainda domina, razão porque é mais comum utilizar o conceito de ``meia-vida'', \(T_{1/2}\), para caracterizar esta dinâmica, e que é definido da seguinte maneira: ``A Meia vida do C14 é o tempo (característico desta substancia) necessário para que uma amostra (qualquer) dela se reduza à sua metade por conta do decaimento radioativo''. 
+
+\begin{description}
+\item (a) Mostre que esta é uma boa definição, ou seja, que não depende do tamanho da amostra, e relacione o parâmetro ``meia vida'' \(T_{1/2}\) de \(C_{14}\) com a sua ``vida média'' \(\mu^{-1}\).
+
+\item (b) Obtenha a ``meia vida'' do \(C_{14}\) na literatura e determine a sua constante \(\mu\) de decaimento e a sua vida média em horas.
+
+\item (c) Considere a dinâmica do sistema de Carbono \(14\) total da biosfera \(C(t)\), produzido a uma taxa constante pelo processo já descrito e continuamente em decaimento. Mostre que esta dinâmica pode ser descrita na forma
+\[\dfrac{dC}{dt} = p - \mu C,\]
+e mostre que um equilíbrio é atingido.
+
+\item (d) Com base neste equilíbrio, (que depois de milhões de anos de `vida' da Terra, para todos os efeitos já deve ter sido atingido!), cujo valor você pode, e deve, descobrir qual seja na literatura, determine a sua taxa de produção \(p\) na alta atmosfera.
+
+Neste equilíbrio participam também todos os seres vivos, já que estão em contínuo intercâmbio com a matéria orgânica do ambiente. Após a morte de um organismo, este intercambio é interrompido, enquanto a concentração de \(C_{14}\) em seus restos mortais continua decaindo. Portanto, analisando a concentração \(c_0\) de \(C_{14}\) de restos arqueológicos de matéria orgânica, pode-se avaliar o tempo \(T\) decorrido desde sua morte. 
+
+\item (e) Descreva como medir o tempo com a concentração \(c_0\), ou seja, obtenha a função \(T(c_0)\).
+
+É necessário ressaltar que o conceito de ``tempo médio de vida, ou de sobrevivência, ou de permanência'' dos indivíduos em uma população em extinção \(\mu^{-1}\), é diferente do conceito de ``tempo de meia-vida'' , este último utilizado no modelo de decaimento radioativo, cujo significado é: ``período de tempo necessário para que ocorra o decaimento da metade da `população'''. Relacione os dois conceitos.
+\end{description}
+\end{exercise}
+ 
+
+ 
+
+\begin{exercise}
+Escreva a matriz \(S\) para as quatro situações indicadas e determine se, de fato, ela é sempre simétrica. 
+\end{exercise}
+
+\begin{exercise}
+Considere um sistema periódico, isto é, de tal forma que uma extremidade é conectada à outra. Neste caso o compartimento \(P_0\) terá \(P_N\) à sua esquerda e \(P_N\) terá \(P_0\) à sua direita. Mostre que ainda assim podemos escrever o modelo na forma \(\frac{dX}{dt} = SX\), com \(S\) simétrica.
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Desenhe um gráfico com 5 componentes e conexões múltiplas e estabeleça um Modelo de Difusão para este caso representando- na forma vetorial-matricial.
+\end{exercise}
+
+Anteriormente, mostramos que o Modelo Populacional Malthusiano pode ser encarado como uma grande quantidade de experimentos individuais, simultâneos e independentes e, portanto, passível de ser interpretado como um processo probabilístico para cada partícula individualmente. É natural portanto que estendamos o mesmo argumento para este modelo de Difusão. Por exemplo, podemos interpretar o parâmetro \(\mu^{-1}\) como o tempo médio de permanência de uma partícula em qualquer um dos compartimentos.
+
+%Exercícios:
+
+\begin{exercise}
+Determine a probabilidade de que uma partícula do compartimento \(P_k\) se transfira para o compartimento adjacente \(P_{k-1}\) (ou para \(P_{k+1}\)) durante o intervalo de tempo de comprimento \(T\).
+\end{exercise}
+
+\begin{exercise}
+Considere um sistema finito de compartimentos \(P_k(t), 0 \le k \le 2m+1\), conectados segundo um modelo de Difusão, sendo que as extremidade à esquerda de \(P_0\) e à direita de \(P_{2m+1}\) sejam absorventes. Supondo que no instante zero, exista apenas um único indivíduo e este ocupa o compartimento central \(P_m\), qual a probabilidade deste indivíduo se perder por uma das extremidades até o instante \(t\)? Ou seja, qual o tempo médio de permanência deste individuo no sistema?
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Mostre que a quantidade total de partículas é mantida no modelo de Difusão infinito,e também naqueles em que as condições laterais são de reflexão (Neumann) ou periódica. 
+\end{exercise}
+
+\begin{exercise}
+Mostre que se pelo menos uma das condições laterais é de Absorção (Dirichlet), então a quantidade total de partículas do sistema decresce exponencialmente. 
+\end{exercise}
+
+
+
+
+\begin{exercise} \quad
+
+\begin{description}
+\item (a) Considere uma população Malthusiana que inicia sua história com \(P_0 = P(0)\) indivíduos (vivos!) ``colonizadores'' submetida a uma taxa específica de mortalidade \(\mu\) e de natalidade \(\nu\). Determine o número total de nascimentos \(N(t)\) e o de óbitos \(M(t)\) durante o período \([0,t]\) nesta população.
+
+\item (b) Mostre que a subpopulação de sobreviventes dentre os indivíduos colonizadores \(P_0\) no instante \(t\) é \(e^{-\mu t} P(0)\) e que, em geral, os sobreviventes no futuro \(t+T\) da população \(P(t)\) existente no instante \(t\) é \(e^{-\mu T} P(t)\), e que os não sobreviventes são \((1-e^{-\mu T}) P(t)\).
+\end{description}
+\end{exercise}
+
+\begin{exercise}
+Considere uma população malthusiana com \textbf{altíssima} taxa de mortalidade, sem procriação. Argumente, matemática e demograficamente, porque um sistema com estas características é denominado como de ``\textit{Memória Curta}''. Se este sistema for alimentado por uma fonte externa \(f(t)\) de valor limitado, \((|f(t)| \le M)\) mostre que o ``grosso'' da \(t\) população
+\[P(t) e^{-\mu t} P(0) + \int_{0}^{t} e^{-\mu(t-s)} f(s)\ ds,\]
+para \(t\) distante da origem é descrito pela expressão: \(P(t) \approx \mu^{-1} f(t)\) a menos de erro exponencialmente pequeno. (\textbf{Sugestão}: Como \(1 \lll \mu\), valores da forma \(e^{-\mu t} P(0)\) são exponencialmente pequenos e na integral apenas a parte próxima de \(t\) (isto é, para \(s \sim t\)) o integrando \(e^{-\mu(t-s)} f(s)\) efetivamente contribui. Diz-se que os valores da integral estão ``condensados'' na extremidade \(t\). Com esta argumentação substitui-se a função \(f(s)\) por sua expansão de Taylor nas proximidades de \(t: f(s) = f(t)+(s-t) f'(t)+o(s-t)^2\) e avaliamos que apenas o termo \(f(t)\) terá contribuição não exponencialmente pequena). Esta argumentação faz parte de um conjunto de técnicas matemáticas importantes denominados ``\textbf{Métodos Assintóticos}'' a serem tratados com maiores detalhes em outro capítulo.
+\end{exercise}
+
+\begin{exercise}
+Obtenha uma expressão ``Fatorada'' para o operador
+\[\left(\dfrac{d}{dt} + \mu(t)\right),\]
+onde \(\mu(t)\) é uma função de \(t\) e, com isso, obtenha uma fórmula de Green para o Modelo Malthusiano com influência externa
+\[\dfrac{dN}{dt} = -\mu(t)N + f(t).\]
+\end{exercise}
+
+

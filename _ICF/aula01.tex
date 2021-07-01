@@ -1,0 +1,2408 @@
+
+\chapter{Integração complexa}
+
+\section{Introdução}
+
+Após uma revisão do cálculo de diferentes integrais, sem utilizar o plano complexo, vamos dividir a ementa desta disciplina em quatro etapas. Começamos com uma breve revisão das \textbf{variáveis complexas}, com o intuito de efetuarmos a inversão das transformadas integrais. Após as variáveis complexas, vamos apresentar as \textbf{equações diferenciais ordinárias}, com o intuito de introduzir o conceito de funções especiais, com destaque para as funções hipergeométricas e seus casos particulares. Ainda nas funções especiais, abordamos uma outra classe de funções especiais, com destaque para as funções de Mittag-Leffler, caso particular das funções \textbf{\textit{H}} de Fox, visto desempenharem papel crucial no cálculo fracionário. A terceira etapa é toda ela dedicada ao estudo das \textbf{transformadas integrais}, em particular \textbf{Laplace}, \textbf{Fourier} e \textbf{Mellin}, com o intuito de abordarmos as equações diferenciais fracionárias, com destaque para o problema da inversão. Por fim, uma \textbf{introdução ao cálculo fracionário}, com o intuito de resolver problemas que contêm, além da respectiva equação fracionária, condições. Neste sentido, o destaque é dado para as formulações de Riemann-Liouville e Caputo.
+
+Em cada uma das etapas, após uma breve revisão da teoria, discutimos vários exercícios de aplicação, bem como alguns sendo deixados a cargo do estudante e que, eventualmente, poderão contar para o \textbf{cômputo da nota}.
+
+\section{Integração complexa}
+
+Nesta primeira etapa vamos, através de exemplos e exercícios, recuperar alguns conceitos que nos levarão ao teorema dos resíduos, tendo como objetivo final a inversão das transformadas integrais, metodologia que vamos apresentar, pois desempenha papel fundamental na resolução de uma equação diferencial fracionária.
+
+
+
+\subsection{Integrais definidas}
+
+Comecemos pela definição de integral definida para funções complexas de uma variável real $t$.
+
+\definicao{}{def:01a}{
+Consideremos a função $f: [a, b] \to \mathbb{C}$, $a<b$, e a escrevamos em termos de suas partes real e imaginária, ou seja,
+$$f(t) = u(t) + iv(t),$$
+em que $u$ e $v$ são funções reais \textit{seccionalmente contínuas}, ou contínua por partes, da variável real $t$ num intervalo limitado $[a, b]$ e, portanto, integráveis.
+
+A \textbf{integral definida} de $f$ em $[a, b]$ é assim dada por
+\begin{eqnarray}
+\label{eq:01}
+\begin{array}{ccl}
+\displaystyle\int_{a}^{b} f(t)~dt = \displaystyle\int_{a}^{b} u(t)~dt + i \displaystyle\int_{a}^{b} v(t)~dt.
+\end{array}
+\end{eqnarray}}
+
+
+Um importante resultado sobre integração de funções reais é que toda função limitada $\varphi: [a, b] \to \mathbb{R}$ que é contínua exceto num número finito de pontos, é integrável.
+
+\proposicao{}{prop:01}{
+Sejam $f, g: [a, b] \to \mathbb{C}$ funções integráveis, $\mu \in \mathbb{C}$ e $c \in~ ]a, b[$. Ao separar as respectivas partes real e imaginária e aplicar as correspondentes propriedades para funções reais, temos:
+
+\begin{itemize}
+\item[i)] $f+g$ é integrável em $[a, b]$ e
+$$\displaystyle\int_{a}^{b} [f(t)+g(t)]~dt = \displaystyle\int_{a}^{b} f(t)~dt + \displaystyle\int_{a}^{b} g(t)~dt.$$
+
+\item[ii)] $\mu f$ é integrável em [a, b] e
+$$\displaystyle\int_{a}^{b} [\mu f(t)]~dt = \mu \displaystyle\int_{a}^{b} f(t)~dt.$$
+
+\item[iii)] $f$ é integrável em [a, c] e em [c, b] e
+$$\displaystyle\int_{a}^{b} f(t)~dt = \displaystyle\int_{a}^{c} f(t)~dt + \displaystyle\int_{c}^{b} f(t)~dt.$$
+\item[iv)] $|f|$ é integrável em $[a, b]$ e
+$$\displaystyle \left|\int_{a}^{b} f(t)~dt \right| \leq \displaystyle\int_{a}^{b} |f(t)|~dt.$$
+\end{itemize}
+}
+
+
+\textbf{Demonstração}: As provas de i), ii) e iii) decorrem da definição e das propriedades do limite de funções. Vamos provar o item iv).
+
+
+Se $f$ é integrável em $[a, b]$, temos que as funções reais $u$ e $v$ são integráveis em $[a, b]$. Logo, $u^2+v^2$ é integrável em $[a, b]$. Como a função $[0, +\infty[ \ni x \mapsto \sqrt{x} \in \mathbb{R}$ é contínua, segue que a função $|f|=\sqrt{u^2+v^2}$ também é integrável em $[a, b]$.
+
+Agora, provemos que
+$$\displaystyle \left|\int_{a}^{b} f(t)~dt \right| \leq \displaystyle\int_{a}^{b} |f(t)|~dt.$$
+
+
+Suponhamos que $\displaystyle\int_{a}^{b} f(t)~dt \neq 0$ e façamos $\mu = e^{-i \theta}$, em que $\theta = \Arg\left(\displaystyle\int_{a}^{b} f(t)~dt\right)$. Então
+$$|\mu| = 1 \mbox{ e } \mu \displaystyle\int_{a}^{b} f(t)~dt = \displaystyle \left|\int_{a}^{b} f(t)~dt \right|.$$
+Portanto,
+\begin{eqnarray*}
+\displaystyle \left|\int_{a}^{b} f(t)~dt \right|
+&=& \displaystyle\int_{a}^{b} \mu f(t)~dt = \Re \displaystyle\int_{a}^{b} \mu f(t)~dt \\
+&=& \displaystyle\int_{a}^{b} \Re [\mu f(t)]~dt \leq \displaystyle\int_{a}^{b} |\mu f(t)|~dt = \displaystyle\int_{a}^{b} |f(t)|~dt,
+\end{eqnarray*}
+em que usamos o item \textit{ii)} e o fato de que $\Re(z) \leq |z|$, para todo $z \in \mathbb{C}$.
+
+
+Se $\dint_{a}^{b} f(t)~dt = 0$, a desigualdade é óbvia.
+
+
+
+
+\proposicao{}{prop:02}{
+Temos que:
+
+ \begin{itemize}
+\item[i)] Se $f: [a, b] \to \mathbb{C}$ é integrável, então a função $F: [a, b] \to \mathbb{C}$ dada por
+$$F(x) = \displaystyle\int_{a}^{x} f(t)~dt$$
+é contínua. Além disso, se $f$ é contínua em um ponto $c \in [a, b]$, então $F$ é diferenciável em $c$ e
+$$F'(c)= f(c).$$
+
+\item[ii)] Se $f: [a, b] \to \mathbb{C}$ é diferenciável e $f'$ é integrável em $[a, b]$, então
+$$\displaystyle\int_{a}^{b} f'(t)~dt = f(b) - f(a).$$
+
+\item[iii)] Se $f: [a, b] \to \mathbb{C}$ é contínua e se $g: [c, d] \to \mathbb{R}$ é diferenciável com $g'$ integrável em $[c, d]$ e $g([c, d]) \subset [a, b]$, então
+  $$\displaystyle\int_{g(c)}^{g(d)} f(s) ds = \displaystyle\int_{c}^{d} f(g(t))g'(t)~dt.$$
+\end{itemize}
+}
+
+Notemos que \textit{i)} é uma versão do primeiro teorema fundamental do cálculo, \textit{ii)} é uma versão do segundo teorema fundamental do cálculo e \textit{iii)} é uma versão do teorema de mudança de variável.
+
+\proposicao{}{prop:02a}{
+Seja $f: [a, b] \subset \mathbb{R} \to \mathbb{C}$ uma função limitada que é contínua exceto num número finito de pontos. Então, existe uma partição $a= t_0 < t_1 < \cdots < t_n = b$ de $[a, b]$ tal que $f$ é contínua no intervalo $]t_{k-1}, t_k[$, para cada $1 \leq k \leq n$. Portanto, %pela Proposição 2.1 \textit{iii)},
+\begin{eqnarray*}
+\displaystyle\int_{a}^{b} f(t)~dt = \displaystyle\int_{a}^{t_1} f(t)~dt + \displaystyle\int_{t_1}^{t_2} f(t)~dt + \cdots + \displaystyle\int_{t_{n-1}}^{b} f(t)~dt.
+\end{eqnarray*}
+}
+
+
+\proposicao{}{prop:02b}{
+Se $\gamma_1: [a, b] \to \mathbb{C}$ e $\gamma_2: [c, d] \to \mathbb{C}$ são caminhos tais que $\gamma_1(b) = \gamma_2(c)$, então o caminho $\gamma_1 + \gamma_2: [a, b+d-c] \to \mathbb{C}$ definido por:
+\begin{eqnarray*}
+(\gamma_1 + \gamma_2)(t) =
+\left\{\begin{array}{rl}
+\gamma_1(t),& \mbox{ se } a\leq t\leq b \\
+\gamma_2(t-b+c),& \mbox{ se } b \leq t \leq b+d-c
+\end{array}\right.
+\end{eqnarray*}
+é chamado a \textit{soma} de $\gamma_1$ e $\gamma_2$. Este caminho percorre primeiro a trajetória de $\gamma_1$ e depois prossegue percorrendo a trajetória de $\gamma_2$.
+}
+
+
+\subsection{Integrais ao longo de caminhos}
+
+\definicao{}{}{
+Um \textbf{caminho} em um subconjunto $\Omega \subset \mathbb{C}$ é uma função contínua $\gamma: [a, b] \to \Omega$ (em que $a, b \in \mathbb{R}$ e $a<b$) e que $\gamma (a)$ e $\gamma (b)$ são os pontos inicial e final do caminho $\gamma$, respectivamente. Quando $\gamma (a) = \gamma(b)$, dizemos que $\gamma$ é um \textbf{caminho fechado} e, quando $\gamma(t_1) \ne \gamma(t_2)$, para todo $t_1, t_2 \in (a,b)$, dizemos que é um \textbf{caminho simples}. A imagem de uma caminho $\gamma$ é chamada a \textbf{trajetória de} $\gamma$.
+
+Se $\gamma: [a, b] \to \mathbb{C}$ é um caminho, então $-\gamma: [a, b] \to \mathbb{C}$ definido por:
+$$(-\gamma)(t) = \gamma(b+a-t)$$
+é chamado o \textbf{reverso de} $\gamma$. Notemos que $\gamma$ e $-\gamma$ têm a mesma trajetória, mas orientações opostas.
+}
+
+
+
+
+\definicao{}{}{
+Um caminho $\gamma: [a, b] \to \mathbb{C}$ é dito ser \textbf{de classe $C^1$} se $\gamma$ é diferenciável em todos os pontos de $[a, b]$ e a sua derivada $\gamma'$ é contínua. Dizemos que $\gamma$ é \textbf{suave} se é de classe $C^1$ e sua derivada é diferente de zero para todo $t \in [a,b]$.
+}
+
+\definicao{}{def:01}{
+Seja $\gamma: [a, b] \to \mathbb{C}$ um caminho de classe $C^1$. A \textit{integral de $f$ sobre $\gamma$} é dada por:
+\begin{equation}
+\label{int2}
+\displaystyle\int_\gamma f(z)~dz = \displaystyle\int_{a}^{b} f(\gamma(t)) \gamma'(t)~dt.
+\end{equation}
+}
+
+Observe que a função $g(t) = f(\gamma(t)) \gamma'(t)$ é contínua em $[a, b]$ e, consequentemente a integral do lado direito de \eqref{int2} existe.
+
+\definicao{}{}{
+Um caminho $\gamma: [a, b] \to \mathbb{C}$ é dito ser \textbf{suave por partes} se existe uma partição $a= t_0 < t_1 < \cdots < t_n = b$ do intervalo $[a, b]$ tal que, para cada $1 \leq k \leq n$, a restrição $\gamma_k$ de $\gamma$ a $[t_{k-1}, t_k]$ é um caminho suave. Neste caso,
+$$\gamma = \gamma_1 + \gamma_2 + \cdots +\gamma_n,$$
+o que mostra que todo caminho suave por partes pode ser escrito como uma soma de caminhos suaves. Por outro lado, é fácil mostrar que qualquer soma de caminhos suaves por partes é um caminho suave por partes.
+
+Se $\gamma: [a, b] \to \mathbb{C}$ é um caminho suave por partes e se $f$ é uma função complexa definida e contínua em $\gamma$, definimos a \textit{integral de $f$ sobre $\gamma$} por
+\begin{eqnarray}\label{int3}
+\displaystyle\int_\gamma f(z)~dz = \displaystyle\int_{a}^{b} f(\gamma(t)) \gamma'(t)~dt
+\end{eqnarray}
+}
+
+
+Observe que a função $g(t) = f(\gamma(t)) \gamma'(t)$ é limitada, está definida e é contínua exceto num número finito de pontos de $[a, b]$ e, assim, temos que a integral do lado direito de \eqref{int3} existe. 
+
+\proposicao{}{}{
+Escrevendo $\gamma$ como uma soma $\gamma = \gamma_1 + \gamma_2 + \cdots +\gamma_n,$ de caminhos suaves, temos
+$$\displaystyle\int_\gamma f(z)~dz = \displaystyle\int_{\gamma_1} f(z)~dz + \cdots + \displaystyle\int_{\gamma_n} f(z)~dz.$$
+Isso se verifica pela Proposição \eqref{prop:03} iv), que será enunciada e provada mais adiante.
+}
+
+%Vemos assim, que qualquer integral sobre um caminho suave por partes pode ser escrita como uma soma de integrais sobre caminhos suaves.
+
+\proposicao{}{prop:03}{
+Sejam $\Omega \subset \mathbb{C}$, $f, g: \Omega \to \mathbb{C}$ duas funções contínuas, $\gamma_1: [a, b] \to \Omega$ e $\gamma_2: [c, d] \to \Omega$ dois caminhos suaves por partes em $\Omega$ e $\mu \in \mathbb{C}$. Então:
+\begin{itemize}
+\item[i)] $\displaystyle\int_{\gamma_1} [f(z)+g(z)]~dz = \displaystyle\int_{\gamma_1} f(z)~dz + \displaystyle\int_{\gamma_1} g(z)~dz.$
+\item[ii)] $\displaystyle\int_{\gamma_1} [\mu f(z)]~dz = \mu \displaystyle\int_{\gamma_1} f(z)~dz.$
+\item[iii)] $\displaystyle\int_{-\gamma_1} f(z)~dz = -\displaystyle\int_{\gamma_1} f(z)~dz.$
+\item[iv)] Se $\gamma_1+\gamma_2$ está definido, $\displaystyle\int_{\gamma_1+\gamma_2} f(z)~dz = \displaystyle\int_{\gamma_1} f(z)~dz + \displaystyle\int_{\gamma_2} f(z)~dz.$
+\end{itemize}
+}
+
+
+\textbf{Demonstração}:
+
+i) Pela Proposição 2.1 i),
+\begin{eqnarray*}
+\displaystyle\int_{\gamma_1} [f(z)+g(z)]~dz
+&=& \displaystyle\int_{a}^{b} [f({\gamma_1}(t))+g({\gamma_1}(t))]{\gamma_1}'(t)~dt\\
+&=& \displaystyle\int_{a}^{b} f({\gamma_1}(t)){\gamma_1}'(t)~dt + \displaystyle\int_{a}^{b} g({\gamma_1}(t)) {\gamma_1}'(t)~dt\\
+&=& \displaystyle\int_{\gamma_1} f(z)~dz + \displaystyle\int_{\gamma_1} g(z)~dz.
+\end{eqnarray*}
+
+ii): Pela Proposição 2.1 ii),
+\begin{eqnarray*}
+\displaystyle\int_{\gamma_1} [\mu f(z)]~dz
+&=& \displaystyle\int_{a}^{b} \mu f(\gamma_1(t))\gamma_1'(t)~dt\\
+&=& \mu \displaystyle\int_{a}^{b} f(\gamma_1(t))\gamma_1'(t)~dt\\
+&=& \mu \displaystyle\int_{\gamma_1} f(z)~dz.
+\end{eqnarray*}
+
+iii): Como $(-\gamma_1)(t) = \gamma_1(b+a-t)$, temos que $(-\gamma_1)'(t) = -\gamma_1'(b+a-t)$, para todo $t \in [a, b]$. Fazendo a mudança de variável $s=b+a-t$, segue da Proposição 2.2 iii) que
+\begin{eqnarray*}
+\displaystyle\int_{-\gamma_1} f(z)~dz
+&=& -\displaystyle\int_{a}^{b} f(\gamma_1(b+a-t))\gamma_1'(b+a-t)~dt \\
+&=& \displaystyle\int_{b}^{a} f(\gamma_1(s))\gamma_1'(s) ds\\
+&=& -\displaystyle\int_{a}^{b} f(\gamma_1(s))\gamma_1'(s) ds\\
+&=& -\displaystyle\int_{\gamma_1} f(z)~dz.
+\end{eqnarray*}
+
+iv): Suponhamos que $\gamma_1 + \gamma_2$ está definido, isto é, que $\gamma_1(b) = \gamma_2(c)$. Pela definição de $\gamma_1+\gamma_2$, no intervalo $[a, b]$ temos que $(\gamma_1+\gamma_2)(t) = \gamma_1(t)$, em que
+$$(\gamma_1+\gamma_2)'(t) = \gamma_1'(t)$$
+exceto no conjunto finito dos pontos nos quais $\gamma_1'$ não existe. 
+
+Analogamente, no intervalo $[b, b+d-c]$, temos que
+$$(\gamma_1+\gamma_2)'(t) = \gamma_2'(t-b+c)$$
+exceto num número finito de pontos. Portanto, pela Proposição 2.1 iii),
+\begin{eqnarray*}
+&&\displaystyle\int_{\gamma_1+\gamma_2} f(z)~dz \\
+&=& \displaystyle\int_{a}^{b} f(\gamma_1(t))\gamma_1'(t)~dt + \displaystyle\int_{b}^{b+d-c} f(\gamma_2(t-b+c))\gamma_2'(t-b+c)~dt\\
+&=& \displaystyle\int_{a}^{b} f(\gamma_1(t))\gamma_1'(t)~dt + \displaystyle\int_{c}^{d} f(\gamma_2(s)) \gamma_2'(s) ds\\
+&=& \displaystyle\int_{\gamma_1} f(z)~dz + \displaystyle\int_{\gamma_2} f(z)~dz,
+\end{eqnarray*}
+em que fizemos a mudança de variável $s=t-b+c$.
+\hfill $\blacksquare$
+
+\definicao{}{def:02}{
+Dado um caminho suave por partes $\gamma: [a, b] \to \mathbb{C}$, definimos o \textbf{comprimento de} $\gamma$ por:
+$$\ell(\gamma) = \displaystyle\int_{a}^{b} |\gamma'(t)|~dt.$$
+}
+
+\definicao{}{def:03}{
+Se $\gamma: [a, b] \to \mathbb{C}$ é um caminho suave por partes e $f$ é uma função complexa definida e contínua em $\gamma$, definimos a \textbf{integral de $f$ sobre $\gamma$ com respeito ao comprimento de arco} por:
+\begin{equation*}
+\displaystyle\int_\gamma f(z)~|dz| = \displaystyle\int_{a}^{b} f(\gamma(t))|\gamma'(t)|~dt.
+\end{equation*}
+}
+
+Com esta definição, temos
+$$\ell(\gamma) = \displaystyle\int_\gamma |dz|.$$
+As propriedades \textit{i)}, \textit{ii)} e \textit{iv)} da Proposição \eqref{prop:03} permanecem válidas para integrais com respeito a comprimento de arco. Já \textit{iii)} se transforma em
+$$\displaystyle\int_{-\gamma} f(z) |dz| = \displaystyle\int_\gamma f(z) |dz|.$$
+
+\proposicao{}{prop:04}{
+Sejam $\gamma: [a, b] \to \mathbb{C}$ um caminho suave por partes e $f$ uma função complexa definida e contínua em $\gamma$. Então,
+$$\left|\displaystyle\int_\gamma f(z)~dz \right| \leq \displaystyle\int_\gamma |f(z)| |dz|.$$
+}
+
+\noindent
+\textbf{Demonstração}: Pela Proposição 2.1 \textit{iv)},
+\begin{eqnarray*}
+\left|\displaystyle\int_\gamma f(z)~dz \right|
+&=& \left|\displaystyle\int_{a}^{b} f(\gamma(t))\gamma'(t)~dt \right|\\
+& \leq & \displaystyle\int_{a}^{b} |f(\gamma(t))||\gamma'(t)|~dt = \displaystyle\int_\gamma |f(z)| |dz|.
+\end{eqnarray*}
+\hfill $\blacksquare$
+
+\corolario{}{}{
+Sejam $\gamma: [a, b] \to \mathbb{C}$ um caminho suave por partes e $f$ uma função complexa definida e contínua em $|\gamma|$. Suponha que
+$$|f(z)| \leq M, \forall\ z \in |\gamma|,$$
+em que $M$ é uma constante. Então
+$$\left|\displaystyle\int_\gamma f(z)~dz \right| \leq M \ell(\gamma)$$
+}
+
+\textit{\textbf{Demonstração.}} De fato,
+$$\left|\displaystyle\int_\gamma f(z)~dz \right| \leq \displaystyle\int_\gamma |f(z)| |dz| \leq M \displaystyle\int_\gamma |dz| = M \ell(\gamma).$$
+\hfill $\blacksquare$
+
+Dados um subconjunto aberto $\Omega \subset \mathbb{C}$ e uma função $f: \Omega \to \mathbb{C}$, dizemos que uma função $F: \Omega \to \mathbb{C}$ é uma \textit{primitiva de $f$ em $\Omega$} se $F$ é analítica em $\Omega$ e
+$$F'(z) = f(z), \forall\ z \in \Omega.$$
+
+\teorema{}{}{
+Sejam $\Omega$ um subconjunto aberto de $\mathbb{C}$ e $f: \Omega \to \mathbb{C}$, uma função contínua. Suponha que $F$ é uma primitiva de $f$ em $\Omega$. Para todo caminho suave por partes $\gamma: [a, b] \to \Omega$, temos:
+$$\displaystyle\int_\gamma f(z)~dz = F(\gamma(b)) - F(\gamma(a)).$$
+Em particular, se $\gamma$ é fechado, então
+$$\displaystyle \oint_\gamma f(z)~dz = 0.$$
+}
+
+\demteorema{Para demonstrar tal resultado, temos dois casos a considerar.
+
+1\textordmasculine\ CASO: $\gamma$ é suave.
+
+Definamos uma função $G(t) = F(\gamma(t))$, para $t \in [a, b]$. Em outras palavras, $G$ é a composta da função $F: \Omega \to \mathbb{C}$ com função $\gamma: [a, b] \to \Omega$, ambas diferenciáveis em todos os pontos de seus respectivos domínios. Pela regra da cadeia,
+$$G'(t) = F'(\gamma(t))\gamma'(t) = f(\gamma(t))\gamma'(t), \forall\ t \in [a, b],$$
+mostrando que $G'$ é uma função contínua. Pela Proposição 2.2 \textit{ii)},
+\begin{eqnarray*}
+\displaystyle\int_\gamma f(z)~dz
+&=& \displaystyle\int_{a}^{b} f(\gamma(t))\gamma'(t)~dt = \displaystyle\int_{a}^{b} G'(t)~dt\\
+&=& G(b) - G(a) = F(\gamma(b)) - F(\gamma(a)).
+\end{eqnarray*}
+
+2\textordmasculine\ CASO: $\gamma$ é suave por partes.
+
+Se $\gamma$ é suave por partes, existe uma partição $a= t_0 < t_1 < \cdots < t_n = b$ de $[a, b]$ tal que, para cada $1 \leq k \leq n$, a restrição $\gamma_k$ de $\gamma$ a $[t_{k-1}, t]$ é um caminho suave. Por \eqref{int3} e pelo 1\textordmasculine\ caso,
+\begin{eqnarray*}
+\displaystyle\int_\gamma f(z)~dz
+&=& \displaystyle\int_{\gamma_1} f(z)~dz + \displaystyle\int_{\gamma_2} f(z)~dz + \cdots + \displaystyle\int_{\gamma_n} f(z)~dz \\
+&=& [F(\gamma(t_1)) - F(\gamma(a))] + [F(\gamma(t_2)) - F(\gamma(t_1))] \\
+&& + \cdots + [F(\gamma(b)) - F(\gamma(t_{n-1}))]\\
+&=& F(\gamma(b)) - F(\gamma(a)).
+\end{eqnarray*}
+}
+
+Este teorema pode ser interpretado como um ``teorema fundamental do Cálculo'' para integrais sobre caminhos.
+
+
+\exemplo{exam:01.01}{
+Seja $z = x+iy$, com $x, y \in \mathbb{R}$.
+
+\begin{description}
+\item (a) Calcule a integral
+\[\Lambda = \dint_{C_i} z\ dz,\]
+com $i = 1, 2, 3$, ao longo dos caminhos:
+
+\begin{description}
+\item $C_1 : (0, 0) \to (1, 0) \to (1, 1)$
+\item $C_2 : (0, 0) \to (1, 1)$
+\item $C_3 : x^{2} + y^{2} = 1$.
+\end{description}
+
+\item (b) Discuta a analiticidade da função \(f(z) = z\) e confronte com os resultados obtidos no item anterior.
+\end{description}
+}
+
+
+\solexemplo{
+\textbf{Primeiro}, devemos notar que temos três contornos (caminhos) de integração distintos $C_1$, composto por dois segmentos de reta, coincidindo com os eixos coordenados; $C_2$, um segmento de reta e $C_3$, um arco de circunferência, como podemos verificar nas respectivas figuras.
+
+(a) Começamos por esboçar uma simples figura, destacando o caminho de integração,
+
+\noindent
+\begin{minipage}[!ht]{0.9\textwidth}
+\centering
+\captionof{figure}{Contorno composto por dois segmentos.}
+\label{fig:01.01}
+\psset{unit=2.0cm}
+\begin{pspicture}(-1,-1)(2,2.2)
+\psaxes[Dx=10,Dy=10]{->}(0,0)(-0.1,-0.1)(2,2)
+\uput[d](2,0){$\Re(z)$}
+\uput[r](0,2){$\Im(z)$}
+\pnode(0,0){A}\pscircle*(A){1.0pt}\uput[dl](A){$A(0, 0)$}
+\pnode(1,0){B}\pscircle*(B){1.0pt}\uput[d](B){$B(1, 0)$}
+\pnode(1,1){C}\pscircle*(C){1.0pt}\uput[u](C){$C(1, 1)$}
+\psline[linestyle=dashed](B)(C)(0,1)
+\psline[linecolor=blue](A)(C)
+\end{pspicture}
+\end{minipage}
+
+Neste caminho (\autoref{fig:01.01}), temos:
+$$\begin{array}{rcl}
+A(0, 0) \to B(1, 0) &\mapsto& y = 0, dy = 0 \\
+B(1, 0) \to C(1, 1) &\mapsto& x = 1, dx = 0
+\end{array}$$
+de onde segue, para a integral,
+$$\begin{array}{rcl}
+\dint_{C_1} z dz
+&=&
+\dint_{0}^{1} (x + iy)(dx + idy) \\
+&=&
+\dint_{0}^{1} x dx + \dint_{0}^{1} (1 + iy)i dy \\
+&=&
+i.
+\end{array}$$
+
+No \textbf{segundo} contorno, temos um segmento de reta $\overline{AC}$, a integral será nesse caminho, sem termos que somar duas integrais. Para tal, devemos utilizar uma \textbf{parametrização}.
+
+Seja $t$ um parâmetro, logo $z = t + it$, $0 \le t \le 1$. Logo, $dz = dt + i dt$ e, substituindo na integral, obtemos:
+$$\begin{array}{rcl}
+\dint_{C_2} z dz
+&=&
+\dint_{0}^{1} (t + it)(i + 1) dt \\
+&=&
+(1 + i)^2 \dint_{0}^{1} t dt \\
+&=&
+i
+\end{array}$$
+
+No \textbf{terceiro} contorno, temos uma circunferência, centrada na origem e raio $r = 1$, conforme \autoref{fig:01.02}. Note que os pontos inicial e final, coincidem $B \equiv D$. Aqui, também, devemos utilizar uma parametrização. Neste caso, utilizamos as coordenadas polares a fim de parametrizar a circunferência. Seja $z = e^{i\theta}$, com $0 < \theta \le 2\pi$.
+
+\noindent
+\begin{minipage}[!ht]{0.9\textwidth}\centering\captionof{figure}{Contorno composto por uma circunferência.}
+\label{fig:01.02}
+%\psset{unit=2.0cm}
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\psaxes[Dx=10,Dy=10]{->}(0,0)(-2.1,-2.1)(2.5,2.2)
+\uput[d](2.5,0){$\Re(z)$}
+\uput[r](0,2.2){$\Im(z)$}
+\pnode(0,0){A}\pscircle(A){2.0cm}\uput[d](A){$(0, 0)$}
+\pnode(2.0,0){B}\pscircle*(B){2.0pt}\uput[u](B){$B \equiv D$}
+\end{pspicture}
+\end{minipage}
+
+Logo, podemos escrever
+$$\begin{array}{rcl}
+\dint_{C_3} z\ dz
+&=&
+\dint_{0}^{2\pi} e^{i\theta} i e^{i\theta} d\theta \\
+&=&
+i \dint_{0}^{2\pi} e^{2i\theta} d\theta \\
+&=&
+0.
+\end{array}$$
+}
+
+Note, na solução do exemplo anterior, que, nos dois primeiros contornos, compostos por segmentos de reta (abertos), o resultado é o mesmo, enquanto, no terceiro contorno (fechado), o ponto inicial coincide com o ponto final e o resultado não retornou o mesmo dos dois anteriores. Esse fato, como vamos ver, desempenha papel importante no cálculo de integrais reais, via variáveis complexas. Ainda mais, como vamos discutir, temos duas possibilidades de percorrer a circunferência, no sentido \textbf{horário} ou no sentido \textbf{anti-horário} (positivo).
+
+\exercicio{}{%Do lar 1
+\label{exer:01.01}
+Integre $f(z) = z^2$ nos caminhos $C_1$ e $C_2$, respectivamente, tais que:
+
+(a) segmento de extremos nos pontos $A(0, 0)$ e $B(2, 1)$
+
+(b) circunferência de equação $x^{2} + (y - 1)^{2} = 4$.
+}
+
+\solexercicio{
+(a) Uma parametrização para o segmento \(AB\) é \(x = 2t\) e \(y=t\), com \(t \in [0,1]\).
+
+Segue que
+\[\dint_{AB} z^2 dz
+= \dint_{0}^{1} (2t+it)^2 (2dt+idt)
+= \dint_{0}^{1} (2+i)^3 t^2 dt
+= \dfrac{1}{3}(2+11i)
+\]
+
+(b) Façamos o seguinte: $z=x+iy$ e \(u=x\) e \(v=1+y\). Segue que \(du = dx\) e \(dv = dy\), com jacobiano igual a um. O caminho \(C_1\) (a circunferência de centro em $(0,1)$ e raio $2$), no plano \(xy\), passa a ser uma circunferência \(C_2\) de centro na origem, no plano \(uv\), com mesmo raio.
+
+Assim, temos:
+\[\dint_{C_1} z^2 dz = \dint_{C_2} (u+iv-i)^2~1~(du+idv)\]
+
+Façamos, agora, \(w = u+iv = 2 e^{it} \Rightarrow dw = 2ie^{it} dt\)
+
+Portanto,
+\[\dint_{C_2} (w-i)^2~dw
+= \dint_{0}^{2\pi} (2 e^{it}-i)^2~2ie^{it} dt
+= \dint_{0}^{2\pi} 8i e^{3it} + 8 e^{2it} - 2i e^{it} dt
+= 0
+\]
+
+%Uma parametrização para a circunferência é \(x = 2\cos(t)\) e \(y = 1+2\sin(t)\), com \(t \in [0,\pi]\), implicando em \(dx = -2\sin(t)\) e \(y = 2\cos(t)\). Segue que,
+%\[\begin{array}{rcl}\dint_{C_2} z^2 dz &=& \dint_{0}^{\pi} [2\cos(t)+i(1+2\sin(t))]^2 [-2\sin(t) +i 2\cos(t)] dt \\ &=& \dint_{0}^{\pi} [2\cos(t)+i(1+2\sin(t))]^2 [-2\sin(t) +i 2\cos(t)] dt \\ \end{array}\]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A fim de analisar a analiticidade de uma função complexa, vamos apresentar o que atende pelo nome de \textbf{condições/equações de Cauchy-Riemann}, que se constituem na maneira de verificar a analiticidade de uma função.
+
+
+A importância de uma função ser analítica é que ela pode ser expressa numa série de Laurent que está associada com o conceito de resíduo.
+
+Começamos com a definição de função analítica, introduzimos as chamadas equações de Cauchy-Riemann e concluímos com o chamado teorema de Cauchy, visando, ao final, o teorema dos resíduos.
+
+
+\definicao{}{def:01.01}{%Definição 1.
+Seja $\mathcal{U} \subset \mathbb{C}$ um conjunto aberto. Uma função contínua $f: \mathcal{U} \to \mathbb{C}$ é \textbf{holomorfa em} $z_0 \in \mathcal{U}$, se existe o limite
+$$\displaystyle\lim_{h \to 0} \dfrac{f(z_0+h) - f(z_0)}{h} = f'(z_0).$$
+O número complexo $f'(z_0)$ é chamado de \textbf{derivada de $f$ em $z_0$}.
+
+Diremos que $f$ é \textbf{holomorfa} se for holomorfa em todos os pontos de seu domínio, ou seja, existe $f'(z)$, para todo $z \in \mathcal{U}$. Ainda mais, quando $f(z)$ for analítica em todo o plano é chamada de \textbf{função inteira}.
+}
+
+
+
+\teorema{}{teo:01.01}{%Teorema 1.
+Seja $f(z) = u(x, y)+iv(x, y)$ uma função definida e contínua em alguma vizinhança $D$ do ponto $z = x + iy$ e diferenciável em $D$. Então, as derivadas parciais de primeira ordem de $u(x, y)$ e $v(x, y)$ existem e satisfazem às equações
+\begin{eqnarray}
+\dfrac{\partial}{\partial x} u(x, y)
+&=&
+\dfrac{\partial}{\partial y} v(x,y)
+\\
+\dfrac{\partial}{\partial y} u(x, y)
+&=&
+- \dfrac{\partial}{\partial x} v(x, y)
+\end{eqnarray}
+chamadas \textbf{condições/equações de Cauchy-Riemann}.
+}
+
+
+Então, se $f(z)$ é analítica num domínio $\mathcal{U}$, suas derivadas parciais existem e satisfazem as equações de Cauchy-Riemann em todos os pontos do domínio.
+
+\exercicio{}{
+%Do lar 2.
+Prove o \autoref{teo:01.01} usando como caminhos de integração os da \autoref{fig:01.03}.
+
+% FEITO NO PAPEL PAUTADO
+}
+
+\noindent
+\begin{minipage}[!ht]{0.9\textwidth}\centering
+\captionof{figure}{Dois possíveis caminhos de integração.}
+\label{fig:01.03}
+\psset{xunit=2.0cm,yunit=1.2cm}
+\begin{pspicture}(-0.5,-0.5)(4.5,4.5)
+
+\psaxes[Dx=10,Dy=10]{->}(0,0)(-0.1,-0.1)(4,4)
+\uput[d](4,0){$\Re(z)$}
+\uput[r](0,4){$\Im(z)$}
+
+\pnode(1,1){A}\pscircle*(A){1.0pt}\uput[dl](A){$z$}
+\pnode(3,1){B}\pscircle*(B){1.0pt}
+\pnode(3,3){C}\pscircle*(C){1.0pt}\uput[ur](C){$z+\Delta z$}
+\pnode(1,3){D}\pscircle*(D){1.0pt}
+\psline[linecolor=blue,ArrowInside=->,ArrowInsidePos=0.5](A)(B)(C)(D)(A)
+\end{pspicture}
+\fonte{Elaborada pelo autor}
+\end{minipage}
+
+\teorema{}{}{%Teorema 2.
+\label{teo:01.02}
+Se duas funções contínuas com valores reais $u(x, y)$ e $v(x, y)$ de duas variáveis reais $x$ e $y$, têm derivadas parciais de primeira ordem contínuas que satisfazem as condições de Cauchy-Riemann em algum domínio $\mathcal{U}$, então a função complexa $f(z) = u(x, y) + iv(x, y)$ é analítica em $D$.
+}
+
+\exercicio{}{%Do lar 3.
+\label{exer:01.03}
+Prove o \autoref{teo:01.02}.
+}
+
+Este teorema assegura que as condições de Cauchy-Riemann, mais a continuidade das derivadas parciais de primeira ordem, tornam-se também suficientes para garantir a analiticidade.
+
+
+\exemplo{exam:01.02}{
+Sejam $x, y \in \mathbb{R}$. Encontre uma função analítica $f(z)$ da qual a parte imaginária é dada por $v(x, y) = 2xy$.
+}
+
+\solexemplo{Começamos por calcular a derivada parcial
+$$
+\dfrac{\partial v}{\partial y} = 2x = \dfrac{\partial u}{\partial x},$$
+em que a segunda igualdade é devido a uma das condições de Cauchy e, integrando em relação a $x$, obtemos:
+$$u(x, y) = x^{2} + \phi(y)$$
+sendo $\phi(y)$ uma função somente de $y$. Derivando essa igualdade em relação à variável y e utilizando a outra condição de Cauchy, temos
+$$
+\dfrac{\partial u}{\partial y}
+= \phi'(y) = -2y = - \dfrac{\partial v}{\partial x}
+$$
+que, integrando, permite escrever
+$$\phi(y) = -y^{2} + C,$$
+em que $C$ é uma constante arbitrária.
+
+Voltando com $\phi(y)$, na expressão para $u(x, y)$, podemos escrever a igualdade
+$$u(x, y) = x^{2} - y^{2} + C.$$
+
+Segue que
+$$f(z) = u(x, y) + iv(x, y) = x^{2} - y^{2} + C + 2xyi,$$
+ou ainda, na seguinte forma, fatorando
+$$f(z) = (x + iy)^{2} + C = z^{2} + C$$
+que é o resultado desejado.
+}
+
+\exercicio{}{%Do lar 4.
+\label{exer:01.04}
+Sejam $x, y \in \mathbb{R}$. Encontre uma função analítica $f(z) = u(x, y) + iv(x, y)$ da qual a parte real é dada por $u(x, y) = x^{2} - y^{2} - x$.
+}
+
+Antes de concluirmos o Exemplo \ref{exam:01.01}, apresentamos o \textbf{teorema integral de Cauchy} que necessita da definição de \textbf{domínio simplesmente conexo}.
+
+\definicao{}{}{%Definição 2.
+\label{def:01.02}
+Um domínio $\mathcal{U}$, no plano complexo, é chamado \textbf{domínio simplesmente conexo} se todo caminho fechado simples em $D$, encerra somente pontos em $D$. Um domínio que não é simplesmente conexo é dito \textbf{multiplamente conexo} (Ver Figura 5).
+}
+
+
+\noindent
+\begin{minipage}[!ht]{0.9\textwidth}\centering
+\captionof{figure}{Domínio simplesmente conexo.}
+\label{fig:01.04}
+\psset{xunit=1.2cm,yunit=1.2cm}
+\begin{pspicture}(-3.5,-3.5)(3.5,2.2)
+\psellipse[fillstyle=solid,fillcolor=yellow!50](0,0)(3,2)
+\psline[linecolor=blue](-2,-1.3)(2.3,1)
+\end{pspicture}
+\end{minipage}
+
+
+
+\teorema{}{}{%Teorema 3.
+\label{teo:01.03}
+Se $f(z)$ é uma função holomorfa em um domínio $\mathcal{U}$, simplesmente conexo, então para todo caminho fechado $C \in \mathcal{U}$, temos:
+$$\doint_{C} f(z)~dz = 0.$$
+}
+
+
+\exercicio{}{%Do lar 5.
+\label{exer:01.05}
+Prove o \autoref{teo:01.03}.
+}
+
+
+\teorema{}{}{%Teorema 4.
+\label{teo:01.04}
+Se $f(z)$ é analítica num domínio simplesmente conexo, então existe uma primitiva $F(z)$ de $f(z)$, em $D$, que é analítica em $D$ e satisfaz à relação
+$$\dfrac{d}{dz} F(z) = f(z).$$
+}
+
+
+\exercicio{}{%Do lar 6.
+\label{exer:01.06}
+Prove o \autoref{teo:01.04}.
+}
+
+Voltemos ao caso. Temos $f(z) = z$, ou seja, $u(x, y) = x$ e $v(x, y) = y$. Assim,
+calculando as respectivas derivadas parciais, verifica-se que as equações de Cauchy-Riemann estão satisfeitas. Logo, é uma função analítica e
+$$\dint_{C} f(z) dz = 0,$$
+que é exatamente o resultado obtido no item (a) com o terceiro contorno, a circunferência.
+
+\exercicio{}{%Do lar 7.
+\label{exer:01.07}
+Seja $C: z(t) = \exp(it)$, com $0 \le t \le \pi/2$. Mostre que
+$$\Lambda = \dint_{C} \dfrac{dz}{z} = \dfrac{\pi}{2}i.$$
+}
+
+\solexemplo{
+$z = e^{it} \Rightarrow dz = i e^{it} dt$. Segue que
+$$\Lambda = \dint_{0}^{\frac{\pi}{2}} e^{-it} i e^{it} dt=i \dfrac{\pi}{2}.$$
+}
+
+
+\section{Os teoremas de Cauchy-Gousart e Aplicações}
+
+
+
+\subsection{Um Pouco Sobre Cauchy}
+
+%\noindent
+%\begin{minipage}[!h]{0.36\linewidth}
+%\begin{pspicture}(0,-1)(1.0,8.2)
+%%%\rput(2.5,4){\epsfig{figure=eps/cauchy.eps,scale=0.75}}
+%\uput[d](2.5,0){Augustin Louis Cauchy}
+%\uput[d](2.5,-0.5){Fonte: Wikipédia.}
+%\end{pspicture}
+%\end{minipage}
+
+%\begin{minipage}[!h]{0.64\linewidth}
+Augustin-Louis Cauchy (Paris, 21 de agosto de 1789 - Paris, 23 de maio de 1857) foi um matemático francês. O primeiro avanço na matemática moderna por ele produzido foi a introdução do rigor na análise matemática. O segundo foi no lado oposto - combinatorial. Partindo do ponto central do método de Lagrange, na teoria das equações, Cauchy tornou-a abstrata e começou a sistemática criação da teoria dos grupos. Não se interessando pela eventual aplicação do que criava, ele desenvolveu para si mesmo um sistema abstrato. Antes dele poucos, se algum, buscaram descobertas proveitosas na simples manipulação da álgebra.
+
+Foi um dos fundadores da teoria de grupos finitos. Em análise infinitesimal, criou a noção moderna de continuidade para as funções de variável real ou complexa. Mostrou a importância da convergência das séries inteiras, com as quais seu nome está ligado. Fez definições precisas das noções de limite e integral definida, transformando-as em notável instrumento para o estudo das funções complexas.
+%\end{minipage}
+
+Sua abordagem da teoria das equações diferenciais foi inteiramente nova, demonstrando a existência de unicidade das soluções, quando definidas as condições de contorno. Exerceu grande influência sobre a física de então, ao ser o primeiro a formular as bases matemáticas das propriedades do éter, o fluido hipotético que serviria como meio de propagação da luz.
+
+A vida de Augustin Cauchy assemelha-se a uma tragicomédia. Seu pai, Louis-François, conseguiu escapar da guilhotina apesar de ser advogado, culto, estudioso da Bíblia, católico fanático e tenente de polícia. Augustin era o mais velho dos seis filhos (dois homens e quatro mulheres). Seguia obstinadamente os preceitos da Igreja Católica. Seu eterno louvor à beleza e à santidade cansava os que o ouviam.
+
+
+\subsubsection{Juventude}
+
+Passou sua infância no mais sangrento período da Revolução. As escolas foram fechadas. Para escapar do perigo seu pai mudou-se para o campo, na vila de Arcueil, onde sobreviviam das poucas frutas e vegetais que ele colhia. Cauchy cresceu pois, enfraquecido.
+
+A educação e os livros de estudos foram assumidas por seu pai. Laplace, que se encontrava na vizinhança começou a visitar os Cauchy. Ficou impressionado pelo e menino sempre envolvido com seus livros e papéis. Apercebeu-se logo do seu talento para a matemática. Em 1 de janeiro de 1800 seu pai foi eleito Secretário do Senado, com escritório no Palácio Luxemburgo. Cauchy usava um canto do escritório do secretário para estudar. Lagrange aparecia freqüentemente para tratar de negócios e logo se interessou pelo rapaz. Surpreendeu-se com seu talento.
+
+Cauchy ingressou na Escola Central do Panteão com a idade de treze anos. Napoleão tinha instituído muitos prêmios em competições entre as escolas da França. Desde a primeira competição Cauchy foi a estrela da escola, ganhando o primeiro prêmio em grego, latim, composição e verso. Ao deixar a escola em 1804 ele ganhou a competição e um prêmio especial em humanidades. Nos dez meses seguintes estudou matemática intensivamente com um bom professor e em 1805, com a idade de dezesseis anos, passou para a Politécnica, onde foi muito ridicularizado por suas observações religiosas. Conseguiu manter sua calma e até tentou converter alguns de seus zombadores.
+
+\subsubsection{Vida e obras}
+
+Em 1807, passou da Politécnica para a Escola de Engenharia Civil, tornando-se o melhor aluno. Foi enviado para Cherbourg onde se prepararia para a invasão da Inglaterra. O sonho de invadir a Inglaterra desfez-se e os trabalhos em Cherbourg minguaram, voltando Cauchy a Paris em 1813. Com a idade de vinte e sete anos (1816) já se tinha elevado para o primeiro escalão dos matemáticos vivos. O artigo de Cauchy (1814) sobre \textit{definite integrals with complex number limits} deu início a sua grande carreira. Este trabalho publicado apenas em 1927 tinha cerca de 180 páginas.
+
+Em 1815, chamou a atenção do mundo dos matemáticos ao provar um dos grandes teoremas que Fermat tinha deixado à posteridade: todo número integral positivo é a soma de três triângulos, quatro quadrados, cinco pentágonos, seis hexágonos etc. A seguir, ganhou o Grande Prêmio oferecido pela Academia em 1816 para a teoria da propagação de ondas na superfície de fluidos pesados, com profundidade indefinida - as ondas do oceano estavam bastante perto deste tipo de interesse matemático. Este trabalho, quando foi finalmente publicado, tinha mais de quinhentas páginas.
+
+Aos vinte e sete anos Cauchy foi indicado para a Academia de Ciências. A primeira vaga seria sua. A vaga que lhe coube foi a cadeira de Gaspard Monge que fora expulso. A expulsão de Monge foi considerada absolutamente injusta, e quem quer que tivesse lucrado com ela demonstraria ausência de qualquer sensibilidade. Cauchy estava muito senhor de seus direitos e tranquilo com sua consciência. Sentou-se, pois, na cadeira de Monge. Honrarias e cargos importantes foram oferecidos ao maior matemático da França - com menos de trinta anos. Desde 1815 ele lecionava Análise na Politécnica. Foi promovido a Professor e, a seguir foi indicado para o Colégio de França e para a Sorbonne. Sua produção matemática levava-o, algumas vezes, a apresentar dois enormes ensaios à academia em algumas semanas. Além disto avaliava inúmeros ensaios dos que os submetiam à Academia e ainda emitia uma corrente de pequenos artigos em praticamente todos os ramos da matemática pura e aplicada. Casou-se com Aloïse de Bure, em 1818, com quem viveu quarenta anos. Tiveram duas filhas que foram educadas como Cauchy havia sido.
+
+Encorajado por Lagrange e outros, em 1821, escreveu para publicação, o curso e conferências sobre análise que ele tinha dado na Politécnica. Sua produtividade era tão prodigiosa que ele foi obrigado a fundar uma espécie de jornal, o \textit{Exercices de Mathématiques} (1826-1830) seguido de um outro, \textit{Exercices d'Analyse Mathématique et de Physique}, para publicação de sua exuberante produção de trabalhos em matemática pura e aplicada. Estes trabalhos eram avidamente comprados e estudados.
+
+Demonstrando solidariedade ao rei Charles exilado, também exilou-se, indo para a Suíça. Carlos Alberto, Rei de Sardenha, sabendo-o desempregado, ofereceu-lhe o lugar de Professor de Matemática e Física em Turim. Ele, rapidamente, aprendeu italiano e iniciou suas aulas nesta língua. O rei Charles, a fim de recompensar seu leal seguidor. Em 1833 ofereceu-lhe a responsabilidade pela educação do herdeiro de Charles, o Duque de Bordeaux, de 13 anos de idade. Da manhã à noite Cauchy era incomodado pela impossível missão de tornar o menino em matemático. A despeito da constante atenção que estava obrigado a dispensar ao aluno, Cauchy conseguiu progredir com sua matemática. O mais impressionante trabalho deste período foi o longo ensaio sobre dispersão da luz.
+
+Libertou-se de seu aluno em 1838 e sua atividade matemática tornou-se maior do que nunca. Durante os últimos dezenove anos de sua vida ele produziu mais de 500 documentos em todos os ramos da matemática, física e astronomia. Muitos destes trabalhos eram longos tratados. Quando ocorreu uma vaga no Colégio de França ele foi unanimemente eleito para preencher o lugar. Para assumir teria que fazer um juramento de fidelidade a Louis Philipe. Recusou-se e perdeu o emprego. Foi novamente eleito e manteve a recusa. Durante quatro anos voltou as costas ao governo e continuou seu trabalho. São deste período as mais importantes contribuições astronômico-matemáticas apresentadas à Academia. A briga com o Governo chegou a uma crise em 1843, quando aconselhado por seus amigos deixou o lugar escrevendo uma carta aberta ao povo. A carta é o mais belo documento escrito por Cauchy. Ele lutara por uma causa perdida, porém, para a posteridade, ficou o respeito e a coragem deste grande matemático que, com dignidade e sem paixão lutou pela liberdade de sua consciência. Ao tempo de Galileu, sem dúvida, Cauchy teria ido para a fogueira a fim de manter sua liberdade de pensamento. Quando Louis Philipe foi expulso em 1848, um dos primeiros atos do Governo Provisório foi abolir o juramento de fidelidade. Em 1852, quando Napoleão III tomou o comando, o juramento foi restaurado. Cauchy continuou com suas aulas como se nada tivesse acontecido. Desta época até a sua morte ele foi a maior glória da Sorbonne.
+
+\subsubsection{Morte}
+
+O total de suas obras alcança 789 artigos (muitos dos quais muito extensos) preenchendo vinte e quatro grossos volumes. No final de sua vida ele perdeu a razão, tentando converter todos para sua religião. Morreu inesperadamente aos sessenta e oito anos, em 23 de maio de 1857. Havia ido para o campo esperando melhorar seu problema de bronquite, lá foi tomado por uma febre fatal. Algumas horas antes de sua morte havia tido uma conversa animada com o arcebispo de Paris sobre caridade, um de seus interesses na vida. Suas últimas palavras foram dirigidas ao Arcebispo: ``O homem morre mas sua obra permanece''.
+
+Fonte: Wikipédia
+
+
+
+
+
+%%%%%\input{oteoremadecauchy-gousart.tex} %paulo
+
+\section{Os teoremas de Cauchy-Gousart}
+
+
+
+
+
+
+\lema{}{L2}{
+Seja $\gamma:[a, b] \to \mathbb{C}$ um caminho contínuo. Então,
+$$\left|\dint_{a}^{b} \gamma(t) ~dt \right| \leq \displaystyle\int_{a}^{b} |\gamma(t)| ~dt.$$
+}
+
+\demlema{Temos que
+$$\left|\dint_{a}^{b} \gamma(t) ~dt \right| = \displaystyle\lim_{|P| \to 0} \left| \displaystyle\sum_{j=1}^n \gamma(t_j)(t_j-t_{j-1}) \right|,$$
+em que $P$ é uma partição de $[a, b]$ e $|P| = \max\{t_j-t_{j-1}; j = 1, \ldots, n\}$.
+
+Por outro lado,
+$$\left|\displaystyle\sum_{j=1}^n \gamma(t_j)(t_j-t_{j-1}) \right| \leq \displaystyle\sum_{j=1}^n |\gamma(t_j)| (t_j-t_{j-1}).$$
+
+Portanto,
+$$\left|\dint_{a}^{b} \gamma(t) ~dt \right|
+\leq \displaystyle\lim_{|P| \to 0} \displaystyle\sum_{j=1}^n |\gamma(t_j)| (t_j-t_{j-1})
+= \dint_{a}^{b} |\gamma(t)| ~dt.$$
+}
+
+
+Antes de enunciarmos um importante resultado, apresentaremos duas importantes definições.
+
+\definicao{}{def:04}{
+Uma \textbf{$1$-forma} diferencial $\omega: \mathcal{U} \rightarrow \mathbb{C}$, $\mathcal{U}$-aberto de $\mathbb{C}$, é dita uma \textbf{forma exata} se existe uma aplicação $f: \mathcal{U} \rightarrow \mathbb{C}$ tal que $\omega = df$, em $\mathcal{U}$. A função $f$ que satisfaz esta igualdade é chamada de \textbf{primitiva} de $\omega$.
+}
+
+\definicao{}{def:05}{
+Dizemos que uma $1$-forma diferencial $\omega$ definida em $\mathcal{U} \subset \mathbb{C}$ é de classe $C^r, r \geq 0$, é uma \textbf{$1$-forma fechada}, se $\forall\ p \in \mathcal{U}; \exists \V_p \subset \mathcal{U}$, tal que $\omega|_{\V_p}$ é exata, isto é, se existir uma aplicação $f: \V_p \to \mathbb{C}$ de classe $C^{r+1}$, tal que, $\omega|_{\V_p} = df$.
+}
+
+\exemplo{}{
+(a) $\omega(z) = \dfrac{1}{z} ~dz$ é uma forma fechada em $\mathbb{C}^\ast$, mas não é exata.
+
+(b) $\omega = d(\log z)$, $\log z: \mathcal{U}_{\phi} \rightarrow \mathbb{C}$ é um ramo do logaritmo de $z$.
+}
+
+
+\teorema{Das 3 equivalências}{teo:06}{
+Seja $\omega(z) = A(z) \dx + B(z) \dy$ uma $1$-forma contínua em um aberto $\mathcal{U} \subset \mathbb{C}$. As afirmações são equivalentes:
+
+\begin{description}
+\item{} (a) $\omega$ é fechada.
+\item{} (b) Para todo retângulo $Q \subset \mathcal{U}$ com lados paralelos aos eixos, tem-se:
+$$\dint_{\partial Q} \omega = 0.$$
+
+Se $\omega$ for de classe $C^1$, então (a) e (b) são equivalentes a:
+\item{} (c) $\fbox{$\dfrac{\partial A}{\partial y} = \dfrac{\partial B}{\partial x}.$}$
+\end{description}
+}
+
+% a demonstração é longa!
+\demteorema{(c) Para todo $p \in \mathcal{U}$, existe $\V_p \subset \mathcal{U}$; tal que
+$$\omega|_{\V} = \df = \dfrac{\partial f}{\partial x} \dx + \dfrac{\partial f}{\partial y} \dy.$$
+
+Dessa forma,
+$A = \dfrac{\partial f}{\partial x}$ e $B = \dfrac{\partial f}{\partial y}$.
+
+Segue que
+$$\dfrac{\partial A}{\partial y} = \dfrac{\partial^2 f}{\partial y \partial x} = \dfrac{\partial^2f}{\partial x \partial y} = \dfrac{\partial B}{\partial x}.$$
+}
+
+
+O resultado a seguir nos dá uma estimativa para o valor absoluto da integral de uma função. É, também, utilizado nas demonstrações de alguns resultados importantes, dentre eles o teorema de Cauchy-Gousart.
+
+\lema{}{L4.1}{
+Considere a função $g: \mathcal{U} \to \mathbb{C}$ contínua e um caminho $\gamma: [a, b] \to \mathcal{U}$ de classe $C^1$ por partes. Então,
+$$\left|\dint_{\gamma} g(z) ~dz \right| \leq M(g, \gamma) \cdot \ell(\gamma),$$
+em que $M(g, \gamma) = \sup{|g(z) ~dz|; z \in \gamma([a, b])}$ e $\ell(\gamma)$ é o comprimento de $\gamma$.
+}
+
+\demlema{Demonstraremos o caso em que $\gamma$ é de classe $C^1$, pois a prova para o caso geral segue deste pela divisão da curva em partes de classe $C^1$.
+
+Sabemos que $\gamma(t) = x(t) + i \cdot y(t)$, em que $x = \Re(\gamma)$ e $y = Im(\gamma)$. Por definição, temos que
+$$\left|\dint_{\gamma} g(z) ~dz \right| = \left|\dint_{a}^{b} g(\gamma(t)) \gamma'(t) ~dt \right|
+%\stackrel{Lema {\ref{L2}}}{
+\leq \dint_{a}^{b} |g(\gamma(t))| \cdot |\gamma'(t)| ~dt.$$
+Mas, $|(\gamma(t)| \leq M(g,\gamma)$, para todo $t \in [a, b]$. Portanto,
+$$\begin{array}{rcl}
+\dint_{a}^{b} |g(\gamma(t))| \cdot |\gamma'(t)| ~dt
+&\leq& \dint_{a}^{b} M(g, \gamma) \cdot |\gamma'(t)| ~dt \\
+&=& M(g, \gamma) \dint_{a}^{b} \sqrt{(x'(t))^2+(y'(t))^2} ~dt \\
+&=& M(g, \gamma) \cdot \ell(\gamma).
+\end{array}$$
+}
+
+\teorema{Cauchy-Gousart, Teorema Fundamental do Cálculo para Funções com uma Variável Complexa}{TCG}{
+Se $f: \mathcal{U} \to \mathbb{C}$ é uma função holomorfa em um aberto $\mathcal{U} \subset \mathbb{C}$, então a forma $\omega = f(z) ~dz$ é fechada.
+}
+
+%Vamos demonstrar esse teorema para o caso particular em que $f$ é de classe $C^1$ e depois o caso geral.
+%\begin{description}
+%\item{$1^{a}$ prova-Cauchy}
+%\end{description}
+%
+%Considere $f(z) = u(x, y)+i v(x, y)$ uma função de classe $C^1$.
+%Logo, $\omega = f(z) ~dz$
+%$$ = (u+iv) (dx+i dy) = (u+iv) dx+(iu-v) dy = A dx+B dy.$$
+%
+%Como $f$ é holomorfa, então satisfaz as condições de Cauchy-Riemann.
+%$$\dfrac{\partial B}{\partial x} = i \dfrac{\partial u}{\partial x}-\dfrac{\partial v}{\partial x} = i \dfrac{\partial v}{\partial y}+\dfrac{\partial u}{\partial x} = \dfrac{$\Omega$}{\partial y}.$$
+%
+%Como $\omega$ é de classe $C^1$ concluímos então, pelo Teorema {\ref{teo:06}} que $\omega = f(z) ~dz$ é fechada.
+
+
+%%\begin{mybookproof}
+\demteorema{%prova-Gousart
+Como, por hipótese, $f$ é holomorfa, então existe $f'(z)$, para todo $z \in \mathcal{U}$. Pelo Teorema {\ref{teo:06}} devemos provar que se um retângulo $Q \subset \mathcal{U}$ é um retângulo com lados paralelos aos eixos, então
+$$\dint_{\partial Q} f(z) ~dz = 0.$$
+
+Considere, então, um retângulo $Q = [a, b] \times [c, d]$; $Q \subset \mathcal{U}$ e os retângulos $Q_j, j = \{1, 2, 3, 4\}$, obtidos pela divisão de cada um dos segmentos $[a, b]$ e $[c, d]$ em duas partes iguais.
+
+\begin{center}
+\begin{pspicture}(0,0)(5,4)
+\pspolygon(0,0)(5,0)(5,4)(0,4)
+\psline(2.5,0)(2.5,4)
+\psline(0,2)(5,2)
+\rput(1.75,1){$Q_1$}
+\rput(3.75,1){$Q_2$}
+\rput(3.75,3){$Q_3$}
+\rput(1.75,3){$Q_4$}
+\end{pspicture}
+\end{center}
+
+Logo,
+$$
+I(Q)
+%\left|\int_{\partial Q} \omega ~dz\right|
+\stackrel{def.}{=} \left|\dint_{\partial Q} f(z) ~dz\right|
+= \left|\displaystyle\sum_{j=1}^4 \dint_{\partial Q_j} f(z) ~dz\right|
+\leq \displaystyle\sum_{j=1}^4 \left|\dint_{\partial Q_j} f(z) ~dz\right|
+= \displaystyle\sum_{j=1}^4 I(Q_j),
+$$
+
+Seja $Q^{(1)}$ o retângulo para o qual $I(Q_j)$ é máximo, isto é, $I(Q_j) \leq I(Q^{(1)}), j = \{1, 2, 3, 4\}$. Então,
+$$I(Q) \leq 4 \cdot I(Q^{(1)}).$$
+
+Dividamos o retângulo $Q^{(1)}$ em quatro partes iguais a $Q_j^{(1)}, j = \{1, 2, 3, 4\}$. Se $Q^{(2)}$ é o retângulo para o qual $I(Q_j^{(1)})$ é máximo. Então,
+$$I(Q^{(1)}) \leq 4 \cdot I(Q^{(2)}).$$
+
+Consequentemente,
+$$I(Q) \leq 4 \cdot I(Q^{(1)}) \leq 4^2 \cdot I(Q^{(2)}).$$
+
+Observe, até aqui, que $Q \supset Q^{(1)} \supset Q^{(2)}$ e que este processo de divisão dos lados dos retângulos em $4 =2^2$ partes iguais nos dá retângulos semelhantes ao $Q$. Assim, $Q^{(2)}$ é semelhante a $Q$ com razão de semelhança $\dfrac{1}{2^2}$.
+
+Procedendo desta forma, temos, após $n$ repetições, que
+$Q \supset Q^{(1)} \supset Q^{(2)} \supset \ldots \supset Q^{(n)}$, em que $Q^{(n)}$ é obtido a partir da divisão de $Q^{(n-1)}$ em $4$ partes iguais $Q_j^{(n-1)}, j = \{1, 2, 3, 4\}$, e tomando $Q^{(n)}$ como sendo o sub-retângulo desta divisão tal que $I(Q_j^{(n-1)})$ é máximo. Assim,
+$$I(Q^{(n-1)}) \leq 4 \cdot I(Q^{(n)}).$$
+
+Consequentemente,
+$$I(Q) \leq 4 \cdot I(Q^{(1)}) \leq 4^2 \cdot I(Q^{(2)}) \leq \ldots \leq 4^{n-1} \cdot I(Q^{(n-1)}) \leq 4^{n} \cdot I(Q^{(n)}),$$
+em que $Q^{(n)}$ é semelhante a $Q$ com razão de semelhança $\dfrac{1}{2^n}$.
+
+Se $d$ é o diâmetro de $Q$ e $\ell$ o comprimento de $\partial Q$, então $d_n = \dfrac{d}{2^n}$ é o diâmetro de $Q^{(n)}$ e $\ell_n = \dfrac{\ell}{2^n}$ é o comprimento de $\partial Q^{(n)}$. Decorre daí a sequencia de retângulos $\{Q^{(n)}\}_{n \geq 0}$ é uma sequencia encaixante de compactos, isto é,
+$$Q^{(n+1)} \subset Q^{(n)} \subset \cdots \subset Q^{(1)} \subset Q, n > 0,$$
+tal que $\displaystyle\lim_{n \to \infty} d_n = \displaystyle\lim_{n \to \infty} \dfrac{d}{2^n} = 0$ e, portanto, $\displaystyle\cap_{n=1}^{\infty} Q^{(n)} = \{z_0\}$.
+
+Como $z_0 \in \mathcal{U}$ e $f$ é holomorfa em $\mathcal{U}$, podemos escrever
+$$f(z) = f(z_0)+f'(z_0) (z-z_0)+o(z-z_0),$$
+em que $o$ é uma função definida em $\mathcal{U}-\{z_0\} = \{z-z_0; z \in \mathcal{U}\}$ e $\displaystyle\lim_{w \to 0} \dfrac{o(w)}{w} = 0$.
+
+Assim,
+$$\begin{array}{rcl}
+I(Q^{(n)})
+&=& \left|\dint_{\partial Q^{(n)}} f(z) ~dz\right| \\
+&=& \left|\dint_{\partial Q^{(n)}} (f(z_0)+f'(z_0) (z- z_0)) ~dz + \dint_{\partial Q^{(n)}} o(z-z_0) ~dz\right| \\
+&\leq& \left|\dint_{\partial Q^{(n)}} (f(z_0)+f'(z_0) (z-z_0)) ~dz\right| + \left|\dint_{\partial Q^{(n)}} o(z-z_0) ~dz\right|
+\end{array}$$
+
+Mas
+$$\dint (f(z_0)+f'(z_0) (z-z_0)) ~dz = (f(z_0) \cdot z+\dfrac{1}{2} f'(z_0) (z-z_0))^2 + C$$
+são as primitivas da forma $\omega = (f(z_0)+f'(z_0) (z-z_0)) ~dz$, que implica na exatidão desta, isto é
+$$\dint_{\partial Q^{(n)}} (f(z_0)+f'(z_0) (z-z_0)) ~dz = 0.$$
+
+Utilizando o resultado obtido no lema {\ref{L4.1}}, temos que
+$$\begin{array}{rcl}
+I(Q^{(n)})
+&=& \left|\dint_{\partial Q^{(n)}} o(z-z_0) ~dz\right| \\
+&\leq& \ell(Q^{(n)}) \cdot \sup\{|o(z-z_0)|; z \in \partial Q^{(n)}\} \\
+&=& \dfrac{\ell}{2^n} \cdot M(o, \partial Q^{(n)}).
+\end{array}$$
+
+Fixemos $\epsilon > 0$. Como $\displaystyle\lim_{w \to 0} \dfrac{o(w)}{w} = 0$, existe $\delta > 0$ tal que se $|w|<\delta$, então $|o(w)| < \dfrac{\epsilon}{\ell \cdot d} |w|$.
+
+Seja $D$ o disco de centro $z_0$ e raio $\delta$. Como $z_0 \in Q^{(k)}, \forall\ k \ge 0$, então $Q^{(n)} \subset D$, para todo $n \ge n_0$. De fato, para que $Q^{(n)} \subset D$ é suficiente que $d_n < \delta$, o que é verdade para $n$ suficientemente grande, uma vez que $\displaystyle\lim_{n \to \infty} d_n = 0$. Tomemos, então, $n > n_0$. Como $z_0 \in Q^{(n)} \subset D$, decorre do lema {\ref{L4.1}}, de que $d_n = d/2^n$ e $\ell_n = \ell/2^n$, que
+$$\begin{array}{rcl}
+4^n \cdot I(Q^{(n)})
+&\le& 4^n \cdot \dfrac{\ell}{2^n} \cdot \sup\{|o(z-z_0)|; z \in \partial Q^{(n)}\} \\
+& < & 4^n \cdot \dfrac{\epsilon \cdot \ell_n}{\ell \cdot d} \cdot \sup\{|z-z_0|; z \in \partial Q^{(n)}\} \\
+& < & 4^n \cdot \dfrac{\epsilon \ell_n}{\ell \cdot d} \cdot d_n = \epsilon
+\end{array}$$
+
+Isto implica que $\displaystyle\lim_{n \to \infty} 4^n \cdot I(Q^{(n)}) = 0$.
+}
+
+
+
+
+O corolário a seguir é uma versão um pouco mais forte do Teorema {\ref{TCG}}.
+
+\corolario{}{}{
+Sejam $\mathcal{U}$ um aberto de $\mathbb{C}$, $r \subset \mathcal{U}$ um segmento de reta e $f: \mathcal{U} \rightarrow \mathbb{C}$ uma função contínua. Se $f$ é holomorfa em $\mathcal{U} \setminus r$, então a forma $f(z) ~dz$ é fechada em $\mathcal{U}$.
+}
+
+\demcorolario{Devemos mostrar que
+$$\dint_{\partial Q} f(z) ~dz = 0,$$
+em que $Q \subset \mathcal{U}$ é um retângulo.
+
+Pelo Teorema \ref{TCG}, basta considerarmos o caso em que $r \cap Q \neq \emptyset$. Faremos com que a reta $r$ fique paralela a um dos lados do retângulo $Q$ através da rotação dos eixos coordenados. A partir daí, analisemos dois casos:
+
+1. $r \cap Q$ está contido em um dos lados horizontais de $Q$, por exemplo, o lado horizontal inferior.
+
+
+\begin{center}
+\begin{pspicture}(-3,-1)(8,5)
+\pspolygon(0,0)(5,0)(5,4)(0,4)
+\psline[linecolor=red]{-}(0,1)(5,1)
+\psline[linestyle=dashed](-2,1)(0,1)
+\psline[linestyle=dashed](5,1)(7,1)
+\psline{->}(2.2,0)(2.5,0)
+\psline{->}(2.2,1)(2.5,1)
+\psline{->}(0,0)(0,0.6)
+\psline{->}(5,0)(5,0.6)
+\psline{->}(-1,2)(-0.1,0.2) %linha b1(e)
+\psline{->}(6,2)(5.1,0.2) %linha b2(e)
+\psline{<->}(6,0)(6,1) %linha (e)
+\psline[linestyle=dashed](5,0)(6,0)
+\psline[linewidth=1.75pt,linecolor=red]{|-|}(-1,0)(2,0)
+\pscircle[fillstyle=solid,fillcolor=blue,linecolor=blue](6,0.5){0.15}
+\rput(2.5,2.5){$\tilde{Q}_{\epsilon}$}
+\rput(2.5,0.5){$Q_{\epsilon}$}
+\rput(6,0.5){$\epsilon$}
+\uput[u](7,1){$r_{\epsilon}$}
+\uput[u](2.5,1){$\alpha_{\epsilon}$}
+\uput[d](2.5,0){$\alpha_{0}$}
+\uput[d](0.5,0){$r$}
+\uput[ul](-1,2){$\beta_{1}(\epsilon)$}
+\uput[ur](6,2){$\beta_{2}(\epsilon)$}
+\end{pspicture}
+\end{center}
+
+
+
+Assim, para $Q = [a, b] \times [c, d]$, temos que $r \cap Q \subset [a, b] \times \{c\}$. Considere $0 \leq \epsilon < d-c, r_{\epsilon} = \mathbb{R} \times \{c+\epsilon\}$ e $\alpha_{\epsilon}$ o segmento de $r_{\epsilon}$ que divide $Q$ em dois retângulos menores, $Q_{\epsilon} = [a, b] \times [c, c+\epsilon]$ e $\tilde{Q}_{\epsilon} = [a, b] \times [c+\epsilon, d]$.
+
+Portanto,
+$$
+\dint_{\partial Q} f(z) ~dz
+= \dint_{\partial Q_{\epsilon}} f(z) ~dz + \dint_{\partial \tilde{Q}_{\epsilon}} f(z) ~dz
+= \dint_{\partial Q_{\epsilon}} f(z) ~dz,
+$$
+pois, $\tilde{Q}_{\epsilon} \subset \mathcal{U}-r$, $f$ é holomorfa em $\tilde{Q}_{\epsilon}$ e, pelo Teorema de Cauchy-Gousart,
+$$\dint_{\partial \tilde{Q}_{\epsilon}} f(z) ~dz = 0.$$
+
+Observe, ainda, que
+$$\dint_{\partial Q} f(z) ~dz = \displaystyle\lim_{\epsilon \to 0} \dint_{\partial Q_{\epsilon}} f(z) ~dz.$$
+
+O que queremos mostrar, então, é que
+$$\dint_{\partial Q} f(z) ~dz = \displaystyle\lim_{\epsilon \to 0} \dint_{\partial Q_{\epsilon}} f(z) ~dz = 0.$$
+
+Temos que
+$$\dint_{\partial Q_{\epsilon}} f(z) ~dz
+= \dint_{\alpha_0} f(z) ~dz - \dint_{\alpha_{\epsilon}} f(z) ~dz + \dint_{\beta_1(\epsilon)} f(z) ~dz - \dint_{\beta_2(\epsilon)} f(z) ~dz.$$
+
+De acordo com o Lema {\ref{L4.1}}
+$$\displaystyle\lim_{\epsilon \to 0} \left|\dint_{\beta_j(\epsilon)} f(z) ~dz\right| \leq \displaystyle\lim_{\epsilon \to 0} (\ell(\beta_j(\epsilon)) \cdot M(f, \beta_j(\epsilon))) = \displaystyle\lim_{\epsilon \to 0} (\epsilon \cdot M(f, \beta_j(\epsilon))) = 0, j = \{1, 2\}$$
+e, além disto,
+$$\begin{array}{rcl}
+&& \displaystyle\lim_{\epsilon \to 0} \left|\dint_{\alpha_0} f(z) ~dz-\dint_{\alpha_{\epsilon}} f(z) ~dz\right| \\
+&=& \displaystyle\lim_{\epsilon \to 0} \left|\dint_{a}^{b} f(x+ic) \dx-\dint_{a}^{b} f(x+i(c+\epsilon)) \dx\right| \\
+&=& \displaystyle\lim_{\epsilon \to 0} \left|\dint_{a}^{b} [f(x+ic)-f(x+i(c+\epsilon))] \dx\right| \\
+&\leq& (b-a) \displaystyle\lim_{\epsilon \to 0} (\sup\{|f(x+ic)-f(x+i(c+\epsilon))|; a \leq x \leq b\})
+= 0.
+\end{array}$$
+Portanto, $\dint_{\partial Q} f(z) ~dz = \displaystyle\lim_{\epsilon \to 0} \dint_{\partial Q_{\epsilon}} f(z) ~dz = 0$, como queríamos.
+
+O caso em que $r \cap Q$ está contido no lado horizontal superior do retângulo $Q$ é análogo.
+
+2. $r \cap Q$ não está contido nos lados horizontais de $Q$.
+
+Neste caso, prolongamos o segmento $r$ dividindo-se o retângulo $Q$ em dois retângulos menores, $Q_1$ e $Q_2$.
+
+%\begin{figure}
+%[ptb]
+%\begin{center}
+%\includegraphics[
+%natheight=86.250000pt,
+%natwidth=285.687500pt,
+%height=3.117cm,
+%width=10.166cm
+%]%
+%{GVBU7L01.wmf}%
+%\end{center}
+%\end{figure}
+
+
+
+\begin{center}
+\begin{pspicture}(-3,-1)(8,5)
+\pspolygon(0,0)(5,0)(5,4)(0,4)
+\psline[linestyle=dashed](-2,1)(-1,1)
+\psline[linestyle=dashed](2,1)(7,1)
+\psline[linewidth=1.75pt,linecolor=red]{|-|}(-1,1)(2,1)
+\rput(2.5,2.5){$Q_{1}$}
+\rput(2.5,0.5){$Q_{2}$}
+\end{pspicture}
+\end{center}
+
+
+Pelo primeiro caso, $\dint_{\partial Q_1} f(z) ~dz = \dint_{\partial Q_2} f(z) ~dz = 0$. Portanto,
+$$\dint_{\partial Q} f(z) ~dz = \dint_{\partial Q_1} f(z) ~dz+\dint_{\partial Q_2} f(z) ~dz = 0.$$
+}
+
+
+
+\subsection{Aplicações}
+
+
+\exemplo{}{
+Calcule $\dint_\gamma \dfrac{1}{z-2} ~dz$, em que $\gamma(\theta) = e^{i \theta}, 0 \le \theta \le 2\pi$.
+}
+
+\solexemplo{Como o contorno $\gamma$ delimita a região $R = \{z \in \mathbb{C}; |z| < 1\}$ e $f(z) = \dfrac{1}{z-2}$ é, claramente, holomorfa em $\overline{R} = \{z \in \mathbb{C}; |z| \le 1\}$, temos que $\dint_\gamma \dfrac{1}{z-2} ~dz = 0$.
+}
+
+
+\exemplo{}{
+Calcule $\dint_\gamma \dfrac{1}{z-2} ~dz$, em que $\gamma(\theta) = 2+e^{i \theta}, 0 \le \theta \le 2\pi$.
+}
+
+\solexemplo{Note, agora, que a função $f$ não está definida em toda a região delimitada por $\gamma$ ($2 \in \{z \in \mathbb{C}; |z-2| < 1\}$). Desta maneira, o teorema de Cauchy-Gousart não se aplica. Devemos, assim, calcular a integral usando apenas a definição.
+
+Temos, portanto, que
+$$\dint_{\gamma} \dfrac{1}{z-2} ~dz = \dint_{0}^{2\pi} \dfrac{i \cdot e^{i\theta}}{e^{i\theta}} ~d\theta = i \dint_{0}^{2\pi} ~d\theta = 2\pi i.$$
+}
+
+
+\section{Atividades}
+
+
+
+
+\exercicio{}{
+Usando o Teorema de Cauchy-Gousart, verifique que $\dint_C f(z) ~dz = 0$, em que
+
+\begin{description}
+\item{} (a) $f(z) = \dfrac{1}{z^2 + 4}; C = \{z \in \C; |z| = 1\}$;
+\item{} (b) $f(z) = \dfrac{1}{z}; C =\{z \in \C; |z-2| = 1\}$;
+\item{} (c) $f(z) = z \cdot e^{z^2}; C = \{z \in \C; |z| = 1\}$
+\item{} (d) $f(z) = \tan(z); C = \{z \in \C; |z| = 1\}$
+\item{} (e) $f(z) = \dfrac{e^z+z}{z-2}; C = \{z \in \C; |z| = 1\}$
+\end{description}
+}
+
+
+\exercicio{}{
+Verifique $\dint_B f(z)~dz = 0$ em cada caso.
+
+\begin{description}
+\item{} (a) $B$ é a fronteira da região entre o círculo $|z| = 4$ e o quadrado com lados sobre as retas $x = \pm 1$ e $y = \pm 1$ e cuja orientação é feita de modo a deixar a região à sua esquerda e $f(z) = \dfrac{z}{1-e^z}$.
+\item{} (b) $B$ é a fronteira da região entre os círculos $|z| = 2$ e $|z| = 1$ e cuja orientação é feita de modo a deixar a região à sua esquerda e $f(z) = f(z) = \dfrac{1}{z^2(z^2+9)}$.
+\end{description}
+}
+
+
+
+
+\exercicio{}{
+Seja $C_1$ um caminho fechado no domínio interior a um outro caminho fechado $C_2$, em que $C_1$ e $C_2$ são ambos orientados no sentido positivo (anti-horário). Mostre que se $f$ é uma função analítica sobre $C_1$ e $C_2$ e na região entre $C_1$
+e $C_2$, então $\dint_{C_1} f(z) ~dz = \dint_{C_2} f(z) ~dz$. Conclua que $\dint_{C_1} \dfrac{~dz}{z^3(z^2+10)} = \dint_{C_2} \dfrac{~dz}{z^3(z^2+10)}$, em que $C_1 = \{z \in \C; |z| = 1\}$ e $C_2= \{z \in \C; |z| = 2\}$ (ambos orientados positivamente).
+}
+
+
+
+\exercicio{}{
+Calcule as seguintes integrais:
+
+\begin{description}
+\item{} (a) $\dint_{i}^{\frac{i}{2}} e^{\pi z} ~dz$; Resposta: $\dfrac{1+i}{\pi}$
+\item{} (b) $\dint_0^{\pi+2i} \cos\left(\dfrac{z}{2}\right) ~dz$; Resposta: $e + \dfrac{1}{e}$
+\item{} (c) $\dint_1^3 (z-2)^3 ~dz$. Resposta: $0$
+\end{description}
+}
+
+
+\exercicio{}{
+Considere a função $f(z) = \dfrac{1}{z^{2}}$.
+%
+%\begin{description}
+%\item{}
+(a) Verifique que $\dint_C f(z)~dz = 0$, para todo contorno fechado $C$ que não passe pela origem (ou seja, do qual a origem seja ponto interior ou ponto exterior), embora $f$ não seja analítica em $z = 0$. Tal enunciado contradiz o Teorema de Morera?
+%\item{}
+
+(b) Verifique que $f$ é limitada para $z \to \infty$, mas $f$ não é constante. Tal enunciado contradiz o Teorema de Liouville?
+%\end{description}
+}
+
+
+
+
+\exercicio{}{
+Considere $g(z_0) = \dint_C \dfrac{2z^2-z-2}{z - z_0} ~dz$, $C = \{z \in \C; |z| = 3\}$ orientado positivamente
+e $|z_0| \ne 3$.
+
+\begin{description}
+\item{} (a) Verifique que $g(2) = 8\pi i$.
+\item{} (b) Qual é o valor de $g(z_0)$ quando $|z_0| > 3$?
+\end{description}
+}
+
+
+
+\exercicio{}{
+Considere $g(z_0) = \dint_C \dfrac{z^3 + 2z}{(z - z_0)^3} ~dz$, em que $C$ é um caminho fechado orientado positivamente e delimita uma região $R$. Verifique que
+$$g(z_0) = \left\{\begin{array}{rcl}
+6\pi i z_0 &;& \mbox{ se } z_0 \in \interior{R} \\
+0 &;& \mbox{ se } z_0 \in \exterior{R}
+\end{array}\right.$$
+}
+
+
+\exercicio{}{
+Seja $C$ a fronteira do quadrado cujos lados estão sobre as retas $x = \pm 2$ e $y = \pm 2$, orientada positivamente. Calcule as seguintes integrais:
+
+\begin{description}
+\item{} (a) $\dint_C \dfrac{e^{-z}}{z - \frac{\pi}{2} i} ~dz$ (Resposta: $2\pi$)
+\item{} (b) $\dint_C \dfrac{\cos(z)}{z(z^2 + 8)} ~dz$ (Resposta:$\dfrac{\pi}{4} i$)
+\item{} (c) $\dint_C \dfrac{z}{2z + 1} ~dz$ (Resposta: $-\dfrac{\pi}{2} i$)
+\item{} (d) $\dint_C \dfrac{\tan\left(\dfrac{z}{2}\right)}{(z-x_0)^2}$, $(|x_0| < 2)$ (Resposta: $\pi i \sec^2\left(\dfrac{x_0}{2}\right)$)
+\item{} (e) $\dint_C \dfrac{\cosh(z)}{z^4} ~dz$ (Resposta: $0$)
+\end{description}
+}
+
+
+
+
+\exercicio{}{
+Seja $C$ o círculo $|z-i| = 2$, orientado positivamente. Calcule $\dint_C g(z) ~dz$ em cada caso.
+
+\begin{description}
+\item{} (a) $g(z) = \dfrac{1}{z^2+4}$ (Resposta: $\dfrac{\pi}{2}$)
+\item{} (b) $g(z) = \dfrac{1}{(z^2+4)^2}$ (Resposta: $\dfrac{\pi}{16}$)
+\end{description}
+}
+
+
+\exercicio{}{
+Mostre que $\dint_C \dfrac{f'(z)}{z-z_0} ~dz = \dint_C \dfrac{f(z)}{(z-z_0)^2} ~dz$, em que $C$ é o caminho fechado orientado positivamente que não passa por $z_0$ e $f$ é uma função analítica sobre $C$ e em seu interior.
+}
+
+
+\exercicio{}{
+Seja $C$ o círculo unitário $|z| = 1$, orientado de $\theta = -\pi$ e $\theta = \pi$ no sentido positivo. Seja $k \in \R$.
+
+\begin{description}
+\item{} (a) Mostre que $\dint_C \dfrac{e^{kz}}{z} ~dz = 2\pi i$.
+\item{} (b) Escrevendo a integral do item a) em termos de $\theta$, conclua que
+$$\dint_0^{\pi} e^{k \cos(\theta)} \cos(k \sin(\theta)) ~d\theta = \pi.$$
+\end{description}
+}
+
+
+
+
+\section{Fórmula da Integral de Cauchy}
+
+
+
+A fórmula da integral de Cauchy mostra que o valor de uma função holomorfa, avaliada em um valor $z_0$, determina o valor de uma integral curvilínea.
+
+\teorema{Fórmula da Integral de Cauchy}{FIC}{
+Sejam $f: \mathcal{U} \rightarrow \mathbb{C}$ uma função holomorfa, em que $\mathcal{U} \subset \mathbb{C}$ é um aberto, e $\gamma: [a, b] \to \mathcal{U}$ um caminho fechado livremente homotópico a uma constante em $\mathcal{U}$. Para todo $z_0 \in \mathcal{U} \setminus \gamma([a, b])$ é válido que:
+\begin{equation}\label{eqFIC}
+I(\gamma, z_0) \cdot f(z_0) = \dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(z)}{z-z_0} ~dz,
+\end{equation}
+em que $I(\gamma, z_0) = \dfrac{1}{2\pi i} \dint_\gamma \dfrac{~dz}{z-z_0}$ é o índice do caminho $\gamma$ com respeito a $z_0$ e representa o número de voltas efetivas que o vetor $\gamma(t)$ dá em torno de $z_0$ quando $t$ varia de $a$ a $b$.
+}
+
+\demteorema{
+Fixemos $z_0 \in \mathcal{U} \setminus \gamma([a,b])$ e consideremos a função $g: \mathcal{U} \to \mathbb{C}$ definida por:
+$$g(z) = \left\{\begin{array}{rl}
+\dfrac{f(z)-f(z_0)}{z-z_0};& \mbox{ se } z \ne z_0 \\
+f'(z_0);& \mbox{ se } z=z_0
+\end{array}\right.$$
+
+Como $\displaystyle\lim_{z \to z_0} \dfrac{f(z)-f(z_0)}{z-z_0} = f'(z_0)$, é claro que a função $f$ é contínua em $\mathcal{U}$. Por outro lado, $g$ é holomorfa em $\mathcal{U} \setminus \{z_0\}$, uma vez que $f$ e $\dfrac{1}{z-z_0}$ o são. Pelo teorema de Cauchy-Goursat, a forma $g(z) ~dz = \dfrac{f(z)-f(z_0)}{z-z_0} ~dz$ é fechada em $\mathcal{U}$. Como $\gamma$ é homotópica a uma constante em $\mathcal{U}$, vem que
+$$0 = \dint_{\gamma} \dfrac{f(z)-f(z_0)}{z-z_0} ~dz = \dint_{\gamma} \dfrac{f(z)}{z-z_0} ~dz - \dint_{\gamma} \dfrac{f(z_0)}{z-z_0} ~dz,$$
+ou seja,
+$$\dint_{\gamma} \dfrac{f(z)}{z-z_0} ~dz = \dint_{\gamma} \dfrac{f(z_0)}{z-z_0} ~dz = f(z_0) \dint_{\gamma} \dfrac{~dz}{z-z_0}.$$
+
+Como $\dint_{\gamma} \dfrac{1}{z-z_0} ~dz = 2 \pi i \cdot I(\gamma,z_0)$, obtemos:
+$$\dint_{\gamma} \dfrac{f(z)}{z-z_0} ~dz = 2\pi i \cdot f(z_0) \cdot I(\gamma, z_0).$$
+}
+
+
+%\subsection{Aplicações}
+
+\exemplo{}{
+Encontre o valor da integral $\dint_{\gamma} \dfrac{z^2+1}{z^2-1} ~dz$ no caso em que
+
+\begin{description}
+\item{} (a) $\gamma = \{z \in \mathbb{C}; |z-1| = 1\}$ e cuja orientação se dá no sentido anti-horário.
+\item{} (b) $\gamma = \{z \in \mathbb{C}; |z+1| = 1\}$ e cuja orientação se dá no sentido anti-horário.
+\item{} (c) $\gamma = \{z \in \mathbb{C}; |z-i| = 1\}$ e cuja orientação se dá no sentido anti-horário.
+\item{} (d) $\gamma = \{z \in \mathbb{C}; |z| = 2\}$ e cuja orientação se dá no sentido anti-horário.
+\end{description}
+}
+
+\solexemplo{
+(a) $\dint_{\gamma} \dfrac{z^2+1}{z^2-1} ~dz = \dint_{\gamma} \dfrac{z^2+1}{(z+1)(z-1)} ~dz = \dint_{\gamma} \dfrac{f(z)}{z-1} ~dz = 2\pi i f(1) = 2\pi i$.
+
+(b) $\dint_{\gamma} \dfrac{z^2+1}{z^2-1} ~dz = \dint_{\gamma} \dfrac{z^2+1}{(z+1)(z-1)} ~dz = \dint_{\gamma} \dfrac{f(z)}{z+1} ~dz = 2\pi i f(-1) = -2\pi i$
+
+(c) $\dint_{\gamma} \dfrac{z^2+1}{z^2-1} ~dz = 0$, pois a função $f(z) = \dfrac{z^2+1}{z^2-1}$ não possui singularidades no interior do caminho $\gamma$ (vide teorema de Cauchy).
+
+(d) Neste caso, a função a ser integrada tem duas singularidades no interior do caminho $\gamma$, não satisfazendo as exigências da fórmula integral de Cauchy. No entanto, podemos observar que:
+$$\dint_{\gamma} f(z) ~dz = \dint_{\gamma_1} f(z) ~dz + \dint_{\gamma_2} f(z) ~dz = 2\pi i \left.\dfrac{z^2+1}{z-1}\right|_{z=-1} + 2\pi i \left.\dfrac{z^2+1}{z+1}\right|_{z=1} = 0,$$
+em que $\gamma_1$ é a parte de $C$ ligando $i$ até $-i$, unida com o segmento de reta ligando $-i$ até $i$ e $\gamma_2$ é a parte de $\gamma$ ligando $-i$ até $i$, unida com o segmento de reta ligando $i$ até $-i$, ambos os caminhos orientados no sentido anti-horário. Isto nos dá a ideia de que quando uma função tem mais de uma singularidade no interior do caminho, a integral é calculada usando a fórmula integral de Cauchy para cada singularidade por vez e, então, somando-se os resultados obtidos.
+}
+
+
+Deve-se observar que a fórmula integral de Cauchy não poderá ser aplicada se a função a ser integrada tiver singularidades múltiplas, pois não poderão ser separadas. Neste caso, usaremos a fórmula que será apresentada na próxima seção.
+%\end{mybookres}
+
+\exercicio{}{
+Sendo $\gamma = \{z \in \mathbb{C}; |z| = 3\}$, calcule $\dint_{\gamma} \dfrac{z^2}{(z^2-4)(z+i)} ~dz$.
+}
+
+\solexercicio{Como as singularidades da função a ser integrada são $2$, $-2$ e $-i$ e estão todas no interior da região delimitada por $\gamma$, a integral assume o valor:
+$$\dint_{\gamma} \dfrac{z^2}{(z^2-4)(z+i)} ~dz = 2\pi i \left[ \left.\dfrac{z^2}{(z+2)(z+i)}\right|_{z=2} + \left.\dfrac{z^2}{(z-2)(z+i)}\right|_{z=-2} + \left.\dfrac{z^2}{z^2-4}\right|_{z=-i} \right] = 2\pi i$$
+}
+
+A fórmula integral de Cauchy é utilizada com frequência no seguinte caso particular:
+
+\corolario{}{}{
+Sejam $f: \mathcal{U} \to \mathbb{C}$ uma função holomorfa, em que $\mathcal{U} \subset \mathbb{C}$ é um aberto, e um disco fechado $\overline{D} \subset \mathcal{U}$. Para todo $z_0$ no interior de $\overline{D}$ é válido que
+$$\fbox{$f(z_0) = \dfrac{1}{2 \pi i} \dint_{\partial \overline{D}} \dfrac{f(z)}{z-z_0} ~dz.$}$$
+}
+
+\begin{remark}
+Consideramos $\partial \overline{D}$ como sendo a parametrização $\gamma(\theta) = z_0 + r e^{i \theta}, \theta \in [0, 2 \pi]$, em que $z_0$ é o centro de $\overline{D}$ e $r$ o seu raio.
+\end{remark}
+
+
+
+
+\exercicio{exer:01.09}{%Do lar 9.
+Análogo ao Exemplo \ref{exam:01.01}, sendo $f(z) = \overline{z}$.
+}
+
+
+\exemplo{exam:01.03}{
+Sejam $n \in \mathbb{Z}$ e $f(z) = z^{n}$. Calcule a integral $\dint_{C} f(z) dz$, em que $C$ é um contorno simples fechado que circunda a origem.
+}
+
+\solexemplo{Antes de apresentarmos a solução, considere a \autoref{fig:01.05}, relativa às possibilidades.
+
+Vamos considerar esse contorno como sendo uma circunferência centrada na origem e de raio $\epsilon > 0$. Logo, $z = \epsilon e^{i}\theta$, com $0 < \theta \le 2\pi$.
+
+Substituindo na integral, podemos escrever
+$$\begin{array}{rcl}
+\dint_{C} z^{n} dz
+&=&
+\dint_{0}^{2\pi} \underbrace{\epsilon^{n} e^{in\theta}}_{z^{n}}
+\underbrace{\epsilon i e^{i\theta} d\theta}_{dz} \\
+&=&
+i \dint_{0}^{2\pi} \epsilon^{n+1} e^{i(n+1)\theta} d\theta \\
+&=&
+\left\{\begin{array}{rcl} 0&,& n \ne -1 \\ 2\pi i&,& n = -1 \end{array}\right.
+\end{array}$$
+
+\noindent
+\begin{minipage}[!ht]{0.9\textwidth}\centering
+\captionof{figure}{Domínio simplesmente conexo. Vários caminhos.}
+\label{fig:01.05}
+\psset{unit=1.2cm}
+\begin{pspicture}(-2,-2)(2,2)
+\psaxes[Dx=10,Dy=10]{->}(0,0)(-2,-2)(2,2)
+\uput[u](2,0){$\Re(z)$}
+\uput[r](0,2){$\Im(z)$}
+\pspolygon[linestyle=dashed](1.4,1)(-1.4,1)(-1.4,-1)(1.4,-1)
+\pspolygon[linestyle=dashed,linecolor=blue](0,1)(-1.6,-0.6)(1.6,-0.6)
+\psellipse(0,0)(1.2,0.6)
+\pnode(0,0){A}\pscircle[linecolor=red](A){1.0cm}\uput[dr](A){\small $z=0$}
+\end{pspicture}
+\end{minipage}
+
+Note que $f(z) = z^{n}$ não é analítica em $z = 0$, para $n < 0$, exceto para $n = -1$, único termo que contribui para a integral. Note que (antiderivadas)
+$$z^{n} = \dfrac{d}{dz} \left(\dfrac{z^{n+1}}{n+1}\right)$$
+que impõe $n \ne -1$.
+}
+
+\exercicio{exer:01.10}{%Do lar 10.
+Seja $\alpha > -1$ um número real. Considere a integral
+$$J(\epsilon) = \dint_{C_\epsilon} z^{\alpha} f(z) dz$$
+em que $C_{\epsilon}$ é uma circunferência de raio $\epsilon$, centrada na origem e $f(z)$ uma função analítica no interior da circunferência. Mostre que
+$$\dlim_{\epsilon \to 0} J(\epsilon) = 0.$$
+}
+
+
+\exercicio{exer:01.11}{%Do lar 11.
+Sejam $m = 1, 2, \ldots, M$ e $C$ um contorno simples e fechado. Mostre o seguinte resultado
+$$
+\dfrac{1}{2\pi i} \doint_{C} \dfrac{dz}{(z-a)^{m}}
+=
+\left\{\begin{array}{l}
+0, \mbox{ se } z = a \mbox{ e está fora de C, } \forall\ m \\
+0, \mbox{ se } z = a \mbox{ e está dentro de C, } m \ne 1 \\
+1, \mbox{ se } z = a \mbox{ e está dentro de C, } m = 1.
+\end{array}\right.$$
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\section{Analiticidade das Funções Holomorfas} % Paulo
+
+
+
+\lema{}{L421}{
+Seja $\{g_n\}_{n \geq 1}$ uma sequência de funções contínuas que converge uniformemente nas partes compactas de $\mathcal{U} \subset \mathbb{C}$ para uma função contínua $g: \mathcal{U} \rightarrow \mathbb{C}$. Se $\gamma: [a, b] \to \mathcal{U}$ é um caminho de classe $\mathbb{C}^1$ por partes, então
+$$\displaystyle\lim_{n \to \infty} \left(\dint_{\gamma} g_n(z) ~dz \right) = \dint_{\gamma} g(z) ~dz.$$
+}
+
+\demlema{
+Do Lema {\ref{L4.1}} temos que,
+$$0 \leq \left|\dint_{\gamma} g_n(z) ~dz - \dint_{\gamma} g(z) ~dz \right| = \left|\dint_{\gamma} (g_n(z)-g(z)) ~dz \right| \leq M(g_n-g, \gamma) \cdot \ell(\gamma),$$
+em que $\ell(\gamma)$ é o comprimento de $\gamma$ e $M(g_n-g, \g) = \sup\{|g_n(z)-g(z)|; z \in \gamma([a, b])\}$.
+
+Como $\gamma([a, b]) \subset \mathcal{U}$ é compacto e $g_n \stackrel{u.p.c.}{\longrightarrow} g$ vem que $\displaystyle\lim{n \to \infty} M(g_n-g, \gamma) = 0$. Concluímos, daí, que,
+$$\displaystyle\lim_{n \to \infty} \left|\dint_{\gamma} g_n(z) ~dz - \dint_{\gamma} g(z) ~dz \right| = 0.$$
+}
+
+
+
+\teorema{}{teo:FHA}{
+Uma função holomorfa em um aberto $\mathcal{U} \subset \mathbb{C}$ é analítica em $\mathcal{U}$.
+}
+
+
+
+\begin{comment}
+\begin{pspicture}(0,0)(2,2)
+\pscircle*(1,1){0.075}\uput[dr](1,1){$z_0$}
+\pscircle[linestyle=dashed](1,1){1.0}\uput[dl](2,2){$D$}
+\pscircle[linestyle=dashed](1,1){0.8}\uput[dl](1.8,1.8){$\gamma$}
+\pscircle*(0.8,0.7){0.075}\uput[dr](0.8,0.7){$z$}
+\end{pspicture}
+\end{comment}
+
+
+\demteorema{
+Seja $f: \mathcal{U} \rightarrow \mathbb{C}$ uma função holomorfa, em que $\mathcal{U} \subset \mathbb{C}$ é um aberto. Considere um disco aberto $D = D_{r_0}(z_0)$ tal que $D \subset \mathcal{U}$. Dado $z \in D$, considere uma circunferência $\gamma(\theta) = z_0+r e^{i \theta}$, $0 \leq \theta \leq 2 \pi$, tal que $|z-z_0| < r < r_0$.
+
+Observe que $z$ pertence ao interior da circunferência $\gamma$ e, portanto, pela fórmula integral de Cauchy, temos
+$$f(z) = \dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(w)}{w-z} ~dw.$$
+
+Por outro lado, como $|z-z_0| < |w-z_0| = r$, $\forall\ w \in \gamma([0, 2 \pi])$.
+
+Podemos, então, escrever que
+$$\begin{array}{rcl}
+\dfrac{f(w)}{w-z} &=& \dfrac{f(w)}{w-z_0-(z-z_0)} = \dfrac{f(w)}{w-z_0} \cdot \dfrac{1}{1-\left(\dfrac{z-z_0}{w- z_0}\right)} \\
+&=& \dfrac{f(w)}{w-z_0} \cdot \displaystyle\sum_{n=0}^{\infty}{\left(\dfrac{z-z_0}{w-z_0}\right)^n} = \displaystyle\sum_{n=0}^{\infty}{\dfrac{f(w)(z-z_0)^n}{(w-z_0)^{n+1}}}.
+\end{array}$$
+
+Tomemos $g_n(w) = \displaystyle\sum_{j=0}^n {\dfrac{f(w)(z-z_0)^j}{(w-z_0)^{j+1}}}$ e $g(w) = \dfrac{f(w)}{w-z}$.
+
+Veja que
+$$\begin{array}{rcl}
+|g(w)-g_n(w)|
+&=& \left|\displaystyle\sum_{n=0}^{\infty} \dfrac{f(w)}{(w-z_0)^{n+1}} (z-z_0)^n - \displaystyle\sum_{j=0}^n \dfrac{f(w)}{(w- z_0)^{j+1}} (z-z_0)^j\right| \\
+&=& \left| \dfrac{f(w)}{w-z_0} \cdot \displaystyle\sum_{n=0}^{\infty} \left(\dfrac{z-z_0}{w-z_0}\right)^n - \displaystyle\sum_{j=0}^n \left(\dfrac{z-z_0}{w-z_0}\right)^j\right| \\
+&=& \left| \dfrac{f(w)}{w-z_0} \right| \cdot \left|\displaystyle\sum_{j=n+1}^{\infty}{\left(\dfrac{z-z_0}{w-z_0}\right)^j}\right| \\
+&\leq& \dfrac{M(f, \gamma)}{r} \cdot \displaystyle\sum_{j=n+1}^{\infty}{\left(\dfrac{|z-z_0|}{r}\right)^j},
+\end{array}$$
+em que $M = \sup \{|f(w)|; w \in \gamma([a, b])\}$. Assim, $\{g_n\}_{n \geq 1}$ converge uniformemente para $g$ em $\gamma([0, 2 \pi])$.
+
+Logo, pela fórmula integral de Cauchy, temos:
+$$\begin{array}{rcl}
+f(z)
+&=& \dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(w)}{w-z} ~dw
+= \dfrac{1}{2 \pi i} \dint_{\gamma} \left(\displaystyle\lim_{n \to \infty} \displaystyle\sum_{j=0}^n{\dfrac{f(w)(z-z_0)^j}{(w-z_0)^{j+1}}}\right) ~dw \\
+&\stackrel{Lema~\ref{L421}}{=}& \dfrac{1}{2 \pi i} \displaystyle\lim_{n \to \infty} \dint_{\gamma} \left(\displaystyle\sum_{j=0}^n {\dfrac{f(w)(z- z_0)^j}{(w-z_0)^{j+1}}}\right) ~dw \\
+&=& \dfrac{1}{2 \pi i} \displaystyle\lim_{n \to \infty} \displaystyle\sum_{j=0}^n \dint_{\gamma} \dfrac{f(w)(z-z_0)^j}{(w-z_0)^{j+1}} ~dw \\
+&=& \displaystyle\sum_{j=0}^{\infty}\stackrel{a_j(z_0)}{\overbrace{\left(\dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(w)}{(w-z_0)^{j+1}} ~dw \right)}}(z-z_0)^j.
+\end{array}$$
+
+Concluímos, então, que a série $\displaystyle\sum_{j=0}^{\infty} a_j(z_0) \cdot (z-z_0)^j$ converge para $f(z)$.
+
+Observe, também, que o número $a_j(z_0)$; $\forall\ j \geq 0$, independe do raio $r$ do círculo $\gamma$, já que a função $w \mapsto \dfrac{f(w)}{(w-z_0)^{j+1}}$ é holomorfa em $D\setminus \{z_0\}$ e dois círculos com mesmo centro são livremente homotópicos em $D \setminus \{z_0\}$. Além disto, como $z \in D$ foi tomado de maneira arbitrária, a função $f(z)$ pode ser representada em $D$ pela série de potências $\displaystyle\sum_{j=0}^{\infty} a_j(z_0) (z-z_0)^j$.
+}
+
+
+Para a prova do Corolário a seguir, basta observar, na demonstração do Teorema \ref{teo:FHA}, que o disco $D \subset \mathcal{U}$ foi escolhido de maneira arbitrária.
+
+\corolario{}{}{
+Uma função $f: \mathcal{U} \subset \mathbb{C} \to \mathbb{C}$ é holomorfa no aberto $\mathcal{U}$ se, e somente se, ela é analítica em $\mathcal{U}$. Além disto, se $z_0 \in \mathcal{U}$ e $D = D_r(z_0) \subset \mathcal{U}$, então a série de potências que representa $f$ numa vizinhança de $z_0$ tem raio de convergência no mínimo igual ao raio de $D$. Em particular, se
+$$\fbox{$\rho = \sup\{r; D_r(z_0) \subset \mathcal{U}\}$},$$
+então o raio de convergência da série é maior do que ou igual a $\rho$.
+}
+
+
+
+
+
+
+\corolario{}{}{
+Sejam $f: \mathcal{U} \subset \mathbb{C} \to \mathbb{C}$ analítica e o disco $D_{\rho}(z_0) \subset \mathcal{U}; z_0 \in \mathcal{U}$ e $\rho > 0$. Tomemos $0 < r < \rho$ e consideremos a série de potências que representa $f(z)$ em $D_r(z_0)$, digamos $\displaystyle\sum_{j=0}^{\infty} a_j(z_0) \cdot (z-z_0)^j$. Então
+
+\begin{description}
+\item{} i. $a_j(z_0) = \dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(z)}{(z-z_0)^{j+1}} ~dz$, $\gamma(\theta) = z_0 + r e^{i \theta}$, $j \geq 0$.
+
+\item{} ii. Fórmula Integral de Cauchy Generalizada
+$$f^{(n)}(z_0) = \dfrac{n!}{2\pi i} \cdot \dint_{\gamma} \dfrac{f(z)}{(z-z_0)^{n+1}} ~dz.$$
+\item{} iii. Desigualdade de Cauchy
+$$|a_j(z_0)| \leq \dfrac{M(r)}{r^j},$$
+em que $M(r) = \sup\{|f(z)|; |z-z_0| = r\}; j \geq 0$.
+\end{description}
+}
+
+\demcorolario{A relação em ii. decorre de i. e da fórmula $a_j = \dfrac{1}{j!} f^{(j)}(z_0)$. O item iii. decorre do Lema \ref{L4.1}. De fato,
+$$|a_j(z_0)|
+= \left|\dfrac{1}{2 \pi i} \dint_{\gamma} \stackrel{g(z)}{\overbrace{\dfrac{f(z)}{(z-z_0)^{j+1}}}} ~dz\right| \leq \dfrac{M(r)}{r^j},$$
+em que $M(r) = \sup\{|f(z)|; |z-z_0| = r\}$ e $j \geq 0$.
+}
+
+Uma outra maneira de se obter a Fórmula da Integral de Cauchy Generalizada é vista na seção a seguir.
+
+
+\section{Fórmula integral de Cauchy generalizada}
+
+Uma fórmula para a derivada de uma função analítica $f(z)$ pode ser obtida derivando o lado direito da fórmula integral de Cauchy. Nesta fórmula, a integral é uma função do parâmetro $z_0$ e pode ser diferenciada em relação à $z_0$.
+
+
+
+\teorema{Consequência de Cauchy}{teo:01.06}{%Teorema 6.
+Se $f(z)$ é analítica no interior e sobre o contorno fechado $C$, então todas as derivadas $f^{(k)}(z)$, com $k = 1, 2, 3, \ldots$ existem no domínio $\mathcal{U}$, interior a $C$, e
+$$
+f^{(k)}(z)
+=
+\dfrac{k!}{2\pi i} \dint_{C} \dfrac{f(\xi)}{(\xi-z)^{k+1}} d\xi.
+$$
+}
+
+
+\exercicio{exer:01.12}{%Do lar 12.
+Prove o \autoref{teo:01.06}.
+}
+
+\solexercicio{
+Similarmente às propriedades das integrais reais, supondo que o contorno $\gamma$ seja uma curva simples fechada orientada no sentido anti-horário, segue-se a regra de Leibnitz, ou seja,
+$$\dfrac{d}{dz_0} \dint_{\gamma} f(z,z_0) ~dz = \dint_{\gamma} \dfrac{\partial }{\partial z_0} f(z,z_0) ~dz.$$
+
+Aplicando-se a regra de Leibnitz ao teorema integral de Cauchy, obtemos uma expressão para a derivada de $f(z)$,
+$$f'(z_0) = \dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(z)}{(z-z_0)^2} ~dz.$$
+
+Uma repetição deste processo nos fornece uma fórmula para a $j$-ésima derivada da função $f(z)$:
+$$\dfrac{f^{(j)}(z_0)}{j!} = \dfrac{1}{2 \pi i} \dint_{\gamma} \dfrac{f(z)}{(z-z_0)^{j+1}} ~dz, j \geq 0.$$
+Reescrevendo-se a fórmula acima, obtemos uma fórmula para o cálculo da integral de linha de uma função complexa que possui uma singularidade $z_0$ de multiplicidade $(n+1)$, qual seja:
+$$\dint_{\gamma} \dfrac{f(z)}{(z-z_0)^{n+1}} ~dz = \dfrac{2\pi i}{n!} f^{(n)}(z_0).$$
+}
+
+\exercicio{exer:01.13}{%Do lar 13.
+Discuta o caso $k = 0$ no \autoref{teo:01.06}.
+}
+
+\exercicio{exer:01.14}{%Do lar 14.
+Integre a função
+$$f(z) = \dfrac{1}{2\pi i} \dfrac{\tan(z)}{z^{2} - 1}$$
+numa circunferência $C$ orientada no sentido anti-horário, centrada na origem com raio igual a $12/11$.
+}
+
+\solexercicio{
+Inicialmente, decompondo a fração \(\dfrac{1}{z^{2}-1}\) como sendo a soma de frações parciais, temos:
+\[
+\dfrac{1}{z^{2}-1} = \dfrac{A}{z+1}+\dfrac{B}{z-1}.
+\]
+Segue que $A = -\dfrac{1}{2}$, $B = \dfrac{1}{2}$ e
+$$\begin{array}{rcl}
+\displaystyle\int_{C} f(z)~dz
+&=& \dfrac{1}{4\pi i} \displaystyle\int_{C} \tan(z) \left(-\dfrac{1}{z+1}+\dfrac{1}{z-1}\right) dz \\
+&=& \dfrac{1}{4\pi i} \left[-2\pi i \tan(-1)+2\pi i \tan(1)\right]
+= \tan(1)
+\end{array}$$
+}
+
+
+\exemplo{}{
+Sendo $\gamma = \{z \in \mathbb{C}; |z-i| = 3\}$, positivamente orientada, calcule as integrais de linha:
+
+\begin{description}
+\item{} (a) $\dint_\gamma \dfrac{z^4}{(z-i)^4} ~dz$
+\item{} (b) $\dint_\gamma \dfrac{z}{(z^2+1)^2} ~dz$
+\item{} (c) $\dint_\gamma \dfrac{z}{(z^2-1)^2 (z^2-4z+3)} ~dz$
+\end{description}
+}
+
+
+\solexemplo{
+
+(a) $\dint_\gamma \dfrac{z^4}{(z-i)^4} ~dz = \left.\dfrac{2\pi i}{3!} z^4 \right|_{z = i} = -8\pi$, fazendo $n = 3$, $z_0 = i$ (pertencente ao interior do caminho $\gamma$) e $f(z) = z^4$.
+
+(b)
+$$\begin{array}{rcl}
+\dint_\gamma \dfrac{z}{(z^2+1)^2} ~dz
+&=& \dint_\gamma \dfrac{z}{(z-i)^2(z+i)^2} ~dz \\
+&=& \dfrac{2\pi i}{1!} \left.\left[ \dfrac{z}{(z+i)^2}\right]' \right|_{z=i} + \dfrac{2\pi i}{1!} \left.\left[ \dfrac{z}{(z-i)^2}\right]' \right|_{z=-i} = 0,
+\end{array}$$
+em que $z_0 = i$ e $n = 1$ na primeira parcela e, $z_0 = -i$ e $n = 1$ na segunda parcela.
+
+(c)
+$$\begin{array}{rcl}
+&&\dint_\gamma \dfrac{z}{(z^2-1)^2 (z^2-4z+3)} ~dz \\
+&=& \dint_\gamma \dfrac{z}{(z^2-1)^2(z+1)(z-3)} ~dz \\
+&=& \dfrac{2\pi i}{1!} \left.\left[\dfrac{z}{z^2-2z-3}\right]' \right|_{z=1} + \dfrac{2\pi i}{1!} \left.\left[\dfrac{z}{(z-1)^2(z-3)}\right]' \right|_{z=-1} \\
+&=& -\dfrac{3\pi}{8},
+\end{array}$$
+em que $z_0 =1$ e $n = 1$, na primeira parcela, e $z_0 = -1$, na segunda.
+
+Cabe ressaltar que a singularidade $z_0 = 3$ da função a ser integrada está no exterior do caminho $\gamma$. Assim, não foi aplicado nenhum dos teoremas de Cauchy sobre esta singularidade, mas ela continua fazendo parte da função (observe que $z-3$ é fator dos denominadores de ambas as parcelas).
+}
+
+
+A fórmula integral de Cauchy é um caso particular da fórmula generalizada. Em uma integral de linha, esta fórmula é aplicada a cada uma das singularidades da função a ser integrada que estejam no interior do caminho $\gamma$. Já as singularidades da função que estiverem no exterior do caminho $\gamma$ não são vistas pela integral como uma singularidade, ou seja, a fórmula integral generalizada de Cauchy não se aplica a ela, mas ela continua fazendo parte da função.
+
+
+
+
+\corolario{}{}{[Teorema de Liouville]
+Uma função inteira\footnote{analítica em todo o plano complexo} limitada é constante.
+}
+
+\demcorolario{
+Como $f(z)$ é inteira, $f(z) = \displaystyle\sum_{j \geq 0} a_j(z_0) z^j = \displaystyle\sum_{j \geq 0} \dfrac{f^{(j)}}{j!} z^j$.
+
+Pela desigualdade de Cauchy em $|a_j(z_0)| \leq \dfrac{M(r)}{r^j}$, em que $M(r) = \sup\{|f(z)|; |z| = r\}; j \geq 0$ e $r > 0$ é arbitrário, já que qualquer disco está inteiramente contido no domínio de $f(z)$.
+
+Por outro lado, como $f(z)$ é limitada, ou seja, $|f(z)| \leq M$, e como $M(r) \leq M = \sup\{|f(z)|; z \in \mathbb{C}\}$. Assim, $|a_j(z_0)| \leq \dfrac{M(r)}{r^j} \leq \dfrac{M}{r^j}$.
+
+Para $j = 0 \Leftrightarrow |a_0| \leq M$. Para $j = 1 \Leftrightarrow |a_j| = 0$, pois podemos tomar um $r$ tão grande quanto quisermos. Logo, $f(z)$ é constante.
+}
+
+
+
+
+
+\corolario{Teorema Fundamental da Álgebra}{}{
+Todo polinômio complexo não constante possui pelo menos uma raiz.
+}
+
+\demcorolario{
+Considere o polinômio $p(z) = a_0+a_1 z+\ldots+a_n z^n$ não constante e suponha que a equação $p(z) = 0$ não possua raízes. Considere $f(z) = \dfrac{1}{p(z)}$ que é uma função inteira.
+
+Por outro lado, $\displaystyle\lim_{z \to \infty} p(z) = \infty \Leftrightarrow \displaystyle\lim_{z \to \infty} |f(z)| = 0$. Logo, existe $r > 0$, tal que, se $|z| \geq r$, então, $|f(z)| \leq 1$.
+
+Considere o disco $\overline{D_r}(0)$, que é compacto. Portanto, existe
+$$M = \sup\{|f(z)|; z \in \overline{D_r}(0)\} < +\infty.$$
+
+Concluímos, então, que $|f(z)| \leq \max\{1, M\}, \forall\ z \in \mathbb{C}$. Portanto, $f(z)$ é inteira e limitada, implicando que $f(z)$ é constante. Assim, $p(z)$ é também constante, o que é um absurdo, pois supomos $p(z)$ não constante e a equação $p(z) = 0$ não ter solução. Logo, $p(z)$ tem pelo menos uma raiz.
+}
+
+\begin{remark}
+Como consequência do Teorema Fundamental da Álgebra é possível provar que um polinômio de grau $n \geq 1$ se escreve como produto de $n$ fatores.
+\end{remark}
+
+
+O resultado a seguir é a recíproca do teorema de Cauchy-Goursat.
+
+\teorema{Teorema de Morera}{}{
+Seja $f: \mathcal{U} \subset \mathbb{C} \to \mathbb{C}$ uma função contínua, $\mathcal{U}$-aberto. Se a forma $f(z) ~dz$ for fechada, então $f$ é analítica (portanto holomorfa em $\mathcal{U}$).
+}
+
+\demteorema{Seja $f(z) ~dz$ uma forma fechada em $D = D_r(z_0) \subset \mathcal{U} \subset \mathbb{C}$. Consideremos $g: D \to \mathbb{C}$ de classe $C^1$ tal que $dg = f(z) ~dz$ em $D$. Temos que
+$$
+\dfrac{\partial g}{\partial z} ~dz+\dfrac{\partial g}{\partial \overline{z}} d\overline{z}
+= f(z) ~dz \Leftrightarrow \dfrac{\partial g}{\partial \overline{z}} = 0$$
+e $\dfrac{\partial g}{\partial z} = f(z)$, em $D$.
+
+Decorre, daí, que $g$ é holomorfa em $D$ e $g'(z) = f(z)$. Pelo Teorema {\ref{teo:FHA}} $g$ é analítica em $D$. Logo, $g'(z) = f(z)$ também o é.
+}
+
+
+
+
+\exercicio{}{
+Usando o Teorema de Cauchy-Gousart, verifique
+$$\dint_C f(z)~dz = 0,$$ nos seguintes casos
+
+\begin{description}
+\item{} (a) $f(z) = \dfrac{1}{z^2 + 4}; C = \{z \in \mathbb{C}; |z| = 1\}$;
+\item{} (b) $f(z) = \dfrac{1}{z}; C =\{z \in \mathbb{C}; |z-2| = 1\}$;
+\item{} (c) $f(z) = z \cdot e^{z^2}; C = \{z \in \mathbb{C}; |z| = 1\}$
+\item{} (d) $f(z) = \tan(z); C = \{z \in \mathbb{C}; |z| = 1\}$
+\item{} (e) $f(z) = \dfrac{e^z+z}{z-2}; C = \{z \in \mathbb{C}; |z| = 1\}$
+\end{description}
+}
+
+
+
+
+\exercicio{}{
+Verifique $\dint_B f(z)~dz = 0$ em cada caso.
+\begin{description}
+\item{} (a) $B$ é a fronteira da região entre o círculo $|z| = 4$ e o quadrado com lados sobre as retas $x = \pm 1$ e $y = \pm 1$ e cuja orientação é feita de modo a deixar a região à sua esquerda e $f(z) = \dfrac{z}{1-e^z}$.
+\item{} (b) $B$ é a fronteira da região entre os círculos $|z| = 2$ e $|z| = 1$ e cuja orientação é feita de modo a deixar a região à sua esquerda e $f(z) = f(z) = \dfrac{1}{z^2(z^2+9)}$.
+\end{description}
+}
+
+
+
+
+\exercicio{}{
+Seja $C_1$ um caminho fechado no domínio interior a um outro caminho fechado $C_2$, em que $C_1$ e $C_2$ são ambos orientados no sentido positivo (anti-horário). Mostre que se $f$ é uma função analítica sobre $C_1$ e $C_2$ e na região entre $C_1$
+e $C_2$, então $\dint_{C_1} f(z) ~dz = \dint_{C_2} f(z) ~dz$. Conclua que $\dint_{C_1} \dfrac{~dz}{z^3(z^2+10)} = \dint_{C_2} \dfrac{~dz}{z^3(z^2+10)}$, em que $C_1 = \{z \in \mathbb{C}; |z| = 1\}$ e $C_2= \{z \in \mathbb{C}; |z| = 2\}$ (ambos orientados positivamente).
+}
+
+
+
+\exercicio{}{
+Calcule as seguintes integrais:
+\begin{description}
+\item{} (a) $\dint_{i}^{\frac{i}{2}} e^z ~dz$; Resposta: $\dfrac{1+i}{\pi}$
+\item{} (b) $\dint_0^{\pi+2i} \cos\left(\dfrac{z}{2}\right) ~dz$; Resposta: $e + \dfrac{1}{e}$
+\item{} (c) $\dint_1^3 (z-2)^3 ~dz$. Resposta: $0$
+\end{description}
+}
+
+
+\exercicio{}{
+Considere a função $f(z) = \dfrac{1}{z^{2}}$.
+\begin{description}
+\item{} (a) Verifique que $\dint_C f(z)~dz = 0$, para todo contorno fechado $C$ que não passe pela origem (ou seja, do qual a origem seja ponto interior ou ponto exterior), embora $f$ não seja analítica em $z = 0$. Tal enunciado contradiz o Teorema de Morera?
+\item{} (b) Verifique que $f$ é limitada para $z \to \infty$, mas $f$ não é constante. Tal enunciado contradiz o Teorema de Liouville?
+\end{description}
+}
+
+
+
+
+\exercicio{}{
+Considere $g(z_0) = \dint_C \dfrac{2z^2-z-2}{z - z_0} ~dz$, $C = \{z \in \mathbb{C}; |z| = 3\}$ orientado positivamente
+e $|z_0| \ne 3$.
+
+\begin{description}
+\item{} (a) Verifique que $g(2) = 8\pi i$.
+\item{} (b) Qual é o valor de $g(z_0)$ quando $|z_0| > 3$?
+\end{description}
+}
+
+
+
+\exercicio{}{
+Considere $g(z_0) = \dint_C \dfrac{z^3 + 2z}{(z - z_0)^3} ~dz$, em que $C$ é um caminho fechado orientado positivamente.
+Verifique que
+$$g(z_0) = \left\{\begin{array}{rcl}
+6\pi i z_0 &;& \mbox{ se } z_0 \in \interior(C) \\
+0 &;& \mbox{ se } z_0 \in \operatorname{exterior}(C)
+\end{array}\right.$$
+}
+
+
+\exercicio{}{
+Seja $C$ a fronteira do quadrado cujos lados estão sobre as retas $x = \pm 2$ e $y = \pm 2$, orientada positivamente. Calcule as seguintes integrais:
+
+\begin{description}
+\item{} (a) $\dint_C \dfrac{e^{-z}}{z - \frac{\pi}{2} i} ~dz$ (Resposta: $2\pi$)
+\item{} (b) $\dint_C \dfrac{\cos(z)}{z(z^2 + 8)} ~dz$ (Resposta:$\dfrac{\pi}{4} i$)
+\item{} (c) $\dint_C \dfrac{z}{2z + 1} ~dz$ (Resposta: $-\dfrac{\pi}{2} i$)
+\item{} (d) $\dint_C \dfrac{\tan\left(\dfrac{z}{2}\right)}{(z-x_0)^2}$, $(|x_0| < 2)$ (Resposta: $\pi i \sec^2\left(\dfrac{x_0}{2}\right)$)
+\item{} (e) $\dint_C \dfrac{\cos(hz)}{z^4} ~dz$ (Resposta: $0$)
+\end{description}
+}
+
+
+
+
+\exercicio{}{
+Seja $C$ o círculo $|z-i| = 2$, orientado positivamente. Calcule $\dint_C g(z) ~dz$ em cada caso.
+\begin{description}
+\item{} (a) $g(z) = \dfrac{1}{z^2+4}$ (Resposta: $\dfrac{\pi}{2}$)
+\item{} (b) $g(z) = \dfrac{1}{(z^2+4)^2}$ (Resposta: $\dfrac{\pi}{16}$)
+\end{description}
+}
+
+
+\exercicio{}{
+Mostre que $\dint_C \dfrac{f'(z)}{z-z_0} ~dz = \displaystyle\int_C \dfrac{f(z)}{(z-z_0)^2} ~dz$, em que $C$ é o caminho fechado orientado positivamente que não passa por $z_0$ e $f$ é uma função analítica sobre $C$ e em seu interior.
+}
+
+
+\exercicio{}{
+Seja $C$ o círculo unitário $|z| = 1$, orientado de $\theta = -\pi$ e $\theta = \pi$ no sentido positivo. Seja $k \in \mathbb{R}$.
+\begin{description}
+\item{} (a) Mostre que $\dint_C \dfrac{e^{kz}}{z} ~dz = 2\pi i$.
+\item{} (b) Escrevendo a integral do item (a) em termos de $\theta$, conclua que $$\dint_0^{\pi} e^{k \cos(\theta)} \cos(k \sin(\theta)) ~d\theta = \pi.$$
+\end{description}
+}
+
+
+
+
+
+\chapter{Séries de números complexos}
+
+
+Seja $(z_n)_{n \in \mathbb{N}}$ uma sequência de números complexos. A partir desta sequência, formamos uma nova sequência $(s_n)_{n \in \mathbb{N}}$, definindo as \textbf{somas parciais}
+$$s_0 = z_0, s_1=z_0+z_1, \cdots , s_n = z_0 +z_1 + \cdots + z_n, \cdots$$
+
+A sequência $(s_n)_{n \in \mathbb{N}}$ é chamada a \textbf{série determinada por $(z_n)_{n \in \mathbb{N}}$} e é denotada por $\displaystyle\sum_{n=0}^{\infty}z_n$. O número $z_n$ é chamado o \textbf{termo geral} da série. Se $s = \displaystyle\lim_{n \to + \infty} s_n$, dizemos que a série $\displaystyle\sum_{n=0}^{\infty}z_n$ é \textbf{convergente}. Neste caso, o limite $s$ é chamado \textit{soma} da série. Caso contrário, dizemos que a série $\displaystyle\sum_{n=0}^{\infty}z_n$ é \textbf{divergente}.
+
+Para que um série seja convergente, uma condição necessária é que seu termo geral convirja para zero. Com efeito, suponhamos que a série $\displaystyle\sum_{n=0}^{\infty}z_n$ convirja para $s$. Como $z_n = s_n - s_{n-1}$ para todo $n \geq 1$, temos que $z_n = s-s = 0$ quando $n \to + \infty$.
+
+
+
+\exemplo{}{
+A série geométrica $\displaystyle\sum_{n=0}^{\infty}z_n$ converge se $|z|<1$ e diverge se $|z| \geq 1$. Além disso,
+
+\begin{eqnarray}\label{ser1}
+\displaystyle\sum_{n=0}^{\infty}z_n = \dfrac{1}{1-z},
+\end{eqnarray}
+sempre que $|z|<1$. De fato, se $|z|<1$, então
+$$1+z+ \cdots + z^n = \dfrac{1-z^{n+1}}{1-z} \to \dfrac{1}{1-z} \mbox{ quando } n \to \infty.$$
+Assim, prova-se \ref{ser1}. Agora, se $|z| \geq 1$, então $z_n$ não implica em $0$ quando $n \to \infty$, o que mostra que a série diverge.
+}
+
+\proposicao{}{}{
+\label{prop:05}
+Para cada $n \in \mathbb{N}$, seja $z_n = x_n + iy_n \in \mathbb{C}$. A série de números complexos $\displaystyle\sum_{n=0}^{\infty}z_n$ converge se, e somente se, as séries de números reais $\displaystyle\sum_{n=0}^{\infty}x_n$ e $\displaystyle\sum_{n=0}^{\infty}y_n$ convergem. Além disso, neste caso,
+$$\displaystyle\sum_{n=0}^{\infty}z_n = \displaystyle\sum_{n=0}^{\infty}x_n +i\displaystyle\sum_{n=0}^{\infty}y_n$$
+}
+
+\proposicao{}{}{
+\label{prop:06}
+Se $\displaystyle\sum_{n=0}^{\infty}z_n$ e $\displaystyle\sum_{n=0}^{\infty}w_n$ são duas séries convergentes e se $\lambda \in \mathbb{C}$, então as séries $\displaystyle\sum_{n=0}^{\infty}(z_n + w_n)$ e $\displaystyle\sum_{n=0}^{\infty}\lambda z_n$ também são convergentes. Além disso,
+$$\displaystyle\sum_{n=0}^{\infty}(z_n + w_n) = \displaystyle\sum_{n=0}^{\infty}z_n + \displaystyle\sum_{n=0}^{\infty}w_n \quad e \quad \displaystyle\sum_{n=0}^{\infty}\lambda z_n = \lambda \displaystyle\sum_{n=0}^{\infty}z_n.$$
+}
+
+\demproposicao{
+Como $\displaystyle\sum_{n=0}^{k}(z_n + w_n) = \displaystyle\sum_{n=0}^{k}z_n + \displaystyle\sum_{n=0}^{k}w_n$ para todo $k \in \mathbb{N}$, segue, dos resultados de sequências de números complexos que a série $\displaystyle\sum_{n=0}^{\infty}(z_n + w_n)$ converge e que
+\begin{eqnarray*}
+\displaystyle\sum_{n=0}^{\infty}(z_n + w_n)
+&=& \displaystyle \lim_{k \to \infty}\displaystyle\sum_{n=0}^{\infty}(z_n + w_n)\\
+&=& \displaystyle \lim_{k \to \infty}\displaystyle\sum_{n=0}^{\infty}z_n + \displaystyle \lim_{k \to \infty}\displaystyle\sum_{n=0}^{\infty}w_n\\
+&=& \displaystyle\sum_{n=0}^{\infty}z_n + \displaystyle\sum_{n=0}^{\infty}w_n.
+\end{eqnarray*}
+
+Analogamente, $\displaystyle\sum_{n=0}^{\infty}\lambda z_n$ converge e
+$$\displaystyle\sum_{n=0}^{\infty}\lambda z_n = \lim_{k \to \infty}\displaystyle\sum_{n=0}^{k}\lambda z_n = \lambda \lim_{k \to \infty}\displaystyle\sum_{n=0}^{k} z_n = \lambda \displaystyle\sum_{n=0}^{\infty}z_n.$$
+}
+
+\definicao{}{}{
+Dizemos que uma série de números complexos $\displaystyle\sum_{n=0}^{\infty}z_n$ é \textbf{absolutamente convergente} quando a série $\displaystyle\sum_{n=0}^{\infty}|z_n|$ é convergente.
+}
+
+
+\proposicao{}{prop:07}{
+Se uma série de números complexos $\displaystyle\sum_{n=0}^{\infty}z_n$ é absolutamente convergente, então ela é convergente. Além disso,
+\begin{eqnarray}\label{eq:07}
+\left|\displaystyle\sum_{n=0}^{\infty}z_n\right| \leq \displaystyle\sum_{n=0}^{\infty}|z_n|.
+\end{eqnarray}
+}
+
+\demproposicao{
+Para cada $n \in \mathbb{N}$, escrevamos $z_n = x_n + iy_n$. Como
+$$|x_n| \leq |z_n| \quad e \quad |y_n|\leq|z_n| \forall\ n \in \mathbb{N},$$
+segue, do teste da comparação para séries de números reais, que as séries $\displaystyle\sum_{n=0}^{\infty}x_n$ e $\displaystyle\sum_{n=0}^{\infty}y_n$ são absolutamente convergentes. Como toda série absolutamente convergente de números reais é convergente, concluímos que $\displaystyle\sum_{n=0}^{\infty}x_n$ e $\displaystyle\sum_{n=0}^{\infty}y_n$ são convergentes. Logo, pela Proposição 3.3, $\displaystyle\sum_{n=0}^{\infty}z_n$ é convergente.
+
+Agora, pela desigualdade triangular,
+$$\left|\displaystyle\sum_{n=0}^{\infty}z_n\right| \leq \displaystyle\sum_{n=0}^{\infty}|z_n|, \forall\ k \in \mathbb{N}.$$
+
+Logo, fazendo $k \to +\infty$ e usando a continuidade do valor absoluto, obtemos (\ref{eq:07}).
+}
+
+Relembremos alguns dos principais testes de convergências de séries de números reais não negativos.
+
+\section{Testes de convergência}
+
+\subsection*{Teste da comparação}
+
+Sejam $(a_n)_{n \in \mathbb{N}}$ e $(b_n)_{n \in \mathbb{N}}$ sequências de números reais não negativos. Se
+$$a_n \leq b_n, \forall\ n \in \mathbb{N}$$
+e se a série $\displaystyle\sum_{n=0}^{\infty}b_n$ converge, então a série $\displaystyle\sum_{n=0}^{\infty}a_n$ também converge.
+
+
+\subsection*{Teste da raiz}
+
+Seja $\displaystyle\sum_{n=0}^{\infty}a_n$ uma série de números reais não negativos tal que existe
+$$L = \lim_{n \to \infty} \sqrt[n]{a_n}.$$
+\\
+(a) Se $L<1$, a série converge.\\
+(b) Se $L>1$, a série diverge.\\
+(c) Se $L = 1$, nada se pode afirmar.
+
+
+\subsection*{Teste da razão}
+
+Seja $\displaystyle\sum_{n=0}^{\infty}a_n$ uma série de números reais positivos tal que existe
+$$L = \lim_{n \to \infty} \dfrac{a_{n+1}}{a_n}.$$
+\\
+(a) Se $L<1$, a série converge.\\
+(b) Se $L>1$, a série diverge.\\
+(c) Se $L = 1$, nada se pode afirmar.
+
+\exemplo{}{
+Consideremos a série
+$$\displaystyle\sum_{n=0}^{\infty}n(1+i)^n (2i)^-n.$$
+Apliquemos o teste da raiz à correspondente série dos módulos, isto é,
+$$L = \lim_{n \to \infty} \sqrt[n]{\dfrac{n|1+i|^n}{|2i|^n}} = \dfrac{|1+i|}{2}\lim_{n \to \infty} \sqrt[n]{n} = \dfrac{|1+i|}{2} = \dfrac{\sqrt{2}}{2}.$$
+Como $L < 1$, a série $\displaystyle\sum_{n=0}^{\infty}n(1+i)^n (2i)^-n$ converge absolutamente e, portanto, converge.
+}
+
+\textbf{Teste das séries alternadas.} \textit{Se $(a_n)_{n \in \mathbb{N}}$ é uma sequência decrescente de números reais positivos tal que $a_n \to 0$ quando $n \to \infty$, então a série
+$$\displaystyle\sum_{n=0}^{\infty}(-1)^na_n$$
+é convergente.}
+
+\exemplo{}{
+Consideremos a série
+$$\displaystyle\sum_{n=1}^{\infty}\dfrac{i^n}{n}.$$
+Observemos que a sua correspondente série dos módulos é a série harmônica $\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{n}$, que diverge. Portanto, a série $\displaystyle\sum_{n=1}^{\infty}\dfrac{i^n}{n}$ não é absolutamente convergente. Agora, escrevendo $\dfrac{i^n}{n}$ ma forma $x_n + iy_n$, vemos que $x_n = 0$ se $n$ é ímpar e $x_{2n} = \dfrac{(-1)^n}{2n}$ para $n \in \mathbb{N}^*$, enquanto que $y_n = 0$ se $n$ é par e $y_{2n-1} = \dfrac{(-1)^{n-1}}{2n-1}$ se $\n \in \mathbb{N}^*$. Assim,
+$$\displaystyle\sum_{n=1}^{\infty}x_{n} = \displaystyle\sum_{n=1}^{\infty}\dfrac{(-1)^n}{2n} \quad e \quad \displaystyle\sum_{n=1}^{\infty}y_{n} = \displaystyle\sum_{n=1}^{\infty}\dfrac{(-1)^{n-1}}{2n-1}.$$
+Como cada uma das séries acima é convergentes, pelo teste das séries alternadas, segue da Proposição 3.1 que a série $\displaystyle\sum_{n=1}^{\infty}\dfrac{i^n}{n}$ converge.
+}
+
+Daí, podemos observar que a recíproca da Proposição 3.3 é falsa, ou seja, existem séries convergentes que não são absolutamente convergentes.
+
+\section{Séries de Taylor}
+
+\definicao{}{}{
+Uma série da forma
+\begin{eqnarray}\label{ser3}
+\displaystyle\sum_{n=0}^{\infty}a_n(z - z_0)^n = a_0 + a_1(z- z_0) + a_2(z-z_0)^2 + \cdots ,
+\end{eqnarray}
+onde $z, z_0, a_0, a_1, a_2, ... \in \mathbb{C}$, é chamada uma \textbf{série de Taylor centrada em $z_0$}. Os números $a_0, a_1, a_2, ...$ são chamados de \textbf{coeficientes da série}.
+}
+
+Geralmente consideramos $a_0, a_1, a_2, ...$ e $z_0$ como números fixos e $z$ como uma variável. Assim, a série de Taylor pode convergir para certos valores de $z$ e divergir para outros.
+
+
+\definicao{}{}{
+Seja $X$ o conjunto de todos os pontos $z \in \mathbb{C}$ para os quais a série (\ref{ser3}) converge. Como esta série converge se $z=z_0$, temos que $z_0 \in X$. Definimos o \textbf{raio de convergência} da série (\ref{ser3}) por
+$$\rho = \sup\{|z-z_0|: z \in X\},$$
+em que consideramos $\rho = \infty$ se o conjunto $\{|z-z_0|: z \in X\}$ não for limitado superiormente.
+
+O disco
+$$\Delta(z_0,\rho)$$
+é chamado o \textit{disco de convergência} da série (\ref{ser3}), onde adotamos
+$$\Delta(z_0,0) = \emptyset \quad e \quad \Delta(z_0, \infty)= \mathbb{C}.$$
+}
+
+
+\teorema{}{}{
+Se $\rho$ é o raio de convergência de uma série de Taylor
+\begin{eqnarray}\label{ser4}
+\displaystyle\sum_{n=0}^{\infty}a_n(z - z_0)^n,
+\end{eqnarray}
+então a série converge absolutamente se $|z-z_0|<\rho$ e diverge se $|z-z_0|>\rho$.
+}
+
+\demteorema{Suponhamos que $X$ seja o conjunto de pontos $z$ par os quais a série \eqref{ser4} converge. Como $\rho = \sup\{|z-z_0|: z \in X\}$, é imediato que a série (\ref{ser4}) diverge se $|z-z_0|>\rho$. Suponhamos agora $|z-z_0|<\rho$. Então, existe $w \in X$ tal que $|z-z_0|<|w-z_0|$. 
+
+Consideremos
+$$r = \dfrac{|z-z_0|}{|w-z_0|}<1.$$
+Como a série $\displaystyle\sum_{n=0}^{\infty}a_n(w - z_0)^n$ converge e já que $w \in X$, temos que a sequência de seu termo geral converge para $0$, onde é limitada. Assim, existe uma constante $M>0$ tal que
+$$|a_n(w - z_0)^n| \leq M, \forall\ n \in \mathbb{N}.$$
+Como
+$$|a_n(z - z_0)^n| = |a_n(w - z_0)^n|r^n \leq M r^n \quad (n \in \mathbb{N})$$
+e a série geométrica $\displaystyle\sum_{n=0}^{\infty}r^n$ converge, segue do teste da comparação que a série \eqref{ser4} converge absolutamente.
+}
+
+Assim, temos do teorema anterior que toda série de Taylor converge absolutamente dentro do seu disco de convergência. Então, para calcularmos o raio de convergência de uma dada série de Taylor, basta trabalharmos com a correspondente série dos módulos, o que permite que possamos usar os teste de convergência citados na seção antecedente.
+
+\exemplo{}{
+(a) A série de Taylor
+$$\displaystyle\sum_{n=0}^{\infty}n^n z^n$$
+tem raio de convergência $\rho = 0$. De fato, se $z \neq 0$, então
+$$|n^n z^n| = (n|z|)^n = n^n |z|^n \to \infty, \mbox{ quando } n \to \infty.$$
+Isto nos diz que a série diverge para todo $z \neq 0$.
+
+(b) A série de Taylor
+$$\displaystyle\sum_{n=0}^{\infty}\dfrac{z^n}{n!}$$
+tem raio de convergência $\rho = \infty$. De fato, pelo teste da razão:
+$$\dfrac{\left|\dfrac{z^{n+1}}{(n+1)!}\right|}{\left|\dfrac{z^n}{n!}\right|} = \dfrac{|z|}{n+1} \to 0, \mbox{ quando } n \to \infty.$$
+Assim, o teste da razão garante que a série converge para todo $z \in \mathbb{C}$.
+
+(c) A série de Taylor
+$$\displaystyle\sum_{n=1}^{\infty}\dfrac{z^n}{n^2}$$
+tem raio de convergência $\rho = 1$. Com efeito, apliquemos o teste da raiz:
+$$\sqrt[n]{\left|\dfrac{z^n}{n^2}\right|} = \dfrac{|z|}{(\sqrt[n]{n})^2} \to |z| \mbox{ quando } n \to \infty,$$
+já que $\displaystyle\lim_{n \to \infty} \sqrt[n]{n} = 1$. Portanto, o teste da raiz garante que a série converge se $|z|<1$ e diverge se $|z|>1$.
+
+(d) A série de Taylor
+$$\displaystyle\sum_{n=0}^{\infty}z^n$$
+tem raio de convergência $\rho = 1$. De fato, esta é a serie geométrica analisada no Exemplo 3.1.
+}
+
+\begin{remark}
+O Teorema 3.1 não afirma nada a respeito da divergência ou convergência da série de Taylor (\eqref{ser4}) quando
+$$|z-z_0| = \rho.$$
+O fato é que pode ocorrer convergência ou divergência. Foi o que comprovamos com os itens (c) e (d) do Exemplo 3.4. As séries
+$$\displaystyle\sum_{n=1}^{\infty}\dfrac{z^n}{n^2} \quad e \quad \displaystyle\sum_{n=0}^{\infty}z^n$$
+têm raio de convergência $\rho = 1$, entretanto, a primeira converge (até absolutamente) se $|z| = 1$, enquanto que a segunda diverge se $|z|=1$.
+\end{remark}
+
+Enunciaremos agora alguns resultados de modo que possamos chegar na prova de que toda série de Taylor representa uma função analítica em seu disco de convergência.
+
+\lema{}{}{
+Se uma série de Taylor
+$$\displaystyle\sum_{n=0}^{\infty}a_n(z - z_0)^n$$
+converge em um disco $\Delta(z_0, s)$, então a série de Taylor
+$$\displaystyle\sum_{n=0}^{\infty}na_n(z - z_0)^{n-1}$$
+obtida fazendo-se derivação termo a termo também converge em $\Delta(z_0, s)$.
+}
+
+\demlema{
+Fixemos $z \in \Delta(z_0, s)$. Como o caso $z= z_0$ é trivial, vamos supor $z \neq z_0$. Tomemos $w \in \mathbb{C}$ tal que $|z-z_0|<|w-w_0|<s$ e coloquemos
+$$r = \dfrac{|z-z_0|}{|w-z_0|}<1.$$
+
+Temos que
+$$|na^n(z-z_0)^{n-1}| = \dfrac{nr^n|a_n(w-z_0)^n|}{|z-z_0|} \quad (n \in \mathbb{N}).$$
+
+Como $\lim_{n \to \infty}nr^n = 0$, existe $n_0 \in \mathbb{N}$ tal que
+$$\dfrac{nr^n}{|z-z_0|} \leq 1 \forall\ n \geq n_0.$$
+
+Logo,
+$$|na^n(z-z_0)^{n-1}| \leq |a^n(w-z_0)^n|, \forall\ n \geq n_0.$$
+
+Como $w \in \Delta(z_0, s)$, a série $\displaystyle\sum_{n=0}^{\infty}a_n(w - z_0)^n$ converge absolutamente. Portanto, o teste da comparação implica que $\displaystyle\sum_{n=0}^{\infty}na_n(z - z_0)^{n-1}$ também converge absolutamente.
+}
+
+
+\teorema{}{}{
+Se uma série de Taylor $\displaystyle\sum_{n=0}^{\infty}a_n(z - z_0)^n$ tem raio de convergência $\rho > 0$, então a função $f: \Delta(z_0, \rho) \to \mathbb{C}$ definida por
+$$f(z) = \displaystyle\sum_{n=0}^{\infty}a_n(z - z_0)^n$$
+é analítica e a sua derivada $f'$ pode ser obtida fazendo-se derivação termo a termo: para todo $z \in \Delta(z_0, \rho)$,
+$$f'(z) = \displaystyle\sum_{n=1}^{\infty}na_n(z - z_0)^{n-1}.$$
+}
+
+\demteorema{Fazendo uma translação, podemos supor $z_0 = 0$. Seja $g: \Delta(0, \rho) \to \mathbb{C}$ dada por
+$$g(z) = \displaystyle\sum_{n=1}^{\infty}na_n z^{n-1}.$$
+
+O lema anterior garante que a série de Taylor acima converge em $\Delta(0, \rho)$. Fixemos $w \in \Delta(0, \rho)$ e mostremos que $f'(w) = g(w)$. Para isto, fixemos $r \in \mathbb{R}$ com $|w|<r<\rho$. Dado $z \in \Delta(0, \rho), z \neq w$, notemos que
+\begin{eqnarray}\label{ser5}
+\dfrac{f(z)-f(w)}{z-w}-g(w) = \displaystyle\sum_{n=1}^{\infty}a_n\left[\dfrac{z^n-w^n}{z-w}-nw^{n-1}\right].
+\end{eqnarray}
+Como
+$$\dfrac{z^n-w^n}{z-w} = z^{n-1}+z^{n-2}w+ \cdots + zw^{n-2} + w^{n-1},$$
+temos que a expressão que está dentro dos colchetes em (\ref{ser5}) vale $0$ se $n=1$ e vale
+$$(z-w)(z^{n-2} + 2z^{n-3}w + 3z^{n-4}w^2 + \cdots + (n-2)zw^{n-3} + (n-1)w^{n-2})$$
+se $n \geq 2$. Logo, se $n \geq 2$ e $|z| < r$, então
+\begin{eqnarray*}
+\left|\dfrac{z^n-w^n}{z-w}-nw^{n-1}\right|
+& \leq & |z-w|r^{n-2}(1+2+ \cdots + (n-1))\\
+&=& \dfrac{n(n-1)}{2}r^{n-2}|z-w|.
+\end{eqnarray*}
+Portanto,
+\begin{eqnarray}\label{ser6}
+\left|\dfrac{f(z)-f(w)}{z-w}-g(w)\right| \leq \dfrac{|z-w|}{2}\displaystyle\sum_{n=2}^{\infty}n(n-1)|a_n|r^{n-2}.
+\end{eqnarray}
+Como $r< \rho$, segue do lema anterior que a série em (\ref{ser6}) converge. Logo, a expressão do lado esquerdo de (\ref{ser6}) converge para $0$ quando $z \to w$. Isto prova que $f'(w)=g(w)$, como queríamos.
+}
+
+\corolario{}{}{
+Com as hipóteses do teorema anterior, temos que
+\begin{eqnarray}\label{ser7}
+f^{(k)}(z) = \displaystyle\sum_{n=k}^{\infty}n(n-1) \cdots (n-k+1)a_n(z-z_0)^{n-k},
+\end{eqnarray}
+para todo $z \in \Delta(z_0, \rho)$. Em particular,
+\begin{eqnarray}\label{ser8}
+a_k = \dfrac{f^{(k)}(z_0)}{k!} \quad (k \in \mathbb{N}).
+\end{eqnarray}
+}
+
+A fórmula \eqref{ser8} mostra que os coeficientes de uma série de Taylor com raio de convergência $\rho>0$ estão unicamente determinados pelos valores da série em seu disco de convergência.
+
+Vimos no teorema anterior que a derivada de uma série de Taylor pode ser obtida fazendo-se derivação termo a termo. Nosso próximo objetivo é provar o correspondente resultado para integrais. Para isto, necessitaremos do lema seguinte.
+
+\lema{}{}{
+Suponhamos que uma série de Taylor $\displaystyle\sum_{n=0}^{\infty}a_n z^n$ tem raio de convergência $\rho >0$. Se $\phi: [a, b] \to \Delta(0, \rho)$ é contínua e $\psi: [a, b]: \to \mathbb{C}$ é integrável, então
+$$\int_{a}^{b} \left[\displaystyle\sum_{n=0}^{\infty}a_n(\phi(t))^n\psi(t)\right]dt = \displaystyle\sum_{n=0}^{\infty} \int_{a}^{b}a_n(\phi(t))^n\psi(t)~dt .$$
+}
+
+\demlema{
+Pelo Teorema 3.2, a função $f(z) = \displaystyle\sum_{n=0}^{\infty}a_n z^n$ é analítica no disco $\Delta(0, \rho)$, então ela é contínua neste disco. Logo, a composta $f \circ \phi$ é contínua em $[a, b]$ e, consequentemente, o produto $(f \circ \phi)\psi$ é integrável em $[a, b]$. Isto mostra que a integral do lado esquerdo da igualdade acima existe. Denotemos o valor desta integral por $I$. Como $\phi$ é contínua no intervalo $[a, b]$, existe um ponto $t_0 \in [a, b]$ tal que $|\phi(t)| \leq |\phi(t_0)|$ para todo $t \in [a, b]$. Coloquemos
+$$r = |\phi(t_0)|< \rho$$.
+Como $\psi$ é integrável, existe uma constante $M>0$ tal que $|\psi(t)| \leq M$ para todo $t \in [a, b]$. Daí,
+\begin{eqnarray*}
+\left|I -\displaystyle\sum_{n=0}^{\infty} \int_{a}^{b}a_n(\phi(t))^n\psi(t)~dt \right|
+&=& \left|\int_{a}^{b} \displaystyle\sum_{n=k+1}^{\infty}a_n(\phi(t))^n\psi(t)~dt \right|\\
+& \leq & \int_{a}^{b} \displaystyle\sum_{n=k+1}^{\infty}|a_n||\phi(t)|^n|\psi(t)|~dt \\
+& \leq & M (b-a) \displaystyle\sum_{n=k+1}^{\infty}|a_n|r^n \rightarrow 0,
+\end{eqnarray*}
+quando $k \to \infty$, já que a série $\displaystyle\sum_{n=0}^{\infty}|a_n|r^n$ converge.
+}
+
+\teorema{}{}{
+Suponhamos que uma série de Taylor $\displaystyle\sum_{n=0}^{\infty}a_n(z-z_0)^n$ tem raio de convergência $\rho >0$. Então, para todo caminho suave por partes $\gamma: [a, b] \to \Delta(z_0, \rho)$, temos que
+$$\int_{\gamma}\left[\displaystyle\sum_{n=0}^{\infty}a_n(\zeta-z_0)^n\right] d\zeta = \displaystyle\sum_{n=0}^{\infty}\int_{\gamma} a_n(z-z_0)^n d\zeta.$$
+}
+
+Estabeleceremos agora, um dos resultados principais deste capítulo: toda função analítica $f: \Omega \to \mathbb{C}$ é "representável por séries de Taylor", no sentido de que para cada disco aberto $\Delta(z_0, r)$ contido em $\Omega$, existe uma série de Taylor centrada em $z_0$ que representa a função $f$ neste disco.
+
+\teorema{}{}{
+Seja $f: \Omega \to \mathbb{C}$ uma função analítica. Em cada disco aberto $\Delta(z_0, r)$ contido em $\Omega$, vale que
+\begin{eqnarray}\label{ser9}
+f(z) = \displaystyle\sum_{n=0}^{\infty}\dfrac{f^{(n)}(z_0)}{n!}(z-z_0)^n.
+\end{eqnarray}
+}
+
+\demteorema{Seja $\Delta(z_0, r)$ um disco aberto contido em $\Omega$ e fixemos $z \in \Delta(z_0, r)$. Seja $s \in \mathbb{R}$ tal que $|z-z_0|<s<r$ e seja $\gamma$ o círculo orientado positivamente de centro $z_0$ e raio $s$. Pela fórmula integral de Cauchy,
+$$f(z) = \dfrac{1}{2 \pi i}\int_{\gamma}\dfrac{f(\zeta)}{\zeta - z} d\zeta.$$
+Para transformar a integral acima em uma série de Taylor centrada em $z_0$ façamos o seguinte: para cada $\zeta \in |\gamma|$, como
+$$\left|\dfrac{z- z_0}{\zeta - z_0}\right| = \dfrac{|z-z_0|}{s}<1,$$
+temos que
+$$\dfrac{1}{\zeta-z}=\dfrac{1}{\zeta-z_0}\dfrac{1}{1-\left(\frac{z- z_0}{\zeta - z_0}\right)} = \dfrac{1}{\zeta-z_0}\displaystyle\sum_{n=0}^{\infty}\left(\dfrac{z- z_0}{\zeta - z_0}\right)^n,$$
+pela fórmula (\ref{ser1}). Portanto,
+$$f(z) = \dfrac{1}{2 \pi i}\int_{\gamma}\displaystyle\sum_{n=0}^{\infty}\dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}}(z-z_0)^n d\zeta.$$
+Se afirmarmos que vale a integração termo a termo, obtemos
+$$f(z) = \displaystyle\sum_{n=0}^{\infty}a_n(z-z_0)^n,$$
+onde
+\begin{eqnarray}\label{ser10}
+a_n = \dfrac{1}{2 \pi i}\int_{\gamma}\dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}}(z-z_0)^n d\zeta \quad (n \in \mathbb{N}).
+\end{eqnarray}
+De fato, isso decorre do Lema 3.2 com
+$$\phi(t) = \dfrac{z-z_0}{\gamma(t) - z_0} \quad e \quad \psi(t) = \dfrac{f(\gamma(t))\gamma'(t)}{\gamma(t) - z_0} \quad (t \in [0, 2 \pi]).$$
+Os coeficientes obtidos são dados pela fórmula (\ref{ser10}), mas a fórmula (\ref{ser8}) nos mostra também que vale $a_n = \dfrac{f^{(n)(z_0)}}{n!}$, para $n \in \mathbb{N}$. Portanto, (\ref{ser9}) se verifica.
+}
+
+
+
+
+
+\section{Séries de Laurent}
+
+\definicao{}{}{
+Uma série da forma
+\begin{eqnarray}\label{ser11}
+\displaystyle\sum_{n=-\infty}^{\infty} a_n(z-z_0)^n,
+\end{eqnarray}
+em que $z$, $z_0$ e os $a_n$ são números complexos, é chamada uma \textbf{série de Laurent centrada em} $z_0$. Os números $\cdots, a_{-2}, a_{-1}, a_{0}, a_1, a_2, \cdots$ são chamados \textbf{os coeficientes} da série.
+}
+
+Usualmente, olhamos $z_0$ e os $a_n$ como números fixos e $z$ como variável. Assim, a série de Laurent acima pode convergir para certos valores de $z$ e divergir para outros valores de $z$.
+
+Observamos que toda série de Taylor é uma série de Laurent em que $a_n = 0$, para todo $n$ negativo.
+
+Por definição, a série (\eqref{ser11}) converge se, e somente se, as séries
+\begin{eqnarray}\label{ser12}
+\displaystyle\sum_{n=0}^{\infty} a_n(z-z_0)^n \quad e \quad \displaystyle\sum_{n=1}^{\infty} a_{-n}(z-z_0)^{-n}
+\end{eqnarray}
+convergem.
+
+A primeira série em \eqref{ser12} é chamada a \textbf{parte analítica} da série de Laurent \eqref{ser11}, enquanto que a segunda série em \eqref{ser12} é chamada a \textit{parte principal} de \eqref{ser11}.
+
+A parte principal da série de Laurent \eqref{ser11} pode ser vista como uma série de Taylor na variável $\dfrac{1}{z-z_0}$.
+Se esta série de Taylor tem raio de convergência $\rho > 0$, então a série converge para $\dfrac{1}{|z-z_0|}<\rho$, ou seja, para $|z-z_0|>\rho_1 = \dfrac{1}{\rho}$. Assim, pelo Teorema 3.2,
+$f_1(z) = \displaystyle\sum_{n=1}^{\infty} a_{-n}(z-z_0)^{-n}$
+define uma função analítica no conjunto ${z \in \mathbb{C}: |z-z_0|>\rho_1}$.
+
+Suponhamos, agora, que a parte analítica da série de Laurent \eqref{ser11} tem raio de convergência $\rho_2 > 0$. Pelo Teorema 3.2,
+$$f_2(z) = \displaystyle\sum_{n=0}^{\infty} a_n(z-z_0)^n$$
+define uma função analítica no conjunto ${z \in \mathbb{C}: |z-z_0|<\rho_2}$. Se $\rho_2>\rho_1$, então $f_1$ e $f_2$ são ambas funções analíticas no anel $A = {z \in \mathbb{C}: \rho_1 <|z-z_0|<\rho_2}$. Portanto,
+$$f(z) = f_1(z) + f_2(z) = \displaystyle\sum_{n=-\infty}^{\infty} a_n(z-z_0)^n$$
+define uma função analítica no anel $\Omega$.
+
+Observamos que a derivada $f'$ de $f$ pode ser obtida fazendo-se derivação termo a termo:
+$f'(z) = \displaystyle\sum_{n=-\infty}^{\infty} na_n(z-z_0)^{n-1} \quad (z \in A)$.
+
+De fato, usando a regra da cadeia e o Teorema 3.2, temos
+\begin{eqnarray*}
+f'(z)
+&=& f'_1(z) + f'_2(z)\\
+&=& \displaystyle\sum_{n=1}^{\infty} na_{-n}(z-z_0)^{-n+1}[-(z-z_0)^{-2}] + \displaystyle\sum_{n=1}^{\infty} na_n(z-z_0)^{n-1} \\
+&=& \displaystyle\sum_{n=1}^{\infty} (-n)a_n(z-z_0)^{-n-1} + \displaystyle\sum_{n=1}^{\infty} na_n(z-z_0)^{n-1}\\
+&=& \displaystyle\sum_{n=-\infty}^{\infty} na_n(z-z_0)^{n-1}.
+\end{eqnarray*}
+Além disso, também é válido fazermos a integração termo a termo:
+$$\int_{\gamma}{f(\zeta)} d\zeta = \displaystyle\sum_{n=-\infty}^{\infty}\int_{\gamma} a_n(\zeta-z_0)^n d\zeta,$$
+sempre que $\gamma$ for um caminho suave por partes no anel $\Omega$. Com efeito, o Teorema 3.3 garante que $f_2$ pode ser integrada fazendo-se integração termo a termo, e segue do Lema 3.2, com $\phi(t) = (\gamma(t)-z_0)^{-1}$ e $\psi(t) = \gamma'(t)$, que o mesmo se verifica para $f_1$. Notamos que se $|z-z_0|<\rho_1$ ou $|z-z_0|>\rho_2$, então uma das séries em (\ref{ser12}) diverge e, portanto, a série de Laurent (\ref{ser11}) diverge. Por esta razão, $\Omega$ é chamado o \textit{anel de convergência} da série (\ref{ser11}).
+
+\teorema{}{}{
+Suponhamos que $f$ é uma função analítica em um anel $A= {z \in \mathbb{C}: \rho_1<|z-z_0|<\rho_2}$, onde $0 \leq \rho_1 < \rho_2 \leq \infty$. Então, $f$ tem uma representação em série de Laurent centrada em $z_0$
+\begin{eqnarray}\label{ser13}
+f(z) = \displaystyle\sum_{n=-\infty}^{\infty} a_n(z-z_0)^n,
+\end{eqnarray}
+que é válida pra todo $z \in A$. Os coeficientes são dados por
+\begin{eqnarray}\label{ser14}
+a_n = \dfrac{1}{2 \pi i}\int_{|\zeta-z_0| = r}\dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta,
+\end{eqnarray}
+onde $r$ é qualquer número real tal que $\rho_1<r<\rho_2$.
+}
+
+
+
+\noindent
+\begin{minipage}[!ht]{0.9\textwidth}\centering
+\captionof{figure}{Coroa circular de raios $R_1$ e $R_2$.}
+\label{fig:01.06}
+%\psset{unit=1.2cm}
+\begin{pspicture}(-3,-3)(3,3)
+\pnode(0,0){A}
+\pnode(2;50){B}
+\pnode(3;120){C}
+\pscircle[linecolor=red,fillstyle=solid,fillcolor=yellow!50](A){3.0cm}
+\pscircle[linecolor=red,fillstyle=solid,fillcolor=white](A){2.0cm}
+\pscircle[linecolor=red,fillstyle=solid,fillcolor=red](A){0.1cm}
+\uput[dr](A){\small $z=0$}
+\rput(1;63){\small $R_1$}
+\rput(2.5;127){\small $R_2$}
+\psline{->}(A)(B)
+\psline{->}(A)(C)
+\end{pspicture}
+\end{minipage}
+
+
+
+\demteorema{Observamos que a integral em (\ref{ser14}) não depende da escolha do número $r$ satisfazendo $\rho_1<r<\rho_2$. De fato, suponhamos $\rho_1<r<s<\rho_2$ e sejam $\beta$ e $\gamma$ os caminhos definidos em $[0, 2 \pi]$ por $\beta(t) = z_0+r e^{it}$ e $\gamma(t) = z_0+s e^{it}$. Como $\beta$ é homólogo a $\gamma$ em $\Omega$ e a função $g(\zeta) = \dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}}$ é analítica e, $\Omega$, segue do Teorema de Cauchy-Gousart que
+$$\int_{|\zeta-z_0| = r}\dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta = \int_{|\zeta-z_0| = s}\dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta$$
+Fixemos $z \in A$ e sejam $r$ e $s$ números reais tais que
+$$\rho_1<r<|z-z_0|<s<\rho_2.$$
+Consideremos os caminhos $\beta$ e $\gamma$ definidos em $[0, 2 \pi]$ por $\beta(t) = z_0+r e^{it}$ e $\gamma(t) = z_0+s e^{it}$. Como o ciclo $\sigma = (\gamma, -\beta)$ é homólogo a zero em $\Omega$, segue da fórmula integral de Cauchy que
+$$f(z) = \dfrac{1}{2 \pi i}\int_{\sigma}\dfrac{f(\zeta)}{\zeta - z} d\zeta.$$
+Em outras palavras,
+$$f(z)=f_1(z)+ f_2(z),$$
+onde
+$$f_1(z) = \dfrac{1}{2 \pi i}\int_{\sigma}\dfrac{f(\zeta)}{\zeta - z} d\zeta \quad e \quad f_2(z) = -\dfrac{1}{2 \pi i}\int_{\sigma}\dfrac{f(\zeta)}{\zeta - z} d\zeta.$$
+Vamos ver que $f_1(z)$ nos dará a parte analítica da série de Laurent, enquanto que $f_2(z)$ nos dará a parte principal. Como $|z-z_0|<s$, a demonstração do Teorema 3.4 mostra que
+$$f_1(z)=\displaystyle\sum_{n=0}^{\infty} a_n(z-z_0)^n,$$
+onde, para cada $n \in \mathbb{N}, a_n$ é dado pela fórmula (\ref{ser10}), que coincide com a fórmula (\ref{ser14}). Já no caso de $f_2(z)$, não podemos aplicar diretamente a demonstração do Teorema 3.4, uma vez que $|z-z_0|>r$. Contudo, podemos adaptar o raciocínio da seguinte maneira: para cada $\zeta \in |\beta|$, como
+$$\left|\dfrac{\zeta-z_0}{z-z_0}\right| = \dfrac{r}{|z-z_0|}<1,$$
+temos que
+$$\dfrac{1}{\zeta-z} = \dfrac{1}{z-z_0}\dfrac{1}{1-\left(\frac{\zeta-z_0}{z-z_0}\right)} = -\dfrac{1}{z-z_0}\displaystyle\sum_{n=0}^{\infty}\left(\frac{\zeta-z_0}{z-z_0}\right)^n,$$
+pela fórmula (\ref{ser1}). Portanto,
+$$f_2(z) = \dfrac{1}{2 \pi i}\int_{\beta}\displaystyle\sum_{n=1}^{\infty}\dfrac{f(\zeta)(\zeta-z_0)^{n-1}}{(z-z_0)^n} d\zeta$$
+Afirmamos que podemos fazer integração termo a termo e obtermos
+$$f_2(z) = \displaystyle\sum_{n=1}^{\infty}b_n(z-z_0)^{-n},$$
+onde
+$$b_n = \dfrac{1}{2 \pi i}\int_{\beta}f(\zeta)(\zeta-z_0)^{n-1} d\zeta \quad (n \in \mathbb{N}^*).$$
+Com efeito, isto decorre do Lema 3.2 com
+$$\phi(t) = \dfrac{\beta(t) - z_0}{z-z_0} \quad e \quad \psi(t) = \dfrac{f(\beta(t))\beta'(t)}{z-z_0} \quad (t \in [0, 2 \pi]).$$
+Agora, podemos reescrever $f_2(z)$ como
+$$f_2(z) = \displaystyle\sum_{n=-\infty}^{-1}a_n(z-z_0)^{n},$$
+onde
+$$a_n = b_{-n} = \dfrac{1}{2 \pi i}\int_{\beta}\dfrac{f(\zeta)}{(\zeta-z_0)^{n+1}} d\zeta \quad (n \in \mathbb{N}^*).$$
+Assim, a demonstração está completa.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\exemplo{exam:01.04}{
+Seja $1 < |z - 2| < 2$. Encontre a série de Laurent de
+$$f(z) = \dfrac{1}{(z - 1)(z - 2)}$$
+}
+
+\solexemplo{Começamos com as frações parciais que permitem escrever a função na forma
+\[f(z) = -\dfrac{1}{z - 1}+\dfrac{1}{z - 2}.\]
+
+A fim de usar a série geométrica – primeiro, vamos conduzir essas frações parciais para adequadas séries geométricas – escrevemos:
+\[
+f(z) = -\dfrac{1}{z}\left(\dfrac{1}{1- 1/z}\right)-\dfrac{1}{2}\left(\dfrac{1}{1 - z/2}\right).\]
+
+Considerando as desigualdades \(1 < |z| < 2\), \(|1/z| < 1\) e \(|z/2| < 1\), e a definição da série geométrica, temos:
+\[f(z) = -\dfrac{1}{z} \dsum_{k=0}^{\infty} \dfrac{1}{z^k} -
+\dfrac{1}{2} \dsum_{k=0}^{\infty}
+\left(\dfrac{z}{2}\right)^{k}\]
+que é o resultado desejado.
+}
+
+
+
+\exercicio{exer:01.15}{%Do lar 15.
+Utilizando o Exemplo \autoref{exam:01.04} mostre que
+\[f(z) = \dsum_{k=-\infty}^{\infty} C_k z^k,\]
+em que os coeficientes são dados por
+\[C_k =
+\left\{
+\begin{array}{rcl}
+-1 &,& k \le -1 \\
+-\dfrac{1}{2^{k+1}}&,& k \ge 0.
+\end{array}\right.\]
+}
+
+
+\solexercicio{
+Temos que
+\[\begin{array}{rcl}
+f(z)
+&=& -\dfrac{1}{z} \displaystyle\sum_{k=0}^{\infty}\dfrac{1}{z^k}-\dfrac{1}{2} \sum_{k=0}^{\infty} \left(\dfrac{z}{2}\right)^{k} \\
+&=& - \displaystyle\sum_{k=-\infty}^{0} z^{k-1} - \sum_{k=0}^{\infty} \left(\dfrac{z^{k}}{2^{k+1}}\right)\\
+&=& \displaystyle\sum_{k=-\infty}^{-1} (-1) z^{k} - \sum_{k=0}^{\infty} \left(\dfrac{z^{k}}{2^{k+1}}\right)\\
+\end{array}\]
+}
+
+\exemplo{exam:01.05}{
+Encontre os dois primeiros termos não nulos da expressão de Laurent da função \(f(z) = -\tan(z)\) em torno do ponto \(z = \dfrac{\pi}{2}\).
+}
+
+\solexemplo{Começamos, a fim de simplificar os cálculos, utilizando a relação trigonométrica
+\[\tan\left(z -\dfrac{\pi}{2}\right) = -\cot(z) = -\dfrac{\cos(z)}{\sin(z)}.\]
+
+Assim, basta determinar os dois termos não nulos da expansão da função $y = \cot(z)$ em torno de $z = 0$. Conhecidas as séries de Mclaurin (expansão em torno de $z = 0$) para as funções cosseno e seno, respectivamente,
+$$\begin{array}{rclcl}
+\cos(z)
+&=& \dsum_{k=0}^{\infty} (-1)^k \dfrac{z^{2k}}{(2k)!}
+&=& 1-\dfrac{z^2}{2!}+\dfrac{z^4}{4!}-\dfrac{z^2}{6!}+\ldots \\
+\sin(z)
+&=& \dsum_{k=0}^{\infty} (-1)^k \dfrac{z^{2k+1}}{(2k+1)!}
+&=& z-\dfrac{z^3}{3!}+\dfrac{z^5}{5!}-\dfrac{z^7}{7!}+\ldots.
+\end{array}$$
+
+Ao efetuar a divisão, obtemos:
+\[\dfrac{1}{z}-\dfrac{z}{3}.\]
+}
+
+
+\exercicio{}{%Do lar 16.
+\label{exer:01.16}
+Encontre os dois primeiros termos não nulos da expressão de Laurent da função \[f(z) = \tan(z),\] em torno do ponto $z = 0$.
+}
+
+\solexercicio{
+Utilizando as expansões em série de Taylor das funções seno e cosseno do Exemplo \eqref{exam:01.05} e efetuando a divisão, obtemos:
+$$z+\dfrac{z^3}{3}.$$
+}
+
+
+
+\section{Resíduos}%Lumena
+
+
+Uma vez apresentada a serie de Laurent que contém termos com potências positivas e negativas, diferentemente das series de Taylor que só contêm potências positivas, vamos destacar um e um só termo dessa série, o chamado \textbf{resíduo}.
+
+Imediatamente após o conceito de resíduo, introduzimos o \textbf{Teorema dos Resíduos} que, junto ao \textbf{lema de Jordan}, desempenha papel crucial, seja no cálculo de integrais reais via variáveis complexas, como na inversão das transformadas integrais, dentre outras aplicações.
+
+
+\definicao{}{}{
+Dizemos que $z_0\in\mathbb{C}$ é um \textbf{ponto singular isolado} de uma função $f$ se existe uma vizinhança de $z_0$ em que $f$ é analítica.
+}
+
+Considere, por exemplo, a função $f(z) = \dfrac{1}{z}$. Ela é analítica exceto para $z=0$. Logo, a origem é um ponto singular isolado para $f$.
+
+Quando $z_0$ é um ponto singular isolado de $f$, existe $r_1>0$ tal que $f$ é analítica, para todo $z$ satisfazendo $0<|z-z_0|<r_1$. Neste domínio, a função é representada pela série de Laurent
+$$f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n + \sum_{-\infty}^{n=1} a_n (z-z_0)^{n},$$
+sendo que $a_n$ são os coeficientes da expansão em série de Laurent de $f$.
+
+A série de Laurent representa uma função $f$ num domínio $0<|z-z_0|<r$ em torno de um ponto singular $z_0$. A série de potências negativas de $(z-z_0)$ chama-se \textbf{parte principal} de $f(z)$ em torno de $z_0$.
+
+Como sabemos,
+$$a_{-1} = \frac{1}{2\pi i} \int_{C} f(z)~dz = \Res\limits_{z=z_0} f(z),$$
+em que $C$ é um caminho fechado envolvendo $z_0$, percorrido no sentido positivo, tal que $f$ é analítica sobre $C$ e no interior de $C$, exceto em $z_0$. O coeficiente $a_{-1}$ é chamado \textbf{resíduo} de $f$ no ponto singular isolado $z_0$.
+
+Ressaltamos que uma outra notação para indicar o resíduo também é utilizada, pois é frequente escrever para os coeficientes de potências positivas (série de Taylor) $a_k$, enquanto para coeficientes de potência negativa $b_k$ que, para $k = 1$ fornece o resíduo.
+
+
+Toda função tem um resíduo em cada um dos seus pontos singulares isolados, já que a série de Laurent em torno do ponto representa a função numa vizinhança do ponto, exceto nele mesmo e, através do resíduo, pode-se calcular certas integrais ao longo de caminhos fechados.
+
+\exemplo{}{
+Calcule a integral da função $f(z)=e^{-z}(z-1)^{-2}$ ao longo da circunferência $C: |z|=2$, no sentido positivo.
+}
+
+\solexemplo{
+Esta função tem um único ponto singular $z=1$, que é interior a $C$.
+
+A partir do desenvolvimento em séries de Taylor para a função $e^{-z}$ em torno do ponto $z=1$, podemos escrever
+$$e^{-z}(z-1)^{-2} = \frac{e^{-1}}{(z-1)^2}-\frac{e^{-1}}{z-1}+e^{-1}\sum_{n=2}^{\infty}(-1)^n\frac{(z-1)^{n-2}}{n!},~ |z-1|>0.$$
+
+Deste desenvolvimento, comparando com Laurent, vemos que o resíduo de $e^{-z}(z-1)^{-2}$ em $z=1$ é $-e^{-1}$, isto é, $$\frac{1}{2\pi i}\int_Cf(z)dz=-e^{-1},$$
+o que implica que
+$$\int_C f(z)~dz = -\frac{2\pi i}{e}.$$
+}
+
+\exercicio{}{
+%Do lar 17.
+Utilize o exercício Do Lar 11 para integrar $f(z)$ num contorno $C$, simples, orientado no sentido positivo, num domínio simplesmente conexo.
+}
+
+Chegaremos, agora, a um importante resultado para o cálculo de integrais.
+
+Seja $C$ um caminho fechado tal que uma função $f$ é analítica sobre $C$ e no interior de $C$ exceto em número finito de pontos singulares $z_1, z_2, \ldots, z_n$ interiores à região delimitada por $C$.
+
+Considere as $n$ circunferências $C_j$, com centro em $z_j$, e cujo raios são suficientemente pequenos para que estes e o caminho $C$ não se interceptem. Essas circunferências, juntamente com o caminho $C$, formam a fronteira de uma região fechada multiplamente conexa na qual $f$ é analítica. De acordo com o teorema de Cauchy-Gousart, estendido a tais regiões,
+$$\displaystyle\int_C f(z)~dz - \int_{C_1} f(z)~dz - \int_{C_2} f(z)~dz - \ldots - \int_{C_n} f(z)~dz = 0.$$
+
+Os resíduos de $f$ são $K_j = \displaystyle\int_{C_j} f(z)~dz,~ j = 1, \ldots, n$. Assim, a equação anterior é equivalente a
+$$\int_C f(z)~dz = 2\pi i (K_1+K_2+\ldots+K_n).$$
+
+
+Suponha que a parte principal contenha só um número finito de termos. Então, existe um número inteiro $m$ tal que $b_n=0$, para todo $n>m$, isto é,
+\begin{eqnarray}\label{polom}
+f(z) = 
+\frac{b_m}{(z-z_0)^m}
++\ldots+
+\frac{b_2}{(z-z_0)^2}
++
+\frac{b_1}{z-z_0}
++
+\sum_{n=0}^{\infty}a_n(z-z_0)^n,
+\end{eqnarray}
+em que $b_m\neq0$. Nessas condições, o ponto singular $z_0$ é chamado \textbf{polo de ordem} $m$ da função $f$.
+
+Um polo de ordem $m=1$ é chamado \textbf{polo simples}.
+
+Se a parte principal de $f$ em torno de $z_0$ tem uma infinidade de termos, o ponto se diz \textbf{ponto singular essencial} da função.
+
+A função
+$$\dfrac{z^2+2z+3}{z-2}=\dfrac{3}{z-2}+2+(z-2)$$
+tem um polo simples em $z=2$.
+
+Se $z_0$ é um ponto singular de uma função e esta pode ser tornada analítica em $z_0$, atribuindo-se um valor conveniente para a função neste ponto, diz-se que a função tem um ponto \textbf{singular removível} em $z_0$.
+
+Se a série tem um fator $(z-z_0)^{\mu}$, com $\mu \not\in \mathbb{Z}$, a singularidade é dita \textbf{ponto de ramificação}.
+
+Seja $f$ uma função que tem um polo de ordem $m$ em $z_0$ e definamos a função $\phi$ numa vizinhança de $z_0$, exceto no próprio ponto $z_0$, por
+$$\phi(z)=(z-z_0)^mf(z),\qquad (0<|z-z_0|<r).$$
+
+Substituindo o valor de $f$ pela expressão \eqref{polom}, obtemos:
+\begin{eqnarray}\label{prodporpolinomio}
+\phi(z)=b_1(z-z_0)^{m-1}+b_2(z-z_0)^{m-2}+\ldots+b_m+\sum_{n=0}^{\infty}a_n(z-z_0)^{m+n},
+\end{eqnarray}
+sendo $0<|z-z_0|<r$ e $(b_m\neq0)$.
+
+Em $z=z_0$, definamos $\phi$ por
+$$\phi(z_0)=b_m.$$
+Dessa forma, a expressão\eqref{prodporpolinomio} é válida inclusive para $z_0$. Como \eqref{prodporpolinomio} é uma série de potências convergente, a função $\phi$ é analítica em $z_0$. Assim, $\phi$ é contínua e, portanto, escrevendo $\phi(z_0)=\lim_{z\to z_0}\phi(z)$, temos que
+$$\phi(z_0)=\lim_{z\to z_0}(z-z_0)^mf(z)=b_m.$$
+
+Como este limite existe e $b_m\neq0$, segue que $|f(z)|$ sempre tende para o infinito quando $z$ se aproxima de um polo $z_0$.
+
+Mostramos assim que, quando $f$ tem um polo de ordem $m$ em $z_0$, a função $\phi(z)=(z-z_0)^mf(z)$ tem um ponto singular removível em $z_0$ e que $\phi(z_0)\neq0$. Além disso, a expressão\eqref{prodporpolinomio} é o desenvolvimento de $\phi(z)$ em série de Taylor em torno do ponto $z_0$ de modo que o resíduo da função $f$ é dado por
+\begin{eqnarray}
+\label{residuodef}
+b_1=\frac{\phi^{(m-1)}(z_0)}{(m-1)!}.
+\end{eqnarray}
+
+Quando $m=1$, o resíduo de $f$ é dado por
+$$b_1=\phi(z_0)=\lim_{z\to z_0}(z-z_0)f(z),$$
+como visto anteriormente.
+
+Reciprocamente, suponhamos $f$ uma função tal que o produto $(z-z_0)^m f(z)$ possa se definido em $z_0$ de modo a ser analítico nesse ponto. Como antes, $m$ é um inteiro positivo. Consideremos o produto $\phi(z)=(z-z_0)^mf(z)$. Então, em alguma vizinhança de $z_0$, por um desenvolvimento em séries de Taylor de $\phi$, temos que
+$$\begin{array}{rcl}
+\phi(z)
+&=& (z-z_0)^m f(z) \\
+&=& \phi(z_0)+\phi'(z_0)(z-z_0)+\frac{\phi''(z_0)}{2!}(z-z_0)^2+\ldots+\frac{\phi^{(m)}(z_0)}{m!}(z-z_0)^m +\ldots
+\end{array}$$
+Logo, em cada ponto $z\neq z_0$ da vizinhança, tem-se
+\begin{eqnarray*}
+f(z)
+&=& \frac{\phi(z_0)}{(z-z_0)^m}+\frac{\phi'(z_0)}{(z-z_0)^{m-1}}+\frac{\phi''(z_0)}{2!(z-z_0)^{m-2}}+\ldots\\
+&& + \frac{\phi^{(m-1)}(z_0)}{(m-1)!(z-z_0)}+ \sum_{n=m}^{\infty}\frac{\phi^{(n)}(z_0)}{n!}(z-z_0)^{(n-m)},
+\end{eqnarray*}
+e, se $\phi(z_0) \neq 0$, segue que $f$ tem um polo de ordem $m$ em $z_0$ com o resíduo dado pela expressão\eqref{residuodef} nesse ponto.
+
+Este resultado pode ser enunciado como segue:
+
+\teorema{}{calcdoresiduo2}{
+Seja $f$ uma função tal que, para algum $m$ inteiro e positivo, existe $\phi(z_0)\neq0$ de modo que a função
+$$\phi(z)=(z-z_0)^mf(z)$$
+seja analítica em $z_0$. Então $f$ tem um polo de ordem $m$ em $z_0$ e seu resíduo em $z_0$ é dado por
+$$b_1=\frac{\phi^{(m-1)}(z_0)}{(m-1)!}$$
+se $m>1$ e, se $m=1$,
+$$b_1=\phi(z_0)=\lim_{z\to z_0}(z-z_0)f(z).$$
+}
+
+Seja $z_0$ um polo de uma função $f$ da forma
+$$f(z)=\dfrac{p(z)}{q(z)},$$
+com $p$ e $q$ ambas analíticas em $z_0$ e $p(z_0)\neq0$. Note que $z_0$ é um ponto singular de $f$ se, e somente se, $q(z_0)=0$. Com efeito, se $z_0$ é um ponto singular e $q(z_0)\neq0$, então existe uma vizinhança de $z_0$ onde $q(z)\neq0$. Logo, existe alguma vizinhança de $z_0$ em que $p$ e $q$ são analíticas e $q(z)\neq0$. Dessa forma, $f$ seria analítica em $z_0$, que é uma contradição. Logo, $q(z_0)=0$. Por outro lado, se $q(z_0)=0$, então $q(z)\neq0$ em qualquer outro ponto numa vizinhança suficientemente pequena de $z_0$, e assim, $z_0$ é um ponto singular isolado de $f$.
+
+\teorema{}{}{
+Considere $f(z)=\dfrac{p(z)}{q(z)}$ uma função nas condições anteriores. Quando $p$ e $q$ satisfazem às condições $q(z_0)=0$, $q'(z_0)\neq0$ e $p(z_0)\neq0$, então a função $f$ tem um polo simples em $z_0$ e o resíduo de $f$ é dado por
+$$b_1=\frac{p(z_0)}{q'(z_0)}.$$
+}
+
+\demteorema{Representando as funções $p$ e $q$ por séries de Taylor numa vizinhança $|z-z_0|<r$, temos que
+$$(z-z_0)f(z)=\frac{p(z_0)+p'(z_0)(z-z_0)+\ldots}{q'(z_0)+q''(z_0)(z-z_0)/2!+\ldots}\qquad (0<|z-z_0|<r).$$
+O quociente de séries representa uma função $\phi$ que é analítica em $z_0$ e, como $\phi(z_0)=\dfrac{p(z_0)}{q'(z_0)}\neq0$, então, pelo teorema (\ref{calcdoresiduo2}), segue que $f$ tem um polo simples $(m=1)$ em $z_0$ e seu resíduo é dado por
+$$b_1=\phi(z_0)=\dfrac{p(z_0)}{q'(z_0)}.$$
+
+e modo análogo, podemos ver que se $p(z_0)\neq0$ e $q(z_0)=q'(z_0)=\ldots=q^{(m-1)}(z_0)=0$, mas $q^m(z_0)\neq0$, então a função $f$ tem um polo de ordem $m$ em $z_0$. Quando $m=2$, o resíduo de $f$ no polo $z_0$ de segunda ordem é dado por
+$$b_1=2\frac{p'(z_0)}{q''(z_0)}-\frac{2}{3}\frac{p(z_0)q'''(z_0)}{[q''(z_0)]^2},$$
+que decorre do cálculo de $\phi'(z_0)$, sendo que
+$$\phi(z)=\frac{p(z_0)+p'(z_0)(z-z_0)+\ldots}{q''(z_0)(z-z_0)/2!+q'''(z_0)(z-z_0)/3!+\ldots}\qquad (0<|z-z_0|<r).$$
+}
+

@@ -1,0 +1,1025 @@
+
+\section{Introdução: Representação Matemática e o Elogio à Simplicidade}
+
+Um modelo matemático é essencialmente uma representação de um fenômeno extra-matemático por intermédio de objetos matemáticos abstratos com o objetivo descrevê-lo simbolicamente mediante interpretações. A descrição feita por um modelo matemático (assim como por qualquer outra maneira) obviamente nunca pode ser completa ou, parafraseando Lee Segel, “é apenas uma caricatura que enfatiza os traços de interesse”.
+
+Em uma grande maioria dos casos, mas não todos, as observações que caracterizam o fenômeno estudado são quantitativas e a sua representação, denominadas medidas, se faz por intermédio da estrutura dos números reais. Esta representação quantitativa é o tema deste capítulo.
+
+A Análise Dimensional trata exatamente da maneira pela qual podemos “mensurar” observações não-matemáticas, o que faz dela um tópico essencial para entender as interfaces entre a Matemática e quase todas as suas diversas aplicações quantitativas. Assim, fica claro que esta não é uma disciplina da Matemática (dita “pura”), já que não se esgota dentro dela, mas, sim da Matemática (dita) Aplicada (ou, “Aplicanda”). O tema da Análise Dimensional trata de assuntos que, se a princípio parecem óbvios por serem corriqueiros, progressivamente nos surpreende pela implicação natural de uma variedade de conceitos simples, sutis e eficazes que passam desapercebidos por quem se acostuma a operar com eles apenas mecanicamente.
+
+Modelos Matemáticos Quantitativos são geralmente descritos por uma função matemática (de variáveis reais e valores reais) que restringe as relações entre todas as suas medidas e, portanto, deve ser necessariamente precedida pela Análise Dimensional do fenômeno a ser estudado. A caracterização desta função, que é a última etapa para a construção do modelo, se faz, em geral, com a utilização da Metodologia Newtoniana que tem regido a Matemática Aplicada em todas as suas manifestações desde a invenção do Cálculo Diferencial e Integral no século XVII, ou seja, como solução de Equações Diferenciais.
+
+O esclarecimento do processo de mensuração é, portanto, indispensável para a compreensão da Modelagem Matemática em geral, além do que, nos levará naturalmente ao desenvolvimento de alguns métodos fundamentais da Matemática Aplicada tais como: os Métodos de Similaridade, os Métodos Assintóticos de Múltiplas Escalas, etc. A Análise Dimensional tem a sua origem mais remota em questões da Mecânica e, da Física em geral, iniciada por Galileo Galilei, no sec. XVI e, mais adiante, sistematizada pelo físico escocês James Clerk Maxwell(sec.XIX), embora hoje, sec. XXI, ela se constitua em ferramenta indispensável também para o tratamento Matemático da Biologia, especialmente de sistemas complexos.
+
+\subsection{O primeiro modelo básico: O pêndulo}
+
+“Mathematical Models cannot be replicas of Nature, but are powerful tools that help us understand its phenomena”.
+Peter Kareiva (Entomologista primeiro e Matemático aplicado, depois)
+
+A maneira mais didática e conveniente para a exposição dos conceitos e a sistematização das técnicas da Análise Dimensional, se faz por intermédio de exemplos concretos que são, de fato, a sua origem e finalidade e, que além disso, aproveita a intuição que adquirimos ao longo do tempo com a manipulação, ainda que ingênua, destas ideias. A teoria, que tende a se tornar abstrata, não pode ser de todo dispensada mas será tratada com parcimônia neste texto.
+
+Observemos inicialmente que todo modelo matemático quantitativo faz uso da estrutura de números reais para a representação dos valores de medidas em um sistema de unidades pre-estabelecidas; sem estas unidades a matematização numérica de um modelo é inviável.
+
+Para ilustrar como se dá este procedimento na prática, utilizaremos um exemplo simples que descreve um dos fenômenos mais fundamentais da Mecânica, tanto sob o ponto de vista histórico como conceitual: O movimento oscilatório de um pêndulo clássico.(ver G.Baker-J.Blackburn-The Pendulum, OxfordUP 2008).
+
+Este pêndulo consiste em uma partícula de massa pontualmente concentrada, sobre a qual é exercida uma força vertical constante, a gravidade, e sustentada ainda por uma haste não extensível, dotada de inércia desprezível, presa por sua extremidade superior a um vínculo fixo. Supõe-se ainda que este vínculo não ofereça atrito de roçamento e o movimento plano do pêndulo, não sofra atrito viscoso do ar. A oscilação se inicia quando a massa é liberada do repouso a partir de uma posição deslocada de seu ponto de equilíbrio. O experimento resulta em uma oscilação periódica em um plano vertical entre duas posições extremas e simétricas com respeito ao ponto de equilíbrio. Digamos que o período de oscilação do pêndulo seja a observação principal do experimento e, supomos que ele será determinado pelo seguinte conjunto de medidas (ditas constitutivas) do sistema: massa, força gravitacional (ou seja, a aceleração da gravidade), comprimento da haste e amplitude da oscilação. A hipótese física é de que estes fatores medidas descrevem completamente o fenômeno em estudo.
+
+Com esta abordagem, enfatiza-se a observação do período de oscilação do pêndulo e, não a descrição completa do seu movimento temporal, que será tema de outro modelo dinâmico a ser tratado mais adiante. Além disso, a escolha do período como “variável dependente” (ou “incógnita”) em função dos outros parâmetros (“conhecidos”) é um mero ponto de vista; nada que seja uma particularidade intrínseca do fenômeno. Princípios elementares de Mecânica nos mostram que necessitamos de pelo menos três tipos de medidas “independentes”para formularmos modelos matemáticos nesta disciplina; Tempo, Comprimento e Massa. Iniciaremos o estudo da Análise Dimensional por estas medidas. A importância das questões tratadas pela Análise Dimensional pode ser avaliada pelos impactos que os conceitos de medida de Tempo, Massa e Comprimento tiveram na Matemática e na Física quando foram examinados com maior cuidado.
+
+\section{Unidades, dimensões e medidas}
+
+\subsection{O Pulso do tempo}
+
+“Eu sabia perfeitamente o que era o “tempo”, até quando alguém me perguntou sobre o seu significado”.
+Santo Agostinho (Teólogo)
+
+“O tempo é a maneira pela qual a Natureza se organiza e impede que tudo aconteça simultaneamente”.
+Woody Allen (Cineasta)
+
+A matematização do fenômeno mecânico representado pelo pêndulo se inicia com a escolha de uma maneira de “medir”o tempo de oscilação observado, isto é, o período de percurso entre suas posições de maior amplitude, atribuindo a ele um número real. Para isto, devemos dispor de uma unidade de tempo, que deve ser acessível (ou seja, “regularmente repetitivo”), para que se possa utilizá-lo na comparação em qualquer momento e, além disso, fracionável, para que possamos utilizá-lo na medida de qualquer período. (Nenhum destes requisitos é óbvio e isento de dificuldades filosóficas. Por exemplo, como é que se pode saber qual padrão é “regularmente repetitivo”, sem aceleração, se não existe um padrão absoluto!!). Qualquer unidade de tempo tem de ser necessariamente caracterizada por um processo Físico; não existe unidade absoluta ou abstrata de tempo obtida como resultado de uma pura construção mental!. A sua unidade mais comum é, claro, o movimento da Terra em torno de seu eixo de rotação, mas pode também ser obtido de inúmeras outras formas. (A propósito, a unidade de tempo segundo é o período de tempo correspondente a 186400 do dia solar médio ou, 9192621770 períodos da transição do átomo de césio-133.)
+
+Galileu, que foi um dos iniciadores da ciência moderna, ao estudar o movimento do pêndulo preso ao teto da catedral de Pisa, utilizou o seu próprio pulso como padrão de tempo. E claro que o pulso de Galileo, logo ele que passou por tantos sobressaltos e  ́ chegou tão perto da fogueira da Inquisição, certamente não deve ter sido o mais estável dos padrões, mas era o que ele tinha naquele momento! Os relógios mecânicos, que fazem uso exatamente da periodicidade oscilatória do pêndulo, surgiram somente após os trabalhos de Galileu e Huygens. E interessante à história “moderna”do desenvolvimento de métodos para a medida do tempo, que teve seu início com as navegações do século XV e, por motivos óbvios, já que se desejava saber com precisão e consistência “o tempo”nos diversos navios em alto mar que permaneciam incomunicáveis entre si e sem contato com um “relógio”central em terra firme.
+
+O estudo aprofundado do conceito de medida do tempo, acabou por levar o matemático Henri Poincaré (...-1912) e o físico Albert Einstein(...-1957) a desenvolverem a Teoria de Relatividade no princípio do século XX, o que, convenhamos, não foi pouca coisa! (Sobre este assunto, e muito mais, que ainda é tema de pesquisas, um bom começo pode ser a referência: Peter L. Galison: “Einstein’s clocks, Poincarés maps: empires of time”, New York: W.W. Norton, 2003. Visite também a sua página na rede).
+
+Mas, aqui utilizaremos apenas a nossa intuição ingênua para prosseguirmos.
+
+A primeira observação sobre este procedimento se refere à liberdade(experimental) de escolha do padrão para a unidade de tempo, que pode ser qualquer um desde que satisfaça às condições de acessibilidade e fracionamento. E importante observar que a  ́ unidade de tempo escolhida não é um número, mas um conceito totalmente experimental e, portanto, exterior à Matemática. O aspecto quantitativo, numérico, de uma medida somente surgirá quando compararmos, experimentalmente, um período de tempo com a unidade padrão e suas frações; nisto consiste em suma o processo de medida.
+
+Para designarmos uma unidade de tempo genérica utilizaremos a letra T e, uma medida de tempo sera representada (nesta unidade T) por expressoes algébricas do tipo xT, com x \in R. Se, por exemplo, a unidade escolhida é o segundo, representada pelo símbolo T = seg, então 3, 141516 seg representa “três segundos inteiros, mais a fração 141516 \cdot 10^{-6} desta unidade. (Este exemplo já indica a dificuldade de nos referir às frações de tempo muito pequenas; até quando é possível medi-las e que significado teriam? Mas este é um problema de Física ou, melhor, de Filosofia da Física, e não nos deteremos nele; consulte Peter Galison e suas referências para isto.)
+
+Uma vez escolhida uma unidade de tempo T0, qualquer outra unidade de tempo T1 pode ser caracterizada como uma medida com relação a primeira, T1 = a1T0, e vice-versa, T0 = ( 1a1)T1, (já que nenhuma delas tem privilégios) onde a1 é um número real
+positivo. Reciprocamente, qualquer medida T1 = a1T0 poderá também ser interpretada como uma unidade de tempo. Portanto, uma mesma medida pode ser representada, em unidades diferentes da seguinte maneira: x0T0 = x1T1 , onde a “conversão de unidades”é
+realizada por uma simples e natural operação algébrica:
+x0T0 = x1(a1T0) =\Rightarrow x0 = a1x1 ou x1 =1a1x0.
+
+\subsection{O comprimento: A crise da Unidade}
+
+A Geometria Euclideana, é o Modelo Matemático mais antigo e influente uma vez que deu origem a uma Teoria Matemática que foi desenvolvida pelos gregos essencialmente para o estudo das medidas de comprimento no espaço físico (Geo∼Terra, Metros-Medida) e baseada totalmente na percepção experimental que tinham dele, ou seja, a Geometria Euclideana é também um dos Modelos Matemáticos mais antigos, e certamente o mais importante sob o ponto de vista histórico. Apesar disso, a Geometria Euclideana, vem sendo apresentada em textos ao longo de séculos, apenas como uma Teoria Matemática axiomática como se ela precedesse à noção de espaço e, suas relações com o espaço físico são meramente citadas como Aplicações inevitáveis, o que inverte completamente a história do assunto e a sequência de seu aprendizado! Raramente, ou quase nunca, a estreita conexão interpretativa do espaço e da teoria são analisadas. Como veremos em outro tópico, esta negligência foi uma das razões para que as chamadas Geometrias não-Euclideanas levassem tanto tempo para serem desenvolvidas. Quando entendemos que o conceito de reta euclideano e suas propriedades axiomáticas são de fato, histórica e psicologicamente, baseadas na percepção experimental de um raio de luz, imediatamente verificamos que outras Geometrias são igualmente possíveis. Esta observação foi feita por Poincaré no final do século XIX e utilizada por ele mesmo para desenvolver um modelo de Geometria Não-Euclideana (Hiperbólica) de que trataremos em outro capítulo.
+
+    Dentre vários resultados notáveis da Geometria Euclideana, um deles é fundamental e estreitamente ligado ao conceito de medida: a conhecida expressão algébrica que relaciona as medidas dos comprimentos da hipotenusa e os comprimentos dos seus catetos de um triângulo retângulo (Teorema de Pitágoras). A impossibilidade de “medir”a hipotenusa de um triângulo retângulo com catetos de medida unitária por intermédio de números racionais (que os gregos supunham ser os únicos números “reais”), foi facilmente demonstrada por eles mesmos, e desencadeou uma das maiores crises da Matemática que atravessou séculos e somente foi satisfatoriamente resolvida no final do século XIX! O im- passe poderia ser descrito como “A incapacidade da estrutura de números (racionais) de representar a medida de alguns segmentos de reta que são concretamente obtidos a partir do segmento (de comprimento) unitário”, por isto o termo ``incomensurável'' utilizado em textos antigos para a medida √2.
+
+Um outro notável resultado que se supõe folcloricamente ser da Teoria Matemática Euclideana, mas que na verdade é do Modelo Matemático Euclideano é: ``O valor numérico para a razão entre as medidas de comprimento da circunferência e do diâmetro de um círculo plano é invariante, ou seja, independe do raio do círculo e vale \(\pi\)''. Embora, detectado experimentalmente desde os babilônicos e, certamente, por todas as civilizações que conheciam a roda, o ``teorema'' somente se tornou estabelecido como fato científico por força da autoridade de Aristóteles (384-322 A.C.) e depois de muitas experiências e cálculos, por Arquimedes (287-212 A.C.). Veremos, logo abaixo, que este resultado é decorrente da Análise Dimensional da Geometria do círculo e decorre do \textit{Modelo Matemático do Círculo}. Embora hoje saibamos que o número \(\pi\) também é irracional, a demonstração disso teve que esperar o desenvolvimento da Análise no século XVIII, com J. H. Lambert (1728-1777). Esta ``ignorância”poupou os gregos do escândalo que o número \(\pi\) acrescentaria ao assombro da irracionalidade do \(\sqrt{2}\), embora Aristóteles também já desconfiasse desta ``anomalia''. (ref. R. Remmert-``What is \(\pi\)?'', pg. 123-153, in H.-D.Ebbinghaus \& al.-Numbers, Springer1991).
+
+À medida de comprimento é intuitivamente independente da medida de tempo, ou seja, não é possível utilizar a unidade de tempo para medirmos comprimento. O mesmo procedimento utilizado para a introdução da unidade de tempo se repete para a ``quantificação'' do comprimento da haste, que exigirá a escolha de um padrão de comprimento, também completamente arbitrário desde que acessível e fracionável. (Se você pensa que esta questão é pouco científica, lembre-se que o conceito de números irracionais e, portanto, a análise contemporânea, surgiu em decorrência da ``pergunta que não quis calar'' sobre como medir a hipotenusa de um triângulo retângulo de catetos de comprimento unitário).
+
+Fisicamente, estamos assumindo (o que parece ser óbvio!) que a unidade de tempo não pode ser utilizada para a medida de comprimento, ou seja, as unidades de tempo e comprimento são independentes! Digamos que, genericamente, a unidade de comprimento seja designada por \(L\) e a haste terá respectivamente medida \(1 L\). Uma vez escolhida a unidade de comprimento \(L\), o deslocamento do peso do pêndulo com respeito à posição de equilíbrio pode ser quantificado por uma medida de comprimento ao longo do círculo, que designaremos por \(AL\), ou seja, não é necessário (nem conveniente) introduzir uma nova unidade de comprimento.
+
+Consideremos, agora, a questão de quantificação da velocidade linear de movimentação da partícula (peso) suspensa ao longo do círculo. O conceito Físico de velocidade é caracterizado pelo comprimento percorrido uniformemente (isto é, sem aceleração) em uma unidade de tempo. Utilizando as unidades de tempo e comprimento já introduzidas, digamos \(T\) e \(L\), definimos uma ``unidade composta de velocidade'' a ser designada por:
+\[V = LT^{-1} = \dfrac{L}{T},\]
+de tal forma que em uma unidade de tempo \(1 T\) o espaço percorrido será:
+\((1 T) \dfrac{L}{T} = 1 L\), ou seja, a velocidade \(y LT^{-1}\) significará o percurso do comprimento \(y L\) em um tempo de medida \(1 T\). Analogamente, ao conceito Físico de aceleração, (variação de velocidade com o tempo), pode ser atribuída a unidade \(A = (LT^{-1})T^{-1} = LT^{-2}\), (a variação de uma unidade de velocidade \(LT^-1\) em uma unidade de tempo \(T\)). Assim, a aceleração com medida \(z LT^{-2}\) significará a variação de \(z LT^{-1}\) (medida) de velocidade em uma unidade de tempo \(T\).
+
+Digamos agora que novas unidades de tempo e comprimento sejam tomadas: \(T_1 = a T\) e \(L_1 = b L\). Neste caso, a nova unidade (composta) de velocidade será respectivamente \(V_1 = L_1T_1^{-1}\) que, medida com relação à anterior é dada por: \(V_1 = (bL)(aT)^{-1} = \dfrac{b}{a} LT^{-1} = \dfrac{b}{a} V\) e a nova unidade de aceleração será \(A_1 = L_1T_1^{-2} = (bL)(aT)^{-2} = \dfrac{b}{a^2} A\). Este exemplo mostra claramente que a relação entre unidades compostas pode ser facilmente obtida por simples manipulações algébricas.
+
+\begin{exercise}
+A medida da aceleração da gravidade \(g\), (isto é, a aceleração experimentada por um corpo submetido à atração da Terra na sua superfície), tem dimensão \([g] = LT^{-2}\), e na unidade \(A = cm(s)^-2\) mede \(g = 980A\). Utilizando a representação algébrica, obtenha esta medida nas seguintes unidades compostas de aceleração \(A_1 = L_1T_1^{-2}\), onde \(L_1 = 13 cm\); \(T_1 = 10^{-5} s\) e, genericamente, na unidade composta \(A_∗ = L_∗T_*^{-2}\), onde \(L_∗ = \lambda cm\) e \(T_∗ = \theta s\).
+\end{exercise}
+
+\subsection{A Força e a Massa: Newton}
+
+A próxima medida a ser introduzida se refere ao conceito de massa cuja unidade é independente das unidades de tempo e comprimento. Na Mecânica Clássica a massa de uma partícula é definida pela “Segunda Lei de Newton” como o fator de proporcionalidade (inércia) entre a força aplicada a uma partícula e a aceleração decorrente desta influência.
+
+Se \(M\) for a unidade de massa e \(m M\) for a medida de massa de uma partícula, e a aceleração desenvolvida por ela medida como a \(LT^{-2}\), então a segunda lei de Newton afirma que a força \(F\) responsável por esta aceleração é \(F = (m M)(a LT^{-2}) = (m a) MLT^{-2}\), ou seja, a unidade composta de força neste sistema de unidades ``básicas'' \(\{M, L, T\}\) é \(MLT^{-2}\).
+
+
+Um outro sistema de unidades básicas para a mecânica, acrescenta ao tempo e comprimento uma unidade de força, em vez de massa, o que pode ser considerado mais fundamental sob o ponto de vista histórico. Em geral, podemos considerar que a Mecânica Clássica é aquela ciência em que as unidades de tempo, comprimento e massa, \(\{T, L, M\}\) ou, um conjunto equivalente, é suficiente para descrever qualquer fenômeno, ou seja, qualquer medida de interesse.
+
+Conceitos mecânicos que têm unidades compostas são, por exemplo; Pressão (razão da força aplicada em uma superfície e sua área), Trabalho/Energia (produto de uma força e o seu deslocamento) e Potência (trabalho por unidade de tempo).
+
+\begin{exercise}
+Determinar as unidades compostas de Pressão \((P)\), Energia \((E)\) e Potência \((W)\), a partir do conjunto (genérico) de unidades básicas \(\{M, L, T\}\) e de um outro conjunto \(\{M_1 = a M, L_1 = b L, T_1 = c T\}\).
+\end{exercise}
+
+\subsection{O Modelo Matemático Completo do Oscilador Mecânico}
+
+Consideremos agora um sistema mecânico unidimensional de massa-mola-resistência viscosa descrito pela segunda lei de Newton (ma = F, onde F é a resultante das forças que atuam em uma partícula pontual de massa m que descreve um movimento com aceleração a) na forma:
+m d 2x dt2 = -c dx dt - kx , (1)
+onde x(t) descreve a posição da partícula de massa m relativa ao ponto de equilíbrio (onde não há força de restauração da mola), Fe = -kx uma força de restauração elástica com k \ge 0 constante e Fr = -c
+dx dt a força de resistência viscosa contrária ao movimento, com c \ge 0 constante.
+
+De acordo com a teoria física do problema e a representação matemática do modelo, o movimento desta partícula será completamente determinado pela equação e o estado inicial do sistema: x(0) = x0 e
+dx(0) dt = v.
+
+Isto significa que a função x(t) depende não apenas do tempo, mas também de todos os parâmetros do problema, isto é, x(t, m, c, k, x0, v). Um(a) experimentalista físico(a) ou, um(a) analista numérico(a) que desejasse analisar o comportamento deste modelo, teria de inicialmente estabelecer um intervalo de tempo para observação, [0, T], (uma escolha nem sempre fácil) e em seguida  escolher alguns valores “representativos”para cada parâmetro. Se este(a) pesquisador(a) for moderado(a) e tomar, digamos, apenas três valores,(pequeno, médio e grande), para cada um destes parâmetros, ele(a) terá diante de si 35 = 243 gráficos para comparar; uma tarefa obviamente impossível. Se todavia ele(a) ainda tivesse capacidade e ânimo para efetuar a comparação entre os diversos gráficos obtidos, poderia observar que muitos deste gráficos são quase semelhantes. Este fato poderia ser facilmente detectado por meio de uma rápida e elementar análise dimensional prévia, que reduziria muito o número de simulações numéricas representativas tornando possível uma análise do modelo, além de explicitar diversas outras informações importantes.
+
+A análise dimensional representa, talvez, um dos melhores índices de custo-benefício em matemática aplicada e é inconcebível que não faça parte do instrumento corriqueiro dos profissionais desta área.
+
+A análise dimensional está baseada no conceito de unidades e medidas. Por exemplo, para o estudo quantitativo do modelo mecânico acima, introduziremos três “dimensões independentes”: massa (M), comprimento (L) e tempo (T), para as quais instituiremos unidades M1, L1, T1, respectivamente. Estas unidades são arbitrárias e por isto têm sido estabelecidas por convenção social, ou cultural, como, por exemplo; quilograma, centímetro e segundo. Assim, uma medida de comprimento na unidade acima deve ser escrita na forma x L1, onde x é um número real, que representa, nesta expressão, a proporção (numérica) entre o comprimento observado e a unidade utilizada. E importante desde já enfatizar a diferença entre os significados da medida x L1 e do número real x. Isto é importante porque, uma vez estabelecido o sistema básico, evita-se colocar a unidade L1 para simplificar a notação, ficando subentendido o significado quando o número real x é denotado sem a unidade, que, a rigor, não tem significado algum em Matemática Aplicada.
+
+    A definição de novas medidas, como por exemplo, a velocidade, deve vir acompanhada de unidades para que elas possam ser representadas quantitativamente. O conceito de velocidade (média) é definido pela razão entre uma medida de comprimento e uma medida de tempo, e, portanto, a sua medida é: xL1 yT1 = xyL1T-1 1, o que define imediatamente a sua unidade (composta, ou dependente) L1T -1 1 = V1 consistente com o sistema básico. A aceleração por sua vez tem unidade composta na base {M1, L1, T1}, dada por A1 = (L1T -1 1)T -1 1 = L1T -2 1. A definição de força (segunda lei de Newton:
+F = ma) nos dá imediatamente a unidade de força F1 = ML1T-2 1.
+
+Exercício 3. Obtenha as unidades derivadas das unidades básicas para as seguintes medidas: Area, Volume, Pressão, Densidade de Massa, Trabalho, Potência.
+
+Alguns sistemas de unidades estabelecem uma base constituída pelas dimensões de força, comprimento e tempo {F1, L1, T1}, o que nos levaria a definir ( ainda com a segunda lei de Newton) uma unidade (agora composta) de massa M1 = F1L-1 1 T-1 1.
+
+Fica claro, portanto, que o conceito de sistema de unidades básicas é arbitrário desde que elas sejam independentes. E claro que uma base com  ́ {L1, T1, V1} não é suficiente para descrever o modelo, mas é possível, uma base com {L1, T1, V1, M1} desde que seja
+consistente, embora inconveniente. Enfim, dada uma base, como por exemplo, {M1, L1, T1}, todas as medidas no sistema
+devem ser feitas em unidades da forma C1 = M\alpha 1 L
+\beta1Tγ1, onde (\alpha, \beta, γ) \in Z3.
+
+• Diz-se que a unidade C1 = M\alpha L
+\beta Tγ, ou uma medida z1 C1, tem dimensão (\alpha, \beta, γ), ou M\alpha L
+\beta Tγ e, denota-se o fato por:
+[C1] = [z1C1] = M\alpha L \beta Tγ.
+
+O conjunto de unidades compostas da forma {M\alpha1 L \beta1 Tγ1; (\alpha, \beta, γ) \in Z3} é chamado
+sistema gerado pela base {M1, L1, T1}. Por exemplo; [F] = MLT -2 = (1, 1, -2).
+
+• Dizemos que o número real z1 é o valor da medida z1 C1. Quando desejamos especificar a dimensão de uma maneira genérica sem que as unidades básicas, designamos os símbolos das dimensões na forma {M, L, T} para denotarmos apenas aquelas independentes. Assim, o conjunto de dimensões compostas da forma
+{M\alpha L \beta Tγ; (\alpha, \beta, γ) \in Z3} é chamado sistema gerado pela base de dimensões {M, L, T}.
+
+• Dizemos que a base é completa para o modelo, se todas as unidades para medidas necessárias na sua descrição puderem ser representadas por suas dimensões compostas na forma M\alpha1 L \beta1 Tγ1, com (\alpha, \beta, γ) \in Z3.
+
+\section{Transformação dos valores das medidas com mudança de unidades}
+
+Como as unidades básicas são arbitrárias é comum que as transformemos mesmo que não modifiquemos as dimensões básicas, por exemplo, em vez de {kg, cm, seg} podemos tomar {g, km, hora} ou na verdade, qualquer tripla do tipo {a kg, b cm, c seg}, onde a, b, c são números reais não nulos, e positivos.
+
+Analisemos agora a forma como se transformam as unidades compostas e os valores de suas respectivas medidas quando modificamos os valores das unidades básicas, sem alterar o conjunto de dimensões.
+
+Tomemos então um novo conjunto de unidades basicas {aM1 = M2, bL1 = L2, cT1 = T2}, onde a, b, c são números reais não nulos, positivos. Consideremos agora uma medida z1C1, com valor z1 na dimensão composta C = M\alpha L\beta Tγ gerada pela base {M1, L1, T1}. Então a mesma (!) medida z2C2 assumirá o valor z2 na base {M2, L2, T2}, e devemos ter z1C1 = z2C2. Desta igualdade vem:
+z1C1 = z1(M\alpha1 L\beta1 Tγ1) = z2(M\alpha2 L \beta2Tγ2) = z2(aM1)\alpha (bL1) \beta (cT1)γ == z2(a\alpha b\beta cγ)(M\alpha1 L \beta1 Tγ1),
+de onde concluímos que z1 = z2(a\alpha b\beta cγ).
+
+Esta é a forma de transformações do valor da medida de uma dimensão composta entre duas bases de mesma dimensões relacionadas pelas unidades básicas na forma:
+aM1 = M2, bL1 = L2, cT1 = T2.
+
+Observa-se que a unidade da dimensão composta C passou de ???
+
+Na prática, conhecendo-se os princípios, o processo se reduz a uma simples aritmética. Consideremos, por exemplo, uma força no sistema {M1 = g , L1 = cm , T1 = seg} (chamado CGS na mecânica) que tem valor 15, ou seja, sua medida é 15 g1 cm1(seg)-2, f1 = 15. A mesma força no sistema {M2 = kg = 103g , L2 = m = 102cm , T2 = min =60 seg} terá uma medida f2(kg)(m)(min)-2. Assim, 15(103kg)1(10-2m)1 1 60 min-2 = 15 × 36 × 10-1 (kg)(m)(min)-2,
+de onde vem que f2 = 54.
+
+Observação 1. Em uma mudança de unidades básicas como acima, uma dimensão composta C tem a sua unidade modificada da seguinte maneira:
+C2 = (M\alpha2 L\beta2Tγ2) = (aM1)\alpha(bL1)\beta(cT1)γ = (a \alpha b\beta cγ)(M\alpha1 L\beta1Tγ1) = (a\alpha b\beta cγ)C1. (2)
+
+Ou seja, o fator a \alpha b \beta c γ ocorre, de certa forma, do lado “oposto”ao da transformação da medida, z1 = z2(a \alpha b
+\beta c γ), o que é natural, pois se uma unidade é maior o valor da mesma medida deve ser proporcionalmente menor, e vice-versa.( Pense nisto!).
+
+\subsection{Dimensão de variáveis e parâmetros}
+
+A dimensão de um termo em uma equação é facilmente obtida considerando-se o princípio de que igualdade e soma de valores de medidas somente são possíveis quando se referem à mesma dimensão e unidades. Isto é, não se igualam e nem se somam valores de medidas de dimensão ou de unidades distintas. Assim, por exemplo, no modelo acima a derivada dx dt sendo o limite de uma razão entre diferenças de comprimento (portanto, um comprimento) e um período de tempo,
+
+dx
+dt = lim
+\delta\to 0
+x(t + \delta) - x(t)
+\delta,
+
+é natural que a sua dimensão seja LT -1. Por outro lado, a segunda derivada pode ser pensada tanto como uma razão da primeira com relação ao tempo quanto a razão entre uma variação de comprimento e o quadrado de uma variação de tempo:
+
+d2x
+dt2
+= lim
+\delta\to 0
+x(t + 2\delta) - 2x(t) + x(t + \delta)
+
+\delta 2,
+
+o que nos da a dimensão LT -2. Portanto h
+md
+2x
+dt2
+i
+= MLT -2
+, que é a dimensão da força,
+
+que deve ser a mesma dimensão de todos os outros termos da equação
+MLT -2 =
+m
+d2x
+dt2
+=
+c
+dx
+dt 
+= [c]
+dx
+dt 
+= [k][x].
+
+Daí, tiramos que: [c] = MT -1 e [k] = MT -2.
+
+\section{Parâmetros Intrínsecos e Parâmetros Adimensionais}
+
+“I remember my friend John von Neuman used to say, with four parameters I can fit an elephant, and with five I can make him 
+wiggle his trunk”.
+Enrico Fermi(Físico) - para Freeman Dyson (Físico) 
+
+Observamos no item anterior que, fazendo uso dos parâmetros originais do modelo (m, k, c, x0, v0), podemos obter outros parâmetros com as dimensões báicas: de massa, 
+
+M = [m] = h
+c2k
+i
+; de comprimento, L = [x0] = 
+v0
+pm
+k
+=
+v0
+c
+k
+=
+v0
+m
+c
+; e do tempo,
+
+T =
+c
+k
+
+=
+pm
+k
+=
+m
+c
+.
+
+Os respectivos parâmetros, ou seja, seus valores, podem ser interpretados como medidas intrínsecas do modelo. Assim, por exemplo, m1 =
+c
+2
+k
+pode ser interpretado como uma unidade de massa, e tem tudo a ver com o modelo matemático. Já, as unidades das dimensões básicas utilizadas inicialmente para a formulação do modelo, são arbitrárias e podem ser totalmente inconvenientes para o modelo, uma vez que não tem, em princípio, nada a ver com o fenômeno a ser tratado. Observe-se, por exemplo, que unidades de
+comprimento poderiam ser tomadas tanto como da ordem de anos-luz (comprimento percorrido pela luz durante um ano!!), como da ordem de angstroms (≈ raio de um átomo de hidrogênio), sem nenhum problema de caráter teórico.
+ 
+Estes parâmetros, por outro lado, são de natureza intrínseca do modelo e é natural considerar-los uma alternativa razoável como unidades para a descrição do modelo.
+
+Como veremos mais adiante, todos estes parâmetros com dimensões básicas têm também um significado intrínseco no que diz respeito a aspectos qualitativos do modelo.
+
+Além de parâmetros dimensionais, também podemos construir parâmetros adimensionais, como, por exemplo;  =
+mk
+c
+2 = m
+. c
+2
+k
+
+obtido simplesmente pela razão de dois parâmetros com dimensão de massa M. Neste caso, temos [] = M0L
+0T
+0,
+o que significa, em particular, que qualquer que seja o conjunto de unidades das dimensões básicas, o valor da medida de  não se modificará, ou seja,  é invariante com as unidades. Esta propriedade é extremamente importante pois, como já observamos, a dependência dos valores (das medidas) de variáveis e parâmetros de unidades arbitrárias torna estes valores também arbitrários e sem um significado intrínseco. Portanto, seria interessante escrever um modelo matemático em termos de parâmetros e variáveis adimensionais de tal maneira que qualquer escolha (mesmo inconveniente) de unidades básicas não afetaria o resultado final.
+
+Para determinarmos os parâmetros adimensionais independentes de um modelo a partir dos parâmetros originais (m, k, c, x0, v0), basta obtermos expoentes \alpha, \beta, γ, \delta e \lambda para os quais
+
+[m\alpha
+c
+\beta
+k
+γx
+\delta
+0
+v
+\lambda
+0
+] = M\alpha
+(MT -1
+)
+\beta
+(MT -2
+)
+γ
+(L)
+\delta
+(LT -1
+)
+\lambda =
+
+= M\alpha+\beta+γL
+\delta+\lambdaT
+-\beta-2γ-\lambda = M0L
+0T
+0,
+
+ou seja, que satisfaçam o sistema de equações lineares homogêneas: \alpha + \beta + γ = 0, \delta + \lambda = 0 e -\beta - 2γ - \lambda = 0. Este sistema e constituído de 3 equações (número de dimensões da base) com 5 incógnitas (número de parâmetros do modelo), o que nos fornecerá duas soluções independentes. Portanto, devemos ter exatamente dois parâmetros adimensionais independentes. Observe que qualquer múltiplo h(\alpha, \beta, γ, \delta, \lambda) de uma solução (\alpha, \beta, γ, \delta, \lambda) do sistema significará meramente um outro parâmetro adimensional (m\alpha c \beta k γx
+\delta 0
+v
+\lambda
+0
+)
+h,
+
+que é uma simples potência do anterior. O Princípio de Similaridade seguinte nos mostra como este número de parâmetros adimensionais é importante para o estudo do modelo:
+
+\subsection{Princípio de Similaridade Dimensional}
+
+Todo modelo matemático pode ser descrito equivalentemente por variáveis (variáveis independentes, dependentes e parâmetros) adimensionais em número igual à diferença entre o número de variáveis dimensionais e o número de dimensões da base de unidades. E mais, isto pode ser obtido simplesmente pela escolha de unidades intrínsecas da base construídas com os parâmetros dimensionais do modelo.
+
+Uma demonstração formal deste princípio somente é possível com a hipótese de in- variância do modelo com o sistema de unidades, o que é fisicamente argumentável, mas nem sempre mais convincente do que a própria asserção do princípio. Por este motivo, tomaremos a propriedade de Similaridade como um “Princípio”e não como um “Teorema”deduzido do Princípio de Invariância. O(A) leitor(a) interessada deve consultar os excelentes livros de Lin-Segel[36] e Barenblatt[7] no ítem “Teorema Pi de Buckinham”.
+
+Para esclarecer melhor este Princípio, analisaremos o modelo acima onde os procedimentos são claros e representam exatamente os argumentos da demonstração.
+
+Observe que o estado deste modelo é representado em R7, isto é, por 7 variáveis (reais) (x, t, m, c, k, x0, v0). A distinção entre variável dependente (x), variável independente (t) e parâmetros (m, c, k, x0, v0) é meramente convencional e não tem base intrínseca.
+
+Um modelo matemático consiste essencialmente de três etapas:
+1 a Estabelecimento de uma base de dimensões/unidades;
+2 a Discriminação das variáveis (medidas de dimensões compostas) que determinam o estado do sistema;
+3 a Descrição de um processo através do qual se pode determinar quais os estados admissíveis do sistema.
+
+As duas primeiras etapas são em geral executadas implicitamente (ou inconscientemente ?) e usualmente destaca-se apenas a terceira etapa que consiste na maior parte das vezes de equações diferenciais/integrais e condições iniciais e de fronteira. De qualquer forma, seja por que método for, a terceira etapa consiste em determinar uma função \Phi que estabelece os estados admissíveis do sistema por meio de uma equação implícita \Psi(t, m, c, k, x0, v0). Esta formulação tem a vantagem de não distinguir um papel especial “a priori” para nenhuma variável. Esta distinção ocorre quando “resolvemos”a equação implícita e escrevemos, por exemplo, x = \Psi(t, m, c, k, x0, v0).
+
+Entretanto, é importante frisar que as duas primeiras etapas envolvem hipóteses profundas sobre o problema a ser tratado: decide-se quais as medidas suficientes para caracterizar o sistema! Delas podem ser retiradas já conclusões fundamentais e, às vezes, quase completas sobre o modelo matemático. Há exemplos notáveis e interessantes em que isto de fato
+
+acontece, especialmente em dinâmica de fluidos onde a terceira etapa nem sempre permite extrair informações úteis. Talvez o mais importante destes exemplos seja exatamente a teoria de turbulência de Kolmogorov, que é totalmente baseada no Princípio de Similaridade Dimensional. (v. Barenblatt)
+
+Voltemos ao modelo mecânico!
+
+Este modelo será descrito dimensionalmente na forma x = \Psi(t, m, c, k, x0, v0), que depende de uma variável (t) e de 5 parâmetros. Como a base de unidades tem três dimensões {M, L, T}, concluímos que poderemos escrever o modelo adimensional na forma
+
+\eta = \Phi(\tau, , \mu), onde \eta será variável adimensional dependente, \tau a variável adimensional independente e \mu,  dois parâmetros adimensionais independentes.
+
+Tomemos para unidades intrínsecas, de comprimento x0 = L1, e de tempo m c = T1. Portanto, a função incógnita (variável dependente) passara a ter seus valores medidos adimensionalmente por \eta =
+x
+L1
+=
+x
+x0
+e a variavel (independente) tempo por \tau =
+t
+T1
+=
+tm
+c
+=
+ct
+m.
+
+Para escrevermos a equação nestas novas variáveis não há necessidade, e nem é recomendável, usar o teoremas de derivação composta(regra da cadeia); basta reescrevermos o problema original da seguinte maneira autoexplicativa e conceitualmente simples, desde que observada com cuidado:
+
+m
+L1d
+2
+x
+L1
+(T1)
+2d
+t
+T1
+2 + c
+L1d
+x
+L1
+T1d
+t
+T1
+ + kL1
+x
+L1
+= 0 (3)
+L1
+x(0)
+L1
+= x0 (4)
+L1d
+x
+L1
+T1d
+t
+T1
+t=0
+= v0. (5)
+
+Recolhendo as novas variáveis e fazendo-se as simplificações óbvias, temos:
+d
+2\eta
+d\tau 2
++
+d\eta
+d\tau + \eta = 0 (6)
+\eta(0) = 1 (7)
+d\eta
+d\tau (0) = \mu , (8)
+onde  =
+km
+c
+2
+e \mu =
+mv0
+cx0.
+
+Portanto, como já sabíamos, este modelo, modificado apenas por operações algébricas elementares, e descrito pela função \eta(\tau, , \mu), com apenas dois parâmetros.
+
+Observação 2. A complexidade deste modelo para o experimentalista (físico e numérico) é da ordem de 3^2 = 9, o que se compara extraordinariamente bem com os 3^5 = 243 do modelo dimensional. A explicação é simples: em todos os experimentos (físicos e
+numéricos) em que os cinco parâmetros se agrupam com valores  = km
+c
+2
+e \mu =
+mv0
+cx0
+iguais, obtém-se essencialmente o mesmo resultado qualitativo, já que as funções que descrevem os modelos dimensional e adimensional diferem apenas por fatores numéricos.
+
+Observação 3. Dois modelos dimensionais com parâmetros (m, c, k, x0, v0) e (m0, c0, k0,x
+0
+0, v0
+0) são similares se os parâmetros adimensionais são iguais. Observe que a possibilidade de variação dos parâmetros dimensionais é ainda enorme sob a restrição de que mantenham os mesmos valores dos parâmetros adimensionais. Para todos estes modelos dimensionais, o mesmo modelo adimensional é exatamente o mesmo. Este princípio é muito importante na construção de modelos físicos reduzidos (os protótipos) de sistemas de grande porte. Por exemplo, se o modelo original tem um x0 da ordem de quilômetros, podemos construir um pequeno protótipo com x0 da ordem de centímetros que terá o mesmo comportamento qualitativo se modificarmos os outros parâmetros dimensionais de tal maneira que  e \mu permaneçam com o mesmos valores. Ao contrário do que usualmente se crê, a construção de um pequeno protótipo que não modifique os outros parâmetros apropriadamente, não se comportará da mesma forma que o sistema original. Esta foi a causa da queda de muitos aviões, rom-
+pimento de barragens e desabamentos de pontes construídos com base em experimentos com pequenos modelos !!
+
+\subsection{Métodos de Similaridade}
+
+O método de similaridade dimensional faz uso do argumento acima para reduzir o número de variáveis de um problema, às vezes, com um surpreendente sucesso.
+
+Nestes métodos considera-se todas as medidas que ocorrem em um modelo matemático como variáveis (ou parâmetros) que dispõem do mesmo “status”. Na verdade, o modelo matemático é a própria função que os relaciona, independente da sua origem, seja ela uma solução de um problema de equações diferenciais, ou não.
+
+Por exemplo, no sistema mecânico se, antes de considerarmos os princípios físicos que levaram a formulação do modelo matemático diferencial (equação diferencial e condições iniciais), decidíssemos que o fenômeno poderia ser descrito pelos parâmetros (variáveis) (x, t, m, c, k, x0, v0), estado do sistema, o modelo matemático seria representado por uma função \Phi e os “estados admissíveis”seriam aqueles que satisfizessem a equação implícita \Phi(x, t, m, c, k, x0, v0) = 0, ou alguma equação explícita na forma (mais usual)
+x = \Phi(t, m, c, k, x0, v0).
+
+Considerando então estes 7 parâmetros , concluímos pelo Princípio de Similaridade acima, que podemos reduzi-los a 4 parâmetros adimensionais independentes, (\eta, \tau, , \mu).
+
+Para delinearmos uma ideia inicial da importância deste argumento em alguns contextos consideremos, por exemplo, o movimento oscilatório plano de amplitude A, (comprimento do maior arco de deslocamento da posição vertical), do pêndulo formado por uma massa (m) concentrada suspensa por uma corda de comprimento l sem resistência
+
+à flexão e ao movimento. Se denotarmos por T0 o período da oscilação, estamos diante de um problema que iremos supor como totalmente determinado pelos seguintes 5 parâmetros A, m, l, T0, g (onde g e a aceleração da gravidade). Esta é uma suposição física, mas não caracteriza um modelo matemático dinâmico, em termos de equações diferenciais. As dimensões destes parâmetros são: [A] = [l] = L; [m] = M; [T0] = T; [g] = LT -2, e os parâmetros [A/l], h T0/
+q l
+g
+i
+são os dois únicos parâmetros adimensionais independentes. (Verifique !). Portanto, o modelo poderá ser descrito na forma
+
+\Phi
+
+
+A
+l
+, q
+T0
+l
+g
+
+ = 0. (9)
+
+ou, explicitamente na forma
+q
+T0
+l
+g
+= \Phi
+A
+l
+. (10)
+
+Isto significa que para pêndulos com a mesma razão o período de oscilação será dado pela função
+
+T0 = \Phi
+A
+l
+ s
+l
+g
+. (11)
+
+Portanto, um experimentalista determinará a descrição deste fenômeno fazendo uma experiência para diversos valores de Al.
+
+Compare com o “experimentalista força-bruta”que teria que fazer 35 = 243 experimentos e obteria apenas alguns pontos esparsos e nenhuma relação funcional. Se considerarmos que a função \Phi é contínua, os movimentos pendulares de pequena amplitude, isto é, tais que Al << 1 serão todos bem descritos por:
+T0
+∼= \Phi(0)s
+l
+g
+. (12)
+
+E interessante observar que  ́ \Phi(0) = √\pi. Este valor pode ser obtido resolvendo-se o modelo linearizado da equação.
+
+Exercício 4. Obtenha uma segunda aproximação para o período:
+T0
+∼=
+\Phi(0) + \Phi
+0(0)Al sl g,
+
+calculando \Phi 0(0), usando uma expansão no parâmetro Al, após adimensionalizar adequadamente o modelo diferencial da dinâmica do pêndulo:
+
+m d2
+(l\theta)
+dt2
+= -mg sen\theta (Segunda Lei de Newton Tangencial)
+l\theta(0) = A
+d\theta
+dt(0) = 0 .
+
+Passaremos agora a apresentar dois exemplos didáticos e fundamentais para o estudo de EDP.
+
+\section{O segundo modelo básico: O Modelo de Difusão}
+
+Os modelos matemáticos de Difusão constituem uma das classes mais fundamentais da Matemática Aplicada, em particular à Biologia, e as Equações Diferenciais Parciais que os descrevem resultam em Problemas e Métodos dentre os mais fundamentais da
+Matemática.
+
+\subsection{Primeiro Problema Fundamental (de todas EDP’s, da Análise Matemática e da Teoria da Probabilidade!)}
+
+Consideremos um modelo clássico de difusão em uma dimensão sem fronteiras finitas partindo de uma condição inicial pontual, o que pode ser visualizado como a dinâmica de difusão molecular de N0 moles de corante químico, ou como a dispersão difusiva de N0 indivíduos, colocados na origem no instante t = 0. A descrição matemática deste modelo será feita da seguinte forma:
+
+\partial \rho 
+\partial t = D
+\partial 
+2\rho 
+\partial x2
+(13)
+
+\rho (x, 0) = N0\delta(x), x \in (-\infty , +\infty ) e t > 0.
+
+A fronteira infinita significará, neste caso, que nunca haverá fluxo nem matéria em distâncias “muito grandes”, ou seja,
+
+lim
+|x|\to \infty 
+-D
+\partial \rho 
+\partial t(x, t) = 0 e lim
+|x|\to \infty 
+\rho (x, t) = 0 . (14)
+
+A condição inicial \rho (x, 0) = N0\delta(x) e simbólica e não determina, de fato, a função densidade no instante t = 0. Aqui o delta de Dirac \delta não é considerado uma função, mas um símbolo com o seguinte significado: no limite para t ↓ 0, a densidade \rho (x, t) (definida
+apenas para t > 0) comporta-se como uma sequência de Dirac;
+
+1. \rho (x, t) \ge 0;
+2. Z +\infty 
+-\infty 
+\rho (x, t)dx = 1;
+
+3. lim
+t↓0
+Z a
+-a
+\rho (x, t)dx = 1, para todo a > 0.
+
+(Visualize esta descrição!)
+
+A base de unidades deste problema será dada por {N, L, T}, onde N e a dimensão da medida de quantidade de matéria, ou, no caso de populações, de quantidade de indivíduos. A solução do problema é uma função \rho (x, t, D, N0) e as dimensões dos
+parâmetros: [N0] = N; [x] = L; [t] = T; [\rho ] = NL-1; [D] = L
+2T
+-1.
+
+Observamos assim que há apenas dois parâmetros adimensionais independentes, já que temos 5 medidas (\rho , x, t, D, N0) e três dimensões de base {N, L, T}. Podemos, facilmente, obter os dois representantes adimensionais que, neste caso, tomaremos como
+
+\rho √
+Dt
+N0
+e
+x
+√
+Dt
+(Verifique!) ,
+
+Portanto, pelo “Princípio de Similaridade”, um parâmetro deve ser função do outro, ou seja, devemos ter
+
+\rho 
+√
+Dt
+N0
+= \Phi
+
+x
+√
+Dt
+, (15)
+para alguma função real de uma variável real \Phi(\xi). Esta conclusão simples, além de facilitar enormemente a tarefa de construir o modelo matemático (pois agora devemos obter uma função de uma variável \Phi(\xi) e não de duas \rho (x, t)), já nos fornece um resultado de grande importância:
+\rho (x, t) = N0
+√
+Dt
+\Phi
+
+x
+√
+Dt
+. (16)
+
+Por exemplo, com base neste resultado podemos concluir o seguinte:
+\Rightarrow A densidade na origem cai com o tempo na forma \rho (x, t) = √
+N0
+Dt · c, onde c = \Phi(0).
+
+\Rightarrow A observação da densidade em um único ponto qualquer fora na origem, digamos, x0 nos fornecerá a função \rho (x, t) ao longo de todo o espaço em todo instante para quaisquer valores dos parâmetros N0 e D. Claro, pois isto nos daria a função
+\Phi(\xi) = \rho 
+x0,
+x
+2
+0
+D\xi2
+\xi
+N0x0
+.
+
+Portanto, basta uma única experimentação/simulação e a observação em apenas um ponto ao longo do tempo para determinarmos completamente o modelo matemático.
+
+\Rightarrow Pelas condições de fronteira, concluímos que \Phi(\xi) \to  0 e \Phi0(\xi) \to  0 quando |\xi| \to  \infty.
+
+\Rightarrow Digamos que \Phi() = \delta seja a menor densidade detectável. Para os pontos que “viajam”como x = √Dt, a densidade será dada por \rho (x, t) = √N0
+Dt\Phi() = N0
+x
+\Phi()
+
+e, portanto, destes pontos em diante, do instante t0 =
+N2
+0
+D
+em diante não haverá matéria (ou indivíduos) para todos os efeitos.
+
+\Rightarrow Para um problema em duas (três) dimensões, observamos que a segunda variável adimensional √xDt permanece idêntica, mas a primeira variável adimensional deve ser modificada para \rho (Dt) N0, (respectivamente \rho (Dt)
+3
+2
+N0
+) uma vez que a densidade agora tem dimensão [\rho ] = NL-2 (respect. [\rho ] = NL-3).
+
+Generalizando, observamos que em dimensão n qualquer, a solução do problema fundamental, sendo isotrópica e, portanto com simetria esférica, terá a seguinte forma funcional
+
+\rho (x, t) = N0
+(Dt)
+n
+2
+· \Phin
+
+r
+√
+Dt
+. (17)
+
+Veremos, mais abaixo, que a função \Phin é a mesma para qualquer dimensão.
+
+\Rightarrow E, enfim, como a função \rho (x, t) é solução da equação diferencial, calculando as derivadas necessárias segundo a expressão (16); substituindo-as mecanicamente na equação (13); fazendo igualmente os cancelamentos e lembrando que \xi = √x Dt, obtemos a seguinte equação diferencial ordinária para \Phi(\xi):
+2\Phi
+00(\xi) + \xi\Phi0
+(\xi) + \Phi(\xi) = 0,
+
+que integrada uma vez nos dá: \Phi0(\xi) + \xi2 \Phi(\xi) = c0 = 0, pela conclusão 3 acima.
+
+Multiplicando pelo fator integrante exp \xi
+2
+4
+, reescrevemos:
+
+
+exp\xi2
+4· \Phi0
+= 0 \Rightarrow \Phi(\xi) = c · exp 
+\xi2
+4
+.
+
+Ou, como queríamos:
+\rho (x, t) = c ·N0√Dt· exp 
+-
+x2
+4Dt
+. (18)
+
+Para determinarmos a constante c, ou lembramos como um matemático aplicado que o modelo é derivado de um princípio de conservação sem fluxo no infinito e sem fontes e, portanto Z \infty 
+-\infty \rho (x, t)dx = N0 para todo t, ou escrevemos, como um matemático “puro”
+\partial 
+\partial t Z \infty 
+-\infty 
+\rho (x, t)dx =
+Z \infty 
+-\infty 
+\partial 
+\partial t\rho (x, t)dx =
+Z \infty 
+-\infty 
+\partial 
+2
+\partial x2
+\rho (x, t)dx =
+\partial \rho 
+\partial x(\infty , t)-
+\partial \rho 
+\partial x(-\infty , t) = 0
+
+e concluímos o mesmo. Portanto, integrando a expressão (18) temos:
+N0 = Z \infty 
+-\infty 
+c
+N0
+√
+Dt
+exp 
+-
+x
+2
+4Dt
+dx = 2N0c
+Z \infty 
+-\infty 
+exp 
+-
+x
+2
+4Dt
+· d
+
+x
+2
+√
+Dt
+= 2N0c
+√
+\pi.
+
+Assim,
+
+\rho (x, t) = N0
+√
+4\piDt
+· exp 
+-
+x
+2
+4Dt
+. (19)
+
+Consideremos agora o problema n-dimensional com n \ge 1. Como já vimos, a forma funcional da solução neste caso será \rho (x, t) = N0
+(Dt)
+n
+2
+· \Phi n
+
+√r
+Dt.
+
+Como a equação de difusão com simetria esférica (ver capítulo EDP-DifusClass), é dada por
+\partial \rho 
+\partial t = D
+n - 1
+r
+\partial \rho 
+\partial r +
+\partial 
+2\rho 
+\partial r2
+, (20)
+podemos facilmente repetir o argumento acima e obteremos o seguinte importante resultado:
+
+Exercício 5. Mostre que a solução fundamental do problema de difusão em dimensão n é dada por:
+\rho (x, t) = N0
+(Dt)
+n
+2
+exp 
+-
+||x||2
+4Dt 
+=
+N0
+(Dt)
+n
+2
+exp 
+-
+r
+2
+4Dt
+. (21)
+
+
+\subsection{Segundo Problema Fundamental}
+
+Consideremos agora o seguinte problema unidimensional de difusão: Um tubo longo de secção circular estreita e conectado em uma de suas extremidades (a “finita”) a um reservatório suficientemente grande para que a difusão no tubo não afete a concentração constante \rho 0 mantida internamente nele. Inicialmente, o tubo não contém a substância a ser difundida e a conexão como reservatório, em x = 0, somente é liberada no instante t = 0. Suponhamos que o tubo é um meio propício a um processo de difusão, cujo coeficiente tomaremos como D. Como o tubo é longo e estreito, consideraremos um problema unidimensional semi-infinito, em [0, \infty ). Portanto, o modelo matemático para este processo é escrito da seguinte forma:
+
+\partial \rho 
+\partial t = D
+\partial 
+2\rho 
+\partial x2
+
+(22)
+\rho (x, 0) = 0 , x > 0 (23)
+\rho (0, t) = \rho 0 (condição de fronteira finita) (24)
+\rho (\infty , t) = 0 (condição de fronteira infinita) (25)
+\partial \rho 
+\partial x(\infty , t) = 0 (condição de fronteira infinita) (26)
+
+A base de dimensões do problema é {N, L, T} e as variáveis dimensionais são 5:
+(\rho , x, t, \rho 0, D). Portanto, como no caso anterior, temos apenas duas variáveis adimensionais independentes, que tomaremos agora como \rho 
+\rho 0
+e √x
+Dt, de onde tiramos que:
+
+\rho  = \rho 0\Phi
+
+x
+√
+Dt
+. (27)
+
+Repetindo o argumento acima, temos:
+\partial \rho \partial t = -
+1
+2
+\rho 0x
+√
+Dt
+3
+2
+\Phi
+0
+
+x
+√
+Dt
+= D
+\partial 
+2\rho 
+\partial x2
+= D\rho 0
+1
+Dt
+\Phi
+00 
+x
+√
+Dt
+,
+
+de onde tiramos a EDO para \Phi(\xi):
+\Phi
+00(\xi) + \xi
+2
+\Phi
+0
+(\xi) = 0 .
+Multiplicando pelo fator integrante e integrando temos:
+
+\Phi(\xi) = c0 + c
+Z \xi
+0
+exp 
+-
+s
+2
+4
+
+ds . (28)
+
+Portanto,
+
+\rho (x, t) = \rho 0
+c0 + c
+Z √x
+Dt
+0
+exp 
+-
+s
+2
+4
+
+ds!
+, (29)
+mas como \rho (x, 0) = 0, temos: 0 = c0 + c
+√
+\pi
+2
+e como \rho (0, t) = \rho 0, concluímos finalmente que:
+
+\rho (x, t) = \rho 0
+1 -2√
+\pi
+Z √x
+Dt
+0
+exp 
+-
+s
+2
+4
+
+ds!
+. (30)
+
+A importância destas soluções, especialmente a primeira, será amplamente demonstrada na maioria dos tópicos a serem tratados neste curso de EDP e extravasa para inúmeras outras questões de análise
+
+Referências
+[1] Alexander, R. McN., Estimation of speeds of dinosaurs, Nature (1976), 129-130.
+[2] Alexander, R. McN., Optima for Animals, Princeton Univ.Press, 1996.
+[3] Aristóteles, “Sobre o Movimento”.
+[4] Barenblatt, G. I., Scaling, self-similarity, and intermediate asymptotics, Cambridge
+Univ.Press,
+[5] Barenblatt, G. I., Similarity, Self-Similarity and Intermediate Asymptotics, Plenum,
+1979.
+[6] Barenblatt, G. I., Scaling Phenomna in Fluid Dynamics, Cambridge Univ. Press
+1994.
+[7] Barenblatt, G. I., Dimensional Analysis, G. Breach, 1987.
+[8] Barenblatt, G. I., Self-Similar Intermediate Asymptotics for Nonlinear Degenerate
+Parabolic Free-Boundary Problems that Occur in Image Processing, Proc. Nat.
+Acad. Sci. USA 98(23), 12878-81, 2001.
+[9] Birkhoff, G. D., Hydrodynamics: A Study in Logic, Fact and Similarity, Princeton
+Univ. Press/Dover,
+[10] Bluman, G.& Kumei,S., Symmetries and Differential Equations, Springer, 1989.
+[11] Bonner, J. T., Why Size Matters-From Bacteria to Blue Whales, Princeton Univ.
+Press, 2006.
+[12] Borges, J. L., Conto - O Cartografo que fez uma mapa perfeito, E.S. de Decca-Jornal
+da Unicamp : 02-08 junho 2008, pg.08.
+
+[13] Brockmann, D., Hufnagel, L., Geisel, T., The Scaling Laws of Human Travel, Na-
+ture 439(26Jan2006), 462-465.
+
+[14] Brown, J. H., West, G. B.,(editors) Scaling in Biology, Oxford U.Press 2000.
+[15] Carroll, L., Euclid and his Modern Rivals, B Noble
+
+[16] J.Case-Book Review-SIAM News 2005-7-11- Poincaré & Einstein-J. Rigden- Two
+Theories of Relativity-All but Identical in Substance,
+
+[17] Deisboeck, T., Morphological Instability and Tumour Invasion,arXiv2006, (Com-
+plex Systems in Biology), Harvard University.
+
+[18] Denny, M., Limits to running speed in dogs, horses and humans, J. Exp. Biol.
+211(2008), 3836-3848.
+[19] Dyson, F., A meeting with Enrico Fermi, Nature 427(2004)- doi:10.1038/427297a
+[20] Fritzsch, Harald, The Creation of Matter, BB, 1984.
+[21] Galilei, G. Dialogues Concerning Two New Sciences, -1637-Trad.
+[22] Gillooly, J., Brown, J. H., West, G. B., Savage, V. M., Charnov, E. L., Effects of
+Size and Temperature on Metabolic Rate, Science, vol. 293, (2001), 2248-2251.
+
+[23] Goldreich, P., Mahajan, S., Phinney, S., Order of Magnitude Physics: Unders-
+tanding the World with Dimensional Analysis, Educated Guesswork and White
+
+Lies,122pg.- Online 2010.
+[24] Goldenfeld, N., Martin, O., Oono, Y., Intermediate asymptotics and renormalization
+group theory, J. Scient. Comp. 4(1989), 355-372.
+[25] Gordon, J., Strutures: Why Things dont Fall Dawn
+[26] Hawking, S., A Brief History of Time,
+[27] Ibragimov, N., ...
+[28] Jetz, W., Carbone, C., Fulford, J., Brown, J. H., The Scaling of Animal Space Use,
+Science 306(08Oct2004), 266-268.
+[29] Jun, J., Pepper, J. W., Savage, V. M., Gillooly, J. F., Brown, J. H., Allometric
+scaling of ant foraging trail networks, Evol. Ecol. 5 (2003): 297-303.
+[30] KaKu, M., Einstein’s Cosmos: How AE transformed our Vision of Space and Time,
+Norton.
+[31] Keller, J. B., A Theory of Competitive Running, Physics Today 26 (1973), 42-46.
+[32] Kolmogorov, A. N., Selected Works....
+[33] Lautrup, B., Tsunami Physics, pp.Feb.2005
+[34] Lautrup, B., Physics of Continuous Matter, IoP Press 2005.
+[35] Leite, Rogério C. de Cerqueira, O etanol e a solidão das vaquinhas brasileiras, Folha
+de Sao Paulo (quando RCCL tiha 76 anos).
+
+[36] Lin, C. C., Segel, L. A., Mathematics Applied to Natural Sciences, SIAM, 1990.
+[37] Mahadevan, L., -artigos diversos-, v. HomePage-Harvard Univ.
+
+[38] Mahajan S., Street-Fighting Mathematics: The art of educated guessing and oppor-
+tunistic problem solving, MIT Press, 2012.
+
+[39] McMahon, T. Rowing: A Similarity Analysis, Science Mag. 173 july 1971, 349-
+351.
+[40] McMahon, T., Bonner, J. T., On Size and Life, Sci. American, 1983.
+[41] McMahon, T. M., Scaling Physiological Time, pg. 131-163, Lect. on Appl. Math.-
+AMS-vol 13, 1980.
+[42] McMahon, T. M., Muscles Reflex and Locomotion, Princeton Univ.Press 1984.
+[43] Mazur, J., The Motion Paradox: The 2500 years old puzzle behind the Mysteries of
+Time and Space, Dutton, 2007.
+[44] Niklas, K. J., Plant Allometry-The Scaling of Form and Process, Univ. of Chicago
+Press, 1994.
+[45] Ovsiannikov, L. V., Group Analysis and Differential Equations, Academic Press,
+1982.
+[46] Pedley, T. J.,-ed Scale Effects in animal locomotion, Academic Press, 1977.
+[47] Platao, Parmenides, Zeno
+[48] Pobedrya, B. E., Georgievskii, D. V., On the Proof of the Pi-Theorem in Dimension
+Theory, Russ.J.Math.Phys.13(4), 2006, 431-37.
+[49] Poincaré, H. La Science et l’Hypothese, 1902-Science and Hypothesis, Dover 1952-
+Ciencia e Hipotese, UnB 1987.
+
+[50] Price, James F., Lectures on Dimensional Analysis of Models and Data Sets-
+Similarity Solutions and Scalling Analysis-online-Woods Hole Ocean.Inst. 2006.
+
+[51] Purcell, E. Life at Low Reynolds Number, Am.BJournal of Physics45, 1977,
+3-11.
+[52] Raleigh, L., ...
+[53] Savage, V. M., Gillooly, J., Brown, J. H., West, G. B., Charnov, E. L., Effects of
+Body Size and Temperature on Population Growth, Am. Natur. 163(3), (2004).
+[54] Savage, V. M., Gillooly, J., Woodruff, W. H., West, G. B., Allen, A. P., Enquist,
+B. J., Brown, J. H., The predominance of quarter-power scaling in biology, Funct.
+Ecol.18 (2004), 257-282.
+
+[55] Schmidt-Nielsen, K., Scaling: Why is Animal Size so Important ?, Cambridge U.
+P., 1984.
+[56] Sedov, L., Similarity and Dimensional Methods in Mechanics, J. Wiley, 1971.
+[57] Strichartz, R., Evaluating Integrals by Self-Similarity, Am. Math. Monthly
+104(4), 2000, 316-326.
+[58] Swarz, C., Back of the Envelope Physics, J. Hpkins Univ Press, 2003
+
+[59] Sonin, A. A., The Physical Basis of Dimensional Analysis, MIT Open Course Ware-
+OCW-Fluid Dynamics-Lectures online.
+
+[60] Stewart, I., Counting the Pyramid Builders, Sci. Am.,Sept. 1998, 76-78.
+
+[61] Taylor, G. I., The formation of blast wave by very intense explosion: I-
+Theor.Discussion;II-The atomic explosion, Proc. Roy. Soc. A 201(1950), 159-186.
+
+[62] Thompson, D’Arcy W., On Growth and Form, Cambridge U.P., 1917.
+[63] Eijnden, E. Van den, Lectures online: Introduction to Math Modelling-Dimensional
+Analysis and Scaling, New York Univ.-online
+[64] Vogel, S., Comparative Biomechanics, Princeton U. Press, 2003.
+[65] von Tritz, K. The discovery of incomensurability, Ann. Math. 46(1954), 242-264.
+[66] Weinstein, L., Adam, J., Guesstimation: Solving world’s problems in the back of a
+cocktail napkin, Princeton U.P., 2008.
+[67] Weintraub, D., How old is the Universe ? PUP,2010.
+[68] West, B. J., Beyond the Principle of Similitude, J. Appl. Phys. 60 (1981), 1989-97.
+[69] West, G. B., Brown, J. H., Enquist, B. J., A General Model for the Origin of
+Allometric Scaling Laws in Biology, Science 276 (04 April 1997), 122-126.
+[70] West, G. B., Brown, J. H., Enquist, B. J., Growth models based on first principles
+or phenomenology ?, Funct. Ecol. 18 (2004), 188-196.
+
+[71] West, G. B., Brown, J. H., Enquist, B. J., A general model for structure and allo-
+metry of plant vascular systems, Nature (1999), (400), 664-667.
+
+[72] Whitney, H., The Mathematics of Physical Quantities: Mathematical Models for
+Measurement, Am. Math. Monthly (1968), 113-,
+[73] Whitney, H., The Mathematics of Physical Quantities: Quantity Structures and
+Dimensional Analysis, Am. Math. Monthly (1968), 227-
+[74] Wu, H. S., -Estimation- chap. 10-Numbers in Elementary School, AMS, 2011.
+
+[75] Zeldovich, Ya. B., Raizer, Yu. P. Physics of Shock Waves and High Temperature
+Hydrodynamics, A. Press, 1966.
+[76] Zeldovich, Ya. B. & al., The Almighty Diffusion, WSP, 1989.

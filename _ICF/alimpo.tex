@@ -1,0 +1,235 @@
+
+
+Os experimentos executados, bem como alguns valores necessários para a obtenção dos coeficientes da reta de regressão são apresentados na tabela a seguir e foram obtidos utilizando uma planilha eletrônica (Excel):
+\[\tiny
+\begin{array}{c|c|c|c|c|c|c|c|c}
+n & 1 & f(n) & y_{n} & T(n) & K & C & n^2 & n\ t \\ \hline
+1 & 1 & 0 & 24 & 24 & 1 & 0 & 1 & 24 \\ \hline
+2 & 1 & 1 & 36 & 60 & 1 & 1 & 4 & 120 \\ \hline
+3 & 1 & 1 & 27 & 87 & 1 & 2 & 9 & 261 \\ \hline
+4 & 1 & 1 & 17 & 104 & 1 & 3 & 16 & 416 \\ \hline
+5 & 1 & 0 & 44 & 148 & 2 & 3 & 25 & 740 \\ \hline
+6 & 1 & 0 & 24 & 172 & 3 & 3 & 36 & 1032 \\ \hline
+7 & 1 & 1 & 35 & 207 & 3 & 4 & 49 & 1449 \\ \hline
+8 & 1 & 0 & 15 & 222 & 4 & 4 & 64 & 1776 \\ \hline
+9 & 1 & 1 & 49 & 271 & 4 & 5 & 81 & 2439 \\ \hline
+10 & 1 & 0 & 24 & 295 & 5 & 5 & 100 & 2950 \\ \hline
+11 & 1 & 1 & 21 & 316 & 5 & 6 & 121 & 3476 \\ \hline
+12 & 1 & 1 & 17 & 333 & 5 & 7 & 144 & 3996 \\ \hline
+13 & 1 & 0 & 39 & 372 & 6 & 7 & 169 & 4836 \\ \hline
+14 & 1 & 1 & 19 & 391 & 6 & 8 & 196 & 5474 \\ \hline
+15 & 1 & 1 & 42 & 433 & 6 & 9 & 225 & 6495 \\ \hline
+16 & 1 & 1 & 32 & 465 & 6 & 10 & 256 & 7440 \\ \hline
+17 & 1 & 1 & 24 & 489 & 6 & 11 & 289 & 8313 \\ \hline
+18 & 1 & 0 & 23 & 512 & 7 & 11 & 324 & 9216 \\ \hline
+19 & 1 & 1 & 16 & 528 & 7 & 12 & 361 & 10032 \\ \hline
+20 & 1 & 0 & 27 & 555 & 8 & 12 & 400 & 11100 \\ \hline
+21 & 1 & 0 & 33 & 588 & 9 & 12 & 441 & 12348 \\ \hline
+22 & 1 & 0 & 22 & 610 & 10 & 12 & 484 & 13420 \\ \hline
+23 & 1 & 1 & 24 & 634 & 10 & 13 & 529 & 14582 \\ \hline
+24 & 1 & 0 & 18 & 652 & 11 & 13 & 576 & 15648 \\ \hline
+25 & 1 & 0 & 30 & 682 & 12 & 13 & 625 & 17050
+\end{array}
+\]
+onde
+\begin{description}
+\item \(K\) representa o n\textordmasculine\ de caras obtidas até o \(n\)-ésimo lançamento;
+\item \(C\) representa o n\textordmasculine\ de coroas obtidas até o \(n\)-ésimo lançamento.
+\end{description}
+
+Os valores obtidos a seguir, também com o auxílio do Excel, são utilizados para determinar os valores dos coeficientes da reta de regressão:
+\[
+\begin{array}{c|c}
+S_{n} & 325 \\ \hline
+S_T & 9150 \\ \hline
+S_{nT} & 154633 \\ \hline
+S_{n^2} & 5525 \\ \hline
+N & 25 \\ \hline
+\end{array}
+\]
+e, os coeficientes a determinar, são:
+\[
+\begin{array}{c|c}
+\alpha_{1} & 27,44846154 \\ \hline
+\alpha_{2} & 9,17 \\ \hline
+\end{array}
+\]
+
+Para \(n = 10^{23}\), obtemos: \(y_{n} = 2,74485 \cdot 10^{24}\) segundos, ou seja, \(8,70385 \cdot 10^{16}\) anos. Comparando com a idade da Terra, temos que \(y_{n}\) é, aproximadamente, \(14.506.416\) vezes maior.
+
+
+
+
+
+
+
+
+
+
+\section{Colored boxes}
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+  My box.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=My title]
+  My box with my title.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+  Upper part of my box.
+  \tcblower
+  Lower part of my box.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!50!black,
+  colbacktitle=yellow!75!black,title=My title]
+  I can do this also with a title.
+  \tcblower
+  Lower part of my box.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=red!75!black,lowerbox=invisible,
+  savelowerto=\jobname_ex.tex]
+  Now, we play hide and seek. Where is the lower part?
+  \tcblower
+  I'm invisible until you find me.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=red!75!black,title=Here I am]
+  \input{\jobname_ex.tex}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[enhanced,sharp corners=uphill,
+    colback=blue!50!white,colframe=blue!25!black,coltext=yellow,
+    fontupper=\Large\bfseries,arc=6mm,boxrule=2mm,boxsep=5mm,
+    borderline={0.3mm}{0.3mm}{white}]
+  Funny settings.
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[enhanced,frame style image=blueshade.png,
+  opacityback=0.75,opacitybacktitle=0.25,
+  colback=blue!5!white,colframe=blue!75!black,
+  title=My title]
+  This box is filled with an external image.\par
+  Title and interior are made partly transparent to show the image.
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+  colback=blue!5!white,colframe=blue!75!black,colbacktitle=red!80!black,
+  title=My title,fonttitle=\bfseries,
+  boxed title style={size=small,colframe=red!50!black} ]
+  This box uses a \textit{boxed title}. The box of the title can
+  be formatted independently from the main box.
+\end{tcolorbox}
+
+
+\clearpage
+%----------------------------------------------------------
+\section{\LaTeX-Examples}
+
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black}
+This is a \LaTeX\ example:
+\begin{equation}
+\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}.
+\end{equation}
+\end{tcblisting}
+
+
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text,
+  title=Side by side,fonttitle=\bfseries}
+This is a \LaTeX\ example:
+\begin{equation}
+\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}.
+\end{equation}
+\end{tcblisting}
+
+
+%----------------------------------------------------------
+\section{Theorems}
+
+\newtcbtheorem[auto counter,number within=section]{theo}%
+  {Theorem}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+     arc=0mm, colback=blue!5!white,colframe=blue!75!black}{theorem}
+
+\begin{theo}{Summation of Numbers}{summation}
+  For all natural number $n$ it holds:
+  \begin{equation}
+  \tcbhighmath{\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}.}
+  \end{equation}
+\end{theo}
+
+We have given Theorem \ref{theorem:summation} on page \pageref{theorem:summation}.
+
+\newtcbtheorem[use counter from=theo]{antheo}%
+  {Theorem}{theorem style=change,oversize,enlarge top by=1mm,enlarge bottom by=1mm,
+    enhanced jigsaw,interior hidden,fuzzy halo=1mm with green,
+     fonttitle=\bfseries\upshape,fontupper=\slshape,
+     colframe=green!75!black,coltitle=green!50!blue!75!black}{antheorem}
+
+\begin{antheo}{Summation of Numbers}{summation}
+  For all natural number $n$ it holds:
+  \begin{equation}
+  \tcbhighmath{\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}.}
+  \end{equation}
+\end{antheo}
+
+%----------------------------------------------------------
+\section{Watermarks}
+
+\begin{tcolorbox}[enhanced,watermark graphics=Basilica_5.png,
+  watermark opacity=0.3,watermark zoom=0.9,
+  colback=green!5!white,colframe=green!75!black,
+  fonttitle=\bfseries, title=Box with a watermark picture]
+  Here, you see my nice box with a picture as a watermark.
+  This picture is automatically resized to fit the dimensions
+  of my box. Instead of a picure, some text could be used or
+  arbitrary graphical code. See the documentation for more options.
+\end{tcolorbox}
+
+%----------------------------------------------------------
+\section{Boxes in boxes}
+\begin{tcolorbox}[colback=yellow!10!white,colframe=yellow!50!black,
+  every box/.style={fonttitle=\bfseries},title=Box]
+  \begin{tcolorbox}[enhanced,colback=red!10!white,colframe=red!50!black,
+    colbacktitle=red!85!black,
+    title=Box inside box,drop fuzzy shadow]
+    \begin{tcolorbox}[beamer,colframe=blue!50!black,title=Box inside box inside box]
+      And now for something completely different: Boxes!\par\medskip
+      \newtcbox{\mybox}[1][]{nobeforeafter,tcbox raise base,colframe=green!50!black,colback=green!10!white,
+        sharp corners,top=1pt,bottom=1pt,before upper=\strut,#1}
+      \mybox[rounded corners=west]{This} \mybox{is} \mybox{another} \mybox[rounded corners=east]{box.}
+    \end{tcolorbox}
+  \end{tcolorbox}
+\end{tcolorbox}
+
+
+
+%----------------------------------------------------------
+\section{Breakable Boxes}
+\begin{tcolorbox}[enhanced jigsaw,breakable,pad at break*=1mm,
+  colback=blue!5!white,colframe=blue!75!black,title=Breakable box,
+  watermark color=white,watermark text=\Roman{tcbbreakpart}]
+  \lipsum[1-12]
+\end{tcolorbox}
+
+%----------------------------------------------------------
+\clearpage
+\section{Fit Boxes}
+
+\begin{tcolorbox}[enhanced,fit to height=10cm,
+  colback=green!25!black!10!white,colframe=green!75!black,title=Fit box (10cm),
+  drop fuzzy shadow,watermark color=white,watermark text=Fit]
+  \lipsum[1-4]
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced,fit to height=5cm,
+  colback=green!25!black!10!white,colframe=green!75!black,title=Fit box (5cm),
+  drop fuzzy shadow,watermark color=white,watermark text=Fit]
+  \lipsum[1-4]
+\end{tcolorbox}
+
+

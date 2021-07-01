@@ -1,0 +1,54 @@
+% Questão 02 ------------------------------------------------------------------
+\question
+A medida da aceleração da gravidade, $g$ (isto é, a aceleração experimentada
+por um corpo submetido à atração da Terra na sua superfície), tem dimensão
+$[g] = LT^{-2}$; e, na unidade $A = \unit{cm\,seg}^{-2}$, mede 
+$g = 980\,A$.\\
+Utilizando a representação algébrica, obtenha esta medida nas seguintes unidades
+compostas de aceleração:
+\begin{parts}
+ \part $A_1 = L_1 T_1^{-2}$, onde $L_1 = \unit[13]{cm}$, 
+	 $ T_1 = \unit[10^{-5}]{seg} $;
+		% Solução (a) ###############################################################
+		\begin{solution}
+		 Substituindo os valores diretamente, temos:
+			\[
+			 A_1 = L_1 T_1^{-2} 
+				= (\unit[13]{cm})(\unit[10^{-5}]{seg})^{-2} 
+				= \unit[13\cdot 10^{10}]{cm \,seg}^{-2} 
+				= 13\cdot 10^{10}\,A
+		\]
+		Portanto, $ A = \frac{1}{13} \cdot 10 ^{-10}\, A_1 $.
+		Multiplicando toda expressão por $980$, temos:
+		\begin{align*}
+		 980\, A &= 980 \cdot \frac{1}{13} \cdot 10 ^{-10}\, A_1 \\
+			g &\approx 75,4\cdot 10^{-10}\, A_1 
+		\end{align*}
+		Logo, \ovalbox{$ g \approx 7,54 \cdot 10^{-9}\,A_1$}.
+		\end{solution}
+		%############################################################################
+	\part E, genericamente, na unidade composta $A_\ast = L_\ast T_\ast^{-2}$, onde
+	 $ L_\ast = \unit[\lambda]{cm} $ e $ T_\ast = \unit[\theta]{seg} $.
+		% Solução (b) ###############################################################
+		\begin{solution}
+		 De forma análoga ao que foi feito no item (a), temos:
+			\[
+			 A_\ast =
+				L_{\ast}T^{-2} = 
+				(\lambda\unit{cm})(\theta\unit{seg})^{-2} =
+				\lambda\theta^{-2}\unit{cm\,seg}^{-2} =
+				\lambda\theta^{-2}\,A
+			\]
+			Portanto, $ A = \lambda^{-1}\theta^{2}\,A_{\ast} $.
+			Daí, multiplicando tudo por $980$:
+			\begin{align*}
+			 A &= \lambda^{-1}\theta^{2}\,A_{\ast}\\
+				980\,A &= 980\cdot \lambda^{-1}\theta^{2}\,A_{\ast}\\
+				g &= 980\cdot \lambda^{-1}\theta^{2}\,A_{\ast}
+			\end{align*}
+			Assim, \ovalbox{$ g = \dfrac{980 \cdot \theta^{2}}{\lambda}\,A_\ast $}.
+		\end{solution}
+		%############################################################################
+\end{parts}
+%------------------------------------------------------------------------------
+
